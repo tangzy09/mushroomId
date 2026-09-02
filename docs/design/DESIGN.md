@@ -1,0 +1,656 @@
+# 菌菇图鉴（mushroomId）— 产品与技术设计报告
+
+> 版本：v0.1 · 日期：2026-09-02
+> 基于 5 份并行调研（fishId 架构复用评估 / 蘑菇识别 app 竞品分析 / 物种数据库方案 / 玩法设计 / AI 拍照识别可行性），原文见 `docs/research/`。
+> 本报告是「设计决策」的汇总；各节末尾标注了依据来源（R1–R5）。
+
+---
+
+## 0. 一页结论
+
+| 问题 | 决策 |
+|---|---|
+| 做什么 | **「不教你吃，只教你认」**的蘑菇图鉴收集游戏：看真实照片答题 → 抽卡 → 种进菌菇园 → 菌菇按真实时间生长并产出孢子。纯前端、无账号、localStorage，与鱼鱼图鉴同一技术栈。 |
+| 为什么是这个位置 | 市场上「AI 拍照识菌 + 订阅」被准确率约 50% 的临床研究、2024–2026 多起「AI 说无毒 → 进 ICU」事件和各国官方警告持续打击；中文市场没有强势蘑菇专用产品；**「真实物种 + 看图答题 + 抽卡收集 + 免费 + 明确不做食用判断」的位置无人占据**，且恰好绕开行业最大法律/舆论风险。（R2） |
+| 复用 fishId 多少 | 主游戏骨架约 **70%** 可直接或改名复用（路由 / 存档 / 答题选题 / 抽卡概率保底 / 碎片经济 / 分享 / i18n / 音效原语 / 存档迁移 / 素材流水线）。**tank.js 和 4 个小游戏不复用**，菌菇园 `garden.js` 新写。（R1） |
+| 架构升级 | 借这次抽出 **`js/core/`（不含领域词的收集游戏内核）+ `js/game/`（蘑菇领域层）**，修掉 fishId 的三份数据分叉、存档快照覆盖、答案文本匹配等技术债。（R1） |
+| 物种规模 | 数据储备 **250 种**（清单已列出 253 种，含学名/英文名/稀有度/食性标签）；MVP 上线 **120 种**，V1.0 到 200 种。稀有度四档保留 60/30/8/2 与 20/50 保底。（R3, R4） |
+| 差异化亮点 | ① 真实时间生长 + 每日孢子产出；② 12 种基于真实生物学的触发行为（见手青按压变蓝、荧光小菇夜间发光、鬼伞自溶滴墨、地星湿度开合、鸟巢菌雨滴溅蛋、竹荪晨开午合…）；③ 毒菌是最炫的卡而非被回避；④ 全服同步天气 + 4 种林地选择；⑤ 安全教育内建于玩法。（R4） |
+| 拍照识别 | **MVP 不做，V2 做「形态检索表 + 拍照打卡日记」，V3 才可选离线小模型（只给相似度参考，强制剧毒拦截）。** 现有公开蘑菇模型/数据集全部非商用许可，且对中国物种精度低。（R5） |
+| 上线窗口 | 中文版赶 **5 月中旬**（云南 5 月底发布风险地图 + 6 月全国中毒峰值 = 话题高峰）；英文版 **8 月底**（欧美 9–11 月采菌季）。（R2） |
+| 工作量 | MVP 约 **4–5 周**（工程 2–3 周 + 数据/素材 2–3 周并行）。数据与真实照片筛选是长板。（R1, R4） |
+
+---
+
+## 1. 产品定位与市场依据（R2）
+
+### 1.1 市场结构
+
+- **海外**：AI 拍照识别 + 订阅制主导（Picture Mushroom 年费约 $30、ShroomID $27.99/年、大量套壳 app 周订阅 $4.99–5.99）；公益/科学向由 iNaturalist·Seek、Mushroom Observer 承担；离线检索表向 Shroomify（一次性买断，评分最高 4.6–4.7）。
+- **中文**：没有一个强势的蘑菇专用产品。用户实际用形色 / 百度识图 / 微信识物 / 豆包等通用识图；专用 app（菌窝子、蘑菇识别扫一扫等）体量小。官方端强势：云南疾控每年 5 月底发布野生菌中毒风险地图 + 全省短信；中科院昆明植物所「菌物王国」8,648 种数据库 2026-05 免费开放。
+- **游戏/教育向**：全是静态 quiz（Sporcle、first-nature、fungidentification.xyz）或虚构菌养成（NEO Mushroom Garden）。**没有任何产品把「真实物种看图答题 → 抽卡 → 养成」串成循环。**
+
+### 1.2 行业最大痛点：安全
+
+| 时间 | 事件 |
+|---|---|
+| 2022-12 | *Clinical Toxicology*：三款主流 app 在真实中毒标本上平均准确率约 50%，最好 67%，存在有毒判为可食 |
+| 2024-03 | Public Citizen《Mushrooming Risk》报告点名 AI 识菌「可致死」 |
+| 2025–2026 | 中国多起「AI 识图说无毒 → 全家进 ICU」；2026-06「不可相信豆包识别的蘑菇」上热搜；2026-08 多地疾控发文「不能用 AI 判断野生菌能否食用」 |
+| 2026-02 | *npj Science of Food*：最好工具仍有约 15% 失误，无一工具稳定给唯一正确答案 |
+
+用户抱怨集中在：订阅套路、识别不准、免费额度极少、欧美库识不了中国物种、不保存历史。
+
+### 1.3 定位一句话
+
+> **不教你吃，只教你认。** 用鱼鱼图鉴同款抽卡收集，把中疾控 / 云南疾控 / 中科院的科普数据做成能玩的中文蘑菇图鉴。
+
+推导出的三条产品红线（贯穿全文）：
+1. 不做用户拍照识别（MVP/V2）；不接收未知蘑菇照片就不产生「误判 → 误食」链路。
+2. 永远不输出「可食」结论；食性只作为「资料记载类别」的图鉴知识。
+3. 不做「看图判断能不能吃」的任何题或小游戏。
+
+### 1.4 季节性
+
+| 地区 | 高峰 |
+|---|---|
+| 中国全国 | 6–10 月，6 月为峰（2024 年 599 起） |
+| 云南 | 吃菌季 6–11 月，7–8 月上市峰；风险地图每年 5 月底发布 |
+| 东北 | 7 月初–9 月中 |
+| 华南 | 3–4 月清明雨后 + 6 月（草坪白毒伞/大青褶伞） |
+| 欧洲 / 北美西北 | 9–11 月，10 月峰 |
+
+---
+
+## 2. 从 fishId 复用什么（R1）
+
+### 2.1 逐模块评级
+
+评级：A 直接复用 / B 改名换皮 / C 需重写 / D 不适用
+
+| 模块 | 评级 | 说明 |
+|---|---|---|
+| `i18n.js` | A | 仅改 localStorage key 与版本号参数 |
+| `gacha.js` 概率/保底核心（:289-318） | A | `TABLES / rollRarity / updatePity` 30 行原样搬 |
+| `quiz.js` 选题 `pickQuestions`（:175-213） | A- | `fishId → entityId`；难度配置表外提为策划配置 |
+| `sound.js` 合成原语（:1-196） | A | `tone / playNoise / waterDrop / bubble / sparkle / getReverb` 通用 |
+| `SaveTransfer`（app.js:1798-1880） | A | 改 3 个常量 + 文件后缀 |
+| `storage.js` | B | 逻辑通用，字段名全是领域词；改成工厂 + 迁移表 |
+| `gacha.js` 结算渲染 | B | 12 个 DOM id 与 `habitat/quote/fact` 字段抽成配置 |
+| `quiz.js` 渲染 | B | 去掉 `EXTRA_EN` 临时表 |
+| `app.js` 路由 / 碎片 / 精华 / 宝箱 / 礼品码 / 每日任务 / 里程碑 / 教程 / ShareUtils | B | 改名 + 把域名、主题色、emoji、阈值外提 |
+| `css/style.css` | B | 变量、页面切换、header/nav/toast/overlay/卡片体系保留；72 个海洋选择器改名；:1441-1548 死 CSS 删除 |
+| `locales/*.json` | B | 247 键结构保留，值重写 |
+| Python 工具链（serve / compress / rembg / 水印 / photo_picker / review_questions） | B | 改路径 |
+| `tank.js` | C/D | 1239 行海洋语义；可保留骨架约 15%（loop/stop、昼夜插值、点击命中、长按/摇晃） |
+| 4 个小游戏 HTML + 桥接 | D | 不迁移；`postMessage` + origin 校验的协议模式可参考 |
+| `data.js`（30k 行过期副本）、`test/test_run.js`、`test/test.html` | D | 不带 |
+
+### 2.2 fishId 的技术债，mushroomId 第一天就要避免
+
+1. **三份数据分叉**：`data.js`（工具链/测试读）与 `fish_data.js + questions.js`（运行时读）已分叉，144 道题英文选项不一致，`sync_questions.py` 方向反了。→ mushroomId 用 **纯 JSON 单一真相源 + 生成物**。
+2. **答案按文本匹配**（quiz.js:332），中英文两套字符串。→ 用 `answerIndex`。
+3. **存档快照覆盖竞态**（app.js:671-689 / 716-729）：`load()` 快照 → 中间 `updateDailyTaskProgress` 独立 load/save → `save(旧快照)`，每日任务进度被回滚。→ Storage 改**内存单例 + 显式 commit + 版本迁移表**。
+4. **i18n 竞态**：`TUTORIAL_SLIDES` 在 locale JSON 异步返回前同步调 `I18n.t`，首访可能显示原始 key。→ 教程 slides 延迟构建 + 监听 `langchange`。
+5. **反向依赖**：quiz/gacha 直接调 app.js 的 `showPage / checkMilestone / ShareUtils`。→ core 层通过事件或注入的 hooks 通信。
+6. 常量重复定义（稀有度权重 3 处、颜色 3 处、`ESSENCE_VALUE` 2 处、鱼名双语取值 13 处）。→ 统一到 `config.js` + `entity adapter`。
+7. 43% 题目因难度配置永远抽不到，`explanation` 字段从未展示。→ 题库设计时按选题配置反推每档数量；答错卡片展示 `explanation`。
+
+---
+
+## 3. 目标架构
+
+### 3.1 目录结构
+
+```
+mushroomId/
+├── index.html
+├── css/
+│   ├── core.css          ← 从 style.css 抽：变量/重置/page/header/nav/toast/overlay/卡片/按钮
+│   └── theme.css         ← 蘑菇配色 + garden 页 + 领域选择器
+├── js/
+│   ├── core/             ← 「collection-game core」，禁止出现 fish/mushroom 等领域词
+│   │   ├── i18n.js
+│   │   ├── storage.js    ← 工厂 + 内存单例 + MIGRATIONS 表
+│   │   ├── router.js     ← showPage/goBack 改历史栈 + pageHooks{onEnter,onLeave}
+│   │   ├── quiz.js       ← pickQuestions(config) + 渲染；实体字段经 adapter 取
+│   │   ├── gacha.js      ← rollRarity/updatePity/pickEntity + 结算渲染
+│   │   ├── economy.js    ← 碎片/精华/宝箱/礼品码/每日任务
+│   │   ├── milestone.js
+│   │   ├── share.js      ← 主题色/域名/emoji/水印从 config 读
+│   │   ├── transfer.js   ← SaveTransfer
+│   │   ├── sound.js      ← 合成原语 + play(name) 注册表 + BGM
+│   │   └── tutorial.js
+│   ├── game/             ← 蘑菇领域层
+│   │   ├── config.js     ← core 层唯一的领域入口（见 3.2）
+│   │   ├── garden.js     ← 新写，替代 tank.js（见 5.3）
+│   │   ├── weather.js    ← 日期 hash 天气 + biome 权重
+│   │   ├── sfx.js        ← 森林质感音效集，注册到 Sound
+│   │   └── app.js        ← 只剩 glue：init + 页面刷新 + 事件绑定（目标 <500 行）
+│   └── data.gen.js       ← 由 data/*.json 生成（GENERATED，勿手改）
+├── data/
+│   ├── mushrooms.json    ← 单一真相源
+│   └── questions.json
+├── locales/{zh,en}.json
+├── assets/mushroom/{cute,real}/
+├── tools/                ← serve.py / compress / rembg / watermark / picker / review / build_data.py / check_data.py
+├── minigames/            ← V1.5+ 小游戏（merge.html / cultivate.html / hotpot.html / triage.html）
+├── test/
+│   ├── data_check.py     ← 读 data/*.json：字段完整、lookalikes 双向、许可白名单、学名 GBIF 匹配
+│   └── core.test.js      ← rollRarity / updatePity / pickQuestions / migrate / advanceStage 纯函数测试
+└── docs/                 ← 本报告 + 调研原文
+```
+
+### 3.2 config 契约（示意）
+
+```js
+const GameConfig = {
+  storageKey: 'mgame_v1',
+  storageKeys: { lang:'mush_lang', sound:'mush_sound_enabled', tutorial:'mush_tutorial_done' },
+  siteUrl: 'https://mushroomid.ai-speeds.com',
+  rarities: ['common','rare','epic','legend'],
+  rarityColors: { common:'#7EC8A0', rare:'#4DA6FF', epic:'#B57BFF', legend:'#FFD700' },  // 唯一定义
+  gacha: { normal:[60,30,8,2], penalty:[75,20,4,1], pity:{epic:20, legend:50}, fragmentThreshold:3,
+           weatherMod: { rain:{rare:+5}, rainAfter:{rare:+5, epic:+2} } },
+  economy: { essenceValue:{common:10,rare:50,epic:100,legend:400},
+             essenceCost:{common:50,rare:100,epic:400,legend:1600}, synthCount:5, chestSize:5 },
+  quiz: { perRound:5, timerSec:15,
+          levels: { beginner:{imgDiff:1, slots:['edibility_class','trivia']},
+                    intermediate:{imgDiff:2, slots:['feature','trivia']},
+                    expert:{imgDiff:3, slots:['lookalike','cold_fact']} } },
+  slots: { max:10, layout:'garden' },
+  milestones: [10,25,50,100,150],     // 最后一档自动 = ENTITIES.length
+  entity: {
+    displayName: (e, lang) => lang==='en' && e.nameEn ? e.nameEn : e.name,
+    realImage: e => e.image_real, cuteImage: e => e.image_q,
+    detailFields: ['habitat','edibility','season','fact'],
+  },
+  share: { bg:['#1F2D1A','#2F4A2A'], fallbackEmoji:'🍄', fileName:'mushroom-card.png',
+           footer:'仅供科普娱乐 · 请勿依据本游戏采食野生菌' },
+  transfer: { magic:'MGAME1', ext:'.spore' },
+};
+```
+
+### 3.3 fish → mushroom 命名映射
+
+| fishId | mushroomId | 备注 |
+|---|---|---|
+| `FISH_DATA` | `ENTITIES`（core）/ `MUSHROOM_DATA`（game） | core 只认 `ENTITIES` |
+| `q.fishId` | `q.entityId` | |
+| `q.answer / ans_en` | `answerIndex` | |
+| `tank` 页 / `tankSlots` / `Tank` | `garden` / `gardenSlots` / `Garden` | |
+| `addNewFish / addToTankSlots` | `addNewEntity / plant / unplant` | |
+| `dailyVoyages / btn-voyage / startVoyage` | `dailyForays / btn-foray / startForay` | foray = 采菌，真实术语 |
+| `feedData / btn-feed / Tank.onFeed` | `waterData / btn-water / Garden.onWater` | 浇水 |
+| `fragments` / `fragmentEssence` | 孢子 `spores` / 腐殖质 `humus`（内部字段名可保留 fragments 以复用代码，仅 UI 改名） | |
+| 每日宝箱 | 每日菌篮 | |
+| `tankSize` | `size` | 子实体相对高度 0.3–1.6 |
+| `FISH_BEHAVIOR`（11 种游动） | `MUSHROOM_BEHAVIOR`（12 种生长/触发行为） | 重新设计 |
+| `fgame_v1 / fish_lang / fish_sound_enabled / .fish / FGAME1` | `mgame_v1 / mush_lang / mush_sound_enabled / .spore / MGAME1` | |
+| 深蓝分享底色 | 苔绿/棕 | |
+
+### 3.4 Storage 设计
+
+```js
+const MIGRATIONS = { 1: d => { /* v0→v1 */ }, 2: d => { /* ... */ } };
+function migrate(d){ while ((d.version|0) < CURRENT) MIGRATIONS[++d.version](d); }
+// 内存单例，所有写操作走 Storage.update(fn) → fn(state) → commit()
+```
+
+存档结构（在 fishId 基础上的增量）：
+
+```js
+{
+  version: 1, userId, createdAt,
+  collections: [{ entityId, count, firstAt }],
+  gardenSlots: [{ id, slot:'W1', stage:'young', progress:0.42, plantedAt, lastSporeAt }],
+  fragments: { common, rare, epic, legend },   // 孢子
+  fragmentEssence: 0,                          // 腐殖质
+  pityCount: { epic, legend },
+  dailyForays: { date, free },
+  waterData: { hour, count },
+  lastBasket: 'YYYY-MM-DD', bonusBaskets: 0,
+  lastBiome: 'pine',
+  lastSeen: 1725000000000,                     // 离线推进生长
+  stats: { totalQuestions, correctAnswers, playDays, toxicIdentified },
+  flags: { milestones: [], safetyCardSeen: false, disclaimerAccepted: false },
+  difficulty, imageCount, usedCodes,
+  dailyTasks: { date, progress:{ correct, foray, water, toxic }, claimed:{} }
+}
+```
+
+`SaveTransfer` 导出时打包 **所有** `mush_*` key 与主存档（fishId 只导出主存档，迁移后语言/教程/小游戏进度丢失）。
+
+---
+
+## 4. 数据模型（R3）
+
+### 4.1 物种清单与稀有度
+
+数据储备 250 种（清单见 `docs/research/03_species_dataset.md` §1.3，共 253 行，含 3 个占位/说明项），四大类：
+
+| 类别 | 数量 | 稀有度重心 | 例子 |
+|---|---|---|---|
+| A 栽培食用菌 / 药用菌 | 38 | common | 香菇、平菇、金针菇、木耳、银耳、猴头、灵芝、云芝、茯苓 |
+| B 中国/云南野生食用菌 + 欧美经典 | 75 | rare | 松茸、鸡枞、干巴菌、见手青、鸡油菌、羊肚菌、竹荪、青头菌、美味牛肝菌 |
+| C 毒菌 / 剧毒菌 | 67 | 跨档 | 毒鹅膏、灰花纹鹅膏（中国致死首位）、致命鹅膏、毒蝇伞、大青褶伞（中国中毒事件数第一）、亚稀褶红菇、毒沟褶菌、鹿花菌、火焰茸 |
+| D 观赏 / 奇特 | 70 | epic/legend | 荧光小菇、红笼头菌、恶魔雪茄、出血齿菌、天蓝蘑菇、地星、鸟巢菌、弹球菌、冬虫夏草、僵尸蚂蚁真菌、白松露、巨型鸡枞 |
+
+**分档公式**：`score = 知名度K(1–5) + 奇特度U(1–5) + (6 − 常见度C(1–5))`；≤7 common，8–10 rare，11–12 epic，≥13 legend。再做主题配平：每档都要有「食用 / 毒 / 奇特」三类；易混淆对必须成对入库。
+
+| 档 | 250 种储备 | MVP 120 种 | V1.0 200 种 |
+|---|---|---|---|
+| common | 100 | 50 | 80 |
+| rare | 95 | 45 | 75 |
+| epic | 43 | 18 | 32 |
+| legend | 15 | 7 | 13 |
+
+**传说候选 15**：松茸、白松露、黑松露、冬虫夏草、荧光小菇、恶魔雪茄、天蓝蘑菇、毒蝇伞、火焰茸（剧毒）、巨型鸡枞、奥氏蜜环菌（世界最大生物）、干巴菌、长裙竹荪、毒鹅膏（「剧毒传说」）、鳞柄白鹅膏。
+
+**不收录**：黏菌（非真菌）、地衣、裸盖菇属等致幻管制类（整体不收，避免成为检索入口）。
+
+**必须成对入库的易混淆对**（保证「二选一」题成立）：松茸/姬松茸、羊肚菌/鹿花菌、鸡油菌/杰克灯、大青褶伞/高大环柄菇、稀褶红菇/亚稀褶红菇、冬菇/秋生盔孢伞、黑木耳/黑耳、云芝/毛韧革菌、灵芝/树舌、草菇/致命鹅膏、鸡枞/白毒伞、美味牛肝菌/苦粉孢牛肝菌。
+
+### 4.2 物种字段
+
+在 fish 结构上扩展。核心新增：
+
+| 字段 | 类型 | 说明 |
+|---|---|---|
+| `latin` / `authority` / `synonyms` | string | 学名（当前接受名）、命名人、异名 |
+| `taxon` | `{phylum, order, family, genus}` | 图鉴按科分组 + 出题 |
+| `edibility` | enum 8 值 | `cultivated / wild_edible / conditional / unknown / poisonous / deadly / medicinal / inedible`（数据层） |
+| `edibilityNote` | string | 措辞受 §6 约束 |
+| `toxinClass` / `syndrome` | enum[] | 毒素类型 / 中国临床 7 型 |
+| `lookalikes` | id[] | 易混淆种；干扰项最高优先级；双向校验 |
+| `season` | int[] | 出菇月份 |
+| `biome` | enum | `pine / broadleaf / deadwood / meadow / special` |
+| `substrate` | enum | `soil / wood / dung / insect / mycorrhizal / termite / grass / conifer_cone …` |
+| `morphology` | `{cap, hymenium, stipe, ring, volva, flesh}` | `hymenium ∈ gills/pores/teeth/smooth/ridges/gleba` |
+| `sporePrint` / `colorChange` / `smell` / `bioluminescent` / `cultivated` | | 出题与行为系统用 |
+| `behavior` | enum | 菌菇园行为（§5.4） |
+| `size` | number | 园中相对体型 |
+| `imageCredit` | `{author, license, source, url}` | CC 署名**必填** |
+| `factSource` | string | 审计用，不展示 |
+
+UI 层把 8 值食性映射为 6 个标签：🍽 可食（cultivated / wild_edible，脚注不同）、🔥 条件可食、💊 药用、⚠️ 有毒、☠️ 剧毒、❓ 食性不明（unknown / inedible）。
+
+完整 JSON 示例见 R3 §2.2（毒蝇伞、兰茂牛肝菌两例）。
+
+### 4.3 题库
+
+目标 **约 1,100 道 / 250 种**（MVP 约 600 道 / 120 种）。题型：
+
+| type | 名称 | 题干模板 | 难度 | 数量（250 种） | MVP |
+|---|---|---|---|---|---|
+| `name_from_image` | 看图认菌 | 「这是什么蘑菇？」；选项中文 + 拉丁属名小字 | 1–5 | 250 | ✓ |
+| `edibility_class` | 食性类别（科普） | 「资料记载中，〔菌名〕属于哪一类？」**题干必须给菌名**；只对分类清楚的种出题，不对 conditional/unknown 出题；带免责脚注 | 2–4 | 140 | ✓ |
+| `lookalike` | 易混淆 | 「〔菌名〕最容易与哪种毒菌混淆？」/「区分 A 和 B 最可靠的特征是？」 | 3–5 | 100 | 40 |
+| `lookalike_pair` | 双图二选一 | 「下面哪一张是松茸？」（两张真图，新 UI） | 3–5 | 60 | V2 |
+| `feature` | 特征题（子类 `spore_print / substrate / season / morphology`） | 孢子印颜色 / 长在哪里 / 哪个季节 / 菌褶还是菌管 | 2–5 | 270 | ✓ |
+| `trivia` | 趣味知识 | 同 fishId | 2–4 | 200 | ✓ |
+| `cold_fact` | 冷知识（含 ≥15 道急救/中毒机理题） | 同 fishId | 4–5 | 120 | ✓ |
+| `myth_buster` | 辨毒误区 | 「以下哪种方法能可靠判断蘑菇是否有毒？」**正确答案永远是「都不可靠」** | 1–2 | 20 | ✓（新手前 3 局必出 1 题） |
+
+**干扰项生成优先级**：`lookalikes` → 同属 → 同科同孢子印/同变色 → 同稀有度兜底。看图题若正确答案是剧毒种，干扰项必须含 ≥1 个其 `lookalikes` 里的可食种，反之亦然。
+
+**选题配置**（每局 5 题，看图题数量由 `imageCount` 滑块决定）：
+
+| 设置 | 看图题 | 其余题槽 |
+|---|---|---|
+| 🍄 菌子萌新 | d1 | `edibility_class` d2 优先，其余 `trivia` d4；前 3 局必含 1 道 `myth_buster` |
+| 🧺 采菌爱好者 | d2 | `feature` d2–3 + `trivia` d4 各半 |
+| 🔬 菌物学家 | d3 | `lookalike` d3 至少 1 道 + `cold_fact` d5 |
+
+每题 15 秒、超时算错、答错展示 habitat + fact + 食性标签 + `explanation`。
+
+10 道示例题见 R3 §3.4。
+
+### 4.4 图片来源与版权
+
+| 来源 | 可商用 | 用法 |
+|---|---|---|
+| **Wikimedia Commons** | ✓（CC0/PD/CC BY/CC BY-SA） | 主源；复用 `download_batch2.py` + `photo_picker.html` + `process_real.py` |
+| **iNaturalist** | 仅 CC0/CC BY/CC BY-SA 照片 | 次源，中国种覆盖更好；API 加 `photo_license=cc0,cc-by,cc-by-sa` |
+| Mushroom Observer | 逐张核 | 北美种 |
+| GBIF | 仅作索引 | 回源下载 |
+| DF20 / FGVCx 2018 / MO106 | ✗ 非商用研究许可 | **不可用作游戏素材** |
+
+规则：`imageCredit.license` 只允许白名单，出现 NC/ND 校验直接报错；水印保留署名或详情页显示「图片来源」；新建 `credits.html` 自动渲染署名（fishId 缺这一步，建议一并补上）；中国特有种缺图时 `image_real: null` + UI「照片征集中」。
+
+Q 版立绘 AI 生成可行（北京互联网法院 2023 案例；保留 prompt/seed 记录；关于页注明「AI 辅助生成并经人工修订」），但需真菌学 checklist 审稿（菌托/菌环/菌褶 vs 菌管/主色/变色）；美术规范定 5 个基础轮廓模板（伞 / 球 / 架 / 珊瑚 / 网裙）避免风格漂移；拟人规则统一「菌盖上两颗眼睛 + 菌柄当身体」。
+
+### 4.5 数据流水线与校验
+
+```
+data/mushrooms.json + data/questions.json   （唯一真相源，人工/LLM 编辑）
+        │  tools/build_data.py
+        ▼
+js/data.gen.js                                （运行时加载，GENERATED）
+        │  test/data_check.py（CI / 提交前）
+        ▼
+- 字段完整性；answerIndex 越界；questions ↔ entityId 双向
+- lookalikes 双向存在
+- edibility ∈ {poisonous, deadly} ⇒ toxinClass & syndrome 非空
+- imageCredit.license 白名单
+- latin 经 GBIF match（EXACT & kingdom=Fungi），否则标「待核」
+- 每种 ≥1 道 name_from_image + ≥2 道其他题
+```
+
+事实核查：食性/毒性**只允许引用**中科院昆明植物所《云南常见毒菌》2022/2025 版、《中国毒蘑菇新修订名录》、中疾控 *China CDC Weekly* 年度报告、CFSA、云南疾控；学名核对 Index Fungorum / MycoBank / Fungal Names；中文名以《中国大型菌物资源图鉴》为准。**把毒菌标成可食是本产品唯一不可接受的 bug 等级。**
+
+---
+
+## 5. 玩法设计（R4）
+
+### 5.1 转译原则
+
+fishId 的物种是**会动的动物**，鱼缸乐趣来自运动；蘑菇**几乎不动**，乐趣改为来自**生长、变化、环境响应和触发式反应**——**用「时间」替代「运动」**。
+
+| fishId | mushroomId | 说明 |
+|---|---|---|
+| 出海 🚢 | **进山采菌 🧺** | 过场：竹篮 + 山路 + 雾气 2.5s |
+| 鱼缸 | **菌菇园 🌲**：侧视森林剖面，中央腐木 + 两侧林地 | 见 5.3 |
+| 鱼入缸 | **定植**：从菌蕾长起来 | 生长周期是留存钩子 |
+| 喂食（每小时 10 次） | **浇水 💧**（每小时 10 次）：未成熟菌进度 +8% | Nameko 用户心智 |
+| 夜晚模式（长按 0.8s） | **荧光夜 🌙**：深蓝夜林 + 萤火虫 + `glow` 菌发光 | 蘑菇最上镜的特性 |
+| 摇一摇（全鱼受惊） | **起风 🍃**：落叶飘落 + `puff` 菌喷孢子 + 苍蝇惊飞 + 胶质菌抖动 | |
+| 点击空白 | 落叶堆惊起小虫 / 蜗牛缩壳 | 保留手感 |
+| 传说鱼 spin | 传说菌每 60s 释放一圈金色孢子环 | |
+| 碎片 / 精华 / 精华商店 | 孢子 / 腐殖质 / 菌种库（培养皿网格） | 逻辑不变 |
+| 每日宝箱 | 每日菌篮 | |
+
+### 5.2 主循环
+
+```
+菌菇园首页 → 进山（选 4 林地之一，可跳过）→ 扣 dailyForays
+→ 2.5s 过场（天气特效）→ Quiz.prepare(biome, weather) → 答 5 题
+→ Gacha.startResult(wrong, correct, biome, weather) → 定植 / 分解成腐殖质
+```
+
+**林地（biome）**：轻量版，只是每种菌一个字段 + 抽卡时本林地菌权重 ×3。不做真实定位、真实天气 API、季节锁。
+
+| biome | 代表菌 |
+|---|---|
+| 🌲 松林 | 松茸、松乳菇、见手青、美味牛肝菌、红菇 |
+| 🌳 阔叶林 | 鸡油菌、青头菌、鹅膏属、干巴菌 |
+| 🪵 腐木区 | 木耳、平菇、灵芝、云芝、荧光小菇、蜜环菌、猴头 |
+| 🌾 草地 | 马勃、墨汁鬼伞、硬柄小皮伞、双孢蘑菇、鸟巢菌 |
+| special（不可选） | 竹荪、冬虫夏草、松露：只在雨后天气或传说保底时入池 |
+
+**天气**：全服同一天一致，日期字符串 hash，无 API：晴 40% / 阴 25% / 雨 20% / 雨后 15%。雨：稀有 +5%（从普通挪）、雨丝粒子、免费浇水 1 次/小时；雨后：稀有 +5% 珍稀 +2%、special 林地入池、雾气 + 蜗牛。修正 ≤7 个百分点，不破坏保底节奏；价值是**首页有变化 + 给每天上线一个理由**。
+
+**抽卡**：保留 60/30/8/2、20/50 保底、答错惩罚、≥3 错只给孢子。新增：5 题全对额外 +1 当次稀有度孢子。
+
+**毒菌定位**：图鉴正式成员，稀有度分布与可食菌一致，视觉更炫（`deadly` 专属结算音效「低沉钟声 + 心跳」、横幅「☠️ 你遇到了致命的它——记住它的样子」、卡片红色斜带「剧毒·致命」+ 暗红脉络纹理）；图鉴页「☠️ 毒菌图鉴」筛选 + 成就「毒菌鉴定官」；毒菌可定植入园；**抽到毒菌不惩罚**——让玩家怕毒菌只会让他们不学。
+
+### 5.3 菌菇园 Canvas（garden.js）
+
+**视角**：侧视森林剖面（蘑菇的识别特征都在侧面，俯视只见圆）。
+
+```
+┌──────────────────────────────────────────────┐ 天空缝隙（天气）
+│ 远景树干剪影（视差 0.2）+ 斜射光柱            │
+│ 中景树干（视差 0.5）+ 悬浮孢子粒子            │
+│   🍄 🍄        ┌────────────┐      🍄        │ 林地槽 L1-L2 / R1-R2
+│ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│ 腐木 🍄🍄🍄🍄 │▒▒▒▒▒▒▒▒▒▒▒▒▒ │ 腐木槽 W1-W4
+│ 苔藓/落叶地面   └────────────┘   🍄    🍄     │ S1 腐木侧面（架状菌）S2 前景地面（寄生/地下）
+│ 前景落叶 / 蜗牛 / 萤火虫（夜）/ 雨丝（雨）     │
+└──────────────────────────────────────────────┘
+```
+
+**层次**：天空渐变 → 远景树干 → 光柱 → 中景树干 → 悬浮孢子 → 地面 → 腐木 → 蘑菇层（按 y 排序）→ 前景落叶 → 天气粒子 → 夜晚荧光层。
+
+**10 槽布局**（画布比例坐标，锚点蘑菇底部中心）：W1–W4 腐木上 (0.36–0.60, 0.60–0.62)；S1 腐木侧面 (0.30, 0.68) `shelf` 专属；L1/L2 (0.12,0.74)(0.22,0.80)；R1/R2 (0.78,0.74)(0.88,0.80)；S2 前景 (0.68, 0.88)。定植时按 `substrate` 找第一个空的匹配槽，无匹配退回任意空槽。
+
+**生长状态机（核心留存机制）**：
+
+```
+pin ──(30 min)──▶ young ──(3 h，浇水 +8%/次)──▶ mature ──(24 h)──▶ sporulate
+                                                    ▲                    │
+                                                    └── 点击收 1 孢子 ────┘
+```
+
+- 每槽每 24h 最多 1 孢子，不叠加（离线 3 天回来只有 1 个待收）；10 槽 = 每天约 10 孢子 ≈ 2 次合成。
+- 传说槽产传说孢子：5 天一张传说卡，「有诚意但不破坏抽卡价值」；可调 48h 微调。
+- 离线推进：进入首页按 `Date.now() − lastSeen` 一次性 `advanceStage(slot, elapsed)`，纯函数。
+- **MVP 降级**：只做 `pin → mature`（30 分钟）+ 每日一次全园「收集孢子」按钮；状态机字段照旧预留。
+- 新玩家前 30 分钟只有菌蕾：教程赠送 2 个已成熟普通菌 + 1 个 `glow` 幼菌（第一晚就能看到荧光）。
+
+**互动**：点击菌（名字气泡，未成熟显示「幼菌 · 还差 1h20m」+ 个性行为）/ 点击空白（惊虫）/ 长按（荧光夜）/ 摇一摇（起风）/ 浇水按钮 / 分享（截 canvas + 底栏）/ V2 放蜗牛（经过 `jelly` 菌停 3s 啃食，经过 `deadly` 菌绕开——无声科普）。
+
+### 5.4 行为系统（对标 fishId 11 种鱼行为）
+
+每个行为定义**静态形态 / 环境响应 / 点击反应**三件事。蘑菇不移动，状态机只有生长态 + 瞬时反应态 `react`（0.3–1.5s，可打断）。
+
+| id | 名称 | 代表物种 | 要点 | MVP |
+|---|---|---|---|---|
+| `puff` | 喷孢 | 马勃、地星、脱皮马勃 | 点击顶部喷 40–80 颗棕色粒子（扇形 60°，重力），本体 scaleY 0.85 回弹；起风自动喷；连点 5 次出「孢子云」 | ✓ |
+| `glow` | 荧光 | 荧光小菇、月夜菌、杰克灯、幽灵菌、苦扇菇 | 仅荧光夜发光：径向渐变 #9CFF7A alpha 0.55，呼吸 3s；夜晚点击光晕爆发 2× | ✓ |
+| `bruise` | 触摸变蓝 | 见手青类牛肝菌 | 按住处蓝斑 (#1F4E8C) 0.4s 内扩到 24px，松手 6s 渐退；`bruiseSpeed` 按物种 | ✓ |
+| `jelly` | 胶质摇晃 | 木耳、银耳、金耳 | 弹簧形变 `1 + A·e^(−4t)·sin(20t)`；连续晴天 6h 缩到 0.7「干木耳」，浇水复原 | ✓ |
+| `cluster` | 成簇 | 金针菇、平菇、蜜环菌、滑菇、鸡枞 | 一簇 3–7 个；young 每 25% 多冒一个；点击依次点头 | ✓ |
+| `default` | 普通地生 | 鸡油菌、红菇、鹅膏、羊肚菌、松茸（约半数物种） | 起风轻摇 ±0.06rad；子标记 `wrinkle`（羊肚/鹿花蜂窝纹呼吸）、`spots`（毒蝇伞白点闪） | ✓ |
+| `ink` | 自溶滴墨 | 墨汁鬼伞、毛头鬼伞 | 成熟 12h 后盖缘变黑；点击滴 3–6 滴墨落地留点 | V2 |
+| `stink` | 腐臭引蝇 | 白鬼笔、红笼头菌、海星菌 | 常驻 3–5 只苍蝇 Lissajous 绕顶；点击惊飞再回 | V2 |
+| `hygro` | 湿度开合 | 硬皮地星 | 雨/浇水 1.5s 张开 0→70°，晴 2h 合拢 | V2 |
+| `splash` | 溅蛋杯 | 鸟巢菌 | 雨天每 8–15s 一颗「蛋」抛物线弹出 | V2 |
+| `coral` | 珊瑚分枝 | 珊瑚菌、猴头 | young 分 3 段 mask 逐段长出；点击枝端闪白 | V2 |
+| `veil` | 展裙 | 竹荪 | 每日 06:00–16:00 展裙，16:00 后收拢（真实节律）；裙摆正弦波 | V2 |
+| `shelf` | 架状 | 灵芝、云芝、树舌、硫磺菌 | S1 槽贴腐木侧，young ×3 时长；成熟后每 7 天加一圈年轮（最多 4） | V2 |
+| `parasite` | 虫生 | 冬虫夏草、蝉花、蛹虫草 | S2 槽半埋；点击地面鼓起露虫体轮廓 1.5s | V2 |
+
+### 5.5 外围系统
+
+**每日任务**：答对 10 题（普通孢子 ×1）/ 进山 3 次（腐殖质 ×20）/ 浇水 3 次（普通孢子 ×1）/ **☠️ 认出 1 种毒菌**（答对 1 道正确答案含有毒的 `edibility_class` 或 `lookalike`，稀有孢子 ×1）——把安全教育变成日常。
+
+**里程碑**：10 菌子萌新 🍄 / 25 采菌爱好者 🧺（附带弹出安全急救卡）/ 50 山里常客 🌲 / 100 菌物观察员 🔍 / 150 孢子猎人 🌫 / 全收集 菌物学家 🔬。
+
+**徽章墙成就**：毒菌鉴定官（集齐 toxic + deadly）、荧光之夜（园中 3 个 glow 菌夜晚分享）、见手青不见小人（条件可食题连对 10）、雨后山客、腐木管家、一夜之间（首次收孢子）、躺板板幸存者（毒菌快筛零失误）。
+
+**分享**（4 种，2× DPR，**底部固定 11px 灰字「仅供科普娱乐 · 请勿依据本游戏采食野生菌」不可关闭**）：抽卡卡片（毒菌版「☠️ 我认出了〔菌名〕——记住它，别碰它」）/ 菌菇园（含今日天气）/ 里程碑 / 挑战好友（只做认名题，**不做「能不能吃」挑战**）。
+
+**礼品码**（每码 5 菌篮）：`JUNZI2026 / SONGRONG88 / JIANSHOUQING / MOREL2026 / YUNNAN888 / REISHI5 / CORDYCEPS / ENOKI2026 / GLOWNIGHT / SPORE8888 / DEADCAP / FLYAGARIC / CHANTERELLE / TRUFFLE5 / MUER6666 / SHROOM2026 / BAMBOOVEIL / PUFFBALL8 / INKYCAP / ZHUSUN88 / GANBAJUN / JICONG168 / MYCELIUM / TANGBANBAN`（玩梗码，兑换弹窗附「颜色不能判断毒性」）。存 hash 而非明文。
+
+### 5.6 小游戏
+
+| 优先级 | 小游戏 | 来源 | 核心改动 | 工作量 |
+|---|---|---|---|---|
+| P0 | 🍄 菌菇合并 | game.html 换皮 | 11 级孢子→菌丝→菌蕾→…→松茸 | 1–2 天 |
+| P0 | 🪵 菌菇栽培·挂机（对标 Nameko，系列下载 3800 万+） | idle.html 换皮 | 25 海域→25 种基质；钓鱼→收获；渔船→培养架；珍珠→孢子；狂热→「爆菇」；海洋事件→天气事件；深渊→「暗房催菇」 | 3–4 天 |
+| P1 | 🍲 野生菌火锅店 | bbq.html 换皮 | 菜单炒见手青/鸡枞油/松茸刺身/干巴菌炒饭/松露；**见手青绿区 = 炒熟区，欠火 → 顾客「看见小人」投诉扣 2 倍**；事件「疾控短信：所有客人只点熟透的」 | 3 天 |
+| P1 | 🐿 松鼠采菌·肉鸽 | catfish.html 换皮 | 猫→松鼠/小鹿/野猪；爪从树上探下；海胆→毒蝇伞 −8s、河鲀→死亡帽 −15s、魟鱼→见手青 50% 大赚/50%「看小人」 | 3 天 |
+| P1 | ⚡ 毒菌快筛（新） | 新写 | 60 秒卡片流，显示真图 + **菌名**，左滑「有毒/不能直接吃」右滑「可食」；结算「你会在真实山林里活几天」，**100% 也只显示「依然别采」** | 1.5 天 |
+| P2 | 🔬 孢子印实验室（新） | 新写 | 拖菌盖到纸上，30 秒真实计时，揭开看颜色，4 选 1 | 2 天 |
+
+---
+
+## 6. 安全与合规（R2, R3, R4）
+
+### 6.1 六条硬规则（写进 CLAUDE.md 开发约定）
+
+1. **不做「看图判断能不能吃」的任何题、任何小游戏。** 食性题题干必须给菌名；毒菌快筛卡片显示菌名。玩家学的是「这个名字的菌是什么食性」，不是「长这样的菌能吃」。
+2. **每张卡片、分享图、详情页底部固定安全脚注**（11px 灰字，永远在）。
+3. **可食菌语录禁止出现「好吃」「快去采」**；语气是蘑菇自我介绍。
+4. **新手教程第 3 张是安全卡**：「这是一款图鉴游戏，不是鉴定工具。野生菌 900 多种可食、200 多种有毒，很多长得一模一样。」+ 云南疾控三句话：不采、不买、不吃不认识的野生菌。
+5. **菌名与照片必须来自可靠来源并经事实核查**；毒菌标成可食是唯一不可接受的 bug 等级。
+6. **不用「红伞伞白杆杆」指代一切毒菌**（暗示看颜色能判断，恰是疾控反复辟谣的误区）；玩梗处必带「颜色不能判断毒性」。
+
+### 6.2 数据层措辞规范
+
+| 字段值 | 允许 | 禁止 |
+|---|---|---|
+| `cultivated` | 「商业栽培食用菌」 | 「安全」「放心吃」 |
+| `wild_edible` | 「资料记载为野生食用菌（仅供科普）」 | 「可食用」单独出现 |
+| `conditional` | 「资料记载须专业处理后食用，误食有中毒记录」 | 任何加工/去毒方法细节 |
+| `deadly` | 「剧毒，有致死记录」 | 「少量无碍」等相对化表述 |
+| `medicinal` | 「传统药用，不作食物」 | 任何功效宣称（广告法风险） |
+
+补充：不写「无毒」二字；不写「如何区分 A 和 B 以便采摘」；见手青类一律 `conditional`；致幻管制类不收录。
+
+### 6.3 UI 免责文案
+
+- **首次启动**（一次性协议，存 `flags.disclaimerAccepted`）+ **图鉴页顶部不可关闭一行**：「本图鉴为收集类科普游戏，所有『食用 / 有毒』标签仅转述公开资料，不能用于野外鉴定，更不能作为采食依据。野生蘑菇不采、不买、不吃。」
+- **详情页食性标签旁 ⓘ**：「同一种蘑菇在不同地区、不同成熟度可能有不同记载，且存在大量肉眼无法区分的相似种。」
+- **`edibility_class` 题脚注**：「本题考察的是『资料如何记载』，不是『能不能吃』。」
+- **分享卡片**：「认识它，不代表能吃它。」
+- **poisonous/deadly 详情页底部**：「若误食野生蘑菇出现不适，立即就医并保留剩余蘑菇样本；可拨打 12320 卫生热线。」
+
+### 6.4 安全急救卡（「我的」页常驻，25 种里程碑时自动弹一次）
+
+```
+如果有人误食了不认识的野生菌：
+1️⃣ 立刻催吐（意识清醒者）：喝温盐水，刺激咽喉
+2️⃣ 保留样本：剩余的菌、呕吐物，方便医生鉴定
+3️⃣ 马上就医 / 拨打 120，告诉医生「吃了野生菌」，同食者一起去
+⚠️ 症状缓解 ≠ 痊愈，剧毒鹅膏有「假愈期」
+—— 内容依据云南省疾控局 / 卫健委公开科普
+```
+
+### 6.5 SEO 与传播
+
+标题/meta 不使用「辨毒」「鉴别」「能吃吗」「识别」等词，用「蘑菇图鉴收集游戏」，避免搜索引擎把它当鉴定工具；README/关于页注明数据参考中科院昆明植物所、中国疾控中心公开资料，错误通过 issue 反馈。传播叙事：「别信 AI 识菌，先学会认菌」。
+
+---
+
+## 7. 拍照识别：不做，以及替代路线（R5）
+
+### 7.1 为什么 MVP/V2 不做
+
+1. **精度证据不支持**：真实中毒标本上主流 app 约 50%；FungiCLEF 2025 少样本赛道 top-5 仅 78.9%；公开数据集几乎全是丹麦物种，对云南/东北种精度更差。
+2. **许可链断在数据上**：DF20 / FGVCx 2018 / FungiTastic / MO106 及其上的权重全是非商用研究许可；蒸馏出的学生模型仍是衍生品。自建可商用数据集 15–30 人日，远超整个 V2。
+3. **责任不对称**：图鉴游戏的收益是「好玩」，AI 误判的代价是人命。
+4. **无后端约束**：云端 API（Kindwise mushroom.id 约 €0.01–0.05/次）必须加 Cloudflare Worker 代理防 key 泄露与刷量，把项目从「纯静态」变成「静态 + Worker + 付费账户」。
+
+技术上零构建静态站**可以**跑浏览器端推理（TF.js / ONNX Runtime Web 有 UMD 包可从 cdnjs 加载；WASM 是唯一全端可用后端；WebGPU iOS 26+ 才有，微信 WKWebView 按无 WebGPU 设计；模型须 ≤10MB int8）——障碍不在技术。
+
+### 7.2 V2 替代方案（推荐，13–20 人日）
+
+| 功能 | 做法 | 人日 | 价值 |
+|---|---|---|---|
+| **形态检索表向导**（multi-access key） | 菌盖颜色/形状/表面 → 菌褶/菌管/菌齿 → 菌柄/菌环/菌托 → 孢子印 → 基质 → 季节 → 变色/气味，任选任填，实时显示「剩余候选 N 种」+ 缩略图网格；引擎 30 行过滤器 + 信息增益贪心排序 | 7–11（数据标注是大头） | 本身就是教学：玩家学会「看菌托、看孢子印」，自然带出鹅膏为什么有菌托 |
+| **与图鉴对比** | 用户照片（本地 canvas，不上传）左，图鉴真图右滑动；点「就是它」打卡（人在回路） | 2–3 | 零风险粘合层 |
+| **拍照打卡日记** | 前端读 EXIF（iOS 直接拍照会剥 EXIF，相册选图保留）→ ≤512px 缩略图存 IndexedDB → 打卡卡片分享 → 按日期/地点聚合「菌季地图」；GPS 只保留 0.01° 且只存本地；纳入 SaveTransfer | 3–5 | 把「拍照」这个强需求转化为零责任玩法 |
+
+组合流程：拍照 → 打卡日记 → 「想知道它像谁？」→ 检索表填 3–5 个特征 → 候选 3–8 种 → 与图鉴对比 → 玩家自己勾选 → 解锁/答题。**整条链没有任何自动判断。**
+
+### 7.3 V3 可选（27–49 人日，前置条件苛刻）
+
+前置：拿到可商用训练数据（自采 / 中科院授权 / CC-BY 人工筛）且验证集 top-5 ≥ 85%。实现：ORT Web WASM 单线程 SIMD + 自托管 EfficientNet-Lite2 int8 ONNX（≤8MB）+ 224px + 懒加载进度条。产品限制：只输出「可能相似的种 top-5」；识别结果只用于解锁/打卡，用户必须手动选「我觉得是这一个」；top-5 含任一 `deadly` 种先弹全屏红色警告（不可跳过 3s）；top-1 < 0.35 直接不给结果；前端丢弃第三方 API 的 edibility 字段。
+
+---
+
+## 8. 视觉与音效
+
+### 8.1 配色（css/theme.css）
+
+```css
+--primary:  #5B8C3A;   /* 苔绿，主色调（对应 fishId 青绿）*/
+--bg:       #FBF7EE;   /* 米白，背景 */
+--cta:      #D9553F;   /* 菌盖红/赤陶，主操作按钮 */
+--accent:   #F2B134;   /* 鸡油菌黄，奖励强调 */
+--night-bg: #0B1B2B → #12293D;  /* 荧光夜 */
+--glow:     #9CFF7A;   /* 荧光菌 */
+--bruise:   #1F4E8C;   /* 见手青变蓝 */
+--deadly:   #B0203A;   /* 剧毒标识 */
+/* 稀有度四色沿用 fishId：#7EC8A0 / #4DA6FF / #B57BFF / #FFD700 */
+```
+
+分享卡片底色：苔绿/棕渐变 `#1F2D1A → #2F4A2A`。
+
+### 8.2 音效（js/game/sfx.js）
+
+保留 sound.js 合成原语与 `play(name)` 注册表，音色从「水滴/气泡/水下混响」换为「森林质感」：新增原语 `rustle`（沙沙）、`woodKnock`（木质）、`chime`（风铃）、`drip`（滴露）。事件：`forayStart / plant / water / tap / puff / glowNight / deadlyReveal（低沉钟声 + 心跳）/ sporeCollect`。BGM：一首森林晨雾主题循环，沿用首次点击启动 + 🔊 开关。
+
+### 8.3 Q 版立绘规范
+
+512×512 透明 WebP；5 个基础轮廓模板（伞 / 球 / 架 / 珊瑚 / 网裙）；拟人「菌盖上两颗眼睛 + 菌柄当身体」；剧毒菌眼神可略「傲娇」但不做恐怖化；真菌学 checklist 审稿后再走 `process_cute_batch.py`。
+
+---
+
+## 9. 路线图与工作量
+
+### 9.1 MVP（约 4–5 周，目标：中文版 5 月中旬前）
+
+**做**：
+- 数据：120 种（50/45/18/7）+ 约 600 题 + Q 版 120 张 + 真图 120 张（含署名）+ `credits.html`
+- 架构：`js/core/` 抽取 + `config.js` + JSON 单一真相源 + 迁移表 Storage + `answerIndex`
+- 主循环：进山（4 林地 + 日期 hash 天气）→ 答题（7 题型）→ 抽卡（含天气修正、满分奖励）→ 定植/分解
+- 菌菇园：侧视剖面、10 槽、昼夜（荧光夜）、雨天粒子、浇水、起风、点空白惊虫、`pin → mature` 30 分钟 + 每日「收集孢子」按钮
+- 行为：`glow / bruise / puff / jelly / cluster / default（spots, wrinkle）` 6 种；其余字段预留按 default 绘制
+- 外围：每日任务 4 项、每日菌篮、礼品码、6 里程碑、4 种分享（固定水印）、挑战好友、存档迁移 `.spore`
+- 安全：教程安全卡、急救卡、脚注体系、食性标签、`myth_buster` 前 3 局必出、图鉴页顶部免责行
+- 小游戏：合并 + 栽培挂机（换皮）
+- 测试：`data_check.py` + `core.test.js`
+
+**砍到 V2**：完整 4 段生长状态机与每槽 24h 计时、剩余 8 种行为、蜗牛/年轮、火锅店/松鼠/毒菌快筛/孢子印、200 种全量与 lookalike 全覆盖、英文版、检索表与打卡日记。
+
+| 工作块 | 估计 |
+|---|---|
+| 抽 core 层 + config adapter（拆 app.js、消重复常量） | 2–3 天 |
+| garden.js 新写（6 种行为 + 生长 + 昼夜/天气/互动） | 4–6 天 |
+| CSS 主题化 + 音效换质感 | 2 天 |
+| 测试补齐 | 1 天 |
+| 数据：120 种 × 5 题 + 双语 + 事实核查 | 2–3 周（可与工程并行；复用 fishId 工具链省一半） |
+| 素材：Q 版生成 + 审稿 + 真图筛选水印署名 | 与数据并行 |
+| 两个小游戏换皮 | 4–6 天 |
+
+### 9.2 V1.0（MVP 后 4–6 周）
+
+200 种、约 900 题、`lookalike_pair` 双图题、完整生长状态机（每槽 24h 孢子）、全部 14 种行为、蜗牛互动、火锅店 + 毒菌快筛小游戏、英文版（赶 8 月底欧美季）、`credits` 完善。
+
+### 9.3 V2（检索表 + 打卡日记，13–20 人日）
+
+见 §7.2。另：250 种全量、松鼠采菌 + 孢子印实验室、腐木年轮。
+
+### 9.4 V3（可选，AI 相似参考）
+
+见 §7.3。只有在前置条件满足且团队愿意承担持续维护时才做。
+
+---
+
+## 10. 风险清单
+
+| 风险 | 等级 | 对策 |
+|---|---|---|
+| 毒菌标成可食（数据错误） | 致命 | 食性只引用白名单来源；`data_check` 强校验；发布前人工二审全部 `poisonous/deadly` 条目 |
+| 真实照片供给不足（蘑菇 Commons 活体+自然基质+主体清晰比例低于鱼） | 高 | 先按 120 种筛；iNat CC BY 补中国种；`image_real: null` + 「照片征集中」 |
+| 被当成识别工具误用 / 舆论风险 | 高 | 不做拍照识别；SEO 词避开「识别/辨毒」；免责体系；传播口径「别信 AI 识菌，先学会认菌」 |
+| Q 版立绘风格漂移 / 画错关键特征 | 中 | 5 模板 + 真菌学 checklist；保留 prompt/seed |
+| 生长机制让新玩家首页「空」 | 中 | 教程赠 2 成熟菌 + 1 glow 幼菌 |
+| CC BY-SA 署名义务被水印覆盖 | 中 | 水印带署名或 credits 页；优先 CC0/CC BY；禁 NC |
+| 药用菌功效宣称触广告法 | 中 | 只写「传统上用作药材」 |
+| 致幻类成为检索入口 | 中 | 整体不收录 |
+| Apple 2026 起对「频繁引用医疗信息」app 的医疗器械声明要求（推测，未核实） | 低（纯 Web，不上架） | 若未来打包上架，避免强调可食/有毒判断 |
+| 数据分叉重演 | 中 | JSON 单一真相源 + 生成物 + CI 校验 |
+
+---
+
+## 11. 顺带发现的 fishId 问题（建议另开任务修复）
+
+调研 fishId 时发现的真实缺陷，与 mushroomId 无关但值得修：
+
+1. **每日任务进度回滚**（app.js:671-689 出海、:716-729 喂食）：`load()` 快照 → `updateDailyTaskProgress` 独立 load/save → `save(旧快照)`。
+2. **教程 i18n 竞态**（app.js:821-863）：首访慢网络下教程显示 `tutorial.s1_title` 原始 key；切换语言后不更新。
+3. **数据分叉**：`sync_questions.py` 方向为 data.js → questions.js，但 questions.js 已比 data.js 新 145 处翻译；重跑会回滚。测试和 7 个脚本仍读过期的 data.js。
+4. `test/test_run.js` 已坏（断言 8 条鱼）。
+5. 43% 题目（d2 trivia / d3 cold_fact）主流程永远抽不到；`explanation` 455 条从未展示。
+6. 出海次数实际无限（storage.js:36 每次启动钳到 50 + app.js:673 归零再送 50）。
+7. `debug_storage.html` 被 git 跟踪且无部署排除机制。
+8. 文档漂移：SYSTEM.md 写 15s 倒计时（实际 30s）、catfish 10 关（实际 100）；CLAUDE.md 说 catfish 用 fish_data.js（实际内嵌 221 条副本）。
+9. `SaveTransfer` 只导出 `fgame_v1`，语言/教程/小游戏进度迁移后丢失。
+10. 缺少图片署名页（CC BY 义务）。
+
+---
+
+## 附录：调研报告索引
+
+| 文件 | 内容 | 要点 |
+|---|---|---|
+| `docs/research/01_fishid_architecture.md` | fishId 模块地图、数据模型、存档、核心循环、逐模块复用评级、技术债、目录/字段映射、可直接 copy 的行号清单 | 70% 可复用；tank.js 重写；数据分叉是最大债 |
+| `docs/research/02_market_competitors.md` | 18 款竞品对比表、安全事件时间线、用户抱怨、市场空白、季节曲线、72 条来源 | 游戏化真实图鉴无人占据；安全是行业最大痛点 |
+| `docs/research/03_species_dataset.md` | 253 种物种清单（学名/英文/稀有度/食性）、字段设计与 JSON 示例、10 题型题库、图片许可、权威来源、措辞规范、待核清单 | 250 种储备；DF20/FGVCx 不可用；Commons + iNat CC BY |
+| `docs/research/04_gameplay_design.md` | 转译表、主循环/林地/天气、题型、菌菇园 Canvas 设计、生长状态机、14 种行为、外围系统、6 款小游戏、安全定位、MVP 范围 | 用「时间」替代「运动」；毒菌是最炫的卡 |
+| `docs/research/05_ai_recognition_feasibility.md` | 浏览器端推理对比、公开模型/数据集许可、云端 API 成本、安全证据、检索表/对比/打卡替代方案、三阶段路线 | MVP 不做 AI；V2 检索表 + 打卡；V3 可选 |
+
+> 注：调研 agent 受网络代理限制，部分商店评分/下载量/价格来自第三方聚合站，原文中均标注「未核实」；物种学名与中文名的待核项集中列在 03 号报告末尾。
