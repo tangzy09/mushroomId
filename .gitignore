@@ -4,3 +4,4 @@ __pycache__/
 Thumbs.db
 js/data.gen.js
 assets/mushroom/*/temp/
+build/
