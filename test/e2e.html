@@ -1,0 +1,61 @@
+<!doctype html><meta charset="utf-8">
+<style>body{margin:0;font:12px monospace}#f{width:420px;height:820px;border:0;float:left}
+#log{margin-left:430px;white-space:pre-wrap;font-size:11px}</style>
+<iframe id="f" src="../index.html"></iframe>
+<div id="log">booting…</div>
+<script>
+var L=[],log=document.getElementById('log');
+function p(s){L.push(s);log.textContent=L.join('\n');}
+var f=document.getElementById('f');
+f.onload=function(){
+  var w=f.contentWindow,d=f.contentDocument;
+  w.onerror=function(m,src,l){p('JS ERROR: '+m+' @'+l);};
+  setTimeout(function(){
+    try{
+      var agree=d.getElementById('btn-agree');
+      p('disclaimer: '+(agree?'shown':'MISSING'));
+      if(agree) agree.click();
+      p('collected after gift: '+d.getElementById('chip-count').textContent);
+      p('garden slots: '+JSON.parse(localStorage.getItem('x')||'null'));
+      // go foray
+      d.getElementById('btn-foray').click();
+      p('page after foray click: '+[].filter.call(d.querySelectorAll('.page'),e=>e.classList.contains('active')).map(e=>e.id).join(','));
+      d.getElementById('btn-go').click();
+      setTimeout(function(){
+        p('page after go: '+[].filter.call(d.querySelectorAll('.page'),e=>e.classList.contains('active')).map(e=>e.id).join(','));
+        var steps=0;
+        (function answer(){
+          var onQuiz=d.getElementById('page-quiz').classList.contains('active');
+          var opts=d.querySelectorAll('#q-opts .opt');
+          if(onQuiz && opts.length && steps<12){
+            steps++;
+            p('Q'+steps+': '+d.getElementById('q-text').textContent.slice(0,28)+' | opts='+opts.length+' | art='+(d.querySelector('#q-art canvas')?'yes':'no'));
+            opts[0].click();
+            setTimeout(function(){
+              var nx=d.querySelector('#q-explain .btn');
+              if(nx){nx.click();setTimeout(answer,120);}
+              else p('no next button after answering');
+            },120);
+          } else {
+            var act=[].filter.call(d.querySelectorAll('.page'),e=>e.classList.contains('active')).map(e=>e.id).join(',');
+            p('after round, page='+act);
+            p('reveal text: '+(d.getElementById('reveal-body').textContent||'').slice(0,90).replace(/\s+/g,' '));
+            var rb=d.querySelector('#reveal-actions .btn');
+            p('reveal action: '+(rb?rb.textContent:'NONE'));
+            if(rb) rb.click();
+            // collection page
+            d.querySelector('[data-page=collection]').click();
+            p('collection cells: '+d.querySelectorAll('#coll-grid .cell').length);
+            var owned=d.querySelector('#coll-grid .cell:not(.locked)');
+            if(owned){owned.click();p('detail page: '+d.getElementById('detail-title').textContent);}
+            d.querySelector('[data-page=profile]').click();
+            p('profile tasks: '+d.querySelectorAll('#task-list .task').length);
+            p('resources: '+d.getElementById('res-strip').textContent.trim());
+            p('DONE');
+          }
+        })();
+      },2200);
+    }catch(e){p('HARNESS ERROR: '+e.message+'\n'+e.stack);}
+  },600);
+};
+</script>

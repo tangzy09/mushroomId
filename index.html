@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
+<title>菌菇图鉴 — 看图认菌的收集游戏</title>
+<meta name="description" content="看图认菌、抽卡收集、种进菌菇园的科普收集游戏。181 种真实菌类，纯前端，无需注册。本游戏不提供野外鉴定或采食建议。">
+<meta name="keywords" content="菌菇图鉴,蘑菇游戏,认菌,科普,收集,毒蘑菇科普">
+<meta name="theme-color" content="#5B8C3A">
+<meta property="og:title" content="菌菇图鉴 — 不教你吃，只教你认">
+<meta property="og:description" content="看图认菌 → 抽卡收集 → 种进菌菇园。181 种真实菌类的科普收集游戏。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="css/style.css?v=20260902a">
+</head>
+<body>
+
+<!-- 菌菇园 -->
+<div class="page has-nav active" id="page-garden">
+  <div class="safety-bar" id="safety-bar"></div>
+  <div id="garden-wrap">
+    <canvas id="garden-canvas"></canvas>
+    <div class="garden-top">
+      <span class="chip" id="chip-weather">☀️ 晴</span>
+      <span class="chip" id="chip-count">已收集 0</span>
+      <span class="spacer"></span>
+    </div>
+    <div class="garden-tools">
+      <button class="tool" id="btn-water" title="浇水">💧</button>
+      <button class="tool" id="btn-night" title="切换昼夜">🌙</button>
+      <button class="tool" id="btn-wind" title="起风">🍃</button>
+    </div>
+  </div>
+  <div class="garden-actions">
+    <button class="btn cta wide" id="btn-foray">🧺 进山采菌 <span id="foray-left"></span></button>
+  </div>
+</div>
+
+<!-- 图鉴 -->
+<div class="page has-nav" id="page-collection">
+  <div class="page-header"><h1>图鉴</h1><span class="muted" id="coll-count"></span></div>
+  <div class="safety-bar" id="safety-bar-2"></div>
+  <div class="page-body">
+    <div class="coll-tools" id="coll-filters"></div>
+    <div class="grid" id="coll-grid"></div>
+  </div>
+</div>
+
+<!-- 我的 -->
+<div class="page has-nav" id="page-profile">
+  <div class="page-header"><h1>我的</h1></div>
+  <div class="page-body">
+    <div class="card">
+      <h2>孢子与腐殖质</h2>
+      <div class="res-strip" id="res-strip"></div>
+      <div class="row" style="margin-top:10px">
+        <button class="btn ghost" id="btn-synth">🧫 合成菌卡</button>
+        <button class="btn ghost" id="btn-basket">🧺 每日菌篮</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>每日任务</h2>
+      <div id="task-list"></div>
+    </div>
+
+    <div class="card">
+      <h2>设置</h2>
+      <div class="row">
+        <span class="lbl">答题难度</span><span class="spacer"></span>
+        <select id="sel-difficulty" style="padding:6px 8px;border-radius:8px;border:1px solid var(--line)"></select>
+      </div>
+      <div class="row">
+        <span class="lbl">看图题数量</span><span class="spacer"></span>
+        <input type="range" id="rng-image" min="0" max="5" step="1">
+        <span id="rng-image-val" style="min-width:1.5em;text-align:right"></span>
+      </div>
+    </div>
+
+    <div class="card safety-card">
+      <h2>🚑 野生菌中毒急救</h2>
+      <ol id="emergency-list"></ol>
+      <p class="muted" style="margin:8px 0 0;font-size:12px">内容依据疾控部门公开科普整理。本游戏不提供任何采食建议。</p>
+    </div>
+
+    <div class="card">
+      <h2>关于</h2>
+      <p class="muted" style="margin:0">
+        本图鉴收录 <b id="about-count">181</b> 种真实菌类，全部形象由代码依据形态特征绘制，不使用照片。
+        食性标签仅转述公开资料，<b>不能用于野外鉴定，更不能作为采食依据</b>。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 选林地 -->
+<div class="page" id="page-biome">
+  <div class="page-header"><button class="back" data-back>← 返回</button><h1>去哪片林子？</h1></div>
+  <div class="page-body">
+    <p class="muted" style="margin-top:0">选定的林地里，对应的菌出现概率更高。</p>
+    <div class="biome-grid" id="biome-grid"></div>
+    <button class="btn wide cta" id="btn-go" style="margin-top:16px">出发</button>
+  </div>
+</div>
+
+<!-- 答题 -->
+<div class="page" id="page-quiz">
+  <div class="page-header"><button class="back" data-back>← 退出</button><h1 id="quiz-title">答题</h1></div>
+  <div class="page-body">
+    <div class="quiz-top">
+      <span class="muted" id="quiz-idx">1 / 5</span>
+      <div class="quiz-progress"><i id="quiz-bar" style="width:0"></i></div>
+    </div>
+    <div class="timer-bar" id="timer-wrap"><i id="timer-bar" style="width:100%"></i></div>
+    <div class="q-art" id="q-art"></div>
+    <div class="q-text" id="q-text"></div>
+    <div class="opts" id="q-opts"></div>
+    <div id="q-explain"></div>
+  </div>
+</div>
+
+<!-- 抽卡结算 -->
+<div class="page" id="page-reveal">
+  <div class="page-body">
+    <div class="reveal" id="reveal-body"></div>
+  </div>
+  <div class="garden-actions" id="reveal-actions"></div>
+</div>
+
+<!-- 详情 -->
+<div class="page" id="page-detail">
+  <div class="page-header"><button class="back" data-back>← 返回</button><h1 id="detail-title">详情</h1></div>
+  <div class="page-body" id="detail-body"></div>
+</div>
+
+<nav class="bottom-nav" id="nav">
+  <button data-page="garden" class="on"><span class="ico">🌲</span>菌菇园</button>
+  <button data-page="collection"><span class="ico">📖</span>图鉴</button>
+  <button data-page="profile"><span class="ico">🧺</span>我的</button>
+</nav>
+
+<div class="overlay" id="overlay"><div class="sheet" id="sheet"></div></div>
+<div class="foray-anim" id="foray-anim">
+  <div class="big">🧺</div>
+  <div id="foray-text">进山采菌中…</div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="js/game/config.js?v=20260902a"></script>
+<script src="js/core/storage.js?v=20260902a"></script>
+<script src="js/core/gacha.js?v=20260902a"></script>
+<script src="js/core/quiz.js?v=20260902a"></script>
+<script src="js/game/weather.js?v=20260902a"></script>
+<script src="js/game/shroom-art.js?v=20260902a"></script>
+<script src="js/game/garden.js?v=20260902a"></script>
+<script src="js/data.gen.js?v=20260902a"></script>
+<script src="js/game/app.js?v=20260902a"></script>
+</body>
+</html>
