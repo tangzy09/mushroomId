@@ -1,4 +1,8 @@
-# 菌菇图鉴 mushroomId — CLAUDE.md
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+# 菌菇图鉴 mushroomId
 
 ## 项目简介
 
@@ -35,7 +39,9 @@ mushroomId/
 │   ├── core/                   ← 收集游戏内核，禁止出现领域词
 │   │   ├── storage.js          ← 内存单例 + 显式 commit + 版本迁移表
 │   │   ├── gacha.js            ← 概率、保底、天气修正、按稀有度选实体
-│   │   └── quiz.js             ← 选题、选项乱序、判题
+│   │   ├── quiz.js             ← 选题、选项乱序、判题
+│   │   ├── share.js            ← 分享卡片 Canvas（强制水印）
+│   │   └── transfer.js         ← 存档导出导入（`.spore`，AES-GCM）
 │   ├── game/                   ← 蘑菇领域层
 │   │   ├── config.js           ← core 唯一的领域入口，所有常量在这里
 │   │   ├── weather.js          ← 日期 hash 天气 + 生长推进 + 槽位分配（纯函数）
@@ -54,7 +60,9 @@ mushroomId/
 ├── test/
 │   ├── check_data.py           ← 数据校验（含题库可达性）
 │   ├── core.test.js            ← 内核纯函数测试
-│   └── e2e.html                ← 浏览器里跑完整循环
+│   ├── transfer.test.js        ← 存档导出导入往返
+│   ├── e2e.html                ← 浏览器里跑完整循环
+│   └── cards.html              ← 分享卡片肉眼验收页
 └── docs/
     ├── design/DESIGN.md        ← 产品与技术设计报告
     └── research/01–05          ← 五份原始调研
@@ -70,9 +78,34 @@ node test/transfer.test.js       # 存档导出导入
 python3 tools/serve.py 3141      # http://localhost:3141/index.html
 ```
 
-浏览器里跑完整循环：`http://localhost:3141/test/e2e.html`，右侧会打印每一步。
+Windows / Git Bash 上没有 `python3`，一律用 `python`。
+
+四条命令里只有前三条是门：`check_data.py` 与两个 node 测试**退出码非零就是不能提交**。
+`core.test.js` 是一张平铺的 `t(name, fn)` 列表，**没有单测过滤参数**，整个文件跑完不到一秒，直接整跑。
+两个浏览器页是**肉眼验收，没有判据、没有退出码**，别把「打开了 e2e 页」当成测试通过：
+
+- `test/e2e.html` — iframe 里跑完整循环，右侧打印每一步，`JS ERROR:` 行是唯一的红灯
+- `test/cards.html` — 三张分享卡片的成图
+
+`node test/*.js` 都靠 `js/data.gen.js` 存在，**先跑 `build_data.py`**，否则测试直接抛。
+
+## 运行时装配
+
+没有模块系统、没有打包器。每个文件是一个 IIFE 挂全局：
+`GameConfig` / `Storage` / `Gacha` / `Quiz` / `Share` / `Transfer` / `World` / `ShroomArt` / `Garden`。
+
+`index.html` 底部的 `<script>` **顺序即依赖**：config → core 五件 → weather/art/garden → `data.gen.js` → `app.js`。
+新增文件要同时加进这里、`test/core.test.js` 顶部的 `load()` 列表（那边用 `vm` 把源码灌进一个假上下文），
+以及需要它的 `test/*.html`。core 与部分 game 文件末尾都有一行 `module.exports` 守卫，就是为了 node 侧能读。
+
+每个 script 标签带 `?v=YYYYMMDDx` 缓存戳，**发布前统一升一次**；本地开发不受影响，`serve.py` 发 `no-store`。
 
 ## 架构约定
+
+依赖方向是单向的：`app.js` → `core/*` + `game/*` → `GameConfig` + `data.gen.js`。
+`app.js` 是唯一碰 DOM 的文件（单页 7 个 `.page` div，`show(id)` 切换），规则一律不写在里面；
+`weather.js` 是纯函数（日期 hash 出天气、推进生长、分配槽位），`garden.js` 只负责把状态画到 Canvas。
+改行为先问「这属于内核、领域规则、还是画面」，别在 `app.js` 里塞第四种。
 
 ### 1. 单一数据真相源
 
@@ -81,9 +114,13 @@ python3 tools/serve.py 3141      # http://localhost:3141/index.html
 
 ### 2. core 层不许出现领域词
 
-`js/core/` 里 grep 不到 `mushroom` / `garden` / `foray` / `蘑菇` / `菌`。
-`test/core.test.js` 有一条测试专门 grep 这三个文件，加词会红。
 core 通过 `GameConfig` 取一切领域信息；新增领域概念先加到 config，不要塞进 core。
+
+`test/core.test.js` 最后一条测试 grep `mushroom|fungus|fungi|spore|garden|foray|蘑菇|菌`（剥掉注释后），
+但**只扫 `storage.js` / `gacha.js` / `quiz.js` 三个文件**。
+后加的 `share.js`（一句中文文案）与 `transfer.js`（`SECRET`、下载文件名、报错文案）确实带着领域词，
+属于已知欠账：这两处的字面量该走 `GameConfig`，补完再把文件加进那张扫描表。
+**新写 core 文件时直接加进扫描表**，别让欠账变成三笔。
 
 ### 3. 结构化题目由数据生成
 
