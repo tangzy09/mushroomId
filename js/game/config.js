@@ -70,18 +70,30 @@ var GameConfig = {
   slots: { max: 10 },
 
   garden: {
+    // Slots are spread from the horizon (y≈0.5) down to the near edge (y≈0.92)
+    // and drawn smaller the further back they sit. Ten mature mushrooms in one
+    // narrow band overlapped into an unreadable wall; depth is what separates
+    // them. Ids are part of the save — move a slot, never rename one.
     slots: [
-      { id: 'W1', kind: 'wood',    x: 0.36, y: 0.62 },
-      { id: 'W2', kind: 'wood',    x: 0.44, y: 0.60 },
-      { id: 'W3', kind: 'wood',    x: 0.52, y: 0.60 },
-      { id: 'W4', kind: 'wood',    x: 0.60, y: 0.62 },
-      { id: 'S1', kind: 'shelf',   x: 0.34, y: 0.70 },
-      { id: 'L1', kind: 'ground',  x: 0.12, y: 0.74 },
-      { id: 'L2', kind: 'ground',  x: 0.22, y: 0.81 },
-      { id: 'R1', kind: 'ground',  x: 0.79, y: 0.74 },
-      { id: 'R2', kind: 'ground',  x: 0.89, y: 0.81 },
-      { id: 'S2', kind: 'special', x: 0.68, y: 0.89 }
+      // Listed near-to-far: World.slotFor takes the first free match, so the
+      // garden fills from the front. The first three mushrooms a new player
+      // owns should stand close and large, not as specks on the horizon.
+      // The floating garden controls occupy x 0.86–0.98 below y 0.70, so
+      // nothing near the viewer may sit under them.
+      // Wood slots sit on a log's top surface, so their y matches the log.
+      { id: 'R2', kind: 'ground',  x: 0.64,  y: 0.905 },
+      { id: 'W4', kind: 'wood',    x: 0.63,  y: 0.710 },  // main log, right
+      { id: 'S2', kind: 'special', x: 0.33,  y: 0.895 },
+      { id: 'W3', kind: 'wood',    x: 0.44,  y: 0.714 },  // main log, left
+      { id: 'L2', kind: 'ground',  x: 0.17,  y: 0.800 },
+      { id: 'S1', kind: 'shelf',   x: 0.615, y: 0.498 },  // bracket on the stump
+      { id: 'R1', kind: 'ground',  x: 0.855, y: 0.600 },
+      { id: 'W2', kind: 'wood',    x: 0.44,  y: 0.543 },  // far log, right
+      { id: 'L1', kind: 'ground',  x: 0.10,  y: 0.585 },
+      { id: 'W1', kind: 'wood',    x: 0.28,  y: 0.547 }   // far log, left
     ],
+    // Draw scale across that span: far ones read as small, near ones as large.
+    depth: { near: 1.06, far: 0.52, yFar: 0.50, yNear: 0.92 },
     // MVP growth: pin -> mature in 30 minutes, then one spore a day.
     // The four-stage machine is in the data model already; V1.0 turns it on.
     stages: [

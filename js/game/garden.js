@@ -13,6 +13,7 @@ var Garden = (function () {
   var windUntil = 0;
   var onTap = null;
   var bg = null;             // cached static backdrop
+  var DRAW_SIZE = 140;       // unscaled draw size; depth scales from here
 
   function rnd() { return Math.random(); }
 
@@ -55,29 +56,81 @@ var Garden = (function () {
       sky.addColorStop(0.55, '#12293D');
       sky.addColorStop(1, '#16241C');
     } else if (weather === 'rain' || weather === 'cloudy') {
-      sky.addColorStop(0, '#8FA08C');
-      sky.addColorStop(0.5, '#A8B79E');
-      sky.addColorStop(1, '#5E6B4A');
+      sky.addColorStop(0, '#66755F');
+      sky.addColorStop(0.5, '#8A9A80');
+      sky.addColorStop(1, '#4B5739');
     } else {
-      sky.addColorStop(0, '#BBD08F');
-      sky.addColorStop(0.45, '#93AE73');
-      sky.addColorStop(1, '#59683F');
+      sky.addColorStop(0, '#8FA85F');
+      sky.addColorStop(0.45, '#7B9459');
+      sky.addColorStop(1, '#4A5733');
     }
     g.fillStyle = sky;
     g.fillRect(0, 0, W, H);
 
-    // far trunks, then near trunks — parallax by value, not by motion
-    function trunks(n, alpha, wid, hue) {
-      g.fillStyle = hue;
+    var HZ = 0.44;                  // horizon: everything below it is forest floor
+
+    // far trunks, then near trunks — parallax by value, not by motion.
+    // Trunks taper and stop at the horizon, so the eye reads depth even
+    // though nothing moves.
+    function trunks(n, alpha, wid, hue, foot) {
       g.globalAlpha = alpha;
       for (var i = 0; i < n; i++) {
         var x = (i + 0.5) / n * W + (i % 2 ? 18 : -22);
-        g.fillRect(x - wid / 2, 0, wid, H * 0.78);
+        var top = wid * 0.62, bot = wid;
+        // shade across the trunk so it reads as a cylinder, not a stripe
+        var tg = g.createLinearGradient(x - bot / 2, 0, x + bot / 2, 0);
+        tg.addColorStop(0, 'rgba(0,0,0,0.55)');
+        tg.addColorStop(0.38, 'rgba(255,255,255,0.10)');
+        tg.addColorStop(1, 'rgba(0,0,0,0.45)');
+        g.fillStyle = hue;
+        g.beginPath();
+        g.moveTo(x - top / 2, 0);
+        g.lineTo(x + top / 2, 0);
+        g.lineTo(x + bot / 2, H * foot);
+        g.lineTo(x - bot / 2, H * foot);
+        g.closePath();
+        g.fill();
+        g.fillStyle = tg;
+        g.fill();
       }
       g.globalAlpha = 1;
     }
-    trunks(5, night ? 0.35 : 0.28, W * 0.035, night ? '#0A1620' : '#4E5B3A');
-    trunks(3, night ? 0.5 : 0.42, W * 0.055, night ? '#08111A' : '#3D4A2C');
+    trunks(6, night ? 0.30 : 0.24, W * 0.030, night ? '#0A1620' : '#55613F', HZ + 0.02);
+    trunks(4, night ? 0.42 : 0.34, W * 0.048, night ? '#091420' : '#47542F', HZ + 0.05);
+    trunks(2, night ? 0.62 : 0.52, W * 0.075, night ? '#07111A' : '#39452A', HZ + 0.10);
+
+    // canopy: a leafy mass closing the top, so the upper third carries the
+    // forest instead of sitting empty
+    var canopy = g.createLinearGradient(0, 0, 0, H * 0.34);
+    if (night) {
+      canopy.addColorStop(0, '#08131C'); canopy.addColorStop(1, 'rgba(10,22,32,0)');
+    } else {
+      canopy.addColorStop(0, '#31431F'); canopy.addColorStop(1, 'rgba(70,92,48,0)');
+    }
+    g.fillStyle = canopy;
+    g.fillRect(0, 0, W, H * 0.34);
+    // one solid mass with a scalloped underside reads as foliage; scattered
+    // ellipses read as lily pads floating in the air
+    g.fillStyle = night ? '#0A1620' : '#3B5122';
+    g.beginPath();
+    g.moveTo(-20, -10);
+    g.lineTo(W + 20, -10);
+    var lobes = 9, span = (W + 40) / lobes;
+    for (var cl = lobes; cl > 0; cl--) {
+      var cx2 = -20 + span * cl;
+      g.quadraticCurveTo(cx2 - span * 0.5, H * (0.12 + rnd() * 0.09),
+                         cx2 - span, H * (0.045 + rnd() * 0.03));
+    }
+    g.closePath();
+    g.fill();
+    // a lighter fringe of leaves hanging off it
+    g.fillStyle = night ? 'rgba(18,34,26,0.8)' : 'rgba(76,100,44,0.8)';
+    for (var lf = 0; lf < 40; lf++) {
+      g.beginPath();
+      g.ellipse(rnd() * W, H * (0.05 + rnd() * rnd() * 0.13),
+                9 + rnd() * 13, 5 + rnd() * 7, rnd(), 0, 6.28);
+      g.fill();
+    }
 
     // shafts of light, only when the sun is out
     if (!night && weather === 'sunny') {
@@ -86,21 +139,23 @@ var Garden = (function () {
       for (var s = 0; s < 3; s++) {
         var bx = W * (0.2 + s * 0.3);
         g.beginPath();
-        g.moveTo(bx, 0);
-        g.lineTo(bx + W * 0.09, 0);
-        g.lineTo(bx + W * 0.20, H * 0.8);
-        g.lineTo(bx - W * 0.02, H * 0.8);
+        g.moveTo(bx, H * 0.06);
+        g.lineTo(bx + W * 0.09, H * 0.06);
+        g.lineTo(bx + W * 0.24, H * 0.86);
+        g.lineTo(bx - W * 0.04, H * 0.86);
         g.closePath();
         g.fill();
       }
       g.globalAlpha = 1;
     }
 
-    // ground
-    var gy = H * 0.66;
+    // ground — hazy and pale where it meets the horizon, deep where it meets
+    // the viewer, so the floor reads as receding rather than as a green wall
+    var gy = H * HZ;
     var gr = g.createLinearGradient(0, gy, 0, H);
-    gr.addColorStop(0, night ? '#1B2A1E' : '#4E6136');
-    gr.addColorStop(1, night ? '#101A12' : '#33421F');
+    gr.addColorStop(0, night ? '#22321F' : '#6C7C4A');
+    gr.addColorStop(0.22, night ? '#1B2A1E' : '#57683A');
+    gr.addColorStop(1, night ? '#0D160F' : '#2C391B');
     g.fillStyle = gr;
     g.beginPath();
     g.moveTo(0, gy + 10);
@@ -109,56 +164,162 @@ var Garden = (function () {
     g.closePath();
     g.fill();
 
-    // leaf litter
-    for (var l = 0; l < 70; l++) {
-      var lx = rnd() * W, ly = gy + 8 + rnd() * (H - gy - 8);
+    // mist gathering at the far end of the floor — the cheapest way to make
+    // the trunks read as far away rather than as a flat backdrop
+    var mist = g.createLinearGradient(0, gy - H * 0.22, 0, gy + H * 0.05);
+    mist.addColorStop(0, night ? 'rgba(120,150,180,0)' : 'rgba(226,236,214,0)');
+    mist.addColorStop(0.75, night ? 'rgba(120,150,180,0.18)' : 'rgba(226,236,214,0.40)');
+    mist.addColorStop(1, night ? 'rgba(120,150,180,0)' : 'rgba(226,236,214,0)');
+    g.fillStyle = mist;
+    g.fillRect(0, gy - H * 0.22, W, H * 0.27);
+
+    // undergrowth along the horizon hides the seam between trunks and floor
+    g.fillStyle = night ? 'rgba(16,28,20,0.75)' : 'rgba(62,80,42,0.75)';
+    for (var u = 0; u < 34; u++) {
+      g.beginPath();
+      g.ellipse(rnd() * W, gy + 2 + rnd() * H * 0.02,
+                12 + rnd() * 22, 5 + rnd() * 8, 0, 0, 6.28);
+      g.fill();
+    }
+    // a few ferns breaking the horizon line
+    g.strokeStyle = night ? 'rgba(20,36,24,0.85)' : 'rgba(70,92,44,0.85)';
+    g.lineCap = 'round';
+    for (var fn = 0; fn < 14; fn++) {
+      var fx = rnd() * W, fh = H * (0.025 + rnd() * 0.03);
+      g.lineWidth = 2;
+      for (var fb = 0; fb < 5; fb++) {
+        var ang = -1.9 + fb * 0.48;
+        g.beginPath();
+        g.moveTo(fx, gy + 6);
+        g.quadraticCurveTo(fx + Math.cos(ang) * fh * 0.6, gy + 6 + Math.sin(ang) * fh * 0.8,
+                           fx + Math.cos(ang) * fh, gy + 6 + Math.sin(ang) * fh * 0.9);
+        g.stroke();
+      }
+    }
+
+    // leaf litter — smaller and sparser towards the horizon
+    for (var l = 0; l < 150; l++) {
+      var q = rnd();
+      var ly = gy + 6 + q * q * (H - gy - 6);          // bunched near the viewer
+      var lx = rnd() * W;
+      var k = 0.4 + 0.75 * ((ly - gy) / (H - gy));
       g.fillStyle = night ? 'rgba(40,55,38,0.7)' : ['#6B7A3E', '#7E8B48', '#8E7A3C', '#5E6B33'][l % 4];
       g.save();
       g.translate(lx, ly);
       g.rotate(rnd() * 3.14);
       g.beginPath();
-      g.ellipse(0, 0, 7 + rnd() * 5, 3 + rnd() * 2, 0, 0, 6.28);
+      g.ellipse(0, 0, (7 + rnd() * 5) * k, (3 + rnd() * 2) * k, 0, 0, 6.28);
       g.fill();
       g.restore();
     }
 
-    // the fallen log, centre stage
-    var lw = W * 0.34, lh = H * 0.085, lx0 = W * 0.33, ly0 = H * 0.60;
-    var lg = g.createLinearGradient(0, ly0, 0, ly0 + lh);
-    lg.addColorStop(0, night ? '#3A3128' : '#7A6449');
-    lg.addColorStop(1, night ? '#241E18' : '#4E3F2C');
-    g.fillStyle = lg;
-    g.beginPath();
-    g.moveTo(lx0, ly0 + lh);
-    g.quadraticCurveTo(lx0 + lw * 0.5, ly0 - lh * 0.35, lx0 + lw, ly0 + lh * 0.85);
-    g.lineTo(lx0 + lw, ly0 + lh * 1.5);
-    g.quadraticCurveTo(lx0 + lw * 0.5, ly0 + lh * 1.9, lx0, ly0 + lh * 1.6);
-    g.closePath();
-    g.fill();
-    // end grain
-    g.fillStyle = night ? '#4A3E30' : '#8E7452';
-    g.beginPath();
-    g.ellipse(lx0 + 2, ly0 + lh * 1.15, lh * 0.34, lh * 0.62, 0, 0, 6.28);
-    g.fill();
-    g.strokeStyle = 'rgba(0,0,0,0.25)';
-    g.lineWidth = 1;
-    for (var r = 1; r <= 3; r++) {
+    /**
+     * A fallen log whose top surface lands on `top`, sized by depth `k`.
+     * Drawn as a lying cylinder: flat top line, elliptical end, bark running
+     * lengthways. The earlier blobby outline read as a mound of earth.
+     */
+    function fallenLog(cx, top, w, k) {
+      var lh = H * 0.052 * k;                 // trunk diameter on screen
+      var lx0 = cx - w / 2, ly0 = top;        // ly0 is the top of the trunk
+      var rx = lh * 0.30;                     // half-width of the end ellipse
+
+      var lg = g.createLinearGradient(0, ly0, 0, ly0 + lh);
+      lg.addColorStop(0, night ? '#453A2E' : '#8B7253');
+      lg.addColorStop(0.45, night ? '#332B22' : '#6B5740');
+      lg.addColorStop(1, night ? '#1E1913' : '#42351F');
+      g.fillStyle = lg;
       g.beginPath();
-      g.ellipse(lx0 + 2, ly0 + lh * 1.15, lh * 0.34 * r / 3.4, lh * 0.62 * r / 3.4, 0, 0, 6.28);
-      g.stroke();
-    }
-    // moss on top of the log
-    g.fillStyle = night ? 'rgba(40,70,45,0.55)' : 'rgba(110,150,70,0.55)';
-    for (var m = 0; m < 26; m++) {
-      var mx = lx0 + rnd() * lw;
-      g.beginPath();
-      g.ellipse(mx, ly0 + lh * 0.15 + rnd() * 6, 5 + rnd() * 7, 2.5 + rnd() * 2, 0, 0, 6.28);
+      g.moveTo(lx0, ly0);
+      g.lineTo(lx0 + w, ly0 - lh * 0.10);           // the far end lifts slightly
+      g.quadraticCurveTo(lx0 + w + rx, ly0 + lh * 0.45, lx0 + w, ly0 + lh * 0.92);
+      g.lineTo(lx0, ly0 + lh);
+      g.closePath();
       g.fill();
+
+      // bark running lengthways
+      g.strokeStyle = 'rgba(0,0,0,0.18)';
+      g.lineWidth = Math.max(1, 1.4 * k);
+      for (var bk = 1; bk <= 3; bk++) {
+        var byk = ly0 + lh * (bk / 4);
+        g.beginPath();
+        g.moveTo(lx0 + w * 0.06, byk);
+        g.quadraticCurveTo(lx0 + w * 0.5, byk - lh * 0.06, lx0 + w * 0.94, byk - lh * 0.08);
+        g.stroke();
+      }
+
+      // end grain, facing the viewer
+      g.fillStyle = night ? '#4A3E30' : '#9A8060';
+      g.beginPath();
+      g.ellipse(lx0, ly0 + lh * 0.5, rx, lh * 0.52, 0, 0, 6.28);
+      g.fill();
+      g.strokeStyle = 'rgba(0,0,0,0.28)';
+      g.lineWidth = 1;
+      for (var r = 1; r <= 3; r++) {
+        g.beginPath();
+        g.ellipse(lx0, ly0 + lh * 0.5, rx * r / 3.6, lh * 0.52 * r / 3.6, 0, 0, 6.28);
+        g.stroke();
+      }
+
+      // moss along the top edge
+      g.fillStyle = night ? 'rgba(40,70,45,0.6)' : 'rgba(112,152,68,0.6)';
+      for (var m = 0; m < 22; m++) {
+        var mt = rnd();
+        g.beginPath();
+        g.ellipse(lx0 + mt * w, ly0 - lh * 0.10 * mt + rnd() * lh * 0.22,
+                  (4 + rnd() * 7) * k, (2 + rnd() * 2) * k, 0, 0, 6.28);
+        g.fill();
+      }
     }
+
+    /** A standing stump — the perch for bracket fungi. */
+    function stump(cx, base, w, k) {
+      var h = H * 0.16 * k, x0 = cx - w / 2, y0 = base - h;
+      var sg = g.createLinearGradient(x0, 0, x0 + w, 0);
+      sg.addColorStop(0, night ? '#231D17' : '#5C4A34');
+      sg.addColorStop(0.45, night ? '#3A3027' : '#7B6449');
+      sg.addColorStop(1, night ? '#1D1813' : '#4A3B29');
+      g.fillStyle = sg;
+      g.beginPath();
+      g.moveTo(x0, base);
+      g.lineTo(x0 + w * 0.10, y0);
+      g.lineTo(x0 + w * 0.90, y0);
+      g.lineTo(x0 + w, base);
+      g.closePath();
+      g.fill();
+      g.fillStyle = night ? '#4A3E30' : '#8E7452';
+      g.beginPath();
+      g.ellipse(cx, y0, w * 0.40, w * 0.13, 0, 0, 6.28);
+      g.fill();
+      g.strokeStyle = 'rgba(0,0,0,0.22)';
+      g.lineWidth = 1;
+      for (var rr = 1; rr <= 3; rr++) {
+        g.beginPath();
+        g.ellipse(cx, y0, w * 0.40 * rr / 3.6, w * 0.13 * rr / 3.6, 0, 0, 6.28);
+        g.stroke();
+      }
+    }
+
+    // Two logs and a stump, one per slot band, so every wood slot has
+    // something under it instead of floating on bare litter.
+    fallenLog(W * 0.36, H * 0.545, W * 0.32, 0.62);
+    stump(W * 0.66, H * 0.545, W * 0.13, 0.62);
+    fallenLog(W * 0.535, H * 0.712, W * 0.46, 1);
     return c;
   }
 
   // --- items -------------------------------------------------------------
+
+  /** Draw scale for a slot: the further up the slope it sits, the smaller. */
+  function depthOf(y) {
+    var d = cfg.garden.depth;
+    var k = (y - d.yFar) / (d.yNear - d.yFar);
+    return d.far + (d.near - d.far) * Math.max(0, Math.min(1, k));
+  }
+
+  /** How far above its base a species is drawn, at this garden's draw size. */
+  function topOf(sp) {
+    return ShroomArt.heightOf(sp) * DRAW_SIZE;
+  }
 
   function rebuild() {
     items = [];
@@ -171,7 +332,8 @@ var Garden = (function () {
       if (!slot) slot = cfg.garden.slots[0];
       items.push({
         rec: rec, sp: sp, slot: slot,
-        x: slot.x * W, y: slot.y * H,
+        x: slot.x * W, y: slot.y * H, depth: depthOf(slot.y),
+        top: topOf(sp), footprint: 44 * (0.58 + 0.42 * (sp.size || 0.7)),
         bruises: [], react: 0, puff: [], bubble: 0, wet: 0
       });
     });
@@ -183,7 +345,8 @@ var Garden = (function () {
   function hit(px, py) {
     var best = null, bestD = 1e9;
     items.forEach(function (it) {
-      var r = 54 * (0.6 + (it.sp.size || 0.7) * 0.5);
+      // the drawn size is what the finger aims at, so the target follows depth
+      var r = Math.max(26, 54 * (0.6 + (it.sp.size || 0.7) * 0.5) * it.depth);
       var dx = px - it.x, dy = py - (it.y - r * 0.5);
       var d = dx * dx + dy * dy;
       if (d < r * r && d < bestD) { bestD = d; best = it; }
@@ -283,13 +446,22 @@ var Garden = (function () {
     // mushrooms, far to near
     items.forEach(function (it) {
       var g = World.growth(it.rec, cfg.garden);
-      var depth = 0.85 + 0.35 * ((it.slot.y - 0.6) / 0.3);
+      var depth = it.depth;
       var glow = night && it.sp.art.glowColor ?
         0.75 + 0.25 * Math.sin(t * 2 + it.x) : 0;
 
       ctx.save();
       ctx.translate(it.x, it.y);
       ctx.scale(depth, depth);
+
+      // contact shadow: without it every mushroom looks pasted onto the
+      // background instead of standing on the forest floor
+      var gsz = g.stage === 'pin' ? 0.34 : g.stage === 'young' ? 0.68 : 1;
+      ctx.fillStyle = night ? 'rgba(0,0,0,0.34)' : 'rgba(22,32,14,0.28)';
+      ctx.beginPath();
+      ctx.ellipse(0, 2, it.footprint * gsz, it.footprint * gsz * 0.28, 0, 0, 6.28);
+      ctx.fill();
+
       if (it.react > 0) {
         var k = 1 + Math.sin(it.react * 9) * 0.06 * it.react;
         ctx.scale(1, k);
@@ -297,7 +469,7 @@ var Garden = (function () {
       it.bruises.forEach(function (b) { b.t += dt * 0.18; });
       it.bruises = it.bruises.filter(function (b) { return b.t < 1; });
 
-      ShroomArt.draw(ctx, it.sp, 140, {
+      ShroomArt.draw(ctx, it.sp, DRAW_SIZE, {
         stage: g.stage,
         glow: glow,
         bruises: it.bruises,
@@ -327,15 +499,22 @@ var Garden = (function () {
 
       // a ready spore is the reason to come back, so it has to be visible
       if (g.sporeReady) {
-        var by = it.y - 96 * depth + Math.sin(t * 2.2) * 3;
+        // ride just above this species' own silhouette; a fixed offset left
+        // the badge floating in mid-air over the short ones
+        var bx0 = it.x + 26 * depth;
+        var by = it.y - it.top * depth + Math.sin(t * 2.2) * 3;
+        ctx.fillStyle = 'rgba(0,0,0,0.18)';
+        ctx.beginPath();
+        ctx.arc(bx0, by + 1.5, 8, 0, 6.28);
+        ctx.fill();
         ctx.fillStyle = '#E0B400';
         ctx.beginPath();
-        ctx.arc(it.x + 24, by, 7, 0, 6.28);
+        ctx.arc(bx0, by, 7, 0, 6.28);
         ctx.fill();
         ctx.fillStyle = '#2A2314';
         ctx.font = 'bold 9px system-ui';
         ctx.textAlign = 'center';
-        ctx.fillText('孢', it.x + 24, by + 3);
+        ctx.fillText('孢', bx0, by + 3);
       }
 
       // name bubble after a tap
@@ -346,7 +525,7 @@ var Garden = (function () {
         ctx.font = '12px system-ui,sans-serif';
         var tw = ctx.measureText(label).width + 16;
         var bx = Math.max(4, Math.min(W - tw - 4, it.x - tw / 2));
-        var byy = it.y - 120 * depth;
+        var byy = it.y - (it.top + 30) * depth;
         ctx.globalAlpha = Math.min(1, it.bubble);
         ctx.fillStyle = 'rgba(20,26,18,0.82)';
         roundRect(ctx, bx, byy, tw, 22, 6);
@@ -359,6 +538,30 @@ var Garden = (function () {
       if (it.react > 0) it.react = Math.max(0, it.react - dt * 1.6);
       if (it.wet > 0) it.wet -= dt;
     });
+
+    // After dark the backdrop went dark but the mushrooms stayed lit, which
+    // read as daytime cut-outs pasted on a night scene. Tint everything, then
+    // let the bioluminescent ones burn back through — that contrast is the
+    // whole point of the glow species.
+    if (night) {
+      ctx.fillStyle = 'rgba(10,22,42,0.44)';
+      ctx.fillRect(0, 0, W, H);
+      items.forEach(function (it) {
+        var gc = it.sp.art.glowColor;
+        if (!gc) return;
+        var cy = it.y - it.top * it.depth * 0.55;
+        var r = Math.max(20, it.top * it.depth * 0.95);
+        var rg = ctx.createRadialGradient(it.x, cy, 0, it.x, cy, r);
+        rg.addColorStop(0, gc);
+        rg.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.globalAlpha = 0.30 + 0.22 * Math.sin(t * 2 + it.x);
+        ctx.fillStyle = rg;
+        ctx.beginPath();
+        ctx.arc(it.x, cy, r, 0, 6.28);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      });
+    }
 
     // falling leaves
     leaves = leaves.filter(function (l) { return l.life > 0 && l.x > -40; });

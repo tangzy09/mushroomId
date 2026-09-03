@@ -44,8 +44,14 @@
     var cv = document.createElement('canvas');
     cv.width = px; cv.height = px;
     var c = cv.getContext('2d');
-    c.translate(px / 2, px * 0.93);
-    ShroomArt.draw(c, sp, px * 0.82, opts || { stage: 'mature' });
+    var base = px * 0.93, size = px * 0.82;
+    // Tall species used to run off the top of the box. Shrink whatever does
+    // not fit rather than clipping its cap.
+    var room = base - px * 0.04;
+    var h = ShroomArt.heightOf(sp) * size;
+    if (h > room) size *= room / h;
+    c.translate(px / 2, base);
+    ShroomArt.draw(c, sp, size, opts || { stage: 'mature' });
     return cv;
   }
 

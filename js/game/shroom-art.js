@@ -394,6 +394,10 @@ var ShroomArt = (function () {
     var stipeW = S * (a.fatStipe ? 0.13 : a.slim ? 0.045 : 0.075);
     var cluster = a.cluster || 1;
     var lean = a.lateral ? 0.35 : 0;
+    // Puffballs and lion's mane have no stalk. The cap used to be lifted by
+    // one anyway, which left them hovering a stipe's height off the ground.
+    var hasStipe = !!a.stipeColor && a.stipeColor !== 'none' && shape !== 'ball';
+    var capLift = hasStipe ? stipeH : 0;
 
     for (var c = 0; c < cluster; c++) {
       var offX = cluster > 1 ? (rnd() - 0.5) * S * 0.55 : 0;
@@ -406,7 +410,7 @@ var ShroomArt = (function () {
       ctx.rotate(sway + lean);
       ctx.scale(scale, scale);
 
-      if (a.stipeColor && a.stipeColor !== 'none' && shape !== 'ball') {
+      if (hasStipe) {
         var sg = ctx.createLinearGradient(-stipeW, 0, stipeW, 0);
         sg.addColorStop(0, darken(a.stipeColor, 26));
         sg.addColorStop(0.4, a.stipeColor);
@@ -488,7 +492,7 @@ var ShroomArt = (function () {
 
       // --- cap ---------------------------------------------------------
       ctx.save();
-      ctx.translate(0, -stipeH);
+      ctx.translate(0, -capLift);
       var col = a.capColor, col2 = a.capColor2 || lighten(col, 26);
       if (fade < 1) {
         col = lighten(col, 26);
@@ -685,7 +689,32 @@ var ShroomArt = (function () {
     return cv;
   }
 
-  return { draw: draw, toIcon: toIcon, seeded: seeded };
+  /**
+   * How tall a species actually draws, per unit of `size`, measured rather
+   * than predicted: a stipe height plus a cap height is wrong for puffballs,
+   * brackets, corals and every other whole-form shape, and any formula here
+   * would drift the moment the drawing changes. Measured once per species.
+   */
+  var heights = {};
+  function heightOf(sp) {
+    if (heights[sp.id] != null) return heights[sp.id];
+    var N = 220, probe = 100, base = N - 10;
+    var c = document.createElement('canvas');
+    c.width = N; c.height = N;
+    var g = c.getContext('2d');
+    g.translate(N / 2, base);
+    draw(g, sp, probe, { stage: 'mature' });
+    var d = g.getImageData(0, 0, N, N).data, top = base;
+    for (var y = 0; y < base && top === base; y++) {
+      for (var x = 0; x < N; x += 2) {
+        if (d[(y * N + x) * 4 + 3] > 12) { top = y; break; }
+      }
+    }
+    heights[sp.id] = (base - top) / probe;
+    return heights[sp.id];
+  }
+
+  return { draw: draw, toIcon: toIcon, seeded: seeded, heightOf: heightOf };
 })();
 
 if (typeof module !== 'undefined' && module.exports) module.exports = ShroomArt;
