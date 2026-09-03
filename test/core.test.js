@@ -259,39 +259,86 @@ t('weatherFor: a year of dates hits every weather at least once', () => {
 
 // --- World.growth -----------------------------------------------------
 const gcfg = GameConfig.garden;
+const FULL_MS = gcfg.stages[gcfg.stages.length - 1].minutes * 60000;
+const YIELD_MS = gcfg.yieldHours * 3600000;
+
+/** A slot record shaped exactly like the one Storage.place writes. */
+function slotRec(placedAt, extra) {
+  return Object.assign({ id: 'x', slot: 'W1', placedAt: placedAt,
+                         lastYieldAt: placedAt, boostMs: 0 }, extra || {});
+}
+
+t('growth: reads the record Storage.place actually writes', () => {
+  // The reader once looked for plantedAt / wateredMs / lastSporeAt while the
+  // writer stored placedAt / boostMs / lastYieldAt, so every mushroom in the
+  // game sat at 'pin' forever. Build the record through Storage, not by hand.
+  Storage.init(GameConfig, memStore());
+  const id = MUSHROOM_DATA[0].id;
+  Storage.add(id);
+  ok(Storage.place(id, 'W1'), 'place should succeed');
+  const rec = Storage.placed()[0];
+  const grown = World.growth(rec, gcfg, rec.placedAt + FULL_MS);
+  eq(grown.stage, 'mature', 'a record from Storage must be legible to growth');
+  ok(Number.isFinite(grown.minutesLeft === null ? 0 : grown.minutesLeft),
+     'no NaN leaking out of the clock');
+});
+
 t('growth: a fresh planting is a pin', () => {
-  const g = World.growth({ plantedAt: 1000, wateredMs: 0, lastSporeAt: 1000 }, gcfg, 1000);
+  const g = World.growth(slotRec(1000), gcfg, 1000);
   eq(g.stage, 'pin');
+  eq(g.drawStage, 'pin');
   ok(!g.mature);
 });
-t('growth: reaches mature after the configured time', () => {
-  const start = 0, mins = gcfg.stages[gcfg.stages.length - 1].minutes;
-  const g = World.growth({ plantedAt: start, wateredMs: 0, lastSporeAt: start },
-                         gcfg, start + mins * 60000);
-  eq(g.stage, 'mature');
-  ok(g.mature);
-  eq(g.minutesLeft, null);
+t('growth: walks pin -> young -> mature on the configured clock', () => {
+  const start = 0;
+  const at = ms => World.growth(slotRec(start), gcfg, start + ms).stage;
+  const young = gcfg.stages[1].minutes * 60000;
+  eq(at(young - 60000), 'pin');
+  eq(at(young), 'young');
+  eq(at(FULL_MS - 60000), 'young');
+  eq(at(FULL_MS), 'mature');
+  eq(World.growth(slotRec(start), gcfg, start + FULL_MS).minutesLeft, null);
 });
 t('growth: watering credit advances the clock', () => {
-  const start = 0;
-  const dry = World.growth({ plantedAt: start, wateredMs: 0, lastSporeAt: start }, gcfg, start + 60000);
-  const wet = World.growth({ plantedAt: start, wateredMs: 20 * 60000, lastSporeAt: start },
-                           gcfg, start + 60000);
+  const start = 0, boost = World.waterBoostMs(gcfg);
+  ok(boost > 0, 'a watering must be worth something');
+  const dry = World.growth(slotRec(start), gcfg, start + 60000);
+  const wet = World.growth(slotRec(start, { boostMs: boost * 4 }), gcfg, start + 60000);
   ok(wet.progress > dry.progress || wet.stage !== dry.stage, 'watering should help');
 });
-t('growth: a spore becomes ready a day after the last one, not before', () => {
-  const start = 0, day = gcfg.sporeIntervalHours * 3600000;
-  const mature = gcfg.stages[gcfg.stages.length - 1].minutes * 60000;
-  const slot = { plantedAt: start, wateredMs: 0, lastSporeAt: start };
-  ok(!World.growth(slot, gcfg, start + mature).sporeReady, 'too early');
-  ok(World.growth(slot, gcfg, start + day + 1000).sporeReady, 'should be ready');
+t('growth: the spore clock starts at maturity, not at planting', () => {
+  const start = 0, slot = slotRec(start);
+  ok(!World.growth(slot, gcfg, start + FULL_MS).sporeReady, 'not the moment it matures');
+  ok(!World.growth(slot, gcfg, start + YIELD_MS).sporeReady, 'not a day after planting');
+  ok(World.growth(slot, gcfg, start + FULL_MS + YIELD_MS).sporeReady, 'a day after maturing');
+});
+t('growth: a ready slot reports the fourth state but still draws as mature', () => {
+  const start = 0;
+  const g = World.growth(slotRec(start), gcfg, start + FULL_MS + YIELD_MS);
+  eq(g.stage, 'sporulate');
+  eq(g.drawStage, 'mature');
+  ok(g.mature);
 });
 t('growth: spores do not stack up while away', () => {
-  // Three days offline still yields one ready spore, not three.
-  const start = 0, day = gcfg.sporeIntervalHours * 3600000;
-  const g = World.growth({ plantedAt: start, wateredMs: 0, lastSporeAt: start },
-                         gcfg, start + day * 3);
+  // Three days offline still leaves one ready spore, not three.
+  const start = 0;
+  const g = World.growth(slotRec(start), gcfg, start + FULL_MS + YIELD_MS * 3);
   eq(g.sporeReady, true);
+  eq(g.sporeMinutesLeft, 0);
+});
+t('growth: taking a spore restarts that slot the full interval', () => {
+  const start = 0, took = start + FULL_MS + YIELD_MS;
+  const slot = slotRec(start, { lastYieldAt: took });
+  ok(!World.growth(slot, gcfg, took + 1000).sporeReady, 'not straight away');
+  ok(!World.growth(slot, gcfg, took + YIELD_MS - 60000).sporeReady, 'not a minute early');
+  ok(World.growth(slot, gcfg, took + YIELD_MS).sporeReady, 'a full interval later');
+});
+t('growth: an untouched slot advances by wall clock alone', () => {
+  // Nothing replays anything on load; the stage is a function of `now`.
+  const slot = slotRec(0);
+  eq(World.growth(slot, gcfg, 0).stage, 'pin');
+  eq(World.growth(slot, gcfg, FULL_MS + YIELD_MS).stage, 'sporulate');
+  eq(World.growth(slot, gcfg, 0).stage, 'pin', 'reading it must not mutate it');
 });
 
 // --- World.slotFor ----------------------------------------------------

@@ -103,6 +103,15 @@
     $('chip-weather').textContent = C.weather[weather].label;
     $('chip-count').textContent = '已收集 ' + Storage.collected() + ' / ' + MUSHROOM_DATA.length;
     $('foray-left').textContent = '(' + st.dailyRuns.free + ')';
+
+    // Spores waiting is the reason a player opens the app on day two, so it
+    // is stated up front rather than left for them to spot on the canvas.
+    var ready = st.slots.filter(function (sl) {
+      return World.growth(sl, C.garden).sporeReady;
+    }).length;
+    var chip = $('chip-spores');
+    chip.hidden = ready === 0;
+    chip.textContent = '🌀 ' + ready + ' 个孢子待收';
   }
 
   Garden.init($('garden-canvas'), C, byId, Storage.get());
@@ -113,6 +122,7 @@
       item.rec.lastYieldAt = Date.now();
       Storage.addFragment(sp.rarity, 1);
       Storage.commit();
+      Garden.harvested(item);
       toast('收到 1 个' + C.rarityLabels[sp.rarity] + '孢子');
       refreshGardenChrome();
     }
@@ -143,8 +153,9 @@
     if (st.hourlyActions.count <= 0) { toast('这一小时的水浇完了，等下一小时'); return; }
     Storage.update(function (s) {
       s.hourlyActions.count -= 1;
+      var boost = World.waterBoostMs(C.garden);
       s.slots.forEach(function (sl) {
-        sl.boostMs = (sl.boostMs || 0) + C.garden.waterBoostMinutes * 60000;
+        sl.boostMs = (sl.boostMs || 0) + boost;
       });
     });
     Storage.bumpTask('water', 1);
@@ -870,18 +881,29 @@
   /** New players start with something alive in the garden. */
   function gift() {
     if (Storage.collected() > 0) return;
-    var starters = ['shiitake', 'oyster', 'glowmycena'];
-    starters.forEach(function (id) {
+    // Two already grown and one still young: the garden has something to look
+    // at from the first second, and one slot visibly changing to explain what
+    // growth is. Nothing starts with a spore ready — that is tomorrow's reason
+    // to come back.
+    var full = C.garden.stages[C.garden.stages.length - 1].minutes;
+    var starters = [
+      { id: 'shiitake',   ageMinutes: full + 30 },
+      { id: 'oyster',     ageMinutes: full + 10 },
+      { id: 'glowmycena', ageMinutes: Math.round(full * 0.25) }
+    ];
+    starters.forEach(function (st) {
+      var id = st.id;
       if (!byId[id]) return;
       Storage.add(id);
       var slot = World.slotFor(byId[id], C.garden,
         Storage.placed().map(function (s) { return s.slot; }));
       if (slot) {
         Storage.place(id, slot.id);
-        // start them grown, so the garden is not empty on day one
         Storage.update(function (s) {
           s.slots.forEach(function (sl) {
-            if (sl.id === id) sl.placedAt = Date.now() - 40 * 60000;
+            if (sl.id !== id) return;
+            sl.placedAt = Date.now() - st.ageMinutes * 60000;
+            sl.lastYieldAt = Date.now();
           });
         });
       }

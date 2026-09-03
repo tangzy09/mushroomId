@@ -456,7 +456,7 @@ var Garden = (function () {
 
       // contact shadow: without it every mushroom looks pasted onto the
       // background instead of standing on the forest floor
-      var gsz = g.stage === 'pin' ? 0.34 : g.stage === 'young' ? 0.68 : 1;
+      var gsz = g.drawStage === 'pin' ? 0.34 : g.drawStage === 'young' ? 0.68 : 1;
       ctx.fillStyle = night ? 'rgba(0,0,0,0.34)' : 'rgba(22,32,14,0.28)';
       ctx.beginPath();
       ctx.ellipse(0, 2, it.footprint * gsz, it.footprint * gsz * 0.28, 0, 0, 6.28);
@@ -470,7 +470,7 @@ var Garden = (function () {
       it.bruises = it.bruises.filter(function (b) { return b.t < 1; });
 
       ShroomArt.draw(ctx, it.sp, DRAW_SIZE, {
-        stage: g.stage,
+        stage: g.drawStage,
         glow: glow,
         bruises: it.bruises,
         // hygroscopic species read the weather: splayed after rain,
@@ -480,6 +480,16 @@ var Garden = (function () {
           : 1,
         t: windy ? t * 3 : t
       });
+
+      // A sporulating slot keeps shedding a slow trickle, so the state is
+      // legible from across the garden and not only from its badge.
+      if (g.sporeReady && rnd() < dt * 6) {
+        it.puff.push({
+          x: (rnd() - 0.5) * 24, y: -it.top * 0.55,
+          vx: (rnd() - 0.5) * 14, vy: -8 - rnd() * 10,
+          life: 1.6 + rnd() * 0.8
+        });
+      }
 
       // spore particles rising off this mushroom
       it.puff = it.puff.filter(function (p) { return p.life > 0; });
@@ -520,8 +530,15 @@ var Garden = (function () {
       // name bubble after a tap
       if (it.bubble > 0) {
         it.bubble -= dt;
-        var label = it.sp.name + (g.mature ? '' : ' · ' + g.label +
-          (g.minutesLeft != null ? ' · 还差 ' + World.humanMinutes(g.minutesLeft) : ''));
+        // Tell the player what this slot is waiting for: the next stage while
+        // it grows, the next spore once it is grown, nothing once it is ready
+        // because the badge already says so.
+        var tail;
+        if (g.sporeReady) tail = ' · ' + g.label + ' · 点一下收走';
+        else if (!g.mature) tail = ' · ' + g.label +
+          (g.minutesLeft != null ? ' · 还差 ' + World.humanMinutes(g.minutesLeft) : '');
+        else tail = ' · 下一个孢子还差 ' + World.humanMinutes(g.sporeMinutesLeft);
+        var label = it.sp.name + tail;
         ctx.font = '12px system-ui,sans-serif';
         var tw = ctx.measureText(label).width + 16;
         var bx = Math.max(4, Math.min(W - tw - 4, it.x - tw / 2));
@@ -674,6 +691,11 @@ var Garden = (function () {
     tap: tap,
     gust: gust,
     water: water,
+    /** A spore was just taken from this slot: give the eye something. */
+    harvested: function (it) {
+      it.react = 1;
+      puff(it);
+    },
     onTap: function (fn) { onTap = fn; },
     start: function () { if (!raf) { loop._last = null; loop(); } },
     stop: function () { if (raf) { cancelAnimationFrame(raf); raf = null; } }

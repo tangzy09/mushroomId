@@ -106,6 +106,18 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--primary); outli
   box-shadow: 0 1px 4px rgba(0,0,0,0.12);
   pointer-events: auto;
 }
+/* Spores waiting: the one chip worth looking at on a return visit. */
+.chip.ready {
+  background: var(--accent); color: #3A2E00; font-weight: 700;
+  animation: chip-pulse 2.4s ease-in-out infinite;
+}
+@keyframes chip-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chip.ready { animation: none; }
+}
 .garden-tools {
   position: absolute; right: 10px; bottom: 10px;
   display: flex; flex-direction: column; gap: 8px;

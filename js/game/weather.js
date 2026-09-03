@@ -19,14 +19,34 @@ var World = (function () {
     return keys[0];
   }
 
+  /** How much one watering is worth, in milliseconds of growth. */
+  function waterBoostMs(cfg) {
+    var full = cfg.stages[cfg.stages.length - 1].minutes;
+    return full * (cfg.waterBoostPercent / 100) * 60000;
+  }
+
+  /** When a slot planted at `placedAt` with `boostMs` of watering matures. */
+  function maturesAt(slot, cfg) {
+    var full = cfg.stages[cfg.stages.length - 1].minutes * 60000;
+    return slot.placedAt + full - (slot.boostMs || 0);
+  }
+
   /**
    * Growth state of one planted slot.
-   * Elapsed real time plus watering credit decides the stage, so a player
-   * who closes the tab still comes back to a grown mushroom.
+   *
+   * Reads the record that Storage.place writes — placedAt / boostMs /
+   * lastYieldAt. Three earlier names here (plantedAt / wateredMs /
+   * lastSporeAt) matched nothing on disk, so every reading came out NaN and
+   * every mushroom in the game sat at 'pin' forever, watering did nothing
+   * and no slot ever produced a spore. Keep these names in step with
+   * Storage.place; core.test.js pins them together.
+   *
+   * Pure in `now`, so a player who closes the tab for three days comes back
+   * to the right stage with no background timer and nothing to replay.
    */
   function growth(slot, cfg, now) {
-    now = now || Date.now();
-    var minutes = (now - slot.plantedAt) / 60000 + (slot.wateredMs || 0) / 60000;
+    now = now == null ? Date.now() : now;   // `|| ` would treat now=0 as "unset"
+    var minutes = (now - slot.placedAt + (slot.boostMs || 0)) / 60000;
     var stages = cfg.stages;
     var stage = stages[0], next = null;
     for (var i = 0; i < stages.length; i++) {
@@ -38,16 +58,26 @@ var World = (function () {
       progress = span > 0 ? Math.min(1, (minutes - stage.minutes) / span) : 1;
     }
     var mature = stage.id === stages[stages.length - 1].id;
-    var sporeReady = mature &&
-      (now - (slot.lastSporeAt || slot.plantedAt)) >= cfg.sporeIntervalHours * 3600000;
+
+    // The yield clock starts at maturity, or at the last collection if that
+    // came later. One ready spore at a time — being away longer earns no more.
+    var yieldMs = cfg.yieldHours * 3600000;
+    var since = Math.max(maturesAt(slot, cfg), slot.lastYieldAt || 0);
+    var msToSpore = mature ? Math.max(0, since + yieldMs - now) : null;
+    var sporeReady = mature && msToSpore === 0;
+
     return {
-      stage: stage.id,
-      label: stage.label,
+      stage: sporeReady ? cfg.sporulate.id : stage.id,
+      label: sporeReady ? cfg.sporulate.label : stage.label,
+      // 'sporulate' draws like a mature mushroom; this is what art should use.
+      drawStage: stage.id,
       progress: progress,
       mature: mature,
       sporeReady: sporeReady,
-      // Minutes until the next stage, or null once mature.
-      minutesLeft: next ? Math.max(0, next.minutes - minutes) : null
+      // Minutes until the next growth stage, or null once mature.
+      minutesLeft: next ? Math.max(0, next.minutes - minutes) : null,
+      // Minutes until the next spore, or null while still growing.
+      sporeMinutesLeft: msToSpore == null ? null : msToSpore / 60000
     };
   }
 
@@ -75,6 +105,8 @@ var World = (function () {
   return {
     weatherFor: weatherFor,
     growth: growth,
+    maturesAt: maturesAt,
+    waterBoostMs: waterBoostMs,
     slotFor: slotFor,
     humanMinutes: humanMinutes
   };

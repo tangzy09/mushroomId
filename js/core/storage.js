@@ -182,6 +182,10 @@ var Storage = (function () {
     place: function (id, slot) {
       if (this.isPlaced(id)) return false;
       if (state.slots.length >= cfg.slots.max) return false;
+      // These three field names are the growth machine's whole input; the
+      // reader lives in the domain layer and once looked for different ones,
+      // which left every mushroom frozen at its first stage. core.test.js
+      // builds a record here and feeds it to the reader to keep them in step.
       state.slots.push({
         id: id, slot: slot, placedAt: Date.now(),
         lastYieldAt: Date.now(), boostMs: 0

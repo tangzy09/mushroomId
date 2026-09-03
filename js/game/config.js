@@ -94,15 +94,25 @@ var GameConfig = {
     ],
     // Draw scale across that span: far ones read as small, near ones as large.
     depth: { near: 1.06, far: 0.52, yFar: 0.50, yNear: 0.92 },
-    // MVP growth: pin -> mature in 30 minutes, then one spore a day.
-    // The four-stage machine is in the data model already; V1.0 turns it on.
+    // The growth machine, four states:
+    //
+    //   pin --30min--> young --3h--> mature --24h--> sporulate
+    //                                  ^                 |
+    //                                  +-- tap to take --+
+    //
+    // The first three are a clock ladder measured from planting; the fourth
+    // is not on the ladder — a mature slot enters it when its yield timer
+    // elapses and drops back to mature once the spore is taken.
     stages: [
       { id: 'pin',    label: '菌蕾', minutes: 0 },
-      { id: 'young',  label: '幼菌', minutes: 10 },
-      { id: 'mature', label: '成熟', minutes: 30 }
+      { id: 'young',  label: '幼菌', minutes: 30 },
+      { id: 'mature', label: '成熟', minutes: 210 }
     ],
-    waterBoostMinutes: 4,          // one watering advances growth this much
-    sporeIntervalHours: 24
+    sporulate: { id: 'sporulate', label: '出孢' },
+    // Yield timing counts from the moment a slot matures, not from planting,
+    // and never stacks: three days away still leaves exactly one to collect.
+    yieldHours: 24,
+    waterBoostPercent: 8           // one watering advances the whole ramp this much
   },
 
   biomes: {
