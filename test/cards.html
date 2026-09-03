@@ -1,0 +1,20 @@
+<!doctype html><meta charset="utf-8"><title>share cards</title>
+<style>body{margin:0;background:#ccc;display:flex;gap:10px;padding:10px;font:12px monospace}
+canvas{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.2)}</style>
+<div id="out"></div>
+<script src="../js/game/config.js"></script>
+<script src="../js/core/share.js"></script>
+<script src="../js/game/shroom-art.js"></script>
+<script src="../js/data.gen.js"></script>
+<script>
+var o=document.getElementById('out');
+function drawArtAt(c,sp,size){ShroomArt.draw(c,sp,size,{stage:'mature'});}
+['flyagaric','deathcap','matsutake'].forEach(function(id){
+  var m=MUSHROOM_DATA.filter(function(x){return x.id===id;})[0];
+  var cv=Share.entityCard(m,GameConfig,drawArtAt);
+  cv.style.width='300px';cv.style.height='auto';
+  o.appendChild(cv);
+});
+var ms=Share.milestoneCard({n:25,title:'采菌爱好者',icon:'🧺'},181,GameConfig);
+ms.style.width='300px';ms.style.height='auto';o.appendChild(ms);
+</script>

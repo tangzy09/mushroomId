@@ -51,6 +51,17 @@
 
   function rarityColor(r) { return C.rarityColors[r]; }
 
+  function drawArtAt(c, sp, size) { ShroomArt.draw(c, sp, size, { stage: 'mature' }); }
+
+  function shareEntity(sp) {
+    Share.offer(Share.entityCard(sp, C, drawArtAt), C,
+      '我在菌菇图鉴里认出了' + sp.name + '。' + C.share.footer)
+      .then(function (how) {
+        if (how === 'downloaded') toast('卡片已保存到下载');
+        else if (how === 'failed') toast('生成失败，换个浏览器试试');
+      });
+  }
+
   // ---------------------------------------------------------------- router
   function show(id) {
     if (id !== page) { prev = page; page = id; }
@@ -113,6 +124,12 @@
     $('garden-canvas').addEventListener(ev, function () { clearTimeout(pressTimer); });
   });
 
+  $('btn-share-garden').addEventListener('click', function () {
+    Share.offer(Share.sceneCard($('garden-canvas'), C,
+      '我的菌菇园 · 已收集 ' + Storage.collected() + ' / ' + MUSHROOM_DATA.length), C,
+      '我的菌菇园')
+      .then(function (how) { if (how === 'downloaded') toast('已保存到下载'); });
+  });
   $('btn-night').addEventListener('click', function () { Garden.toggleNight(); });
   $('btn-wind').addEventListener('click', function () { Garden.gust(); });
   $('btn-water').addEventListener('click', function () {
@@ -429,6 +446,7 @@
           checkMilestone(); show('garden'); refreshGardenChrome();
         });
       }
+      addBtn(actions, '📤', 'btn ghost', function () { shareEntity(sp); });
     } else {
       var val = C.economy.essenceValue[sp.rarity];
       addBtn(actions, '♻️ 分解得 ' + val + ' 腐殖质', 'btn wide', function () {
@@ -437,6 +455,7 @@
         show('garden');
         refreshGardenChrome();
       });
+      addBtn(actions, '📤', 'btn ghost', function () { shareEntity(sp); });
     }
   }
 
@@ -447,10 +466,21 @@
       if (n >= m.n && st.flags.milestones.indexOf(m.n) === -1) {
         st.flags.milestones.push(m.n);
         Storage.commit();
+        var ms = m;
         sheet('<h2>' + m.icon + ' ' + m.title + '</h2>' +
           '<p>已经认识 ' + m.n + ' 种菌子了。</p>' +
           (m.n >= 25 && !st.flags.safetyCardSeen ? safetyCardHtml() : '') +
-          '<button class="btn wide" onclick="this.closest(\'.overlay\').classList.remove(\'on\')">继续</button>');
+          '<button class="btn wide" id="ms-share">📤 分享成就</button>' +
+          '<button class="btn ghost wide" id="ms-close" style="margin-top:8px">继续</button>',
+          function (el) {
+            el.querySelector('#ms-share').addEventListener('click', function () {
+              Share.offer(Share.milestoneCard(ms, MUSHROOM_DATA.length, C), C,
+                '菌菇图鉴 · ' + ms.title).then(function (how) {
+                  if (how === 'downloaded') toast('卡片已保存到下载');
+                });
+            });
+            el.querySelector('#ms-close').addEventListener('click', closeSheet);
+          });
         if (m.n >= 25) { st.flags.safetyCardSeen = true; Storage.commit(); }
       }
     });
@@ -603,6 +633,13 @@
     });
     b.appendChild(act);
 
+    var sh = document.createElement('button');
+    sh.className = 'btn ghost wide';
+    sh.style.marginTop = '8px';
+    sh.textContent = '📤 分享这张卡';
+    sh.addEventListener('click', function () { shareEntity(m); });
+    b.appendChild(sh);
+
     show('detail');
   }
 
@@ -699,6 +736,55 @@
       });
     });
   });
+
+  $('btn-shop').addEventListener('click', function () {
+    var st = Storage.get();
+    var rows = C.rarities.map(function (r) {
+      var cost = C.economy.essenceCost[r];
+      var can = st.fragmentEssence >= cost;
+      var left = MUSHROOM_DATA.filter(function (m) {
+        return m.rarity === r && !Storage.has(m.id);
+      }).length;
+      return '<div class="task"><span class="lbl">' + C.rarityLabels[r] +
+        '<br><span class="muted" style="font-size:11px">还差 ' + left + ' 种</span></span>' +
+        '<span class="spacer"></span><span class="muted">🍂 ' + cost + '</span>' +
+        '<button class="btn' + (can && left ? '' : ' ghost') + '" data-shop="' + r + '"' +
+        (can && left ? '' : ' disabled') + '>挑一种</button></div>';
+    }).join('');
+    sheet('<h2>🧫 菌种库</h2><p class="muted">用腐殖质挑一种还没收集到的菌。当前 🍂 ' +
+      st.fragmentEssence + '</p>' + rows, function (el) {
+      el.querySelectorAll('[data-shop]').forEach(function (b) {
+        b.addEventListener('click', function () { pickFromShop(b.dataset.shop); });
+      });
+    });
+  });
+
+  function pickFromShop(rarity) {
+    var cost = C.economy.essenceCost[rarity];
+    var pool = MUSHROOM_DATA.filter(function (m) {
+      return m.rarity === rarity && !Storage.has(m.id);
+    });
+    if (!pool.length) { toast('这一档已经收集齐了'); return; }
+    var cells = pool.map(function (m) {
+      return '<button class="cell" data-pick="' + m.id + '">' +
+        '<div class="nm">' + m.name + '</div></button>';
+    }).join('');
+    sheet('<h2>选一种（🍂 ' + cost + '）</h2><div class="grid">' + cells + '</div>',
+      function (el) {
+        // draw each thumbnail into its cell
+        el.querySelectorAll('[data-pick]').forEach(function (b) {
+          var m = byId[b.dataset.pick];
+          b.insertBefore(art(m, 64), b.firstChild);
+          b.addEventListener('click', function () {
+            if (!Storage.spendEssence(cost)) { toast('腐殖质不够'); return; }
+            Storage.add(m.id);
+            closeSheet();
+            renderReveal(m, true, false);
+            show('reveal');
+          });
+        });
+      });
+  }
 
   $('btn-basket').addEventListener('click', function () {
     var st = Storage.get();
