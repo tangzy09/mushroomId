@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>菌菇图鉴 — 图标生成</title>
+<style>
+  body { margin: 0; padding: 20px; background: #FBF7EE; color: #23291E;
+         font: 14px/1.6 "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  p  { margin: 0 0 18px; color: #55604C; max-width: 46em; }
+  .row { display: flex; gap: 22px; align-items: flex-end; flex-wrap: wrap; }
+  figure { margin: 0; text-align: center; }
+  canvas { display: block; box-shadow: 0 1px 6px rgba(0,0,0,.2); border-radius: 2px; }
+  figcaption { font-size: 12px; color: #8A9280; margin-top: 6px; }
+  a { color: #47702C; }
+</style>
+</head>
+<body>
+
+<h1>图标生成</h1>
+<p>
+  图标由 <code>ShroomArt</code> 画出来，和游戏里 181 种菌用的是同一份绘制代码，不是外部素材。
+  每个尺寸都<strong>按该尺寸原生绘制</strong>，不是把 512 缩下来——缩出来的小图菌褶和菌环会糊成一团。
+  改完绘制代码就重开这一页、把四张图另存到 <code>assets/icons/</code>。
+</p>
+
+<div class="row" id="out"></div>
+
+<script src="../js/game/config.js"></script>
+<script src="../js/game/shroom-art.js"></script>
+<script src="../js/data.gen.js"></script>
+<script>
+// 毒蝇伞：全世界最好认的一朵蘑菇轮廓，红盖白点在苔绿底上对比最高，缩到 32px 仍是一朵菇。
+var SPECIES = 'flyagaric';
+var SIZES = [
+  { px: 512, name: 'icon-512.png' },
+  { px: 192, name: 'icon-192.png' },
+  { px: 180, name: 'apple-touch-icon-180.png' },
+  { px: 32,  name: 'favicon-32.png' }
+];
+
+function drawIcon(cv, px) {
+  var g = cv.getContext('2d');
+  cv.width = px; cv.height = px;
+
+  // Background must reach all four corners: every mask the platforms apply
+  // rounds them off, and a baked-in light corner shows as a notch.
+  var sky = g.createLinearGradient(0, 0, 0, px);
+  sky.addColorStop(0, '#5E7340');
+  sky.addColorStop(0.55, '#46592F');
+  sky.addColorStop(1, '#2C391B');
+  g.fillStyle = sky;
+  g.fillRect(0, 0, px, px);
+
+  // a suggestion of forest floor, so the mushroom stands on something
+  g.fillStyle = 'rgba(20,30,14,0.30)';
+  g.beginPath();
+  g.ellipse(px * 0.5, px * 0.845, px * 0.34, px * 0.075, 0, 0, 6.28);
+  g.fill();
+
+  var sp = MUSHROOM_DATA.filter(function (m) { return m.id === SPECIES; })[0];
+  g.save();
+  g.translate(px * 0.5, px * 0.855);
+  // fit to a fixed share of the frame; the subject stays out of the corners
+  var size = px * 0.70;
+  var h = ShroomArt.heightOf(sp) * size;
+  var room = px * 0.70;
+  if (h > room) size *= room / h;
+  ShroomArt.draw(g, sp, size, { stage: 'mature' });
+  g.restore();
+  return cv;
+}
+
+var out = document.getElementById('out');
+SIZES.forEach(function (s) {
+  var fig = document.createElement('figure');
+  var cv = document.createElement('canvas');
+  drawIcon(cv, s.px);
+  if (s.px > 200) { cv.style.width = '200px'; cv.style.height = '200px'; }
+  fig.appendChild(cv);
+  var cap = document.createElement('figcaption');
+  var a = document.createElement('a');
+  a.textContent = s.name + ' (' + s.px + ')';
+  a.download = s.name;
+  a.href = cv.toDataURL('image/png');
+  cap.appendChild(a);
+  fig.appendChild(cap);
+  out.appendChild(fig);
+});
+
+// used by the build harness
+window.__icon = function (px) { return drawIcon(document.createElement('canvas'), px).toDataURL('image/png'); };
+</script>
+</body>
+</html>

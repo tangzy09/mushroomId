@@ -1,0 +1,18 @@
+{
+  "name": "菌菇图鉴 — 看图认菌的收集游戏",
+  "short_name": "菌菇图鉴",
+  "description": "看图认菌、抽卡收集、种进菌菇园的科普收集游戏。本游戏不提供野外鉴定或采食建议。",
+  "lang": "zh-CN",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FBF7EE",
+  "theme_color": "#2C391B",
+  "icons": [
+    { "src": "assets/icons/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icons/apple-touch-icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
