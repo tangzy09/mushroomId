@@ -142,7 +142,12 @@ fishId 有 43% 的题因为难度配置与题库分布对不上而永远抽不�
 
 ### 6. 绘制从形态字段来
 
-新增物种时 `art` 块决定长相。`cap` 支持 `convex / flat / conical / bell / cylinder / funnel / ball / pear / honeycomb`（走菌盖+菌柄模型），以及整体形态 `fan / kidney / hoof / frill / cup / star / tuber / tentacles / cage / ear / club / finger / branch / blob / tongue / saddle / spoon / brain / lump / trumpet`。
+新增物种时 `art` 块决定长相。`cap` 支持 `convex / flat / conical / bell / cylinder / funnel / ball / pear / egg / honeycomb`（走菌盖+菌柄模型），以及整体形态 `fan / kidney / hoof / frill / cup / star / tuber / tentacles / cage / ear / club / finger / branch / blob / tongue / saddle / spoon / brain / lump / round / trumpet`。
+
+**`cap` 写了个绘制代码不认识的值不会报错，会静悄悄退回普通凸形菌盖。**
+`round` / `egg` / `trumpet` 三个值就这样在数据里躺了很久，六个物种一直被画成一模一样的圆包子。
+`test/check_data.py` 的 `check_art` 现在**从 `shroom-art.js` 里正则读出所有能画的形状**再比对数据——
+是读出来的不是抄一份清单，抄的迟早会漂。加新形状只要在绘制代码里加分支，这道门自动认。
 特征开关：`spots / scales / cracks / wrinkle / striate / shaggy / inkEdge / droplets / spines / glossy / zones / veil / warts / eggs / rays / flies / glowColor / bruiseColor / ringColor / volvaColor / cluster / tiers / branches`。
 
 改完用接触表检查全部物种：把 `MUSHROOM_DATA` 铺成网格逐个 `ShroomArt.draw`。

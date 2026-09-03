@@ -52,6 +52,35 @@ def warn(msg):
     warnings.append(msg)
 
 
+def drawable_caps():
+    """Cap shapes js/game/shroom-art.js can actually draw.
+
+    Read out of the drawing code rather than listed here, because a list
+    would drift: `round`, `egg` and `trumpet` sat in the data for months
+    while the renderer quietly fell through to a plain convex dome for all
+    six species using them, and nothing said a word.
+    """
+    src = open(os.path.join(ROOT, "js/game/shroom-art.js"), encoding="utf-8").read()
+    shapes = set(re.findall(r"case '([a-z]+)':", src))          # cap/stipe model
+    body = re.search(r"var whole = \{(.*?)\n    \};", src, re.S)
+    if body:                                                    # whole-form drawings
+        shapes |= set(re.findall(r"^\s+([a-z]+):", body.group(1), re.M))
+    shapes.add("convex")                                        # the default branch
+    return shapes
+
+
+def check_art(species):
+    known = drawable_caps()
+    if len(known) < 10:
+        err("could not read the cap shapes out of shroom-art.js (found %d)" % len(known))
+        return
+    for m in species:
+        cap = (m.get("art") or {}).get("cap", "convex")
+        if cap not in known:
+            err("%s: cap %r is not drawn by shroom-art.js, it will fall back "
+                "to a plain dome" % (m.get("id"), cap))
+
+
 def check_species(species):
     ids = set()
     for m in species:
@@ -213,6 +242,7 @@ def main():
     questions = build_data.build_questions(species) + curated
 
     ids = check_species(species)
+    check_art(species)
     check_questions(questions, ids)
     check_wording(species, questions)
     bank = check_reachability(questions)

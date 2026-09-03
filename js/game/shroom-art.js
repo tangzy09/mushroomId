@@ -75,6 +75,10 @@ var ShroomArt = (function () {
       case 'ball':
         ctx.ellipse(0, -h * 0.85, w, h * 0.95, 0, 0, Math.PI * 2);
         break;
+      case 'egg':
+        // still closed inside its volva: a tall ovoid, no open cap yet
+        ctx.ellipse(0, -h * 1.05, w * 0.82, h * 1.28, 0, 0, Math.PI * 2);
+        break;
       case 'pear':
         ctx.moveTo(-w * 0.55, 0);
         ctx.bezierCurveTo(-w * 0.75, -h * 0.7, -w, -h * 1.1, 0, -h * 1.5);
@@ -91,7 +95,7 @@ var ShroomArt = (function () {
   }
 
   /** Cap shapes whose underside is hidden, so gills must not be drawn. */
-  var CLOSED = { ball: 1, pear: 1, tuber: 1, lump: 1, blob: 1 };
+  var CLOSED = { ball: 1, pear: 1, tuber: 1, lump: 1, blob: 1, egg: 1 };
 
   // --- whole-form drawings that ignore the cap/stipe model -------------
 
@@ -153,6 +157,98 @@ var ShroomArt = (function () {
         ctx.quadraticCurveTo(w * 0.92, y + S * 0.01, w * 0.72, y - S * 0.09);
         ctx.stroke();
       }
+    }
+  }
+
+  /**
+   * A hollow horn. Chanterelle relatives have no cap-and-stalk boundary at
+   * all: the whole body flares from a point on the ground to a wavy mouth,
+   * and you can see down the throat.
+   */
+  function drawTrumpet(ctx, a, S, rnd, n) {
+    var col = a.capColor, col2 = a.capColor2 || lighten(col, 26);
+    for (var i = 0; i < n; i++) {
+      var offX = n > 1 ? (i - (n - 1) / 2) * S * 0.19 : 0;
+      var sc = n > 1 ? 0.60 + rnd() * 0.40 : 1;
+      var h = S * 0.86 * sc, w = S * 0.34 * sc;
+      ctx.save();
+      ctx.translate(offX, 0);
+      ctx.rotate((rnd() - 0.5) * 0.22);
+
+      var g = ctx.createLinearGradient(-w, -h, w, 0);
+      g.addColorStop(0, col2);
+      g.addColorStop(0.55, col);
+      g.addColorStop(1, darken(col, 26));
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      // control points pulled in towards the axis, so the flanks are concave
+      // and the flare happens near the mouth: a horn, not a cone
+      ctx.bezierCurveTo(-w * 0.16, -h * 0.34, -w * 0.34, -h * 0.66, -w, -h * 0.94);
+      ctx.quadraticCurveTo(-w * 0.42, -h * 1.06, 0, -h * 0.99);
+      ctx.quadraticCurveTo(w * 0.42, -h * 0.92, w, -h * 0.94);
+      ctx.bezierCurveTo(w * 0.34, -h * 0.66, w * 0.16, -h * 0.34, 0, 0);
+      ctx.closePath();
+      ctx.fill();
+
+      // the throat, which is what makes it read as a horn and not a cone
+      ctx.fillStyle = darken(col, 48);
+      ctx.beginPath();
+      ctx.ellipse(0, -h * 0.955, w * 0.80, h * 0.075, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      if (a.ridges) {                     // blunt folds running down the outside
+        ctx.strokeStyle = 'rgba(0,0,0,0.18)';
+        ctx.lineWidth = S * 0.008;
+        for (var r = -2; r <= 2; r++) {
+          ctx.beginPath();
+          ctx.moveTo(0, -h * 0.05);
+          ctx.quadraticCurveTo(w * 0.22 * r, -h * 0.58, w * 0.46 * r, -h * 0.91);
+          ctx.stroke();
+        }
+      }
+      ctx.restore();
+    }
+  }
+
+  /**
+   * A globe hung with spines. Lion's mane has neither cap nor stalk — the
+   * whole fruit body is one lumpy mass with teeth all over its underside.
+   */
+  function drawSpineBall(ctx, a, S, rnd) {
+    var col = a.capColor, col2 = a.capColor2 || lighten(col, 20);
+    var r = S * 0.36, cy = -r * 1.04;
+
+    var g = ctx.createRadialGradient(-r * 0.34, cy - r * 0.34, r * 0.1, 0, cy, r * 1.25);
+    g.addColorStop(0, lighten(col2, 6));
+    g.addColorStop(1, darken(col, 34));
+    ctx.fillStyle = g;
+    ctx.beginPath();
+    for (var i = 0; i <= 26; i++) {
+      var ang = (i / 26) * Math.PI * 2;
+      var rr = r * (0.90 + rnd() * 0.18);
+      var x = Math.cos(ang) * rr, y = cy + Math.sin(ang) * rr * 0.94;
+      if (i) ctx.lineTo(x, y); else ctx.moveTo(x, y);
+    }
+    ctx.closePath();
+    ctx.fill();
+
+    // Spines cover most of the face, not just the rim, and are drawn darker
+    // than the body — a near-white mass on a pale page has no silhouette
+    // otherwise.
+    ctx.lineCap = 'round';
+    for (var s = 0; s < 90; s++) {
+      var px = (rnd() - 0.5) * r * 1.78;
+      var frac = Math.abs(px) / r;
+      var edge = Math.sqrt(Math.max(0, 1 - frac * frac)) * r * 0.92;
+      var py = cy - edge * 0.45 + edge * rnd() * 1.4;
+      var len = r * (0.16 + 0.34 * (1 - frac)) * (0.55 + rnd() * 0.7);
+      ctx.strokeStyle = darken(col, 14 + Math.round(rnd() * 26));
+      ctx.lineWidth = S * (0.009 + rnd() * 0.006);
+      ctx.beginPath();
+      ctx.moveTo(px, py);
+      ctx.lineTo(px + (rnd() - 0.5) * len * 0.35, py + len);
+      ctx.stroke();
     }
   }
 
@@ -378,8 +474,10 @@ var ShroomArt = (function () {
       saddle: function () { drawFrill(ctx, a, S, rnd, 2); },
       spoon: function () { drawShelf(ctx, a, S, rnd, 1); },
       brain: function () { drawFrill(ctx, a, S, rnd, 4); },
+      round: function () { drawSpineBall(ctx, a, S, rnd); },
+      trumpet: function () { drawTrumpet(ctx, a, S, rnd, a.cluster || 1); },
       honeycomb: null,   // handled by the cap model with a texture
-      trumpet: null, ball: null, pear: null
+      ball: null, pear: null, egg: null
     };
     if (whole[shape]) {
       whole[shape]();
