@@ -16,10 +16,13 @@
 选一片林地 → 答 5 道题 → 抽卡 → 种进菌菇园 → 它慢慢长大，每天产孢子
 ```
 
+菌蕾 → 幼菌 → 成熟 → 出孢，收走孢子回到成熟。三小时半长成，此后每天一个孢子，
+离线三天回来也只有一个待收。浇水一次推进整条曲线的 8%。
+
 - **181 种真实菌类**，从香菇、松茸、见手青到毒鹅膏、荧光小菇、冬虫夏草
 - **1165 道题**：看图认菌、食性类别、孢子印、基质、季节、易混淆、辨毒误区
 - **没有一张图片**：每种菌的形象都由代码依据它自己的形态特征绘制
-- **菌菇园**：侧视森林剖面，昼夜与天气变化，浇水、起风、荧光夜
+- **菌菇园**：侧视森林剖面，十个槽位按纵深铺开，昼夜与天气变化，浇水、起风、荧光夜
 - 纯前端，无账号，数据只存在你自己的浏览器里
 
 ## 三条产品红线
@@ -37,12 +40,16 @@ python3 tools/build_data.py    # 生成 js/data.gen.js
 python3 tools/serve.py 3141    # http://localhost:3141/index.html
 ```
 
-测试：
+Windows / Git Bash 上没有 `python3`，用 `python`。
+
+测试（前三条退出码非零就是不能提交）：
 
 ```bash
-python3 test/check_data.py     # 数据校验（字段、措辞、题库可达性）
+python3 test/check_data.py     # 数据校验（字段、措辞、题库可达性、菌盖形状可画）
 node test/core.test.js         # 内核纯函数测试
-# 浏览器里跑完整循环：http://localhost:3141/test/e2e.html
+node test/transfer.test.js     # 存档导出导入往返
+# 浏览器里肉眼验收：http://localhost:3141/test/e2e.html  完整循环
+#                   http://localhost:3141/test/cards.html 分享卡片
 ```
 
 ## 文档

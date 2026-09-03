@@ -9,7 +9,7 @@ var GameConfig = {
     tutorial: 'mush_tutorial_done',
     disclaimer: 'mush_disclaimer_ok'
   },
-  siteUrl: 'https://mushroomid.example',
+  siteUrl: 'https://mushroomid.ai-speeds.com',
 
   rarities: ['common', 'rare', 'epic', 'legend'],
   rarityLabels: { common: '普通', rare: '稀有', epic: '珍稀', legend: '传说' },
