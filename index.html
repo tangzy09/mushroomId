@@ -78,6 +78,16 @@
       </div>
     </div>
 
+    <div class="card">
+      <h2>存档迁移</h2>
+      <p class="muted" style="margin:0 0 10px">进度只存在这台设备的浏览器里。换设备前先导出，到新设备再导入。</p>
+      <div class="row">
+        <button class="btn ghost" id="btn-export">⬇️ 导出存档</button>
+        <button class="btn ghost" id="btn-import">⬆️ 导入存档</button>
+        <input type="file" id="file-import" accept=".spore,text/plain" hidden>
+      </div>
+    </div>
+
     <div class="card safety-card">
       <h2>🚑 野生菌中毒急救</h2>
       <ol id="emergency-list"></ol>
@@ -152,6 +162,7 @@
 <script src="js/core/gacha.js?v=20260902a"></script>
 <script src="js/core/quiz.js?v=20260902a"></script>
 <script src="js/core/share.js?v=20260902a"></script>
+<script src="js/core/transfer.js?v=20260902a"></script>
 <script src="js/game/weather.js?v=20260902a"></script>
 <script src="js/game/shroom-art.js?v=20260902a"></script>
 <script src="js/game/garden.js?v=20260902a"></script>

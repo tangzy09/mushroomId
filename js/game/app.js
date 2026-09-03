@@ -805,6 +805,45 @@
     renderProfile();
   });
 
+  // ---------------------------------------------------------------- transfer
+  $('btn-export').addEventListener('click', function () {
+    Transfer.exportSave(C)
+      .then(function () { toast('存档已导出，请妥善保存'); })
+      .catch(function () { toast('导出失败'); });
+  });
+  $('btn-import').addEventListener('click', function () { $('file-import').click(); });
+  $('file-import').addEventListener('change', function () {
+    var f = this.files && this.files[0];
+    if (!f) return;
+    this.value = '';
+    var reader = new FileReader();
+    reader.onload = function () {
+      sheet('<h2>导入存档</h2><p>导入会<b>覆盖</b>这台设备上的现有进度，无法撤销。</p>' +
+        '<button class="btn cta wide" id="imp-yes">确认导入</button>' +
+        '<button class="btn ghost wide" id="imp-no" style="margin-top:8px">取消</button>',
+        function (el) {
+          el.querySelector('#imp-no').addEventListener('click', closeSheet);
+          el.querySelector('#imp-yes').addEventListener('click', function () {
+            Transfer.importSave(String(reader.result), C).then(function (info) {
+              closeSheet();
+              sheet('<h2>导入成功</h2><p>已恢复 ' + info.collected +
+                ' 种收集记录。刷新页面后生效。</p>' +
+                '<button class="btn wide" id="imp-reload">刷新</button>',
+                function (e2) {
+                  e2.querySelector('#imp-reload').addEventListener('click', function () {
+                    location.reload();
+                  });
+                });
+            }).catch(function (err) {
+              closeSheet();
+              toast(err.message || '导入失败');
+            });
+          });
+        });
+    };
+    reader.readAsText(f);
+  });
+
   // ---------------------------------------------------------------- boot
   function firstRun() {
     if (localStorage.getItem(C.storageKeys.disclaimer)) { gift(); return; }

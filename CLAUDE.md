@@ -66,6 +66,7 @@ mushroomId/
 python3 tools/build_data.py      # 改过 data/*.json 之后必须重跑
 python3 test/check_data.py       # 数据校验，退出码非零就是不能提交
 node test/core.test.js           # 内核测试
+node test/transfer.test.js       # 存档导出导入
 python3 tools/serve.py 3141      # http://localhost:3141/index.html
 ```
 
@@ -146,8 +147,11 @@ fishId 有 43% 的题因为难度配置与题库分布对不上而永远抽不�
 - [x] 每日任务、每日菌篮、孢子合成、里程碑
 - [x] 安全体系（首次协议、常驻横幅、食性脚注、急救卡、强制辨毒误区题）
 - [ ] 完整 4 段生长状态机（现为 pin → mature 简化版）
-- [ ] 剩余 8 种行为动画（ink / stink / hygro / splash / coral / veil / shelf / parasite 已有数据，按 default 绘制）
-- [ ] 分享卡片、存档导入导出、精华商店
+- [x] 14 种行为的形态与反应（含 hygro 读天气开合）
+- [x] 分享卡片（菌卡 / 菌菇园 / 里程碑，水印强制）
+- [x] 存档导出导入（`.spore`，AES-GCM）
+- [x] 菌种库（腐殖质换指定物种）
+- [ ] 挑战好友分享、礼品码
 - [ ] 英文版
 - [ ] 形态检索表（V2）
 

@@ -172,7 +172,7 @@ var Garden = (function () {
       items.push({
         rec: rec, sp: sp, slot: slot,
         x: slot.x * W, y: slot.y * H,
-        bruises: [], react: 0, puff: [], bubble: 0
+        bruises: [], react: 0, puff: [], bubble: 0, wet: 0
       });
     });
     items.sort(function (a, b) { return a.y - b.y; });
@@ -249,7 +249,10 @@ var Garden = (function () {
     for (var i = 0; i < 60; i++) {
       drops.push({ x: rnd() * W, y: -rnd() * 40, vy: 260 + rnd() * 160, life: 1.6, water: true });
     }
-    items.forEach(function (it) { it.react = 0.6; });
+    items.forEach(function (it) {
+      it.react = 0.6;
+      it.wet = 240;                 // watering counts as rain for a while
+    });
   }
 
   // --- draw ---------------------------------------------------------------
@@ -298,6 +301,11 @@ var Garden = (function () {
         stage: g.stage,
         glow: glow,
         bruises: it.bruises,
+        // hygroscopic species read the weather: splayed after rain,
+        // curled shut in the sun
+        open: it.sp.behavior === 'hygro'
+          ? (weather === 'rain' || weather === 'rainAfter' || it.wet > 0 ? 1 : 0.15)
+          : 1,
         t: windy ? t * 3 : t
       });
 
@@ -349,6 +357,7 @@ var Garden = (function () {
         ctx.globalAlpha = 1;
       }
       if (it.react > 0) it.react = Math.max(0, it.react - dt * 1.6);
+      if (it.wet > 0) it.wet -= dt;
     });
 
     // falling leaves

@@ -180,12 +180,14 @@ var ShroomArt = (function () {
     }
   }
 
-  function drawStar(ctx, a, S, rnd, rays) {
+  function drawStar(ctx, a, S, rnd, rays, open) {
     var col = a.capColor, col2 = a.capColor2 || lighten(col, 26);
+    // open is 0 (curled shut, dry) to 1 (splayed flat, wet)
+    if (open == null) open = 1;
     ctx.fillStyle = col;
     for (var i = 0; i < rays; i++) {
       var ang = (i / rays) * Math.PI * 2;
-      var len = S * (0.4 + rnd() * 0.12);
+      var len = S * (0.4 + rnd() * 0.12) * (0.35 + 0.65 * open);
       ctx.save();
       ctx.translate(0, -S * 0.12);
       ctx.rotate(ang);
@@ -364,7 +366,7 @@ var ShroomArt = (function () {
       lump: function () { drawShelf(ctx, a, S, rnd, 1); },
       frill: function () { drawFrill(ctx, a, S, rnd, a.tiers || 5); },
       cup: function () { drawCup(ctx, a, S); },
-      star: function () { drawStar(ctx, a, S, rnd, a.rays || 6); },
+      star: function () { drawStar(ctx, a, S, rnd, a.rays || 6, opts.open); },
       tuber: function () { drawTuber(ctx, a, S, rnd); },
       tentacles: function () { drawTentacles(ctx, a, S, rnd, a.arms || 5); },
       cage: function () { drawCage(ctx, a, S); },
