@@ -5,3 +5,7 @@ Thumbs.db
 js/data.gen.js
 assets/mushroom/*/temp/
 build/
+
+# Carries the host and the key path; a public repo must never see either.
+deploy.sh
+*.pem
