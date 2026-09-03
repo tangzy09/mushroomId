@@ -183,7 +183,7 @@ var Garden = (function () {
   function hit(px, py) {
     var best = null, bestD = 1e9;
     items.forEach(function (it) {
-      var r = 42 * (0.6 + (it.sp.size || 0.7) * 0.5);
+      var r = 54 * (0.6 + (it.sp.size || 0.7) * 0.5);
       var dx = px - it.x, dy = py - (it.y - r * 0.5);
       var d = dx * dx + dy * dy;
       if (d < r * r && d < bestD) { bestD = d; best = it; }
@@ -282,7 +282,7 @@ var Garden = (function () {
       var g = World.growth(it.rec, cfg.garden);
       var depth = 0.85 + 0.35 * ((it.slot.y - 0.6) / 0.3);
       var glow = night && it.sp.art.glowColor ?
-        0.6 + 0.4 * Math.sin(t * 2 + it.x) : 0;
+        0.75 + 0.25 * Math.sin(t * 2 + it.x) : 0;
 
       ctx.save();
       ctx.translate(it.x, it.y);
@@ -294,7 +294,7 @@ var Garden = (function () {
       it.bruises.forEach(function (b) { b.t += dt * 0.18; });
       it.bruises = it.bruises.filter(function (b) { return b.t < 1; });
 
-      ShroomArt.draw(ctx, it.sp, 96, {
+      ShroomArt.draw(ctx, it.sp, 140, {
         stage: g.stage,
         glow: glow,
         bruises: it.bruises,
@@ -319,7 +319,7 @@ var Garden = (function () {
 
       // a ready spore is the reason to come back, so it has to be visible
       if (g.sporeReady) {
-        var by = it.y - 74 * depth + Math.sin(t * 2.2) * 3;
+        var by = it.y - 96 * depth + Math.sin(t * 2.2) * 3;
         ctx.fillStyle = '#E0B400';
         ctx.beginPath();
         ctx.arc(it.x + 24, by, 7, 0, 6.28);
@@ -338,7 +338,7 @@ var Garden = (function () {
         ctx.font = '12px system-ui,sans-serif';
         var tw = ctx.measureText(label).width + 16;
         var bx = Math.max(4, Math.min(W - tw - 4, it.x - tw / 2));
-        var byy = it.y - 92 * depth;
+        var byy = it.y - 120 * depth;
         ctx.globalAlpha = Math.min(1, it.bubble);
         ctx.fillStyle = 'rgba(20,26,18,0.82)';
         roundRect(ctx, bx, byy, tw, 22, 6);

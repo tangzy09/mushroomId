@@ -217,7 +217,7 @@
     var artBox = $('q-art');
     artBox.innerHTML = '';
     if (q.entityId && byId[q.entityId]) {
-      artBox.appendChild(art(byId[q.entityId], 180));
+      artBox.appendChild(art(byId[q.entityId], 210));
       artBox.style.display = 'grid';
     } else {
       artBox.style.display = 'none';
@@ -721,7 +721,7 @@
 
   // ---------------------------------------------------------------- boot
   function firstRun() {
-    if (localStorage.getItem(C.storageKeys.disclaimer)) return;
+    if (localStorage.getItem(C.storageKeys.disclaimer)) { gift(); return; }
     sheet('<h2>开始之前</h2>' +
       '<p>' + C.safety.banner + '</p>' +
       '<p class="muted">这是一款收集类科普游戏。它教你认识菌子的样子和名字，' +

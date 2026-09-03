@@ -629,7 +629,7 @@ var ShroomArt = (function () {
     var g = ctx.createRadialGradient(0, -S * 0.5, 0, 0, -S * 0.5, S * 0.9);
     g.addColorStop(0, a.glowColor);
     g.addColorStop(1, 'rgba(0,0,0,0)');
-    ctx.globalAlpha = 0.55 * strength;
+    ctx.globalAlpha = 0.8 * strength;
     ctx.globalCompositeOperation = 'lighter';
     ctx.fillStyle = g;
     ctx.beginPath();

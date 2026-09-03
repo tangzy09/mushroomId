@@ -75,7 +75,7 @@ var GameConfig = {
       { id: 'W2', kind: 'wood',    x: 0.44, y: 0.60 },
       { id: 'W3', kind: 'wood',    x: 0.52, y: 0.60 },
       { id: 'W4', kind: 'wood',    x: 0.60, y: 0.62 },
-      { id: 'S1', kind: 'shelf',   x: 0.29, y: 0.68 },
+      { id: 'S1', kind: 'shelf',   x: 0.34, y: 0.70 },
       { id: 'L1', kind: 'ground',  x: 0.12, y: 0.74 },
       { id: 'L2', kind: 'ground',  x: 0.22, y: 0.81 },
       { id: 'R1', kind: 'ground',  x: 0.79, y: 0.74 },
