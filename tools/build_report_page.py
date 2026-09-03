@@ -12,6 +12,12 @@ OUT = os.path.join(ROOT, "build/mushroomid-design.html")
 
 md = open(SRC, encoding="utf-8").read()
 
+# front matter: "> 版本：v0.2 · 日期：2026-09-02 · 状态：**待决策**（...）"
+fm = re.search(r"^> 版本：(v[\d.]+).*?日期：([\d-]+)(?:.*?状态：\*\*(.+?)\*\*)?", md, re.M)
+VERSION = fm.group(1) if fm else "v0"
+DATE = fm.group(2) if fm else ""
+STATUS = fm.group(3) if fm and fm.group(3) else ""
+
 # drop the H1 + intro blockquote (rendered as hero) and the trailing note
 md = md.split("\n---\n", 1)[1]
 
@@ -45,7 +51,11 @@ for p in parts:
 
 # wrap tables for horizontal scroll
 content = "\n".join(sections)
-content = content.replace("<table>", '<div class="tw"><table>').replace("</table>", "</table></div>")
+def _wrap_tables(m):
+    tbl = m.group(0)
+    cls = "tw wide" if tbl.count("<th>") >= 5 else "tw"
+    return f'<div class="{cls}">{tbl}</div>'
+content = re.sub(r"<table>.*?</table>", _wrap_tables, content, flags=re.S)
 # italic latin names inside *..* already handled; mark ☠️ rows
 content = re.sub(r"<code>(\w+_v1|mush_\w+|\.spore|MGAME1)</code>", r"<code class=key>\1</code>", content)
 
@@ -79,6 +89,7 @@ a:focus-visible{outline:2px solid var(--moss);outline-offset:2px}
 
 /* hero */
 header.hero{border-bottom:1px solid var(--rule);padding:56px 0 36px}
+.hero .status{color:var(--warn);border:1px solid var(--warn);border-radius:2px;padding:0 6px}
 .hero .kicker{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.12em;
   text-transform:uppercase;color:var(--muted);display:flex;gap:18px;flex-wrap:wrap}
 .hero h1{font-family:"Noto Serif SC","Songti SC","SimSun",serif;font-weight:700;font-size:clamp(30px,4.2vw,46px);
@@ -124,6 +135,9 @@ pre code{background:none;padding:0;font-size:inherit}
 hr{display:none}
 
 /* tables */
+.tw.wide table{font-size:12.5px}
+.tw.wide th,.tw.wide td{padding:7px 9px}
+.tw.wide td:nth-child(2){white-space:nowrap}
 .tw{overflow-x:auto;margin:14px 0 22px;border:1px solid var(--rule);border-radius:4px}
 table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.5;font-variant-numeric:tabular-nums}
 th,td{padding:8px 11px;vertical-align:top;border-bottom:1px solid var(--rule);text-align:left}
@@ -147,9 +161,11 @@ footer{border-top:1px solid var(--rule);padding:22px 0 60px;color:var(--muted);f
 @media (prefers-reduced-motion:no-preference){a{transition:color .15s}}
 """
 
-HERO = """
+STATUS_CHIP = f'<span class="status">{STATUS}</span>' if STATUS else ""
+
+HERO = f"""
 <header class="hero"><div class="wrap">
-  <div class="kicker"><span>设计报告 · v0.1</span><span>2026-09-02</span><span>依据 5 份并行调研 R1–R5</span></div>
+  <div class="kicker"><span>设计报告 · {VERSION}</span><span>{DATE}</span>{STATUS_CHIP}<span>依据 5 份并行调研 R1–R5</span></div>
   <h1>菌菇图鉴 设计报告<span class="en">mushroomId · product &amp; technical design</span></h1>
   <p class="thesis">不教你吃，只教你认。</p>
   <p class="sub">看真实照片答题 → 抽卡收集 → 种进菌菇园，菌菇按真实时间生长并产出孢子。纯前端、无账号、localStorage，与鱼鱼图鉴同一技术栈；复用其约 70% 骨架，重写鱼缸为菌菇园。</p>
