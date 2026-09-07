@@ -127,7 +127,8 @@ const dn = await page.evaluate(() => {
   return {
     canvas: !!(box && box.querySelector('canvas')),
     img: !!(box && box.querySelector('img.sp-photo')),
-    credit: !!(box && box.querySelector('.photo-credit')),
+    // 「暂无照片」提示复用了 photo-credit 的样式类，它不是署名，排除掉
+    credit: !!(box && box.querySelector('.photo-credit:not(.no-photo)')),
   };
 });
 t('没照片的种回退到绘制（' + nameNo + '）', dn.canvas && !dn.img, JSON.stringify(dn));

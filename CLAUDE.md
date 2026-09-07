@@ -6,10 +6,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 项目简介
 
-看图认菌 → 抽卡收集 → 种进菌菇园的科普收集游戏。
-无后端、无账号，纯前端 + localStorage。参考 fishId（鱼鱼图鉴）的架构，但内核已抽成领域无关层。
+口袋菌菇图鉴：181 种真实照片配名字，从「现场看得见的特征」查到「它叫什么、怎么认、别和什么混」。
+答题是练习工具，菌菇园（抽卡、种植）是「我的」页里的附赠玩法。
+无后端、无账号，纯前端 + localStorage + Service Worker（可离线，山里没信号是常态）。
 
 **定位一句话：不教你吃，只教你认。**
+
+> 2026-09-07 由「答题抽卡种菌菇园」的收集游戏改版而来，路径与 fishId 同类改版一致：
+> 游戏形态把查阅路径埋了（没抽到的种显示 `???` 不能点）。改版设计与一期 A 计划在
+> `docs/superpowers/`。一期 B（五路形态检索）、一期 C（其余识别要点、尺度尺）待做。
 
 ## 安全红线（最高优先级，违反视为严重缺陷）
 
@@ -27,7 +32,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - 原生 HTML / CSS / JavaScript，零依赖、零构建工具
 - 存储：localStorage
-- **无图片资源**：所有菌类形象由 `js/game/shroom-art.js` 依据形态字段用 Canvas 绘制
+- 离线：`sw.js` 三层缓存（核心 / 200px 缩略图层 1.2 MB 预缓存 / 大图按需并回退缩略图）
+- 形象：166 种真实照片（`assets/photos/`，来源与授权在 `js/photo_credits.js`，**cc-by 要求显示署名**），
+  其余 15 种及所有非成熟态由 `js/game/shroom-art.js` 依据形态字段用 Canvas 绘制。
+  `app.js` 的 `art()` 是唯一入口：有照片用照片，没有或加载失败回退绘制
 
 ## 文件结构
 
@@ -48,19 +56,26 @@ mushroomId/
 │   │   ├── shroom-art.js       ← 程序化绘制
 │   │   ├── garden.js           ← 菌菇园 Canvas
 │   │   └── app.js              ← 路由与 DOM 粘合，不放规则
+│   ├── photo_credits.js        ← 照片署名 166 条（生成物，来自 skill 的取图管线，勿手改）
 │   └── data.gen.js             ← 生成物，已 gitignore，勿手改
+├── sw.js                       ← Service Worker 三层缓存；改 JS/CSS 后 V 与 index.html 的 ?v= 一起 bump
+├── assets/photos/real/         ← 900px WebP × 166（详情页）
+├── assets/photos/thumb/        ← 200px WebP × 166 + index.json（列表；SW 预缓存清单）
 ├── data/
 │   ├── mushrooms.json          ← 物种真相源（181 种）
 │   ├── questions_curated.json  ← 人工题真相源（trivia / cold_fact / myth_buster）
 │   └── README.md               ← 食性字段规范
 ├── tools/
 │   ├── build_data.py           ← data/*.json → js/data.gen.js
-│   ├── serve.py                ← 本地开发服务器
+│   ├── census_to_encounter.py  ← iNat 观察数 → encounter 四档 + 本土种修正表
+│   ├── serve.py                ← 本地开发服务器（多线程；SW 预缓存并发请求，单线程会超时）
 │   └── build_report_page.py    ← 设计报告 → HTML 页面
 ├── test/
 │   ├── check_data.py           ← 数据校验（含题库可达性）
 │   ├── core.test.js            ← 内核纯函数测试
 │   ├── transfer.test.js        ← 存档导出导入往返
+│   ├── verify_photos_ui.mjs    ← 照片行为验收（真实点击，查 naturalWidth 不查 src）
+│   ├── verify_fieldguide_a.mjs ← 一期 A 行为验收 23 项：路由 / 解锁 / 搜索 / 详情 / 安全文案 / 离线
 │   ├── e2e.html                ← 浏览器里跑完整循环
 │   └── cards.html              ← 分享卡片肉眼验收页
 └── docs/
@@ -204,12 +219,26 @@ fishId 有 43% 的题因为难度配置与题库分布对不上而永远抽不�
   "size": 1.0,
   "behavior": "default|puff|glow|bruise|jelly|cluster|ink|stink|hygro|splash|coral|veil|shelf|parasite",
   "lookalikes": ["caesar"],
+  "lookalikeNotes": { "caesar": "凯撒鹅膏菌盖光滑无白点，菌褶和菌柄黄色" },
+  "idKeys": [ { "text": "红色菌盖上散布白色疣状鳞片", "src": "wiki-zh" }, "…", "…" ],
+  "encounter": "common|occasional|rare|seldom",
   "habitat": "…", "fact": "…", "quote": "…",
   "art": { "cap": "convex", "capColor": "#C62B22", "spots": "white", "…": "…" }
 }
 ```
 
 `lookalikes` 必须双向。校验器会报单向引用。
+
+三个一期 A 新字段，各有门（`test/check_data.py`）：
+
+- **`idKeys`**：识别要点，每条 `{text, src}`，`src ∈ wiki-zh / wiki-en / mushroomexpert / inat / photo`。
+  写法是一句现场看得见的话（6–60 字），不是检索表术语（数值范围、μm、罗马数字会被门拦下）。
+  毒种 42 种必须恰好 3 条；其余种一期 C 补。详情页脚注如实写「AI 据公开资料整理，未经真菌学家审校」。
+- **`lookalikeNotes`**：`{对方id: 差异句}`。**毒/可食配对必须有人工句**，门保证；其余配对渲染时取对方 `idKeys[0]`。
+  「特征」不等于「区别」，这类句子不允许自动生成。
+- **`encounter`**：野外遇见率四档，由 `tools/census_to_encounter.py` 从 iNat 观察数分档 + 本土种修正表得出。
+  ⛔ 它不是 `rarity`（抽卡概率），图鉴排序与筛选只用 `encounter`。iNat 观察数对中国物种系统性偏低，
+  修正表是这个字段成立的前提，不是补丁。
 
 ## 当前进度
 
@@ -227,9 +256,16 @@ fishId 有 43% 的题因为难度配置与题库分布对不上而永远抽不�
 - [x] 分享卡片（菌卡 / 菌菇园 / 里程碑，水印强制）
 - [x] 存档导出导入（`.spore`，AES-GCM）
 - [x] 菌种库（腐殖质换指定物种）
-- [ ] 挑战好友分享、礼品码
-- [ ] 英文版
-- [ ] 形态检索表（V2）
+- [x] 166 种真实照片（三来源，全部可商用授权，逐张人眼过目，验收门八项）
+- [x] **一期 A（2026-09-07）**：导航减为图鉴/我的、图鉴 181 种全部可点、栈式路由可多级返回、
+      全字段搜索、毒种 42 种识别要点、毒/可食配对人工差异句、无照片致命种提示、
+      离线三层缓存、遇见率字段、安全文案不再自称游戏。行为验收 23 项全过
+- [ ] 一期 B：五路形态检索（轮廓 / 菌盖背面 / 长在哪 / 颜色 / 名字，`facet.js` 拷自 skill）、
+      `silhouette` / `colorGroup` / `pinyin` 字段、对比网格
+- [ ] 一期 C：其余 139 种识别要点、`capCm` 与尺度对比尺、分享卡改用照片
+- [ ] 二期：观察日志「我见过」、认菌训练重构、更多语言
+- [ ] 15 种无照片的种（清单在 `C:\tmp\mushroomId\README.md`）：开放图库里只有食材照与标本标签，
+      要么保持绘制，要么找国内机构授权
 
 ## 开发约定
 
@@ -238,4 +274,10 @@ fishId 有 43% 的题因为难度配置与题库分布对不上而永远抽不�
 - 所有日期用 `YYYY-MM-DD` 字符串比较。
 - 不引入任何 npm 包或构建工具。
 - 含中文的文件一律用 Python `open(..., encoding='utf-8')` 或编辑器工具写入。
+- **改 JS/CSS 后发版前，`index.html` 的 `?v=` 与 `sw.js` 顶部的 `V` 用同一个日期串一起 bump**，只改一个等于没发版。
+  `sw.js` 的 `CORE_URLS` 必须与 `index.html` 的 script 标签一一对应，漏一个离线时就是 ReferenceError。
+- 改过 `data/*.json` 之后**必须重跑 `build_data.py`**，页面加载的是 `data.gen.js`。一期 A 就因为漏了这步，
+  三条详情页断言红了半天。
+- 行为验收走真实点击。`app.js` 是 IIFE，内部函数不挂 window；模块层（`Storage` 等）才是全局的。
+  首次运行的安全协议弹层盖住整屏，测试里不关掉后面所有点击都会超时。
 - 新增物种后跑一次接触表，确认没画成一团。
