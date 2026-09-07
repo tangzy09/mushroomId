@@ -162,6 +162,20 @@ def check_species(species):
                 if KEYISH.search(k["text"]):
                     err("%s: idKeys[%d] reads like a dichotomous key, not a field mark: %r"
                         % (sid, i, k["text"]))
+    # --- 一期 B 检索字段 ------------------------------------------------
+    SIL = ("umbrella", "funnel", "shelf", "ball", "coral", "club", "brain", "jelly")
+    COLORS = ("white", "yellow", "orange", "red", "brown", "grey", "black", "purple", "green")
+    for m in species:
+        sid = m["id"]
+        if m.get("silhouette") not in SIL:
+            err("%s: silhouette must be one of %s, got %r" % (sid, SIL, m.get("silhouette")))
+        cg = m.get("colorGroup")
+        if not isinstance(cg, list) or not cg or len(cg) > 3 or any(c not in COLORS for c in cg):
+            err("%s: colorGroup must be 1-3 of %s, got %r" % (sid, COLORS, cg))
+        for f in ("pinyin", "pyAbbr", "initial"):
+            v = m.get(f)
+            if not isinstance(v, str) or not v or not v.isascii():
+                err("%s: %s must be a non-empty ASCII string, got %r" % (sid, f, v))
     # 毒/可食配对必须有人工差异句，且致命种至少有一个非毒相似种
     for m in species:
         if m.get("edibility") not in toxic:

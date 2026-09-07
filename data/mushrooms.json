@@ -33,7 +33,14 @@
       "stipeColor": "#E8DCC4",
       "texture": "cracks"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "xianggu",
+    "pyAbbr": "xg",
+    "initial": "X"
   },
   {
     "id": "oyster",
@@ -73,7 +80,15 @@
       "stipeColor": "#EFEBDE",
       "tiers": 3
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "white",
+      "grey"
+    ],
+    "pinyin": "pinggu",
+    "pyAbbr": "pg",
+    "initial": "P"
   },
   {
     "id": "enoki",
@@ -113,7 +128,15 @@
       "cluster": 9,
       "slim": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "orange"
+    ],
+    "pinyin": "jinzhengu",
+    "pyAbbr": "jzg",
+    "initial": "J"
   },
   {
     "id": "kingoyster",
@@ -147,7 +170,15 @@
       "stipeColor": "#F0EAD8",
       "fatStipe": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "xingbaogu",
+    "pyAbbr": "xbg",
+    "initial": "X"
   },
   {
     "id": "woodear",
@@ -186,7 +217,15 @@
       "stipeColor": "none",
       "jelly": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "jelly",
+    "colorGroup": [
+      "brown",
+      "black"
+    ],
+    "pinyin": "heimuer",
+    "pyAbbr": "hme",
+    "initial": "H"
   },
   {
     "id": "snowfungus",
@@ -224,7 +263,14 @@
       "stipeColor": "none",
       "jelly": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "coral",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "yiner",
+    "pyAbbr": "ye",
+    "initial": "Y"
   },
   {
     "id": "lionsmane",
@@ -260,7 +306,14 @@
       "stipeColor": "none",
       "spines": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "ball",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "houtougu",
+    "pyAbbr": "htg",
+    "initial": "H"
   },
   {
     "id": "button",
@@ -300,7 +353,15 @@
       "stipeColor": "#F5F0E2",
       "gillColor": "#6B4A3C"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white",
+      "brown"
+    ],
+    "pinyin": "shuangbaomogu",
+    "pyAbbr": "sbmg",
+    "initial": "S"
   },
   {
     "id": "strawmushroom",
@@ -338,7 +399,15 @@
       "stipeColor": "#F2ECDC",
       "volvaColor": "#8A7B6A"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "grey",
+      "brown"
+    ],
+    "pinyin": "caogu",
+    "pyAbbr": "cg",
+    "initial": "C"
   },
   {
     "id": "shimeji",
@@ -373,7 +442,15 @@
       "cluster": 6,
       "texture": "marble"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "xieweigu",
+    "pyAbbr": "xwg",
+    "initial": "X"
   },
   {
     "id": "nameko",
@@ -408,7 +485,15 @@
       "cluster": 7,
       "glossy": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "orange"
+    ],
+    "pinyin": "huazigu",
+    "pyAbbr": "hzg",
+    "initial": "H"
   },
   {
     "id": "shaggyink",
@@ -448,7 +533,14 @@
       "shaggy": true,
       "inkEdge": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "maotouguisan",
+    "pyAbbr": "mtgs",
+    "initial": "M"
   },
   {
     "id": "winecap",
@@ -484,7 +576,15 @@
       "stipeColor": "#F3EEDF",
       "ringColor": "#E4DAC2"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "red",
+      "brown"
+    ],
+    "pinyin": "daqiugaigu",
+    "pyAbbr": "dqgg",
+    "initial": "D"
   },
   {
     "id": "goldenoyster",
@@ -520,7 +620,14 @@
       "stipeColor": "#F6EFD8",
       "cluster": 8
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "yellow"
+    ],
+    "pinyin": "yuhuangmo",
+    "pyAbbr": "yhm",
+    "initial": "Y"
   },
   {
     "id": "maitake",
@@ -555,7 +662,15 @@
       "stipeColor": "#EDE4CE",
       "tiers": 5
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "coral",
+    "colorGroup": [
+      "grey",
+      "brown"
+    ],
+    "pinyin": "huishuhua",
+    "pyAbbr": "hsh",
+    "initial": "H"
   },
   {
     "id": "reishi",
@@ -592,7 +707,15 @@
       "stipeColor": "#6B3520",
       "lacquer": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "red",
+      "brown"
+    ],
+    "pinyin": "lingzhi",
+    "pyAbbr": "lz",
+    "initial": "L"
   },
   {
     "id": "turkeytail",
@@ -639,7 +762,15 @@
       "zones": true,
       "tiers": 6
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "brown",
+      "grey"
+    ],
+    "pinyin": "yunzhi",
+    "pyAbbr": "yz",
+    "initial": "Y"
   },
   {
     "id": "woodblewit",
@@ -678,7 +809,14 @@
       "stipeColor": "#B8A8C8",
       "gillColor": "#8A74A2"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "purple"
+    ],
+    "pinyin": "zidingxiangmo",
+    "pyAbbr": "zdxm",
+    "initial": "Z"
   },
   {
     "id": "honey",
@@ -721,7 +859,15 @@
       "ringColor": "#EFE4C4",
       "scales": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "yellow"
+    ],
+    "pinyin": "mihuanjun",
+    "pyAbbr": "mhj",
+    "initial": "M"
   },
   {
     "id": "velvetfoot",
@@ -760,7 +906,15 @@
       "cluster": 7,
       "glossy": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "orange",
+      "brown"
+    ],
+    "pinyin": "donggu",
+    "pyAbbr": "dg",
+    "initial": "D"
   },
   {
     "id": "fairyring",
@@ -801,7 +955,14 @@
       "stipeColor": "#E3D3B4",
       "slim": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "yingbingxiaopisan",
+    "pyAbbr": "ybxps",
+    "initial": "Y"
   },
   {
     "id": "fieldmushroom",
@@ -841,7 +1002,14 @@
       "gillColor": "#C98B9E",
       "ringColor": "#F0E8D4"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "sibaomogu",
+    "pyAbbr": "sbmg",
+    "initial": "S"
   },
   {
     "id": "saffronmilk",
@@ -879,7 +1047,15 @@
       "bruiseColor": "#4E7A46",
       "zones": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "orange",
+      "green"
+    ],
+    "pinyin": "songrugu",
+    "pyAbbr": "srg",
+    "initial": "S"
   },
   {
     "id": "greenrussula",
@@ -917,7 +1093,14 @@
       "stipeColor": "#F6F2E4",
       "texture": "cracks"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "green"
+    ],
+    "pinyin": "qingtoujun",
+    "pyAbbr": "qtj",
+    "initial": "Q"
   },
   {
     "id": "charcoalburner",
@@ -955,7 +1138,16 @@
       "capColor2": "#9C8AA8",
       "stipeColor": "#F7F3E6"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "purple",
+      "green",
+      "grey"
+    ],
+    "pinyin": "lanhuanghonggu",
+    "pyAbbr": "lhhg",
+    "initial": "L"
   },
   {
     "id": "blackening",
@@ -993,7 +1185,15 @@
       "bruiseColor": "#8A2020",
       "sparseGills": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "white",
+      "black"
+    ],
+    "pinyin": "xizhehonggu",
+    "pyAbbr": "xzhg",
+    "initial": "X"
   },
   {
     "id": "porcini",
@@ -1034,7 +1234,15 @@
       "fatStipe": true,
       "reticulum": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "meiweiniuganjun",
+    "pyAbbr": "mwngj",
+    "initial": "M"
   },
   {
     "id": "bainiugan",
@@ -1074,7 +1282,15 @@
       "fatStipe": true,
       "reticulum": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white",
+      "brown"
+    ],
+    "pinyin": "bainiuganjun",
+    "pyAbbr": "bngj",
+    "initial": "B"
   },
   {
     "id": "jianshouqing",
@@ -1117,7 +1333,15 @@
       "bruiseColor": "#1F4E8C",
       "fatStipe": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "red"
+    ],
+    "pinyin": "lanmaoniuganjun",
+    "pyAbbr": "lmngj",
+    "initial": "L"
   },
   {
     "id": "whiteonion",
@@ -1158,7 +1382,15 @@
       "bruiseColor": "#2A5A96",
       "fatStipe": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white",
+      "yellow"
+    ],
+    "pinyin": "meihuanghuangrouniuganjun",
+    "pyAbbr": "mhhrngj",
+    "initial": "M"
   },
   {
     "id": "magnificus",
@@ -1200,7 +1432,15 @@
       "bruiseColor": "#16386E",
       "fatStipe": true
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "red",
+      "brown"
+    ],
+    "pinyin": "hualixinniuganjun",
+    "pyAbbr": "hlxngj",
+    "initial": "H"
   },
   {
     "id": "slipperyjack",
@@ -1238,7 +1478,14 @@
       "glossy": true,
       "ringColor": "#C9B48A"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "hehuanruniuganjun",
+    "pyAbbr": "hhrngj",
+    "initial": "H"
   },
   {
     "id": "larchbolete",
@@ -1276,7 +1523,14 @@
       "glossy": true,
       "ringColor": "#D8C288"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "yellow"
+    ],
+    "pinyin": "houhuanruniuganjun",
+    "pyAbbr": "hhrngj",
+    "initial": "H"
   },
   {
     "id": "chanterelle",
@@ -1316,7 +1570,15 @@
       "stipeColor": "#F0BE55",
       "ridges": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "yellow",
+      "orange"
+    ],
+    "pinyin": "jiyoujun",
+    "pyAbbr": "jyj",
+    "initial": "J"
   },
   {
     "id": "blacktrumpet",
@@ -1351,7 +1613,15 @@
       "capColor2": "#5E534A",
       "stipeColor": "#4A423A"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "black",
+      "grey"
+    ],
+    "pinyin": "huilabajun",
+    "pyAbbr": "hlbj",
+    "initial": "H"
   },
   {
     "id": "morel",
@@ -1389,7 +1659,15 @@
       "stipeColor": "#F0E6CC",
       "wrinkle": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "brain",
+    "colorGroup": [
+      "yellow",
+      "brown"
+    ],
+    "pinyin": "yangdujun",
+    "pyAbbr": "ydj",
+    "initial": "Y"
   },
   {
     "id": "blackmorel",
@@ -1427,7 +1705,15 @@
       "stipeColor": "#EDE2C4",
       "wrinkle": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "brain",
+    "colorGroup": [
+      "black",
+      "brown"
+    ],
+    "pinyin": "heimaiyangdujun",
+    "pyAbbr": "hmydj",
+    "initial": "H"
   },
   {
     "id": "bambooveil",
@@ -1465,7 +1751,14 @@
       "veil": true,
       "volvaColor": "#E4DAC4"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "zhangqunzhusun",
+    "pyAbbr": "zqzs",
+    "initial": "Z"
   },
   {
     "id": "matsutake",
@@ -1506,7 +1799,15 @@
       "ringColor": "#EAE0C8",
       "fatStipe": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "songrong",
+    "pyAbbr": "sr",
+    "initial": "S"
   },
   {
     "id": "fakematsutake",
@@ -1542,7 +1843,15 @@
       "scales": true,
       "ringColor": "#E8DCC0"
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "jiasongrong",
+    "pyAbbr": "jsr",
+    "initial": "J"
   },
   {
     "id": "almond",
@@ -1581,7 +1890,15 @@
       "gillColor": "#8A6656",
       "ringColor": "#F0E8D2"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "jisongrong",
+    "pyAbbr": "jsr",
+    "initial": "J"
   },
   {
     "id": "termite",
@@ -1618,7 +1935,15 @@
       "stipeColor": "#F4EFE0",
       "longRoot": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "grey",
+      "white"
+    ],
+    "pinyin": "jicong",
+    "pyAbbr": "jc",
+    "initial": "J"
   },
   {
     "id": "blackskin",
@@ -1659,7 +1984,15 @@
     "aka": [
       "Hymenopellis raphanipes"
     ],
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "black",
+      "white"
+    ],
+    "pinyin": "heipijicong",
+    "pyAbbr": "hpjc",
+    "initial": "H"
   },
   {
     "id": "ganbajun",
@@ -1694,7 +2027,15 @@
       "stipeColor": "none",
       "tiers": 7
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "coral",
+    "colorGroup": [
+      "grey",
+      "white"
+    ],
+    "pinyin": "ganbajun",
+    "pyAbbr": "gbj",
+    "initial": "G"
   },
   {
     "id": "tigerpaw",
@@ -1731,7 +2072,14 @@
       "scales": true,
       "spines": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "qiaolinrouchijun",
+    "pyAbbr": "qlrcj",
+    "initial": "Q"
   },
   {
     "id": "hedgehog",
@@ -1768,7 +2116,15 @@
       "stipeColor": "#F2E4C8",
       "spines": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white",
+      "orange"
+    ],
+    "pinyin": "juanyuanchijun",
+    "pyAbbr": "jycj",
+    "initial": "J"
   },
   {
     "id": "giantpuffball",
@@ -1804,7 +2160,14 @@
       "capColor2": "#FBF7EC",
       "stipeColor": "none"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "ball",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "damabo",
+    "pyAbbr": "dmb",
+    "initial": "D"
   },
   {
     "id": "puffball",
@@ -1842,7 +2205,14 @@
       "stipeColor": "#DCD0B4",
       "warts": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "ball",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "wangwenmabo",
+    "pyAbbr": "wwmb",
+    "initial": "W"
   },
   {
     "id": "earthstar",
@@ -1880,7 +2250,14 @@
       "stipeColor": "none",
       "rays": 6
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "ball",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "jiandingdixing",
+    "pyAbbr": "jddx",
+    "initial": "J"
   },
   {
     "id": "barometer",
@@ -1917,7 +2294,14 @@
       "rays": 8,
       "cracked": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "ball",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "yingpidixing",
+    "pyAbbr": "ypdx",
+    "initial": "Y"
   },
   {
     "id": "birdsnest",
@@ -1954,7 +2338,14 @@
       "stipeColor": "none",
       "eggs": 4
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "longwenheidanchaojun",
+    "pyAbbr": "lwhdcj",
+    "initial": "L"
   },
   {
     "id": "inkcap",
@@ -2012,7 +2403,15 @@
       "shaggyink": "毛头鬼伞菌盖白色圆柱形带大片鳞片；墨汁鬼伞灰褐色光滑",
       "micaceus": "晶粒小鬼伞更小、橙黄色，菌盖有闪亮颗粒"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "grey",
+      "brown"
+    ],
+    "pinyin": "mozhiguisan",
+    "pyAbbr": "mzgs",
+    "initial": "M"
   },
   {
     "id": "micaceus",
@@ -2054,7 +2453,15 @@
       "glitter": true,
       "inkEdge": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "orange",
+      "brown"
+    ],
+    "pinyin": "jinglixiaoguisan",
+    "pyAbbr": "jlxgs",
+    "initial": "J"
   },
   {
     "id": "deathcap",
@@ -2116,7 +2523,15 @@
       "strawmushroom": "草菇菌褶成熟后变粉红且无菌环；死帽菇菌褶始终白色且有菌环",
       "caesar": "凯撒鹅膏菌盖橙红、菌褶和菌柄黄色；死帽菇菌盖橄榄绿、菌褶白色"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "green",
+      "yellow"
+    ],
+    "pinyin": "duegao",
+    "pyAbbr": "deg",
+    "initial": "D"
   },
   {
     "id": "destroyingangel",
@@ -2178,7 +2593,14 @@
       "strawmushroom": "草菇菌褶变粉红且无菌环；毁灭天使菌褶纯白且有菌环",
       "horsemushroom": "大肥菇菌褶粉褐、擦伤变黄、有茴香味；毁灭天使菌褶纯白无气味"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "linbingbaiegao",
+    "pyAbbr": "lbbeg",
+    "initial": "L"
   },
   {
     "id": "fuliginea",
@@ -2236,7 +2658,15 @@
     "lookalikeNotes": {
       "grisette": "灰鹅膏没有菌环，菌盖边缘有明显条纹；灰花纹鹅膏有菌环且边缘无条纹"
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "grey",
+      "black"
+    ],
+    "pinyin": "huihuawenegao",
+    "pyAbbr": "hhweg",
+    "initial": "H"
   },
   {
     "id": "exitialis",
@@ -2293,7 +2723,14 @@
       "termite": "鸡枞菌柄基部延伸成假根扎进蚁巢，无菌托无菌环",
       "strawmushroom": "草菇菌褶变粉红且无菌环；致命鹅膏菌褶纯白且有菌环"
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "zhimingegao",
+    "pyAbbr": "zmeg",
+    "initial": "Z"
   },
   {
     "id": "flyagaric",
@@ -2357,7 +2794,15 @@
       "blusher": "赭盖鹅膏菌盖褐红、受伤变红，疣点易脱落且不成整齐排列",
       "amanitajack": "美洲橙盖鹅膏菌盖光滑无白点，边缘有条纹，菌褶黄色"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "red",
+      "white"
+    ],
+    "pinyin": "duyingsan",
+    "pyAbbr": "dys",
+    "initial": "D"
   },
   {
     "id": "panther",
@@ -2414,7 +2859,15 @@
     "lookalikeNotes": {
       "blusher": "赭盖鹅膏受伤变红且基部无环带状菌托边缘；豹斑鹅膏不变色"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "baobanegao",
+    "pyAbbr": "bbeg",
+    "initial": "B"
   },
   {
     "id": "citrina",
@@ -2467,7 +2920,15 @@
         "src": "wiki-en"
       }
     ],
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "yellow",
+      "white"
+    ],
+    "pinyin": "ningmenghuangegao",
+    "pyAbbr": "nmheg",
+    "initial": "N"
   },
   {
     "id": "blusher",
@@ -2509,7 +2970,15 @@
       "spots": "pale",
       "bruiseColor": "#A8443C"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "red"
+    ],
+    "pinyin": "zhegaiegao",
+    "pyAbbr": "zgeg",
+    "initial": "Z"
   },
   {
     "id": "caesar",
@@ -2551,7 +3020,15 @@
       "volvaColor": "#F7F3E6",
       "gillColor": "#F5DC7A"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "orange",
+      "yellow"
+    ],
+    "pinyin": "chenggaiegao",
+    "pyAbbr": "cgeg",
+    "initial": "C"
   },
   {
     "id": "eggamanita",
@@ -2591,7 +3068,14 @@
       "volvaColor": "#F8F4E8",
       "gillColor": "#F2D870"
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "orange"
+    ],
+    "pinyin": "honghuangegao",
+    "pyAbbr": "hheg",
+    "initial": "H"
   },
   {
     "id": "subjunquillea",
@@ -2648,7 +3132,14 @@
       "eggamanita": "橙盖鹅膏菌盖橙红有边缘条纹，菌褶黄色；黄盖鹅膏菌褶白色，边缘无条纹",
       "caesar": "凯撒鹅膏菌褶和菌柄黄色；黄盖鹅膏菌褶白色"
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "yellow"
+    ],
+    "pinyin": "huanggaiegao",
+    "pyAbbr": "hgeg",
+    "initial": "H"
   },
   {
     "id": "grisette",
@@ -2687,7 +3178,14 @@
       "gillColor": "#FBF9F2",
       "striate": true
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "grey"
+    ],
+    "pinyin": "huiegao",
+    "pyAbbr": "heg",
+    "initial": "H"
   },
   {
     "id": "greenspored",
@@ -2745,7 +3243,15 @@
       "parasol": "高大环柄菇菌褶始终白色，菌柄有蛇皮纹；绿褶菇菌褶变绿",
       "chlorophyllumB": "褐鳞环柄菇菌褶始终白色，切开菌肉变橙红；绿褶菇菌褶变绿"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white",
+      "brown"
+    ],
+    "pinyin": "daqingzhesan",
+    "pyAbbr": "dqzs",
+    "initial": "D"
   },
   {
     "id": "parasol",
@@ -2786,7 +3292,15 @@
       "scales": true,
       "snakeStipe": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "gaodahuanbinggu",
+    "pyAbbr": "gdhbg",
+    "initial": "G"
   },
   {
     "id": "lepiotabrun",
@@ -2844,7 +3358,15 @@
       "parasol": "高大环柄菇个头大得多，菌柄有蛇皮纹和可活动的菌环",
       "fairyring": "硬柄小皮伞菌盖光滑无鳞片，菌柄坚韧无菌环"
     },
-    "encounter": "rare"
+    "encounter": "rare",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "rouhelinhuanbinggu",
+    "pyAbbr": "rhlhbg",
+    "initial": "R"
   },
   {
     "id": "subnigricans",
@@ -2900,7 +3422,15 @@
     "lookalikeNotes": {
       "blackening": "黑变红菇受伤先变红再变黑但过程慢；亚稀褶红菇菌褶更稀更厚，变红更快"
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "white",
+      "grey"
+    ],
+    "pinyin": "yaxizhehonggu",
+    "pyAbbr": "yxzhg",
+    "initial": "Y"
   },
   {
     "id": "sickener",
@@ -2956,7 +3486,15 @@
       "charcoalburner": "蓝黄红菇菌盖紫绿杂色且菌褶柔韧不易碎；毒红菇鲜红且菌褶脆",
       "bigred": "大红菇菌盖暗红色、菌褶淡黄、菌柄常带红晕；毒红菇鲜红、菌褶菌柄纯白"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "red",
+      "white"
+    ],
+    "pinyin": "duhonggu",
+    "pyAbbr": "dhg",
+    "initial": "D"
   },
   {
     "id": "funeralbell",
@@ -3018,7 +3556,15 @@
       "woodtuft": "毛腿库恩菌菌柄下部有褐色小鳞片、菌盖两色；秋盔孢伞菌柄光滑有膜质菌环",
       "humongous": "奥氏蜜环菌大型、有明显菌环、丛生树基；秋盔孢伞小型，菌环薄"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "yellow"
+    ],
+    "pinyin": "qiushengkuibaosan",
+    "pyAbbr": "qskbs",
+    "initial": "Q"
   },
   {
     "id": "sulphurtuft",
@@ -3077,7 +3623,15 @@
       "honey": "蜜环菌菌褶白色、有菌环；簇生垂幕菇菌褶黄绿转紫黑，无真正菌环",
       "hypholomaL": "砖红垂幕菇菌盖砖红色、菌褶灰色；簇生垂幕菇硫磺黄、菌褶黄绿"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "yellow",
+      "green"
+    ],
+    "pinyin": "cushengchuimugu",
+    "pyAbbr": "cscmg",
+    "initial": "C"
   },
   {
     "id": "deadlywebcap",
@@ -3132,7 +3686,15 @@
     "lookalikeNotes": {
       "gypsy": "皱盖丝膜菌菌盖有白霜状覆盖、有膜质菌环；毒丝膜菌红褐圆锥形，只有丝膜痕"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "orange",
+      "brown"
+    ],
+    "pinyin": "xilinsimojun",
+    "pyAbbr": "xlsmj",
+    "initial": "X"
   },
   {
     "id": "falsemorel",
@@ -3190,7 +3752,15 @@
       "blackmorel": "黑脉羊肚菌帽部纵向棱脊如梯；鹿花菌是无规则的脑状褶皱",
       "saddle": "皱马鞍菌白色马鞍形帽、柄有深沟槽；鹿花菌红褐色脑状"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "brain",
+    "colorGroup": [
+      "brown",
+      "red"
+    ],
+    "pinyin": "luhuajun",
+    "pyAbbr": "lhj",
+    "initial": "L"
   },
   {
     "id": "jackolantern",
@@ -3245,7 +3815,14 @@
     "lookalikeNotes": {
       "chanterelle": "鸡油菌下方是钝棱脉不是真菌褶，单生于土中；杰克灯笼菌菌褶锐利，丛生于木上"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "orange"
+    ],
+    "pinyin": "aoerleiqigu",
+    "pyAbbr": "aelqg",
+    "initial": "A"
   },
   {
     "id": "tsukiyotake",
@@ -3302,7 +3879,15 @@
       "oyster": "平菇菌柄基部切开无紫黑斑；月夜菌柄基部菌肉有紫黑色斑",
       "lateoyster": "晚生北风菌菌褶黄色、菌盖橄榄绿；月夜菌菌褶白色、菌盖紫褐"
     },
-    "encounter": "rare"
+    "encounter": "rare",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "brown",
+      "purple"
+    ],
+    "pinyin": "yueyejun",
+    "pyAbbr": "yyj",
+    "initial": "Y"
   },
   {
     "id": "glowmycena",
@@ -3343,7 +3928,15 @@
       "slim": true,
       "glowColor": "#7CFF9A"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white",
+      "grey"
+    ],
+    "pinyin": "yingguangxiaogu",
+    "pyAbbr": "ygxg",
+    "initial": "Y"
   },
   {
     "id": "bittermycena",
@@ -3382,7 +3975,15 @@
       "tiers": 4,
       "glowColor": "#8CFF88"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "kushangu",
+    "pyAbbr": "ksg",
+    "initial": "K"
   },
   {
     "id": "stinkhorn",
@@ -3421,7 +4022,15 @@
       "volvaColor": "#E8E0CC",
       "flies": 4
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white",
+      "green"
+    ],
+    "pinyin": "baiguibi",
+    "pyAbbr": "bgb",
+    "initial": "B"
   },
   {
     "id": "redcage",
@@ -3460,7 +4069,14 @@
       "volvaColor": "#EFE8D6",
       "flies": 3
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "ball",
+    "colorGroup": [
+      "red"
+    ],
+    "pinyin": "honglongtoujun",
+    "pyAbbr": "hltj",
+    "initial": "H"
   },
   {
     "id": "devilsfingers",
@@ -3500,7 +4116,14 @@
       "arms": 5,
       "flies": 3
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "coral",
+    "colorGroup": [
+      "red"
+    ],
+    "pinyin": "zhangyuguibi",
+    "pyAbbr": "zygb",
+    "initial": "Z"
   },
   {
     "id": "bleedingtooth",
@@ -3535,7 +4158,15 @@
       "spines": true,
       "droplets": "#C42A2A"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white",
+      "red"
+    ],
+    "pinyin": "chuxiechijun",
+    "pyAbbr": "cxcj",
+    "initial": "C"
   },
   {
     "id": "bluemushroom",
@@ -3569,7 +4200,14 @@
       "stipeColor": "#2E8FB4",
       "gillColor": "#D8A0B4"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "purple"
+    ],
+    "pinyin": "huoshifenzhejun",
+    "pyAbbr": "hsfzj",
+    "initial": "H"
   },
   {
     "id": "indigomilk",
@@ -3604,7 +4242,14 @@
       "bruiseColor": "#2A4A6E",
       "zones": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "purple"
+    ],
+    "pinyin": "dianlanrugu",
+    "pyAbbr": "dlrg",
+    "initial": "D"
   },
   {
     "id": "violetcoral",
@@ -3642,7 +4287,14 @@
       "stipeColor": "none",
       "branches": 7
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "coral",
+    "colorGroup": [
+      "purple"
+    ],
+    "pinyin": "zishanhujun",
+    "pyAbbr": "zshj",
+    "initial": "Z"
   },
   {
     "id": "scarletcup",
@@ -3678,7 +4330,14 @@
       "capColor2": "#E2503C",
       "stipeColor": "#E8DCC4"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "red"
+    ],
+    "pinyin": "xinghongroubeijun",
+    "pyAbbr": "xhrbj",
+    "initial": "X"
   },
   {
     "id": "orangepeel",
@@ -3715,7 +4374,14 @@
       "stipeColor": "none",
       "wavy": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "orange"
+    ],
+    "pinyin": "chenghuangwangbaopanjun",
+    "pyAbbr": "chwbpj",
+    "initial": "C"
   },
   {
     "id": "greenelfcup",
@@ -3750,7 +4416,14 @@
       "stipeColor": "#3E9A86",
       "cluster": 6
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "green"
+    ],
+    "pinyin": "xiaobaolvbeipanjun",
+    "pyAbbr": "xblbpj",
+    "initial": "X"
   },
   {
     "id": "candlesnuff",
@@ -3788,7 +4461,15 @@
       "branches": 4,
       "antler": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "coral",
+    "colorGroup": [
+      "white",
+      "black"
+    ],
+    "pinyin": "lujiaotanjiaojun",
+    "pyAbbr": "ljtjj",
+    "initial": "L"
   },
   {
     "id": "deadmanfingers",
@@ -3826,7 +4507,14 @@
       "stipeColor": "#3A342C",
       "fingers": 4
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "club",
+    "colorGroup": [
+      "black"
+    ],
+    "pinyin": "duoxingtanjiaojun",
+    "pyAbbr": "dxtjj",
+    "initial": "D"
   },
   {
     "id": "kingalfred",
@@ -3869,7 +4557,15 @@
       "stipeColor": "none",
       "rings": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "ball",
+    "colorGroup": [
+      "black",
+      "brown"
+    ],
+    "pinyin": "heiluncengtanke",
+    "pyAbbr": "hlctk",
+    "initial": "H"
   },
   {
     "id": "tinder",
@@ -3916,7 +4612,15 @@
       "stipeColor": "none",
       "zones": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "grey",
+      "brown"
+    ],
+    "pinyin": "muticengkongjun",
+    "pyAbbr": "mtckj",
+    "initial": "M"
   },
   {
     "id": "artistconk",
@@ -3964,7 +4668,15 @@
       "poreColor": "#F2EEE2",
       "zones": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "shushelingzhi",
+    "pyAbbr": "sslz",
+    "initial": "S"
   },
   {
     "id": "chickenwoods",
@@ -4000,7 +4712,15 @@
       "stipeColor": "none",
       "tiers": 5
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "orange",
+      "yellow"
+    ],
+    "pinyin": "liuhuangjun",
+    "pyAbbr": "lhj",
+    "initial": "L"
   },
   {
     "id": "beefsteak",
@@ -4034,7 +4754,15 @@
       "stipeColor": "none",
       "droplets": "#8E1E1A"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "club",
+    "colorGroup": [
+      "red",
+      "brown"
+    ],
+    "pinyin": "ganseniupaijun",
+    "pyAbbr": "gsnpj",
+    "initial": "G"
   },
   {
     "id": "splitgill",
@@ -4080,7 +4808,15 @@
       "tiers": 6,
       "hairy": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "white",
+      "grey"
+    ],
+    "pinyin": "liezhejun",
+    "pyAbbr": "lzj",
+    "initial": "L"
   },
   {
     "id": "chaga",
@@ -4125,7 +4861,15 @@
       "stipeColor": "none",
       "cracked": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "ball",
+    "colorGroup": [
+      "black",
+      "brown"
+    ],
+    "pinyin": "huahekongjun",
+    "pyAbbr": "hhkj",
+    "initial": "H"
   },
   {
     "id": "caterpillar",
@@ -4162,7 +4906,15 @@
       "stipeColor": "#C9A46E",
       "larva": true
     },
-    "encounter": "rare"
+    "encounter": "rare",
+    "silhouette": "club",
+    "colorGroup": [
+      "brown",
+      "yellow"
+    ],
+    "pinyin": "dongchongxiacao",
+    "pyAbbr": "dcxc",
+    "initial": "D"
   },
   {
     "id": "militaris",
@@ -4200,7 +4952,14 @@
       "larva": true,
       "cluster": 3
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "club",
+    "colorGroup": [
+      "orange"
+    ],
+    "pinyin": "yongchongcao",
+    "pyAbbr": "ycc",
+    "initial": "Y"
   },
   {
     "id": "zombieant",
@@ -4237,7 +4996,14 @@
       "stipeColor": "#6E5A3E",
       "ant": true
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "club",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "pianceshechongcao",
+    "pyAbbr": "pcscc",
+    "initial": "P"
   },
   {
     "id": "blacktruffle",
@@ -4276,7 +5042,14 @@
       "warts": true,
       "buried": true
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "ball",
+    "colorGroup": [
+      "black"
+    ],
+    "pinyin": "heibaokuaijun",
+    "pyAbbr": "hbkj",
+    "initial": "H"
   },
   {
     "id": "chinesetruffle",
@@ -4315,7 +5088,14 @@
       "warts": true,
       "buried": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "ball",
+    "colorGroup": [
+      "black"
+    ],
+    "pinyin": "zhonghuakuaijun",
+    "pyAbbr": "zhkj",
+    "initial": "Z"
   },
   {
     "id": "lobster",
@@ -4349,7 +5129,15 @@
       "stipeColor": "#E8845A",
       "warts": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "ball",
+    "colorGroup": [
+      "orange",
+      "red"
+    ],
+    "pinyin": "longxiajun",
+    "pyAbbr": "lxj",
+    "initial": "L"
   },
   {
     "id": "earpick",
@@ -4386,7 +5174,14 @@
       "lateral": true,
       "hairy": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "ershijun",
+    "pyAbbr": "esj",
+    "initial": "E"
   },
   {
     "id": "witchbutter",
@@ -4424,7 +5219,15 @@
       "stipeColor": "none",
       "jelly": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "coral",
+    "colorGroup": [
+      "yellow",
+      "orange"
+    ],
+    "pinyin": "jiner",
+    "pyAbbr": "je",
+    "initial": "J"
   },
   {
     "id": "blackwitch",
@@ -4466,7 +5269,14 @@
       "jelly": true,
       "glossy": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "jelly",
+    "colorGroup": [
+      "black"
+    ],
+    "pinyin": "heier",
+    "pyAbbr": "he",
+    "initial": "H"
   },
   {
     "id": "stagshorn",
@@ -4505,7 +5315,15 @@
       "branches": 5,
       "jelly": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "coral",
+    "colorGroup": [
+      "orange",
+      "yellow"
+    ],
+    "pinyin": "jiaojiaoer",
+    "pyAbbr": "jje",
+    "initial": "J"
   },
   {
     "id": "amethyst",
@@ -4546,7 +5364,14 @@
       "gillColor": "#B48ECC",
       "slim": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "purple"
+    ],
+    "pinyin": "zilamo",
+    "pyAbbr": "zlm",
+    "initial": "Z"
   },
   {
     "id": "parrot",
@@ -4585,7 +5410,15 @@
       "glossy": true,
       "slim": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "green",
+      "yellow"
+    ],
+    "pinyin": "yingwushisan",
+    "pyAbbr": "ywss",
+    "initial": "Y"
   },
   {
     "id": "scarletwaxcap",
@@ -4623,7 +5456,14 @@
       "glossy": true,
       "slim": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "red"
+    ],
+    "pinyin": "hongshisan",
+    "pyAbbr": "hss",
+    "initial": "H"
   },
   {
     "id": "wrinkledpeach",
@@ -4659,7 +5499,15 @@
       "gillColor": "#E0907A",
       "veined": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "orange",
+      "red"
+    ],
+    "pinyin": "wanggaihongzhesan",
+    "pyAbbr": "wghzs",
+    "initial": "W"
   },
   {
     "id": "bleedingbonnet",
@@ -4700,7 +5548,14 @@
       "bruiseColor": "#6E1A22",
       "striate": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "red"
+    ],
+    "pinyin": "xuehongxiaogu",
+    "pyAbbr": "xhxg",
+    "initial": "X"
   },
   {
     "id": "jellyear",
@@ -4741,7 +5596,14 @@
       "jelly": true,
       "veined": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "jelly",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "youtaier",
+    "pyAbbr": "yte",
+    "initial": "Y"
   },
   {
     "id": "yellowstainer",
@@ -4801,7 +5663,14 @@
       "fieldmushroom": "野蘑菇擦伤略变粉；黄斑蘑菇基部变亮黄且有墨水味",
       "horsemushroom": "大肥菇擦伤变淡黄且有茴香甜味；黄斑蘑菇变亮黄且有刺鼻酚味"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "huangbanmogu",
+    "pyAbbr": "hbmg",
+    "initial": "H"
   },
   {
     "id": "horsemushroom",
@@ -4840,7 +5709,14 @@
       "gillColor": "#C0A090",
       "ringColor": "#F2ECDA"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "yemogu",
+    "pyAbbr": "ymg",
+    "initial": "Y"
   },
   {
     "id": "rollrim",
@@ -4890,7 +5766,14 @@
         "src": "wiki-zh"
       }
     ],
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "juanbianzhuanggu",
+    "pyAbbr": "jbzg",
+    "initial": "J"
   },
   {
     "id": "bitterbolete",
@@ -4929,7 +5812,14 @@
       "fatStipe": true,
       "reticulum": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "kufenbaoniuganjun",
+    "pyAbbr": "kfbngj",
+    "initial": "K"
   },
   {
     "id": "satan",
@@ -4990,7 +5880,15 @@
       "magnificus": "华丽新牛肝菌菌盖红褐色；撒旦牛肝菌菌盖灰白",
       "porcini": "美味牛肝菌菌孔白转黄绿、菌柄白褐有网纹、不变蓝；撒旦牛肝菌菌孔红色"
     },
-    "encounter": "rare"
+    "encounter": "rare",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white",
+      "red"
+    ],
+    "pinyin": "sadanniuganjun",
+    "pyAbbr": "sdngj",
+    "initial": "S"
   },
   {
     "id": "earthball",
@@ -5049,7 +5947,15 @@
       "giantpuffball": "大秃马勃巨大纯白光滑；硬皮马勃小、黄褐色龟裂",
       "pisolithus": "彩色豆马勃有假根柄、切开是豆状小包；硬皮马勃无柄、内部均匀紫黑"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "ball",
+    "colorGroup": [
+      "yellow",
+      "brown"
+    ],
+    "pinyin": "juhuangyingpimabo",
+    "pyAbbr": "jhypmb",
+    "initial": "J"
   },
   {
     "id": "formosa",
@@ -5104,7 +6010,15 @@
       "coralRamaria": "葡萄状枝瑚菌分枝顶端粉红如葡萄、基部白色粗壮；美丽枝瑚菌整体粉橙、顶端偏黄",
       "violetcoral": "紫珊瑚菌通体紫色"
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "coral",
+    "colorGroup": [
+      "orange",
+      "yellow"
+    ],
+    "pinyin": "meilizhihujun",
+    "pyAbbr": "mlzhj",
+    "initial": "M"
   },
   {
     "id": "coralRamaria",
@@ -5140,7 +6054,15 @@
       "stipeColor": "#F2EAD8",
       "branches": 11
     },
-    "encounter": "rare"
+    "encounter": "rare",
+    "silhouette": "coral",
+    "colorGroup": [
+      "white",
+      "purple"
+    ],
+    "pinyin": "putaozhuangzhihujun",
+    "pyAbbr": "ptzzhj",
+    "initial": "P"
   },
   {
     "id": "gomphus",
@@ -5194,7 +6116,15 @@
     "lookalikeNotes": {
       "chanterelle": "鸡油菌实心、通体蛋黄色、外侧棱脉钝；毛钉菇中空、内侧橙红有鳞片"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "orange",
+      "white"
+    ],
+    "pinyin": "maodinggu",
+    "pyAbbr": "mdg",
+    "initial": "M"
   },
   {
     "id": "ivory",
@@ -5252,7 +6182,14 @@
     "lookalikeNotes": {
       "fairyring": "硬柄小皮伞菌盖淡褐钟形、菌褶稀疏不延生、菌柄坚韧；白霜杯伞菌盖白色带霜、菌褶延生"
     },
-    "encounter": "rare"
+    "encounter": "rare",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "baishuangbeisan",
+    "pyAbbr": "bsbs",
+    "initial": "B"
   },
   {
     "id": "livid",
@@ -5309,7 +6246,15 @@
       "charcoalburner": "蓝黄红菇菌柄脆一掰就断、菌褶白；毒粉褶菌菌柄纤维质、菌褶变粉",
       "deerpluteus": "鹿光柄菇长在腐木上、菌褶离生；毒粉褶菌长在土里、菌褶弯生"
     },
-    "encounter": "rare"
+    "encounter": "rare",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white",
+      "grey"
+    ],
+    "pinyin": "dufenzhejun",
+    "pyAbbr": "dfzj",
+    "initial": "D"
   },
   {
     "id": "equestre",
@@ -5362,7 +6307,15 @@
     "lookalikeNotes": {
       "matsutake": "松茸菌盖褐色有纤维鳞片、菌柄有大菌环、有松香味；油黄口蘑黄绿且无菌环"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "yellow",
+      "green"
+    ],
+    "pinyin": "youkoumo",
+    "pyAbbr": "ykm",
+    "initial": "Y"
   },
   {
     "id": "poisonpie",
@@ -5411,7 +6364,15 @@
         "src": "wiki-en"
       }
     ],
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white",
+      "brown"
+    ],
+    "pinyin": "daduhuaxiusan",
+    "pyAbbr": "ddhxs",
+    "initial": "D"
   },
   {
     "id": "leucocoprinus",
@@ -5470,7 +6431,14 @@
         "src": "wiki-zh"
       }
     ],
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "yellow"
+    ],
+    "pinyin": "chunhuangbaiguisan",
+    "pyAbbr": "chbgs",
+    "initial": "C"
   },
   {
     "id": "deerpluteus",
@@ -5510,7 +6478,15 @@
       "gillColor": "#D8A8A0",
       "fibrils": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "huiguangbinggu",
+    "pyAbbr": "hgbg",
+    "initial": "H"
   },
   {
     "id": "candolle",
@@ -5554,7 +6530,15 @@
     "aka": [
       "Psathyrella candolleana"
     ],
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white",
+      "brown"
+    ],
+    "pinyin": "baihuangxiaocuibinggu",
+    "pyAbbr": "bhxcbg",
+    "initial": "B"
   },
   {
     "id": "crested",
@@ -5592,7 +6576,14 @@
       "branches": 8,
       "antler": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "coral",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "guansuohujun",
+    "pyAbbr": "gshj",
+    "initial": "G"
   },
   {
     "id": "redbelt",
@@ -5639,7 +6630,15 @@
       "zones": true,
       "redRim": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "red",
+      "black"
+    ],
+    "pinyin": "hongyuannicengkongjun",
+    "pyAbbr": "hynckj",
+    "initial": "H"
   },
   {
     "id": "birchpolypore",
@@ -5677,7 +6676,15 @@
       "stipeColor": "none",
       "poreColor": "#F6F2E6"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "white",
+      "brown"
+    ],
+    "pinyin": "huaboguanjun",
+    "pyAbbr": "hbgj",
+    "initial": "H"
   },
   {
     "id": "giantpolypore",
@@ -5714,7 +6721,15 @@
       "tiers": 5,
       "bruiseColor": "#2A2622"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "coral",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "jugaikongjun",
+    "pyAbbr": "jgkj",
+    "initial": "J"
   },
   {
     "id": "falseturkey",
@@ -5761,7 +6776,15 @@
       "tiers": 5,
       "hairy": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "orange",
+      "yellow"
+    ],
+    "pinyin": "maorengejun",
+    "pyAbbr": "mrgj",
+    "initial": "M"
   },
   {
     "id": "lateoyster",
@@ -5799,7 +6822,15 @@
       "tiers": 3,
       "glossy": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "green",
+      "yellow"
+    ],
+    "pinyin": "yaceer",
+    "pyAbbr": "yce",
+    "initial": "Y"
   },
   {
     "id": "bigred",
@@ -5836,7 +6867,14 @@
       "stipeColor": "#EFE4D2",
       "gillColor": "#F2ECD8"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "red"
+    ],
+    "pinyin": "huirouhonggu",
+    "pyAbbr": "hrhg",
+    "initial": "H"
   },
   {
     "id": "japonica",
@@ -5892,7 +6930,14 @@
       "bigred": "大红菇菌盖暗红色；日本红菇菌盖白色",
       "blackening": "黑变红菇受伤变红再变黑；日本红菇不变色"
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "ribenhonggu",
+    "pyAbbr": "rbhg",
+    "initial": "R"
   },
   {
     "id": "woollymilk",
@@ -5949,7 +6994,15 @@
       "saffronmilk": "松乳菇乳汁橙色、受伤变绿；毛头乳菇乳汁白色、边缘有长绒毛",
       "hatsudake": "红汁乳菇乳汁暗红色；毛头乳菇乳汁白色且边缘有绒毛"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "orange",
+      "white"
+    ],
+    "pinyin": "maotourugu",
+    "pyAbbr": "mtrg",
+    "initial": "M"
   },
   {
     "id": "laughing",
@@ -6007,7 +7060,14 @@
       "honey": "蜜环菌菌褶白色、孢子印白；橙黄裸伞菌褶锈褐、孢子印锈色、味极苦",
       "gypsy": "皱盖丝膜菌菌盖有白霜、菌褶淡褐；橙黄裸伞橙黄、菌褶锈褐、味苦"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "orange"
+    ],
+    "pinyin": "juhuangluosan",
+    "pyAbbr": "jhls",
+    "initial": "J"
   },
   {
     "id": "ergot",
@@ -6055,7 +7115,15 @@
         "src": "wiki-zh"
       }
     ],
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "club",
+    "colorGroup": [
+      "black",
+      "purple"
+    ],
+    "pinyin": "maijiaojun",
+    "pyAbbr": "mjj",
+    "initial": "M"
   },
   {
     "id": "pisolithus",
@@ -6092,7 +7160,14 @@
       "stipeColor": "#7A5E36",
       "mosaic": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "ball",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "doumabo",
+    "pyAbbr": "dmb",
+    "initial": "D"
   },
   {
     "id": "stereumostrea",
@@ -6139,7 +7214,15 @@
       "tiers": 4,
       "zones": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "orange",
+      "brown"
+    ],
+    "pinyin": "shanxingrengejun",
+    "pyAbbr": "sxrgj",
+    "initial": "S"
   },
   {
     "id": "conocybe",
@@ -6196,7 +7279,15 @@
       "fairyring": "硬柄小皮伞无菌环、菌褶稀疏白色；褶纹锥盖伞有膜质菌环、菌褶锈褐",
       "micaceus": "晶粒小鬼伞菌盖有闪亮颗粒、成熟自溶、无菌环；褶纹锥盖伞有菌环且不自溶"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "yellow"
+    ],
+    "pinyin": "zhouzhuigaisan",
+    "pyAbbr": "zzgs",
+    "initial": "Z"
   },
   {
     "id": "smithiana",
@@ -6252,7 +7343,14 @@
     "lookalikeNotes": {
       "matsutake": "松茸有松香味、菌柄基部不膨大；史氏鹅膏有难闻气味、基部纺锤形膨大"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "shishiegao",
+    "pyAbbr": "sseg",
+    "initial": "S"
   },
   {
     "id": "cornflower",
@@ -6291,7 +7389,14 @@
       "bruiseColor": "#1E4EA8",
       "fatStipe": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "yellow"
+    ],
+    "pinyin": "lanyuankongniuganjun",
+    "pyAbbr": "lykngj",
+    "initial": "L"
   },
   {
     "id": "sanghuang",
@@ -6337,7 +7442,15 @@
       "poreColor": "#C99A4A",
       "cracked": true
     },
-    "encounter": "rare"
+    "encounter": "rare",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "brown",
+      "yellow"
+    ],
+    "pinyin": "sanghuang",
+    "pyAbbr": "sh",
+    "initial": "S"
   },
   {
     "id": "poria",
@@ -6372,7 +7485,15 @@
       "stipeColor": "none",
       "buried": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "ball",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "fuling",
+    "pyAbbr": "fl",
+    "initial": "F"
   },
   {
     "id": "cauliflower",
@@ -6406,7 +7527,15 @@
       "stipeColor": "#E8DCC0",
       "tiers": 9
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "coral",
+    "colorGroup": [
+      "white",
+      "yellow"
+    ],
+    "pinyin": "xiuqiujun",
+    "pyAbbr": "xqj",
+    "initial": "X"
   },
   {
     "id": "chestnutbolete",
@@ -6443,7 +7572,15 @@
       "poreColor": "#F2EAD2",
       "hollow": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "orange"
+    ],
+    "pinyin": "liseyuankongniuganjun",
+    "pyAbbr": "lsykngj",
+    "initial": "L"
   },
   {
     "id": "dryadsaddle",
@@ -6478,7 +7615,15 @@
       "scales": true,
       "poreColor": "#F2EEE0"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "yellow",
+      "brown"
+    ],
+    "pinyin": "kuanlinduokongjun",
+    "pyAbbr": "kldkj",
+    "initial": "K"
   },
   {
     "id": "amanitajack",
@@ -6518,7 +7663,15 @@
       "gillColor": "#F2D468",
       "striate": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "orange",
+      "red"
+    ],
+    "pinyin": "jiekexunegao",
+    "pyAbbr": "jkxeg",
+    "initial": "J"
   },
   {
     "id": "yellowfoot",
@@ -6557,7 +7710,15 @@
       "hollow": true,
       "cluster": 5
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "brown",
+      "yellow"
+    ],
+    "pinyin": "jinhuanglabajun",
+    "pyAbbr": "jhlbj",
+    "initial": "J"
   },
   {
     "id": "mongolica",
@@ -6594,7 +7755,14 @@
       "gillColor": "#F8F5E8",
       "fatStipe": true
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "menggukoumo",
+    "pyAbbr": "mgkm",
+    "initial": "M"
   },
   {
     "id": "redveil",
@@ -6632,7 +7800,15 @@
       "veil": true,
       "volvaColor": "#B04A46"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "red",
+      "white"
+    ],
+    "pinyin": "hongtuozhusun",
+    "pyAbbr": "htzs",
+    "initial": "H"
   },
   {
     "id": "goldenear",
@@ -6670,7 +7846,15 @@
       "jelly": true,
       "hairy": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "jelly",
+    "colorGroup": [
+      "white",
+      "yellow"
+    ],
+    "pinyin": "yuer",
+    "pyAbbr": "ye",
+    "initial": "Y"
   },
   {
     "id": "sordida",
@@ -6712,7 +7896,14 @@
     "aka": [
       "Lepista sordida"
     ],
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "purple"
+    ],
+    "pinyin": "zijingmo",
+    "pyAbbr": "zjm",
+    "initial": "Z"
   },
   {
     "id": "lilacbonnet",
@@ -6770,7 +7961,14 @@
       "amethyst": "紫晶蜡蘑菌褶厚而稀疏、菌柄坚韧；洁小菇菌褶密、菌柄中空脆、有萝卜味",
       "bleedingbonnet": "血红小菇折断菌柄流出暗红汁液；洁小菇不流汁，有萝卜味"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "purple"
+    ],
+    "pinyin": "jiexiaogu",
+    "pyAbbr": "jxg",
+    "initial": "J"
   },
   {
     "id": "woodtuft",
@@ -6811,7 +8009,15 @@
       "ringColor": "#C4A882",
       "hygrophanous": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "yellow"
+    ],
+    "pinyin": "maobingkuengu",
+    "pyAbbr": "mbkeg",
+    "initial": "M"
   },
   {
     "id": "hypholomaL",
@@ -6849,7 +8055,15 @@
       "cluster": 8,
       "gillColor": "#8E8A6A"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "red",
+      "brown"
+    ],
+    "pinyin": "zhuanhongchuimugu",
+    "pyAbbr": "zhcmg",
+    "initial": "Z"
   },
   {
     "id": "saddle",
@@ -6887,7 +8101,14 @@
       "ribbed": true,
       "wrinkle": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "brain",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "zhoubingbaimaanjun",
+    "pyAbbr": "zbbmaj",
+    "initial": "Z"
   },
   {
     "id": "jellybaby",
@@ -6922,7 +8143,15 @@
       "jelly": true,
       "cluster": 4
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "jelly",
+    "colorGroup": [
+      "yellow",
+      "brown"
+    ],
+    "pinyin": "huangbingjiaodichui",
+    "pyAbbr": "hbjdc",
+    "initial": "H"
   },
   {
     "id": "earthtongue",
@@ -6957,7 +8186,14 @@
       "hairy": true,
       "cluster": 4
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "club",
+    "colorGroup": [
+      "black"
+    ],
+    "pinyin": "maoshejun",
+    "pyAbbr": "msj",
+    "initial": "M"
   },
   {
     "id": "pinecone",
@@ -6993,7 +8229,15 @@
       "poreColor": "#D8D0C0",
       "bruiseColor": "#2A2622"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "black",
+      "grey"
+    ],
+    "pinyin": "songtaniuganjun",
+    "pyAbbr": "stngj",
+    "initial": "S"
   },
   {
     "id": "humongous",
@@ -7032,7 +8276,14 @@
       "ringColor": "#E4D4AE",
       "scales": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "aoshimihuanjun",
+    "pyAbbr": "asmhj",
+    "initial": "A"
   },
   {
     "id": "whitetruffle",
@@ -7069,7 +8320,15 @@
       "stipeColor": "none",
       "buried": true
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "ball",
+    "colorGroup": [
+      "white",
+      "yellow"
+    ],
+    "pinyin": "baikuaijun",
+    "pyAbbr": "bkj",
+    "initial": "B"
   },
   {
     "id": "devilscigar",
@@ -7108,7 +8367,14 @@
       "rays": 5,
       "cigar": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "ball",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "dixingzhuangroupanjun",
+    "pyAbbr": "dxzrpj",
+    "initial": "D"
   },
   {
     "id": "firecoral",
@@ -7165,7 +8431,15 @@
       "stagshorn": "粘胶角耳橙黄色、胶质软；火焰茸鲜红、质地硬",
       "militaris": "蛹虫草橙色棒状从虫体伸出、顶端有颗粒；火焰茸从地面或腐木伸出、鹿角状分叉"
     },
-    "encounter": "rare"
+    "encounter": "rare",
+    "silhouette": "coral",
+    "colorGroup": [
+      "red",
+      "orange"
+    ],
+    "pinyin": "huoyanrong",
+    "pyAbbr": "hyr",
+    "initial": "H"
   },
   {
     "id": "trogia",
@@ -7219,7 +8493,14 @@
     "lookalikeNotes": {
       "splitgill": "裂褶菌菌盖有白色绒毛、菌褶沿中线纵裂；毒沟褶菌无毛、菌褶有横脉"
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "shelf",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "dugouzhejun",
+    "pyAbbr": "dgzj",
+    "initial": "D"
   },
   {
     "id": "hatsudake",
@@ -7257,7 +8538,15 @@
       "bruiseColor": "#4E7A46",
       "zones": true
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "orange",
+      "red"
+    ],
+    "pinyin": "hongzhirugu",
+    "pyAbbr": "hzrg",
+    "initial": "H"
   },
   {
     "id": "coralhericium",
@@ -7294,7 +8583,14 @@
       "branches": 9,
       "spines": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "coral",
+    "colorGroup": [
+      "white"
+    ],
+    "pinyin": "shanhuzhuanghoutoujun",
+    "pyAbbr": "shzhtj",
+    "initial": "S"
   },
   {
     "id": "venenatus",
@@ -7353,7 +8649,15 @@
       "magnificus": "华丽新牛肝菌菌盖红褐色；毒新牛肝菌菌盖黄褐",
       "whiteonion": "白牛肝菌菌盖灰白至淡褐、菌柄淡黄；毒新牛肝菌菌盖黄褐带粉"
     },
-    "encounter": "seldom"
+    "encounter": "seldom",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "yellow",
+      "brown"
+    ],
+    "pinyin": "duxinniuganjun",
+    "pyAbbr": "dxngj",
+    "initial": "D"
   },
   {
     "id": "verpa",
@@ -7408,7 +8712,14 @@
       "morel": "羊肚菌帽部与菌柄下端相连成一体；皱柄钟菌帽只在顶端连接，像顶针",
       "blackmorel": "黑脉羊肚菌帽部蜂窝状纵脊；皱柄钟菌帽部是皱褶不是蜂窝"
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown"
+    ],
+    "pinyin": "zhougaizhongjun",
+    "pyAbbr": "zgzj",
+    "initial": "Z"
   },
   {
     "id": "gypsy",
@@ -7446,7 +8757,15 @@
       "ringColor": "#F2ECDC",
       "wrinkle": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "zhougaisimojun",
+    "pyAbbr": "zgsmj",
+    "initial": "Z"
   },
   {
     "id": "violetwebcap",
@@ -7484,7 +8803,14 @@
       "gillColor": "#3E2660",
       "cortina": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "purple"
+    ],
+    "pinyin": "zirongsimojun",
+    "pyAbbr": "zrsmj",
+    "initial": "Z"
   },
   {
     "id": "waxcapconic",
@@ -7523,7 +8849,16 @@
       "bruiseColor": "#2A2622",
       "slim": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "red",
+      "orange",
+      "black"
+    ],
+    "pinyin": "bianheishisan",
+    "pyAbbr": "bhss",
+    "initial": "B"
   },
   {
     "id": "magpie",
@@ -7578,7 +8913,15 @@
     "lookalikeNotes": {
       "shaggyink": "毛头鬼伞菌盖白色圆柱形；喜鹊鬼伞深褐色带白斑"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "black",
+      "white"
+    ],
+    "pinyin": "queguisan",
+    "pyAbbr": "qgs",
+    "initial": "Q"
   },
   {
     "id": "whitebirdsnest",
@@ -7615,7 +8958,15 @@
       "stipeColor": "none",
       "eggs": 5
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "funnel",
+    "colorGroup": [
+      "white",
+      "yellow"
+    ],
+    "pinyin": "baidanchaojun",
+    "pyAbbr": "bdcj",
+    "initial": "B"
   },
   {
     "id": "dogstinkhorn",
@@ -7654,7 +9005,15 @@
       "flies": 2,
       "slim": true
     },
-    "encounter": "occasional"
+    "encounter": "occasional",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "white",
+      "orange"
+    ],
+    "pinyin": "goushetoujun",
+    "pyAbbr": "gstj",
+    "initial": "G"
   },
   {
     "id": "summertruffle",
@@ -7693,7 +9052,14 @@
       "warts": true,
       "buried": true
     },
-    "encounter": "rare"
+    "encounter": "rare",
+    "silhouette": "ball",
+    "colorGroup": [
+      "black"
+    ],
+    "pinyin": "xiakuaijun",
+    "pyAbbr": "xkj",
+    "initial": "X"
   },
   {
     "id": "chlorophyllumB",
@@ -7733,7 +9099,15 @@
       "scales": true,
       "bruiseColor": "#C4602E"
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "umbrella",
+    "colorGroup": [
+      "brown",
+      "white"
+    ],
+    "pinyin": "culindahuanbinggu",
+    "pyAbbr": "cldhbg",
+    "initial": "C"
   },
   {
     "id": "stagshornCoral",
@@ -7772,6 +9146,13 @@
       "branches": 3,
       "jelly": true
     },
-    "encounter": "common"
+    "encounter": "common",
+    "silhouette": "coral",
+    "colorGroup": [
+      "yellow"
+    ],
+    "pinyin": "xiaobaolvbeishanhu",
+    "pyAbbr": "xblbsh",
+    "initial": "X"
   }
 ]
