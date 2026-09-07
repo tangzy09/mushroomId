@@ -691,8 +691,9 @@
     head.innerHTML =
       '<div class="row"><b style="font-size:18px">' + m.name + '</b>' +
       '<span class="spacer"></span>' +
-      '<span class="res"><i style="background:' + rarityColor(m.rarity) + '"></i>' +
-      C.rarityLabels[m.rarity] + '</span></div>' +
+      // 详情页徽章是野外遇见率，不是抽卡稀有度——图鉴是现实图鉴
+      '<span class="res"><i style="background:' + (C.encounterColors[m.encounter] || '#999') + '"></i>' +
+      (C.encounterLabels[m.encounter] || '') + '</span></div>' +
       '<div class="latin" style="margin:2px 0 8px">' + m.latin + ' · ' + m.nameEn + '</div>' +
       '<span class="edib" style="background:' + ed.color + '">' + ed.label + '</span>' +
       '<div class="edib-note" style="margin-top:4px">' + ed.note + '</div>' +

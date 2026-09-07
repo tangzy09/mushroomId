@@ -122,6 +122,8 @@ const dk = await page.evaluate(() => ({
   warn: document.querySelectorAll('#page-detail .lookalike .diff.warn').length,
   diffs: document.querySelectorAll('#page-detail .lookalike .diff:not(.warn)').length,
 }));
+const badge = await page.evaluate(() => (document.querySelector('#page-detail .res') || {}).textContent || '');
+t('详情页徽章是遇见率不是抽卡稀有度', /常见|偶见|罕见|难得一见/.test(badge) && !/普通|稀有|珍稀|传说/.test(badge), badge);
 t('毒鹅膏有三条识别要点', dk.n === 3, dk.n + ' 条');
 t('识别要点带「未经审校」脚注', dk.foot);
 t('毒鹅膏的可食相似种标红', dk.warn >= 1, dk.warn + ' 处');
