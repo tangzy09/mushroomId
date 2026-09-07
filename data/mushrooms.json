@@ -32,7 +32,8 @@
       "capColor2": "#9E6E48",
       "stipeColor": "#E8DCC4",
       "texture": "cracks"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "oyster",
@@ -71,7 +72,8 @@
       "capColor2": "#B4B2A8",
       "stipeColor": "#EFEBDE",
       "tiers": 3
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "enoki",
@@ -110,7 +112,8 @@
       "stipeColor": "#F7F2E4",
       "cluster": 9,
       "slim": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "kingoyster",
@@ -143,7 +146,8 @@
       "capColor2": "#C4B79F",
       "stipeColor": "#F0EAD8",
       "fatStipe": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "woodear",
@@ -181,7 +185,8 @@
       "capColor2": "#5C4038",
       "stipeColor": "none",
       "jelly": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "snowfungus",
@@ -218,7 +223,8 @@
       "capColor2": "#FFFFFF",
       "stipeColor": "none",
       "jelly": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "lionsmane",
@@ -253,7 +259,8 @@
       "capColor2": "#FDF8EA",
       "stipeColor": "none",
       "spines": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "button",
@@ -292,7 +299,8 @@
       "capColor2": "#FBF7EC",
       "stipeColor": "#F5F0E2",
       "gillColor": "#6B4A3C"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "strawmushroom",
@@ -329,7 +337,8 @@
       "capColor2": "#7D7062",
       "stipeColor": "#F2ECDC",
       "volvaColor": "#8A7B6A"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "shimeji",
@@ -363,7 +372,8 @@
       "stipeColor": "#F4EFE0",
       "cluster": 6,
       "texture": "marble"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "nameko",
@@ -397,7 +407,8 @@
       "stipeColor": "#EADFC0",
       "cluster": 7,
       "glossy": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "shaggyink",
@@ -436,7 +447,8 @@
       "stipeColor": "#F7F3E8",
       "shaggy": true,
       "inkEdge": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "winecap",
@@ -471,7 +483,8 @@
       "capColor2": "#B05442",
       "stipeColor": "#F3EEDF",
       "ringColor": "#E4DAC2"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "goldenoyster",
@@ -506,7 +519,8 @@
       "capColor2": "#F5CE55",
       "stipeColor": "#F6EFD8",
       "cluster": 8
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "maitake",
@@ -540,7 +554,8 @@
       "capColor2": "#A08B6C",
       "stipeColor": "#EDE4CE",
       "tiers": 5
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "reishi",
@@ -576,7 +591,8 @@
       "capColor2": "#C05A2E",
       "stipeColor": "#6B3520",
       "lacquer": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "turkeytail",
@@ -622,7 +638,8 @@
       "stipeColor": "none",
       "zones": true,
       "tiers": 6
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "woodblewit",
@@ -660,7 +677,8 @@
       "capColor2": "#9C86B2",
       "stipeColor": "#B8A8C8",
       "gillColor": "#8A74A2"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "honey",
@@ -702,7 +720,8 @@
       "cluster": 8,
       "ringColor": "#EFE4C4",
       "scales": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "velvetfoot",
@@ -740,7 +759,8 @@
       "stipeColor": "#4A3626",
       "cluster": 7,
       "glossy": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "fairyring",
@@ -780,7 +800,8 @@
       "capColor2": "#DEBE93",
       "stipeColor": "#E3D3B4",
       "slim": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "fieldmushroom",
@@ -819,7 +840,8 @@
       "stipeColor": "#F6F1E3",
       "gillColor": "#C98B9E",
       "ringColor": "#F0E8D4"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "saffronmilk",
@@ -856,7 +878,8 @@
       "stipeColor": "#E0A268",
       "bruiseColor": "#4E7A46",
       "zones": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "greenrussula",
@@ -893,7 +916,8 @@
       "capColor2": "#9FB283",
       "stipeColor": "#F6F2E4",
       "texture": "cracks"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "charcoalburner",
@@ -930,7 +954,8 @@
       "capColor": "#6B6E90",
       "capColor2": "#9C8AA8",
       "stipeColor": "#F7F3E6"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "blackening",
@@ -967,7 +992,8 @@
       "stipeColor": "#B8ADA0",
       "bruiseColor": "#8A2020",
       "sparseGills": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "porcini",
@@ -1007,7 +1033,8 @@
       "poreColor": "#F2EBD0",
       "fatStipe": true,
       "reticulum": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "bainiugan",
@@ -1046,7 +1073,8 @@
       "poreColor": "#F5EFD8",
       "fatStipe": true,
       "reticulum": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "jianshouqing",
@@ -1088,7 +1116,8 @@
       "poreColor": "#E0C24E",
       "bruiseColor": "#1F4E8C",
       "fatStipe": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "whiteonion",
@@ -1128,7 +1157,8 @@
       "poreColor": "#E8CE62",
       "bruiseColor": "#2A5A96",
       "fatStipe": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "magnificus",
@@ -1169,7 +1199,8 @@
       "poreColor": "#A82820",
       "bruiseColor": "#16386E",
       "fatStipe": true
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "slipperyjack",
@@ -1206,7 +1237,8 @@
       "poreColor": "#E8D48E",
       "glossy": true,
       "ringColor": "#C9B48A"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "larchbolete",
@@ -1243,7 +1275,8 @@
       "poreColor": "#E6CE7A",
       "glossy": true,
       "ringColor": "#D8C288"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "chanterelle",
@@ -1282,7 +1315,8 @@
       "capColor2": "#F5C351",
       "stipeColor": "#F0BE55",
       "ridges": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "blacktrumpet",
@@ -1316,7 +1350,8 @@
       "capColor": "#3B342E",
       "capColor2": "#5E534A",
       "stipeColor": "#4A423A"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "morel",
@@ -1353,7 +1388,8 @@
       "capColor2": "#C79E56",
       "stipeColor": "#F0E6CC",
       "wrinkle": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "blackmorel",
@@ -1390,7 +1426,8 @@
       "capColor2": "#8A7448",
       "stipeColor": "#EDE2C4",
       "wrinkle": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "bambooveil",
@@ -1427,7 +1464,8 @@
       "stipeColor": "#FBF7EC",
       "veil": true,
       "volvaColor": "#E4DAC4"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "matsutake",
@@ -1467,7 +1505,8 @@
       "scales": true,
       "ringColor": "#EAE0C8",
       "fatStipe": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "fakematsutake",
@@ -1502,7 +1541,8 @@
       "stipeColor": "#F0E6D0",
       "scales": true,
       "ringColor": "#E8DCC0"
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "almond",
@@ -1540,7 +1580,8 @@
       "stipeColor": "#F4EEDE",
       "gillColor": "#8A6656",
       "ringColor": "#F0E8D2"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "termite",
@@ -1576,7 +1617,8 @@
       "capColor2": "#A99680",
       "stipeColor": "#F4EFE0",
       "longRoot": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "blackskin",
@@ -1616,7 +1658,8 @@
     },
     "aka": [
       "Hymenopellis raphanipes"
-    ]
+    ],
+    "encounter": "occasional"
   },
   {
     "id": "ganbajun",
@@ -1650,7 +1693,8 @@
       "capColor2": "#7A6E58",
       "stipeColor": "none",
       "tiers": 7
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "tigerpaw",
@@ -1686,7 +1730,8 @@
       "stipeColor": "#C4B296",
       "scales": true,
       "spines": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "hedgehog",
@@ -1722,7 +1767,8 @@
       "capColor2": "#EFD2A2",
       "stipeColor": "#F2E4C8",
       "spines": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "giantpuffball",
@@ -1757,7 +1803,8 @@
       "capColor": "#EFE9D8",
       "capColor2": "#FBF7EC",
       "stipeColor": "none"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "puffball",
@@ -1794,7 +1841,8 @@
       "capColor2": "#F2EBD8",
       "stipeColor": "#DCD0B4",
       "warts": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "earthstar",
@@ -1831,7 +1879,8 @@
       "capColor2": "#C4B294",
       "stipeColor": "none",
       "rays": 6
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "barometer",
@@ -1867,7 +1916,8 @@
       "stipeColor": "none",
       "rays": 8,
       "cracked": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "birdsnest",
@@ -1903,7 +1953,8 @@
       "capColor2": "#8E7A5E",
       "stipeColor": "none",
       "eggs": 4
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "inkcap",
@@ -1960,7 +2011,8 @@
     "lookalikeNotes": {
       "shaggyink": "毛头鬼伞菌盖白色圆柱形带大片鳞片；墨汁鬼伞灰褐色光滑",
       "micaceus": "晶粒小鬼伞更小、橙黄色，菌盖有闪亮颗粒"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "micaceus",
@@ -2001,7 +2053,8 @@
       "cluster": 9,
       "glitter": true,
       "inkEdge": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "deathcap",
@@ -2062,7 +2115,8 @@
       "greenrussula": "青头菌没有菌环和菌托，菌柄脆，一掰就断",
       "strawmushroom": "草菇菌褶成熟后变粉红且无菌环；死帽菇菌褶始终白色且有菌环",
       "caesar": "凯撒鹅膏菌盖橙红、菌褶和菌柄黄色；死帽菇菌盖橄榄绿、菌褶白色"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "destroyingangel",
@@ -2123,7 +2177,8 @@
       "fieldmushroom": "野蘑菇菌褶粉红转深褐，基部无菌托；毁灭天使菌褶纯白且有菌托",
       "strawmushroom": "草菇菌褶变粉红且无菌环；毁灭天使菌褶纯白且有菌环",
       "horsemushroom": "大肥菇菌褶粉褐、擦伤变黄、有茴香味；毁灭天使菌褶纯白无气味"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "fuliginea",
@@ -2180,7 +2235,8 @@
     ],
     "lookalikeNotes": {
       "grisette": "灰鹅膏没有菌环，菌盖边缘有明显条纹；灰花纹鹅膏有菌环且边缘无条纹"
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "exitialis",
@@ -2236,7 +2292,8 @@
     "lookalikeNotes": {
       "termite": "鸡枞菌柄基部延伸成假根扎进蚁巢，无菌托无菌环",
       "strawmushroom": "草菇菌褶变粉红且无菌环；致命鹅膏菌褶纯白且有菌环"
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "flyagaric",
@@ -2299,7 +2356,8 @@
       "eggamanita": "橙盖鹅膏菌盖橙红光滑无白疣，菌褶黄色",
       "blusher": "赭盖鹅膏菌盖褐红、受伤变红，疣点易脱落且不成整齐排列",
       "amanitajack": "美洲橙盖鹅膏菌盖光滑无白点，边缘有条纹，菌褶黄色"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "panther",
@@ -2355,7 +2413,8 @@
     ],
     "lookalikeNotes": {
       "blusher": "赭盖鹅膏受伤变红且基部无环带状菌托边缘；豹斑鹅膏不变色"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "citrina",
@@ -2407,7 +2466,8 @@
         "text": "闻起来有生土豆的气味",
         "src": "wiki-en"
       }
-    ]
+    ],
+    "encounter": "common"
   },
   {
     "id": "blusher",
@@ -2448,7 +2508,8 @@
       "gillColor": "#FDFAF0",
       "spots": "pale",
       "bruiseColor": "#A8443C"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "caesar",
@@ -2489,7 +2550,8 @@
       "ringColor": "#EDD070",
       "volvaColor": "#F7F3E6",
       "gillColor": "#F5DC7A"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "eggamanita",
@@ -2528,7 +2590,8 @@
       "ringColor": "#EBC85E",
       "volvaColor": "#F8F4E8",
       "gillColor": "#F2D870"
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "subjunquillea",
@@ -2584,7 +2647,8 @@
     "lookalikeNotes": {
       "eggamanita": "橙盖鹅膏菌盖橙红有边缘条纹，菌褶黄色；黄盖鹅膏菌褶白色，边缘无条纹",
       "caesar": "凯撒鹅膏菌褶和菌柄黄色；黄盖鹅膏菌褶白色"
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "grisette",
@@ -2622,7 +2686,8 @@
       "volvaColor": "#EFEBE0",
       "gillColor": "#FBF9F2",
       "striate": true
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "greenspored",
@@ -2679,7 +2744,8 @@
     "lookalikeNotes": {
       "parasol": "高大环柄菇菌褶始终白色，菌柄有蛇皮纹；绿褶菇菌褶变绿",
       "chlorophyllumB": "褐鳞环柄菇菌褶始终白色，切开菌肉变橙红；绿褶菇菌褶变绿"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "parasol",
@@ -2719,7 +2785,8 @@
       "ringColor": "#F0E8D4",
       "scales": true,
       "snakeStipe": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "lepiotabrun",
@@ -2776,7 +2843,8 @@
     "lookalikeNotes": {
       "parasol": "高大环柄菇个头大得多，菌柄有蛇皮纹和可活动的菌环",
       "fairyring": "硬柄小皮伞菌盖光滑无鳞片，菌柄坚韧无菌环"
-    }
+    },
+    "encounter": "rare"
   },
   {
     "id": "subnigricans",
@@ -2831,7 +2899,8 @@
     ],
     "lookalikeNotes": {
       "blackening": "黑变红菇受伤先变红再变黑但过程慢；亚稀褶红菇菌褶更稀更厚，变红更快"
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "sickener",
@@ -2886,7 +2955,8 @@
     "lookalikeNotes": {
       "charcoalburner": "蓝黄红菇菌盖紫绿杂色且菌褶柔韧不易碎；毒红菇鲜红且菌褶脆",
       "bigred": "大红菇菌盖暗红色、菌褶淡黄、菌柄常带红晕；毒红菇鲜红、菌褶菌柄纯白"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "funeralbell",
@@ -2947,7 +3017,8 @@
       "enoki": "野生金针菇菌柄绒毛状深褐、无菌环、孢子印白；秋盔孢伞有菌环、孢子印锈褐",
       "woodtuft": "毛腿库恩菌菌柄下部有褐色小鳞片、菌盖两色；秋盔孢伞菌柄光滑有膜质菌环",
       "humongous": "奥氏蜜环菌大型、有明显菌环、丛生树基；秋盔孢伞小型，菌环薄"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "sulphurtuft",
@@ -3005,7 +3076,8 @@
     "lookalikeNotes": {
       "honey": "蜜环菌菌褶白色、有菌环；簇生垂幕菇菌褶黄绿转紫黑，无真正菌环",
       "hypholomaL": "砖红垂幕菇菌盖砖红色、菌褶灰色；簇生垂幕菇硫磺黄、菌褶黄绿"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "deadlywebcap",
@@ -3059,7 +3131,8 @@
     ],
     "lookalikeNotes": {
       "gypsy": "皱盖丝膜菌菌盖有白霜状覆盖、有膜质菌环；毒丝膜菌红褐圆锥形，只有丝膜痕"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "falsemorel",
@@ -3116,7 +3189,8 @@
       "morel": "羊肚菌帽部是蜂窝状凹坑且内部中空一体；鹿花菌是脑状褶皱且内部有腔室",
       "blackmorel": "黑脉羊肚菌帽部纵向棱脊如梯；鹿花菌是无规则的脑状褶皱",
       "saddle": "皱马鞍菌白色马鞍形帽、柄有深沟槽；鹿花菌红褐色脑状"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "jackolantern",
@@ -3170,7 +3244,8 @@
     ],
     "lookalikeNotes": {
       "chanterelle": "鸡油菌下方是钝棱脉不是真菌褶，单生于土中；杰克灯笼菌菌褶锐利，丛生于木上"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "tsukiyotake",
@@ -3226,7 +3301,8 @@
     "lookalikeNotes": {
       "oyster": "平菇菌柄基部切开无紫黑斑；月夜菌柄基部菌肉有紫黑色斑",
       "lateoyster": "晚生北风菌菌褶黄色、菌盖橄榄绿；月夜菌菌褶白色、菌盖紫褐"
-    }
+    },
+    "encounter": "rare"
   },
   {
     "id": "glowmycena",
@@ -3266,7 +3342,8 @@
       "cluster": 5,
       "slim": true,
       "glowColor": "#7CFF9A"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "bittermycena",
@@ -3304,7 +3381,8 @@
       "stipeColor": "#CAB08A",
       "tiers": 4,
       "glowColor": "#8CFF88"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "stinkhorn",
@@ -3342,7 +3420,8 @@
       "stipeColor": "#F7F3E6",
       "volvaColor": "#E8E0CC",
       "flies": 4
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "redcage",
@@ -3380,7 +3459,8 @@
       "stipeColor": "none",
       "volvaColor": "#EFE8D6",
       "flies": 3
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "devilsfingers",
@@ -3419,7 +3499,8 @@
       "volvaColor": "#EFE8D6",
       "arms": 5,
       "flies": 3
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "bleedingtooth",
@@ -3453,7 +3534,8 @@
       "stipeColor": "#C4A88E",
       "spines": true,
       "droplets": "#C42A2A"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "bluemushroom",
@@ -3486,7 +3568,8 @@
       "capColor2": "#3FA6C8",
       "stipeColor": "#2E8FB4",
       "gillColor": "#D8A0B4"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "indigomilk",
@@ -3520,7 +3603,8 @@
       "stipeColor": "#6E9AB8",
       "bruiseColor": "#2A4A6E",
       "zones": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "violetcoral",
@@ -3557,7 +3641,8 @@
       "capColor2": "#AC6EC4",
       "stipeColor": "none",
       "branches": 7
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "scarletcup",
@@ -3592,7 +3677,8 @@
       "capColor": "#C42A22",
       "capColor2": "#E2503C",
       "stipeColor": "#E8DCC4"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "orangepeel",
@@ -3628,7 +3714,8 @@
       "capColor2": "#F6A94C",
       "stipeColor": "none",
       "wavy": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "greenelfcup",
@@ -3662,7 +3749,8 @@
       "capColor2": "#4EB09A",
       "stipeColor": "#3E9A86",
       "cluster": 6
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "candlesnuff",
@@ -3699,7 +3787,8 @@
       "stipeColor": "#3A3630",
       "branches": 4,
       "antler": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "deadmanfingers",
@@ -3736,7 +3825,8 @@
       "capColor2": "#4A4238",
       "stipeColor": "#3A342C",
       "fingers": 4
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "kingalfred",
@@ -3778,7 +3868,8 @@
       "capColor2": "#463E36",
       "stipeColor": "none",
       "rings": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "tinder",
@@ -3824,7 +3915,8 @@
       "capColor2": "#8E8074",
       "stipeColor": "none",
       "zones": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "artistconk",
@@ -3871,7 +3963,8 @@
       "stipeColor": "none",
       "poreColor": "#F2EEE2",
       "zones": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "chickenwoods",
@@ -3906,7 +3999,8 @@
       "capColor2": "#F6C63E",
       "stipeColor": "none",
       "tiers": 5
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "beefsteak",
@@ -3939,7 +4033,8 @@
       "capColor2": "#C85046",
       "stipeColor": "none",
       "droplets": "#8E1E1A"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "splitgill",
@@ -3984,7 +4079,8 @@
       "stipeColor": "none",
       "tiers": 6,
       "hairy": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "chaga",
@@ -4028,7 +4124,8 @@
       "capColor2": "#4A3A2E",
       "stipeColor": "none",
       "cracked": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "caterpillar",
@@ -4064,7 +4161,8 @@
       "capColor2": "#7A6644",
       "stipeColor": "#C9A46E",
       "larva": true
-    }
+    },
+    "encounter": "rare"
   },
   {
     "id": "militaris",
@@ -4101,7 +4199,8 @@
       "stipeColor": "#EFA45A",
       "larva": true,
       "cluster": 3
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "zombieant",
@@ -4137,7 +4236,8 @@
       "capColor2": "#AC9A62",
       "stipeColor": "#6E5A3E",
       "ant": true
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "blacktruffle",
@@ -4175,7 +4275,8 @@
       "stipeColor": "none",
       "warts": true,
       "buried": true
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "chinesetruffle",
@@ -4213,7 +4314,8 @@
       "stipeColor": "none",
       "warts": true,
       "buried": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "lobster",
@@ -4246,7 +4348,8 @@
       "capColor2": "#F27A48",
       "stipeColor": "#E8845A",
       "warts": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "earpick",
@@ -4282,7 +4385,8 @@
       "spines": true,
       "lateral": true,
       "hairy": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "witchbutter",
@@ -4319,7 +4423,8 @@
       "capColor2": "#F7C84A",
       "stipeColor": "none",
       "jelly": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "blackwitch",
@@ -4360,7 +4465,8 @@
       "stipeColor": "none",
       "jelly": true,
       "glossy": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "stagshorn",
@@ -4398,7 +4504,8 @@
       "stipeColor": "none",
       "branches": 5,
       "jelly": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "amethyst",
@@ -4438,7 +4545,8 @@
       "stipeColor": "#9A72B4",
       "gillColor": "#B48ECC",
       "slim": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "parrot",
@@ -4476,7 +4584,8 @@
       "stipeColor": "#6EB86E",
       "glossy": true,
       "slim": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "scarletwaxcap",
@@ -4513,7 +4622,8 @@
       "stipeColor": "#E8624A",
       "glossy": true,
       "slim": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "wrinkledpeach",
@@ -4548,7 +4658,8 @@
       "stipeColor": "#EFC0A4",
       "gillColor": "#E0907A",
       "veined": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "bleedingbonnet",
@@ -4588,7 +4699,8 @@
       "slim": true,
       "bruiseColor": "#6E1A22",
       "striate": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "jellyear",
@@ -4628,7 +4740,8 @@
       "stipeColor": "none",
       "jelly": true,
       "veined": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "yellowstainer",
@@ -4687,7 +4800,8 @@
       "button": "双孢蘑菇擦伤不变黄且无酚味；黄斑蘑菇基部擦伤立即变亮黄",
       "fieldmushroom": "野蘑菇擦伤略变粉；黄斑蘑菇基部变亮黄且有墨水味",
       "horsemushroom": "大肥菇擦伤变淡黄且有茴香甜味；黄斑蘑菇变亮黄且有刺鼻酚味"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "horsemushroom",
@@ -4725,7 +4839,8 @@
       "stipeColor": "#F7F3E6",
       "gillColor": "#C0A090",
       "ringColor": "#F2ECDA"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "rollrim",
@@ -4774,7 +4889,8 @@
         "text": "常见于桦树等阔叶树下",
         "src": "wiki-zh"
       }
-    ]
+    ],
+    "encounter": "common"
   },
   {
     "id": "bitterbolete",
@@ -4812,7 +4928,8 @@
       "poreColor": "#E4C4C0",
       "fatStipe": true,
       "reticulum": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "satan",
@@ -4872,7 +4989,8 @@
       "jianshouqing": "见手青菌盖褐色不是灰白，菌柄红黄相间",
       "magnificus": "华丽新牛肝菌菌盖红褐色；撒旦牛肝菌菌盖灰白",
       "porcini": "美味牛肝菌菌孔白转黄绿、菌柄白褐有网纹、不变蓝；撒旦牛肝菌菌孔红色"
-    }
+    },
+    "encounter": "rare"
   },
   {
     "id": "earthball",
@@ -4930,7 +5048,8 @@
       "puffball": "网纹马勃外皮薄软、白色带小刺、内部白；硬皮马勃外皮厚硬黄褐、内部紫黑",
       "giantpuffball": "大秃马勃巨大纯白光滑；硬皮马勃小、黄褐色龟裂",
       "pisolithus": "彩色豆马勃有假根柄、切开是豆状小包；硬皮马勃无柄、内部均匀紫黑"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "formosa",
@@ -4984,7 +5103,8 @@
     "lookalikeNotes": {
       "coralRamaria": "葡萄状枝瑚菌分枝顶端粉红如葡萄、基部白色粗壮；美丽枝瑚菌整体粉橙、顶端偏黄",
       "violetcoral": "紫珊瑚菌通体紫色"
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "coralRamaria",
@@ -5019,7 +5139,8 @@
       "capColor2": "#E8A8B4",
       "stipeColor": "#F2EAD8",
       "branches": 11
-    }
+    },
+    "encounter": "rare"
   },
   {
     "id": "gomphus",
@@ -5072,7 +5193,8 @@
     ],
     "lookalikeNotes": {
       "chanterelle": "鸡油菌实心、通体蛋黄色、外侧棱脉钝；毛钉菇中空、内侧橙红有鳞片"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "ivory",
@@ -5129,7 +5251,8 @@
     ],
     "lookalikeNotes": {
       "fairyring": "硬柄小皮伞菌盖淡褐钟形、菌褶稀疏不延生、菌柄坚韧；白霜杯伞菌盖白色带霜、菌褶延生"
-    }
+    },
+    "encounter": "rare"
   },
   {
     "id": "livid",
@@ -5185,7 +5308,8 @@
       "woodblewit": "紫丁香蘑通体紫色、菌褶紫色；毒粉褶菌灰白、菌褶白转粉红",
       "charcoalburner": "蓝黄红菇菌柄脆一掰就断、菌褶白；毒粉褶菌菌柄纤维质、菌褶变粉",
       "deerpluteus": "鹿光柄菇长在腐木上、菌褶离生；毒粉褶菌长在土里、菌褶弯生"
-    }
+    },
+    "encounter": "rare"
   },
   {
     "id": "equestre",
@@ -5237,7 +5361,8 @@
     ],
     "lookalikeNotes": {
       "matsutake": "松茸菌盖褐色有纤维鳞片、菌柄有大菌环、有松香味；油黄口蘑黄绿且无菌环"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "poisonpie",
@@ -5285,7 +5410,8 @@
         "text": "有萝卜味，长在阔叶林与针叶林地面",
         "src": "wiki-en"
       }
-    ]
+    ],
+    "encounter": "occasional"
   },
   {
     "id": "leucocoprinus",
@@ -5343,7 +5469,8 @@
         "text": "常长在室内花盆和温室土里",
         "src": "wiki-zh"
       }
-    ]
+    ],
+    "encounter": "common"
   },
   {
     "id": "deerpluteus",
@@ -5382,7 +5509,8 @@
       "stipeColor": "#EFE8D6",
       "gillColor": "#D8A8A0",
       "fibrils": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "candolle",
@@ -5425,7 +5553,8 @@
     },
     "aka": [
       "Psathyrella candolleana"
-    ]
+    ],
+    "encounter": "common"
   },
   {
     "id": "crested",
@@ -5462,7 +5591,8 @@
       "stipeColor": "none",
       "branches": 8,
       "antler": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "redbelt",
@@ -5508,7 +5638,8 @@
       "stipeColor": "none",
       "zones": true,
       "redRim": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "birchpolypore",
@@ -5545,7 +5676,8 @@
       "capColor2": "#F0EADA",
       "stipeColor": "none",
       "poreColor": "#F6F2E6"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "giantpolypore",
@@ -5581,7 +5713,8 @@
       "stipeColor": "#D8C8A8",
       "tiers": 5,
       "bruiseColor": "#2A2622"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "falseturkey",
@@ -5627,7 +5760,8 @@
       "stipeColor": "none",
       "tiers": 5,
       "hairy": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "lateoyster",
@@ -5664,7 +5798,8 @@
       "stipeColor": "#D8CEB0",
       "tiers": 3,
       "glossy": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "bigred",
@@ -5700,7 +5835,8 @@
       "capColor2": "#C44A46",
       "stipeColor": "#EFE4D2",
       "gillColor": "#F2ECD8"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "japonica",
@@ -5755,7 +5891,8 @@
     "lookalikeNotes": {
       "bigred": "大红菇菌盖暗红色；日本红菇菌盖白色",
       "blackening": "黑变红菇受伤变红再变黑；日本红菇不变色"
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "woollymilk",
@@ -5804,14 +5941,15 @@
         "src": "wiki-zh"
       },
       {
-        "text": "长在桦树下",
+        "text": "多见于桦树林下的地面",
         "src": "wiki-en"
       }
     ],
     "lookalikeNotes": {
       "saffronmilk": "松乳菇乳汁橙色、受伤变绿；毛头乳菇乳汁白色、边缘有长绒毛",
       "hatsudake": "红汁乳菇乳汁暗红色；毛头乳菇乳汁白色且边缘有绒毛"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "laughing",
@@ -5868,7 +6006,8 @@
     "lookalikeNotes": {
       "honey": "蜜环菌菌褶白色、孢子印白；橙黄裸伞菌褶锈褐、孢子印锈色、味极苦",
       "gypsy": "皱盖丝膜菌菌盖有白霜、菌褶淡褐；橙黄裸伞橙黄、菌褶锈褐、味苦"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "ergot",
@@ -5915,7 +6054,8 @@
         "text": "秋季在黑麦、小麦和野草穗上可见",
         "src": "wiki-zh"
       }
-    ]
+    ],
+    "encounter": "occasional"
   },
   {
     "id": "pisolithus",
@@ -5951,7 +6091,8 @@
       "capColor2": "#B08E56",
       "stipeColor": "#7A5E36",
       "mosaic": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "stereumostrea",
@@ -5997,7 +6138,8 @@
       "stipeColor": "none",
       "tiers": 4,
       "zones": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "conocybe",
@@ -6053,7 +6195,8 @@
     "lookalikeNotes": {
       "fairyring": "硬柄小皮伞无菌环、菌褶稀疏白色；褶纹锥盖伞有膜质菌环、菌褶锈褐",
       "micaceus": "晶粒小鬼伞菌盖有闪亮颗粒、成熟自溶、无菌环；褶纹锥盖伞有菌环且不自溶"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "smithiana",
@@ -6108,7 +6251,8 @@
     ],
     "lookalikeNotes": {
       "matsutake": "松茸有松香味、菌柄基部不膨大；史氏鹅膏有难闻气味、基部纺锤形膨大"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "cornflower",
@@ -6146,7 +6290,8 @@
       "poreColor": "#F2EAD2",
       "bruiseColor": "#1E4EA8",
       "fatStipe": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "sanghuang",
@@ -6191,7 +6336,8 @@
       "stipeColor": "none",
       "poreColor": "#C99A4A",
       "cracked": true
-    }
+    },
+    "encounter": "rare"
   },
   {
     "id": "poria",
@@ -6225,7 +6371,8 @@
       "capColor2": "#B09A7A",
       "stipeColor": "none",
       "buried": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "cauliflower",
@@ -6258,7 +6405,8 @@
       "capColor2": "#FAF4E2",
       "stipeColor": "#E8DCC0",
       "tiers": 9
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "chestnutbolete",
@@ -6294,7 +6442,8 @@
       "stipeColor": "#C4874A",
       "poreColor": "#F2EAD2",
       "hollow": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "dryadsaddle",
@@ -6328,7 +6477,8 @@
       "stipeColor": "#4A3E30",
       "scales": true,
       "poreColor": "#F2EEE0"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "amanitajack",
@@ -6367,7 +6517,8 @@
       "volvaColor": "#F8F4E8",
       "gillColor": "#F2D468",
       "striate": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "yellowfoot",
@@ -6405,7 +6556,8 @@
       "ridges": true,
       "hollow": true,
       "cluster": 5
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "mongolica",
@@ -6441,7 +6593,8 @@
       "stipeColor": "#F6F1E4",
       "gillColor": "#F8F5E8",
       "fatStipe": true
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "redveil",
@@ -6478,7 +6631,8 @@
       "stipeColor": "#FBF7EC",
       "veil": true,
       "volvaColor": "#B04A46"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "goldenear",
@@ -6515,7 +6669,8 @@
       "stipeColor": "none",
       "jelly": true,
       "hairy": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "sordida",
@@ -6556,7 +6711,8 @@
     },
     "aka": [
       "Lepista sordida"
-    ]
+    ],
+    "encounter": "occasional"
   },
   {
     "id": "lilacbonnet",
@@ -6613,7 +6769,8 @@
     "lookalikeNotes": {
       "amethyst": "紫晶蜡蘑菌褶厚而稀疏、菌柄坚韧；洁小菇菌褶密、菌柄中空脆、有萝卜味",
       "bleedingbonnet": "血红小菇折断菌柄流出暗红汁液；洁小菇不流汁，有萝卜味"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "woodtuft",
@@ -6653,7 +6810,8 @@
       "cluster": 8,
       "ringColor": "#C4A882",
       "hygrophanous": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "hypholomaL",
@@ -6690,7 +6848,8 @@
       "stipeColor": "#D8C08A",
       "cluster": 8,
       "gillColor": "#8E8A6A"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "saddle",
@@ -6727,7 +6886,8 @@
       "stipeColor": "#F2ECDE",
       "ribbed": true,
       "wrinkle": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "jellybaby",
@@ -6761,7 +6921,8 @@
       "stipeColor": "#D8C43A",
       "jelly": true,
       "cluster": 4
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "earthtongue",
@@ -6795,7 +6956,8 @@
       "stipeColor": "#2A2622",
       "hairy": true,
       "cluster": 4
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "pinecone",
@@ -6830,7 +6992,8 @@
       "scales": true,
       "poreColor": "#D8D0C0",
       "bruiseColor": "#2A2622"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "humongous",
@@ -6868,7 +7031,8 @@
       "cluster": 9,
       "ringColor": "#E4D4AE",
       "scales": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "whitetruffle",
@@ -6904,7 +7068,8 @@
       "capColor2": "#E8DCB8",
       "stipeColor": "none",
       "buried": true
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "devilscigar",
@@ -6942,7 +7107,8 @@
       "stipeColor": "#4A3E30",
       "rays": 5,
       "cigar": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "firecoral",
@@ -6998,7 +7164,8 @@
     "lookalikeNotes": {
       "stagshorn": "粘胶角耳橙黄色、胶质软；火焰茸鲜红、质地硬",
       "militaris": "蛹虫草橙色棒状从虫体伸出、顶端有颗粒；火焰茸从地面或腐木伸出、鹿角状分叉"
-    }
+    },
+    "encounter": "rare"
   },
   {
     "id": "trogia",
@@ -7051,7 +7218,8 @@
     ],
     "lookalikeNotes": {
       "splitgill": "裂褶菌菌盖有白色绒毛、菌褶沿中线纵裂；毒沟褶菌无毛、菌褶有横脉"
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "hatsudake",
@@ -7088,7 +7256,8 @@
       "stipeColor": "#D8907A",
       "bruiseColor": "#4E7A46",
       "zones": true
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "coralhericium",
@@ -7124,7 +7293,8 @@
       "stipeColor": "none",
       "branches": 9,
       "spines": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "venenatus",
@@ -7182,7 +7352,8 @@
       "jianshouqing": "见手青菌盖褐色、菌柄红黄相间；毒新牛肝菌菌盖黄褐有粉状质感",
       "magnificus": "华丽新牛肝菌菌盖红褐色；毒新牛肝菌菌盖黄褐",
       "whiteonion": "白牛肝菌菌盖灰白至淡褐、菌柄淡黄；毒新牛肝菌菌盖黄褐带粉"
-    }
+    },
+    "encounter": "seldom"
   },
   {
     "id": "verpa",
@@ -7236,7 +7407,8 @@
     "lookalikeNotes": {
       "morel": "羊肚菌帽部与菌柄下端相连成一体；皱柄钟菌帽只在顶端连接，像顶针",
       "blackmorel": "黑脉羊肚菌帽部蜂窝状纵脊；皱柄钟菌帽部是皱褶不是蜂窝"
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "gypsy",
@@ -7273,7 +7445,8 @@
       "stipeColor": "#EFE4CE",
       "ringColor": "#F2ECDC",
       "wrinkle": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "violetwebcap",
@@ -7310,7 +7483,8 @@
       "stipeColor": "#5A3A7A",
       "gillColor": "#3E2660",
       "cortina": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "waxcapconic",
@@ -7348,7 +7522,8 @@
       "stipeColor": "#E8B43A",
       "bruiseColor": "#2A2622",
       "slim": true
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "magpie",
@@ -7402,7 +7577,8 @@
     ],
     "lookalikeNotes": {
       "shaggyink": "毛头鬼伞菌盖白色圆柱形；喜鹊鬼伞深褐色带白斑"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "whitebirdsnest",
@@ -7438,7 +7614,8 @@
       "capColor2": "#DEC28E",
       "stipeColor": "none",
       "eggs": 5
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "dogstinkhorn",
@@ -7476,7 +7653,8 @@
       "volvaColor": "#EFE8D6",
       "flies": 2,
       "slim": true
-    }
+    },
+    "encounter": "occasional"
   },
   {
     "id": "summertruffle",
@@ -7514,7 +7692,8 @@
       "stipeColor": "none",
       "warts": true,
       "buried": true
-    }
+    },
+    "encounter": "rare"
   },
   {
     "id": "chlorophyllumB",
@@ -7553,7 +7732,8 @@
       "ringColor": "#F0E8D6",
       "scales": true,
       "bruiseColor": "#C4602E"
-    }
+    },
+    "encounter": "common"
   },
   {
     "id": "stagshornCoral",
@@ -7591,6 +7771,7 @@
       "stipeColor": "none",
       "branches": 3,
       "jelly": true
-    }
+    },
+    "encounter": "common"
   }
 ]
