@@ -284,6 +284,31 @@ fishId 有 43% 的题因为难度配置与题库分布对不上而永远抽不�
 ## 开发约定
 
 - **严禁主动部署**：没有用户明确说「部署」，不执行任何部署操作。
+
+## 部署（线上 https://mushroomid.ai-speeds.com）
+
+EC2 3.26.95.240（与 fishId 同一台），nginx 配置 `/etc/nginx/conf.d/mushroomid.conf`，
+**站点根目录 `/var/www/mushroomid` 是一个 git clone**（远端 github.com/tangzy09/mushroomId），
+发版就是在服务器上 `fetch + reset --hard` 到目标分支。`deploy.sh`（不入库，带主机与密钥路径）
+把「本地门 → push → 服务器 reset → 重建 data.gen.js → 探活」串成一条。手动等价步骤：
+
+```bash
+# 本地：门全绿、已 push（缓存戳 index.html ?v= 与 sw.js 的 V 同一串）
+ssh -i $pem ec2-user@3.26.95.240 "D=/var/www/mushroomid; B=<分支>;
+  sudo git -C \$D fetch origin \$B && sudo git -C \$D reset --hard origin/\$B &&
+  cd \$D && sudo python3 tools/build_data.py | tail -1"
+node test/smoke_prod.mjs        # 线上冒烟 24 项，退出码 0 才算部署成功
+```
+
+- `js/data.gen.js` 被 gitignore，服务器上要重建（服务器是 Python 3.9）。想让线上与本地测过的字节完全一致，
+  就 scp 本地那份覆盖过去再比 md5。
+- 照片（`assets/photos/` 333 个文件 23 MB）**在 git 里**，reset 时一并到位，不用单独传。
+- nginx 三条规则缺一不可：`location ~ /\.(git|svn|hg|env)` 封仓库；`location = /sw.js` 与
+  `/index.html`、`/manifest.webmanifest` 的 `no-cache`；`^/(CLAUDE.md|README.md|deploy.sh|docs|test|tools|data)` 封内部文件
+  （git 部署把整个仓库放进了 web root，这条是补救）。`smoke_prod.mjs` 对这三条都有断言。
+- ⛔ 用 `sed -i '/x/a\ ...'` 往 nginx 配置里插多行会被挤成**一行**，而第一段是注释 ⇒ 整行都成注释、
+  `nginx -t` 照样通过、规则一条没生效（2026-09-08 实证）。改配置用 python 逐行写，改完 `sed -n` 看真实行。
+- 磁盘只剩约 800 MB，别往服务器放大文件；`.bak` 配置副本积多了要清。
 - 改 `data/*.json` 后必须重跑 `build_data.py` 并跑 `check_data.py`。
 - 所有日期用 `YYYY-MM-DD` 字符串比较。
 - 不引入任何 npm 包或构建工具。
