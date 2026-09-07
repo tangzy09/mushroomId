@@ -674,6 +674,14 @@
     var box = document.createElement('div');
     box.className = 'detail-art';
     box.appendChild(art(m, 180));
+    if (!hasPhoto(m)) {
+      // 示意图是按形态字段画的，未必像真的；致命种要把这一点说得很重
+      var np = document.createElement('div');
+      np.className = 'photo-credit no-photo' + (m.edibility === 'deadly' ? ' warn' : '');
+      np.textContent = '暂无照片，示意图仅表示大致形态' +
+        (m.edibility === 'deadly' ? '。剧毒物种，切勿据此辨认' : '');
+      box.appendChild(np);
+    }
     var credit = photoCredit(m);
     if (credit) box.appendChild(credit);
     b.appendChild(box);
@@ -690,6 +698,15 @@
       '<div class="edib-note" style="margin-top:4px">' + ed.note + '</div>' +
       '<div class="disclaimer-note">' + C.safety.detail + '</div>';
     b.appendChild(head);
+
+    if (m.idKeys && m.idKeys.length) {
+      var ik = document.createElement('div');
+      ik.className = 'card idkeys';
+      ik.innerHTML = '<h2>怎么认</h2><ol>' +
+        m.idKeys.map(function (k) { return '<li>' + esc(k.text) + '</li>'; }).join('') +
+        '</ol><p class="muted footnote">识别要点由 AI 据公开资料整理，未经真菌学家审校，仅供学习，不能作为采食依据。</p>';
+      b.appendChild(ik);
+    }
 
     var info = document.createElement('div');
     info.className = 'card';
@@ -710,10 +727,11 @@
     if (m.lookalikes && m.lookalikes.length) {
       var lk = document.createElement('div');
       lk.className = 'card';
-      lk.innerHTML = '<h2>易混淆</h2><p class="muted" style="margin:0 0 6px">' +
+      lk.innerHTML = '<h2>容易认错</h2><p class="muted" style="margin:0 0 6px">' +
         '外形相似的物种往往需要显微或分子手段才能确认，不要凭肉眼下结论。</p>';
       var row = document.createElement('div');
       row.className = 'lookalike-row';
+      var toxic = function (x) { return x.edibility === 'poisonous' || x.edibility === 'deadly'; };
       m.lookalikes.forEach(function (id) {
         var o = byId[id];
         if (!o) return;
@@ -722,7 +740,14 @@
         el.appendChild(art(o, 34));
         var t2 = document.createElement('span');
         var oe = C.edibility[o.edibility];
-        t2.innerHTML = o.name + '<br><span class="muted" style="font-size:11px">' + oe.label + '</span>';
+        // 差异句：毒/可食配对必有人工句（校验门保证），其余取对方第一条识别要点
+        var diff = (m.lookalikeNotes && m.lookalikeNotes[id]) ||
+                   (o.lookalikeNotes && o.lookalikeNotes[m.id]) ||
+                   (o.idKeys && o.idKeys[0] && o.idKeys[0].text) || '';
+        var mixed = toxic(m) !== toxic(o);
+        t2.innerHTML = '<b>' + esc(o.name) + '</b> <span class="muted" style="font-size:11px">' + oe.label + '</span>' +
+          (diff ? '<br><span class="diff">' + esc(diff) + '</span>' : '') +
+          (mixed ? '<br><span class="diff warn">一个可食一个有毒，肉眼未必分得清</span>' : '');
         el.appendChild(t2);
         el.addEventListener('click', function () { openDetail(o); });
         row.appendChild(el);

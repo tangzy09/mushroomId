@@ -335,6 +335,14 @@ input[type=range]::-moz-range-track { height: 5px; border-radius: 3px; backgroun
 /* 图鉴搜索框 */
 .search { width: 100%; box-sizing: border-box; padding: 9px 12px; border: 1px solid var(--line, #ddd); border-radius: 10px; font-size: 15px; margin-bottom: 8px; background: #fff; font-family: inherit; }
 .cell.locked { display: none; } /* 图鉴不再有锁，保险起见让旧样式失效 */
+
+/* 详情页：识别要点、相似种差异句、无照片提示 */
+.idkeys ol { margin: 0; padding-left: 1.3em; font-size: 14.5px; line-height: 1.55; }
+.idkeys .footnote { font-size: 11px; margin: 8px 0 0; }
+.lookalike { align-items: flex-start; }
+.lookalike .diff { font-size: 12px; color: #555; line-height: 1.4; }
+.lookalike .diff.warn, .photo-credit.warn { color: #B0203A; font-weight: 600; }
+.photo-credit.no-photo { font-size: 11px; }
 .kv { display: grid; grid-template-columns: 5em 1fr; gap: 5px 10px; font-size: 13.5px; }
 .kv dt { color: var(--muted); }
 .kv dd { margin: 0; }

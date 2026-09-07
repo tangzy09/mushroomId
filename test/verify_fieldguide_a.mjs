@@ -107,6 +107,34 @@ t('搜「松」命中生境含松的种（≥5）', nS >= 5, nS + ' 个');
 await page.fill('#coll-search', '');
 await page.waitForTimeout(200);
 
+/* D1 毒种详情有识别要点三条 + 脚注 + 可食相似种标红 */
+await page.fill('#coll-search', '死帽菇');
+await page.waitForTimeout(200);
+await page.click('#coll-grid .cell');
+await page.waitForTimeout(500);
+const dk = await page.evaluate(() => ({
+  n: document.querySelectorAll('#page-detail .idkeys li').length,
+  foot: /未经真菌学家审校/.test((document.querySelector('#page-detail .idkeys') || {}).textContent || ''),
+  warn: document.querySelectorAll('#page-detail .lookalike .diff.warn').length,
+  diffs: document.querySelectorAll('#page-detail .lookalike .diff:not(.warn)').length,
+}));
+t('死帽菇有三条识别要点', dk.n === 3, dk.n + ' 条');
+t('识别要点带「未经审校」脚注', dk.foot);
+t('死帽菇的可食相似种标红', dk.warn >= 1, dk.warn + ' 处');
+t('相似种带差异句', dk.diffs >= 1, dk.diffs + ' 句');
+await page.click('#page-detail [data-back]');
+await page.waitForTimeout(300);
+/* D2 无照片致命种有「切勿据此辨认」 */
+await page.fill('#coll-search', '致命鹅膏');
+await page.waitForTimeout(200);
+await page.click('#coll-grid .cell');
+await page.waitForTimeout(500);
+const np = await page.evaluate(() => (document.querySelector('#page-detail .no-photo') || {}).textContent || '');
+t('无照片致命种显示「切勿据此辨认」', /切勿据此辨认/.test(np), np);
+await page.click('#page-detail [data-back]');
+await page.fill('#coll-search', '');
+await page.waitForTimeout(200);
+
 t('零 JS 异常', errs.length === 0, errs.slice(0, 2).join(' | '));
 await browser.close();
 console.log('\n' + pass + ' 过 / ' + fail + ' 失败');
