@@ -196,6 +196,7 @@
     chip.textContent = '🌀 ' + ready + ' 个孢子待收';
   }
 
+  Browse.init({ data: MUSHROOM_DATA, C: C, art: art, openDetail: openDetail, $: $ });
   Garden.init($('garden-canvas'), C, byId, Storage.get());
   Garden.setWeather(weather);
   Garden.onTap(function (sp, item) {
@@ -592,78 +593,8 @@
   }
 
   // ---------------------------------------------------------------- collection
-  var collFilter = 'all';
-  var collQuery = '';
-  function matchesQuery(m, q) {
-    if (!q) return true;
-    var L = C.labels || {};
-    var hay = [m.name, m.nameEn, m.latin, m.family, m.habitat,
-      (m.aka || []).join(' '),
-      L.substrate && L.substrate[m.substrate], L.biome && L.biome[m.biome]
-    ].join(' ').toLowerCase();
-    return hay.indexOf(q) >= 0;
-  }
-  function renderCollection() {
-    $('coll-count').textContent = MUSHROOM_DATA.length + ' 种';
-
-    // 图鉴是现实图鉴：按野外遇见率筛，不按抽卡稀有度；不显示「已收集」
-    var filters = [['all', '全部'], ['toxic', '☠️ 有毒与剧毒']]
-      .concat(C.encounters.map(function (r) { return [r, C.encounterLabels[r]]; }));
-    var fb = $('coll-filters');
-    fb.innerHTML = '';
-    filters.forEach(function (f) {
-      var b = document.createElement('button');
-      b.className = 'pill' + (collFilter === f[0] ? ' on' : '');
-      b.textContent = f[1];
-      b.addEventListener('click', function () { collFilter = f[0]; renderCollection(); });
-      fb.appendChild(b);
-    });
-    var inp = $('coll-search');
-    if (!inp._wired) {
-      inp._wired = true;
-      inp.addEventListener('input', function () {
-        collQuery = inp.value.trim().toLowerCase();
-        renderCollection();
-      });
-    }
-
-    var q = collQuery;
-    var list = MUSHROOM_DATA.filter(function (m) {
-      if (!matchesQuery(m, q)) return false;
-      if (collFilter === 'all') return true;
-      if (collFilter === 'toxic') return m.edibility === 'poisonous' || m.edibility === 'deadly';
-      return m.encounter === collFilter;
-    });
-    var order = { common: 0, occasional: 1, rare: 2, seldom: 3 };
-    list.sort(function (a, b) {
-      return (order[a.encounter] - order[b.encounter]) || a.name.localeCompare(b.name, 'zh');
-    });
-
-    var g = $('coll-grid');
-    g.innerHTML = '';
-    if (!list.length) {
-      g.innerHTML = '<div class="muted" style="grid-column:1/-1;padding:24px 8px;text-align:center">没有匹配的菌子</div>';
-      return;
-    }
-    list.forEach(function (m) {
-      var cell = document.createElement('button');
-      cell.className = 'cell';
-      cell.appendChild(art(m, 72));
-      var nm = document.createElement('div');
-      nm.className = 'nm';
-      nm.textContent = m.name;
-      cell.appendChild(nm);
-      // 毒种标记永远显示，不受任何状态影响
-      if (m.edibility === 'deadly' || m.edibility === 'poisonous') {
-        var sk = document.createElement('span');
-        sk.className = 'skull';
-        sk.textContent = m.edibility === 'deadly' ? '☠️' : '⚠️';
-        cell.appendChild(sk);
-      }
-      cell.addEventListener('click', function () { openDetail(m); });
-      g.appendChild(cell);
-    });
-  }
+  // 图鉴首页整个交给 browse.js（五路检索 + 叠加筛选 + 对比网格）
+  function renderCollection() { Browse.render(); }
 
   function renderDetail(m) {
     var ed = C.edibility[m.edibility];

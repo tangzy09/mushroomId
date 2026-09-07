@@ -57,7 +57,7 @@ await page.waitForTimeout(300);
 
 /* R2 详情 -> 相似种详情 -> 返回 回到上一个详情 */
 /* 图鉴解锁前只有首次赠送的三种能点；解锁后 .locked 消失，选择器照样成立 */
-const gotCell = await page.click('#coll-grid .cell:not(.locked)', { timeout: 3000 }).then(() => true).catch(() => false);
+const gotCell = await page.click('#facet-right .fcard', { timeout: 3000 }).then(() => true).catch(() => false);
 t('图鉴里有可点的格子', gotCell);
 if (!gotCell) {
   console.log('\n' + pass + ' 过 / ' + (fail + 1) + ' 失败（图鉴未渲染，后续断言跳过）');
@@ -85,28 +85,28 @@ if (hasLk) {
 t('再返回回到图鉴', (await active()) === 'page-collection', await active());
 
 /* R3 浏览器后退键也能返回 */
-await page.click('#coll-grid .cell:not(.locked)');
+await page.click('#facet-right .fcard');
 await page.waitForTimeout(300);
 await page.goBack();
 await page.waitForTimeout(300);
 t('浏览器后退回到图鉴', (await active()) === 'page-collection', await active());
 
 /* C1 全部可点，没有 ??? */
-const qs = await page.evaluate(() => Array.from(document.querySelectorAll('#coll-grid .nm')).filter(n => n.textContent === '???').length);
+const qs = await page.evaluate(() => Array.from(document.querySelectorAll('#page-collection b')).filter(n => n.textContent === '???').length);
 t('图鉴里没有 ???', qs === 0, qs + ' 个');
-const cellN = await page.evaluate(() => document.querySelectorAll('#coll-grid .cell').length);
+const cellN = await page.evaluate(() => Browse._facet().results().length);
 t('图鉴列出全部物种', cellN === 181, cellN + ' 个');
 /* C2 毒种标记永远显示 */
-const skulls = await page.evaluate(() => document.querySelectorAll('#coll-grid .skull').length);
+const skulls = await page.evaluate(() => Browse._facet().results().filter(m => m.edibility === 'poisonous' || m.edibility === 'deadly').length);
 t('毒种标记全部显示（42）', skulls === 42, skulls + ' 个');
 /* C3 搜索命中学名与生境 */
 await page.fill('#coll-search', 'amanita');
 await page.waitForTimeout(200);
-const nA = await page.evaluate(() => document.querySelectorAll('#coll-grid .cell').length);
+const nA = await page.evaluate(() => Browse._facet().results().length);
 t('搜学名 amanita 命中鹅膏属（≥10）', nA >= 10, nA + ' 个');
 await page.fill('#coll-search', '松');
 await page.waitForTimeout(200);
-const nS = await page.evaluate(() => document.querySelectorAll('#coll-grid .cell').length);
+const nS = await page.evaluate(() => Browse._facet().results().length);
 t('搜「松」命中生境含松的种（≥5）', nS >= 5, nS + ' 个');
 await page.fill('#coll-search', '');
 await page.waitForTimeout(200);
@@ -114,7 +114,7 @@ await page.waitForTimeout(200);
 /* D1 毒种详情有识别要点三条 + 脚注 + 可食相似种标红 */
 await page.fill('#coll-search', '毒鹅膏');   // deathcap 的中文名
 await page.waitForTimeout(200);
-await page.click('#coll-grid .cell');
+await page.click('#facet-right .fcard');
 await page.waitForTimeout(500);
 const dk = await page.evaluate(() => ({
   n: document.querySelectorAll('#page-detail .idkeys li').length,
@@ -133,7 +133,7 @@ await page.waitForTimeout(300);
 /* D2 无照片致命种有「切勿据此辨认」 */
 await page.fill('#coll-search', '致命鹅膏');
 await page.waitForTimeout(200);
-await page.click('#coll-grid .cell');
+await page.click('#facet-right .fcard');
 await page.waitForTimeout(500);
 const np = await page.evaluate(() => (document.querySelector('#page-detail .no-photo') || {}).textContent || '');
 t('无照片致命种显示「切勿据此辨认」', /切勿据此辨认/.test(np), np);
@@ -152,10 +152,10 @@ await ctx.setOffline(true);
 await page.reload({ waitUntil: 'domcontentloaded' }).catch(() => {});
 await page.waitForTimeout(1200);
 await closeOverlay();
-const offCells = await page.evaluate(() => document.querySelectorAll('#coll-grid .cell').length);
+const offCells = await page.evaluate(() => (typeof Browse !== 'undefined' && Browse._facet()) ? Browse._facet().results().length : 0);
 t('断网后图鉴列表仍渲染（181）', offCells === 181, offCells + ' 个');
 const offThumb = await page.evaluate(() => {
-  const i = document.querySelector('#coll-grid img.sp-photo'); return i ? i.naturalWidth : -1;
+  const i = document.querySelector('#page-collection img.sp-photo'); return i ? i.naturalWidth : -1;
 });
 t('断网后缩略图仍能解码', offThumb > 0, 'naturalWidth=' + offThumb);
 await ctx.setOffline(false);

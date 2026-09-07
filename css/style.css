@@ -336,6 +336,42 @@ input[type=range]::-moz-range-track { height: 5px; border-radius: 3px; backgroun
 .search { width: 100%; box-sizing: border-box; padding: 9px 12px; border: 1px solid var(--line, #ddd); border-radius: 10px; font-size: 15px; margin-bottom: 8px; background: #fff; font-family: inherit; }
 .cell.locked { display: none; } /* 图鉴不再有锁，保险起见让旧样式失效 */
 
+/* 图鉴首页：五路检索（browse.js） */
+#page-collection .page-body { display: flex; flex-direction: column; overflow: hidden; padding-bottom: 8px; }
+#facet-tabs { display: flex; gap: 6px; overflow-x: auto; flex: 0 0 auto; padding-bottom: 8px; scrollbar-width: none; }
+#facet-tabs::-webkit-scrollbar { display: none; }
+#facet-tabs button { flex: 0 0 auto; border: 1px solid var(--line); background: #fff; color: var(--muted); border-radius: 999px; padding: 6px 12px; font-size: 13px; font-family: inherit; }
+#facet-tabs button.on { background: var(--primary); color: #fff; border-color: var(--primary); }
+#facet-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; flex: 0 0 auto; min-height: 30px; margin-bottom: 6px; }
+.fchip { border: 1px solid var(--primary); background: #EAF3E3; color: var(--primary-dark); border-radius: 999px; padding: 4px 10px; font-size: 12.5px; font-family: inherit; }
+.fchip.ghost { border-color: var(--line); background: #fff; color: var(--muted); }
+.fcnt { margin-left: auto; font-size: 12.5px; color: var(--muted); }
+#facet-warn { flex: 0 0 auto; font-size: 12px; color: #B0203A; background: #FBECEC; padding: 6px 10px; border-radius: 8px; margin-bottom: 8px; line-height: 1.4; }
+.split { display: flex; flex: 1; min-height: 0; }
+/* ⚠ 自己写的 display 会压过浏览器默认的 [hidden]{display:none}，空网格会分走一半高度 */
+.split[hidden], .grid2[hidden] { display: none; }
+#facet-left { width: 53%; overflow-y: auto; border-right: 1px solid var(--line); }
+#facet-right { width: 47%; overflow-y: auto; padding-left: 8px; }
+.split.name-mode #facet-left { width: 100%; border-right: 0; }
+.split.name-mode #facet-right { display: none; }
+.frow, .fcard { display: flex; align-items: center; gap: 8px; width: 100%; border: 0; border-bottom: 1px solid var(--line); background: transparent; padding: 7px 6px; font-size: 14px; text-align: left; min-height: 44px; font-family: inherit; color: inherit; cursor: pointer; }
+.frow.on { background: #EAF3E3; color: var(--primary-dark); }
+.frow.zero { opacity: .38; cursor: default; }
+.frow .rep, .frow .rep img, .frow .rep canvas { width: 36px; height: 36px; flex: 0 0 auto; }
+.frow .rep img, .frow .rep canvas { object-fit: cover; border-radius: 6px; display: block; }
+.frow .n { margin-left: auto; font-size: 12px; color: var(--muted); }
+.fcard img, .fcard canvas { width: 44px; height: 44px; object-fit: cover; border-radius: 6px; flex: 0 0 auto; }
+.fcard .lbl { display: flex; flex-direction: column; min-width: 0; }
+.fcard .lbl i, .gcell i { font-size: 11px; color: var(--muted); font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tox { font-size: 12px; }
+.fempty { padding: 20px 8px; color: var(--muted); font-size: 13px; text-align: center; line-height: 1.5; }
+.mon { font-size: 11px; color: var(--muted); padding: 10px 6px 2px; font-weight: 600; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; overflow-y: auto; flex: 1; min-height: 0; align-content: start; }
+.gcell { border: 1px solid var(--line); background: #fff; padding: 8px; text-align: left; border-radius: 10px; font-family: inherit; color: inherit; cursor: pointer; }
+.gcell img, .gcell canvas { width: 100%; height: 120px; object-fit: cover; border-radius: 6px; display: block; }
+.gcell b { display: block; margin-top: 6px; font-size: 14px; }
+.gcell i { display: block; font-style: normal; white-space: normal; color: #555; font-size: 11.5px; margin-top: 2px; line-height: 1.35; }
+
 /* 详情页：识别要点、相似种差异句、无照片提示 */
 .idkeys ol { margin: 0; padding-left: 1.3em; font-size: 14.5px; line-height: 1.55; }
 .idkeys .footnote { font-size: 11px; margin: 8px 0 0; }

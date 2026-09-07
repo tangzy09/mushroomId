@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon-180.png">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="stylesheet" href="css/style.css?v=20260907b">
+<link rel="stylesheet" href="css/style.css?v=20260907c">
 </head>
 <body>
 
@@ -48,9 +48,15 @@
   <div class="page-header"><h1>图鉴</h1><span class="muted" id="coll-count"></span></div>
   <div class="safety-bar" id="safety-bar-2"></div>
   <div class="page-body">
-    <input class="search" id="coll-search" type="search" placeholder="搜名字、学名、科、生境…" autocomplete="off">
-    <div class="coll-tools" id="coll-filters"></div>
-    <div class="grid" id="coll-grid"></div>
+    <input class="search" id="coll-search" type="search" placeholder="搜名字、拼音、学名、科、生境…" autocomplete="off">
+    <div id="facet-tabs"></div>
+    <div id="facet-bar"></div>
+    <div id="facet-warn" hidden></div>
+    <div class="split" id="facet-split">
+      <div id="facet-left"></div>
+      <div id="facet-right"></div>
+    </div>
+    <div class="grid2" id="facet-grid" hidden></div>
   </div>
 </div>
 
@@ -172,18 +178,20 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="js/game/config.js?v=20260907b"></script>
-<script src="js/core/storage.js?v=20260907b"></script>
-<script src="js/core/gacha.js?v=20260907b"></script>
-<script src="js/core/quiz.js?v=20260907b"></script>
-<script src="js/core/share.js?v=20260907b"></script>
-<script src="js/core/transfer.js?v=20260907b"></script>
-<script src="js/game/weather.js?v=20260907b"></script>
-<script src="js/game/shroom-art.js?v=20260907b"></script>
-<script src="js/game/garden.js?v=20260907b"></script>
-<script src="js/data.gen.js?v=20260907b"></script>
-<script src="js/photo_credits.js?v=20260907b"></script>
-<script src="js/game/app.js?v=20260907b"></script>
+<script src="js/game/config.js?v=20260907c"></script>
+<script src="js/core/storage.js?v=20260907c"></script>
+<script src="js/core/gacha.js?v=20260907c"></script>
+<script src="js/core/quiz.js?v=20260907c"></script>
+<script src="js/core/share.js?v=20260907c"></script>
+<script src="js/core/transfer.js?v=20260907c"></script>
+<script src="js/game/weather.js?v=20260907c"></script>
+<script src="js/game/shroom-art.js?v=20260907c"></script>
+<script src="js/core/facet.js?v=20260907c"></script>
+<script src="js/game/browse.js?v=20260907c"></script>
+<script src="js/game/garden.js?v=20260907c"></script>
+<script src="js/data.gen.js?v=20260907c"></script>
+<script src="js/photo_credits.js?v=20260907c"></script>
+<script src="js/game/app.js?v=20260907c"></script>
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js'); });

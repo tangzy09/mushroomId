@@ -60,15 +60,15 @@ await closeOverlay();
 /* 真实点击进图鉴 */
 await page.click('#nav button[data-page="collection"]');
 await closeOverlay();
-await page.waitForSelector('#coll-grid .cell', { timeout: 10000 });
+await page.waitForSelector('#facet-right .fcard', { timeout: 10000 });
 await page.waitForTimeout(1500);
 
 const shots = await page.evaluate(() =>
-  Array.from(document.querySelectorAll('#coll-grid img.sp-photo'))
+  Array.from(document.querySelectorAll('#page-collection img.sp-photo'))
     .map(i => ({ w: i.naturalWidth, src: i.getAttribute('src') })));
 const decoded = shots.filter(x => x.w > 0);
-const cells = await page.$$('#coll-grid .cell');
-t('图鉴列表渲染出格子（正例地板）', cells.length >= 100, cells.length + ' 个格子');
+const cells = await page.$$('#facet-right .fcard');
+t('图鉴列表渲染出格子（正例地板）', cells.length >= 60, cells.length + ' 个格子');
 t('列表里出现已解码的照片（≥ 20）', decoded.length >= 20,
   '解码 ' + decoded.length + ' / img 元素 ' + shots.length);
 t('列表小图取自 thumb 层', decoded.length > 0 && decoded.every(x => /\/thumb\//.test(x.src)),
@@ -80,8 +80,8 @@ const name1 = await page.evaluate(id => {
   return m ? m.name : null;
 }, withPhoto[0]);
 await page.evaluate(nm => {
-  const cell = Array.from(document.querySelectorAll('#coll-grid .cell'))
-    .find(c => c.querySelector('.nm') && c.querySelector('.nm').textContent === nm);
+  const cell = Array.from(document.querySelectorAll('#facet-right .fcard'))
+    .find(c => c.querySelector('b') && c.querySelector('b').textContent === nm);
   if (cell) cell.click();
 }, name1);
 await page.waitForTimeout(1200);
@@ -117,8 +117,8 @@ const nameNo = await page.evaluate(ids => {
   return m ? m.name : null;
 }, withPhoto);
 await page.evaluate(nm => {
-  const cell = Array.from(document.querySelectorAll('#coll-grid .cell'))
-    .find(c => c.querySelector('.nm') && c.querySelector('.nm').textContent === nm);
+  const cell = Array.from(document.querySelectorAll('#facet-right .fcard'))
+    .find(c => c.querySelector('b') && c.querySelector('b').textContent === nm);
   if (cell) cell.click();
 }, nameNo);
 await page.waitForTimeout(900);

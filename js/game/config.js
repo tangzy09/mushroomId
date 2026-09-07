@@ -194,6 +194,15 @@ var GameConfig = {
     hymenium: {
       gills: '菌褶', pores: '菌管', teeth: '菌齿', ridges: '棱脊',
       smooth: '光滑', gleba: '孢体'
+    },
+    // 一期 B 检索维度的展示名
+    silhouette: {
+      umbrella: '伞形', funnel: '漏斗、喇叭与杯', shelf: '贴树的架子', ball: '球与块',
+      coral: '珊瑚与枝状', club: '棒与指', brain: '脑与蜂窝', jelly: '耳与胶质'
+    },
+    color: {
+      white: '白', yellow: '黄', orange: '橙', red: '红', brown: '褐',
+      grey: '灰', black: '黑', purple: '紫', green: '绿'
     }
   },
 
