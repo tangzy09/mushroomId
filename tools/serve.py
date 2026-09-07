@@ -18,13 +18,23 @@ class H(http.server.SimpleHTTPRequestHandler):
         self.send_header('Cache-Control', 'no-store')
         super().end_headers()
     def guess_type(self, path):
+        p = str(path)
+        # Python 自带的表不认 webp / webmanifest，给成 octet-stream 后 SW 缓存里
+        # 的图会解码失败
+        if p.endswith('.webp'):
+            return 'image/webp'
+        if p.endswith('.webmanifest'):
+            return 'application/manifest+json; charset=utf-8'
         t = super().guess_type(path)
-        if any(str(path).endswith(e) for e in ('.html', '.js', '.css', '.json')):
+        if any(p.endswith(e) for e in ('.html', '.js', '.css', '.json')):
             base = t.split(';')[0] if t else 'text/plain'
             return base + '; charset=utf-8'
         return t
 
-socketserver.TCPServer.allow_reuse_address = True
-with socketserver.TCPServer(('', PORT), H) as httpd:
+# ⚠ 必须多线程：Service Worker 预缓存 166 张缩略图是并发请求，
+# 单线程 TCPServer 会排队到超时，看起来像离线缓存坏了（fishId 踩过同样的坑）
+socketserver.ThreadingTCPServer.allow_reuse_address = True
+socketserver.ThreadingTCPServer.daemon_threads = True
+with socketserver.ThreadingTCPServer(('', PORT), H) as httpd:
     print('serving on http://localhost:%d' % PORT)
     httpd.serve_forever()

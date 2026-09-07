@@ -139,6 +139,25 @@ await page.click('#page-detail [data-back]');
 await page.fill('#coll-search', '');
 await page.waitForTimeout(200);
 
+/* O1 断网后列表与缩略图仍可用（SW 三层缓存） */
+const swReady = await page.evaluate(() => navigator.serviceWorker.ready.then(r => !!r.active).catch(() => false));
+t('Service Worker 已激活', swReady);
+await page.waitForTimeout(4000);            // 给后台预缓存缩略图的时间
+await page.reload({ waitUntil: 'networkidle' });
+await page.waitForTimeout(1500);
+const ctx = page.context();
+await ctx.setOffline(true);
+await page.reload({ waitUntil: 'domcontentloaded' }).catch(() => {});
+await page.waitForTimeout(1200);
+await closeOverlay();
+const offCells = await page.evaluate(() => document.querySelectorAll('#coll-grid .cell').length);
+t('断网后图鉴列表仍渲染（181）', offCells === 181, offCells + ' 个');
+const offThumb = await page.evaluate(() => {
+  const i = document.querySelector('#coll-grid img.sp-photo'); return i ? i.naturalWidth : -1;
+});
+t('断网后缩略图仍能解码', offThumb > 0, 'naturalWidth=' + offThumb);
+await ctx.setOffline(false);
+
 t('零 JS 异常', errs.length === 0, errs.slice(0, 2).join(' | '));
 await browser.close();
 console.log('\n' + pass + ' 过 / ' + fail + ' 失败');

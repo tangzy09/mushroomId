@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
-<title>菌菇图鉴 — 看图认菌的收集游戏</title>
-<meta name="description" content="看图认菌、抽卡收集、种进菌菇园的科普收集游戏。181 种真实菌类，纯前端，无需注册。本游戏不提供野外鉴定或采食建议。">
-<meta name="keywords" content="菌菇图鉴,蘑菇游戏,认菌,科普,收集,毒蘑菇科普">
+<title>菌菇图鉴 — 看图认菌</title>
+<meta name="description" content="181 种真实菌菇照片配名字，从现场看得见的特征查到它叫什么、怎么认、别和什么混。纯前端，无需注册，可离线。本图鉴不提供野外鉴定或采食建议。">
+<meta name="keywords" content="菌菇图鉴,蘑菇图鉴,认菌,野生菌,毒蘑菇,科普">
 <meta name="theme-color" content="#5B8C3A">
 <meta property="og:title" content="菌菇图鉴 — 不教你吃，只教你认">
-<meta property="og:description" content="看图认菌 → 抽卡收集 → 种进菌菇园。181 种真实菌类的科普收集游戏。">
+<meta property="og:description" content="181 种真实菌菇照片配名字，从现场看得见的特征查到它叫什么、怎么认、别和什么混。">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://mushroomid.ai-speeds.com/assets/icons/icon-512.png">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon-180.png">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="stylesheet" href="css/style.css?v=20260907a">
+<link rel="stylesheet" href="css/style.css?v=20260907b">
 </head>
 <body>
 
@@ -172,17 +172,22 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="js/game/config.js?v=20260907a"></script>
-<script src="js/core/storage.js?v=20260907a"></script>
-<script src="js/core/gacha.js?v=20260907a"></script>
-<script src="js/core/quiz.js?v=20260907a"></script>
-<script src="js/core/share.js?v=20260907a"></script>
-<script src="js/core/transfer.js?v=20260907a"></script>
-<script src="js/game/weather.js?v=20260907a"></script>
-<script src="js/game/shroom-art.js?v=20260907a"></script>
-<script src="js/game/garden.js?v=20260907a"></script>
-<script src="js/data.gen.js?v=20260907a"></script>
-<script src="js/photo_credits.js?v=20260907a"></script>
-<script src="js/game/app.js?v=20260907a"></script>
+<script src="js/game/config.js?v=20260907b"></script>
+<script src="js/core/storage.js?v=20260907b"></script>
+<script src="js/core/gacha.js?v=20260907b"></script>
+<script src="js/core/quiz.js?v=20260907b"></script>
+<script src="js/core/share.js?v=20260907b"></script>
+<script src="js/core/transfer.js?v=20260907b"></script>
+<script src="js/game/weather.js?v=20260907b"></script>
+<script src="js/game/shroom-art.js?v=20260907b"></script>
+<script src="js/game/garden.js?v=20260907b"></script>
+<script src="js/data.gen.js?v=20260907b"></script>
+<script src="js/photo_credits.js?v=20260907b"></script>
+<script src="js/game/app.js?v=20260907b"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js'); });
+}
+</script>
 </body>
 </html>
