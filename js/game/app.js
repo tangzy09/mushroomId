@@ -1003,7 +1003,7 @@
     if (localStorage.getItem(C.storageKeys.disclaimer)) { gift(); return; }
     sheet('<h2>开始之前</h2>' +
       '<p>' + C.safety.banner + '</p>' +
-      '<p class="muted">这是一款收集类科普游戏。它教你认识菌子的样子和名字，' +
+      '<p class="muted">这是一本菌菇图鉴。它教你认识菌子的样子和名字，' +
       '不教你判断哪一朵能吃——没有任何简单方法能做到那件事。</p>' +
       '<button class="btn wide" id="btn-agree">我明白了</button>',
       function (el) {

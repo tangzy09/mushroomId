@@ -33,7 +33,11 @@ await page.evaluate(() => {
     });
   });
 });
+await page.evaluate(() => localStorage.removeItem('mush_disclaimer_ok'));
 await page.reload({ waitUntil: 'networkidle' });
+/* S1 首次协议说的是图鉴不是游戏（在关掉弹层之前读它） */
+const sheetTxt = await page.evaluate(() => (document.getElementById('sheet') || {}).textContent || '');
+t('首次协议说的是图鉴不是游戏', /菌菇图鉴/.test(sheetTxt) && !/收集类科普游戏/.test(sheetTxt));
 await closeOverlay();
 
 /* R1 首页是图鉴 */
@@ -108,7 +112,7 @@ await page.fill('#coll-search', '');
 await page.waitForTimeout(200);
 
 /* D1 毒种详情有识别要点三条 + 脚注 + 可食相似种标红 */
-await page.fill('#coll-search', '死帽菇');
+await page.fill('#coll-search', '毒鹅膏');   // deathcap 的中文名
 await page.waitForTimeout(200);
 await page.click('#coll-grid .cell');
 await page.waitForTimeout(500);
@@ -118,9 +122,9 @@ const dk = await page.evaluate(() => ({
   warn: document.querySelectorAll('#page-detail .lookalike .diff.warn').length,
   diffs: document.querySelectorAll('#page-detail .lookalike .diff:not(.warn)').length,
 }));
-t('死帽菇有三条识别要点', dk.n === 3, dk.n + ' 条');
+t('毒鹅膏有三条识别要点', dk.n === 3, dk.n + ' 条');
 t('识别要点带「未经审校」脚注', dk.foot);
-t('死帽菇的可食相似种标红', dk.warn >= 1, dk.warn + ' 处');
+t('毒鹅膏的可食相似种标红', dk.warn >= 1, dk.warn + ' 处');
 t('相似种带差异句', dk.diffs >= 1, dk.diffs + ' 句');
 await page.click('#page-detail [data-back]');
 await page.waitForTimeout(300);
