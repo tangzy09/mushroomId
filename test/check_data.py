@@ -137,6 +137,48 @@ def check_species(species):
             if len(m.get("fact", "")) < 20:
                 err("%s: %s species needs a substantive fact"
                     % (m["id"], m["edibility"]))
+
+    # --- 一期 A 新字段 ------------------------------------------------
+    ENCOUNTER = ("common", "occasional", "rare", "seldom")
+    SRC = ("wiki-zh", "wiki-en", "mushroomexpert", "inat", "photo")
+    KEYISH = re.compile(r"\d+\s*[–\-~]\s*\d+\s*(μm|µm|um)|[IVX]{2,}|担孢子|囊状体|锁状联合")
+    toxic = ("poisonous", "deadly")
+    for m in species:
+        sid = m["id"]
+        if m.get("encounter") not in ENCOUNTER:
+            err("%s: encounter must be one of %s, got %r" % (sid, ENCOUNTER, m.get("encounter")))
+        keys = m.get("idKeys")
+        if m.get("edibility") in toxic:
+            # 毒种一期 A 必须有 3 条识别要点，每条带来源
+            if not isinstance(keys, list) or len(keys) != 3:
+                err("%s: %s species needs exactly 3 idKeys" % (sid, m["edibility"]))
+                continue
+        if keys:
+            for i, k in enumerate(keys):
+                if not isinstance(k, dict) or not k.get("text") or k.get("src") not in SRC:
+                    err("%s: idKeys[%d] must be {text, src in %s}" % (sid, i, SRC)); continue
+                if len(k["text"]) < 6 or len(k["text"]) > 60:
+                    err("%s: idKeys[%d] length %d, want 6-60" % (sid, i, len(k["text"])))
+                if KEYISH.search(k["text"]):
+                    err("%s: idKeys[%d] reads like a dichotomous key, not a field mark: %r"
+                        % (sid, i, k["text"]))
+    # 毒/可食配对必须有人工差异句，且致命种至少有一个非毒相似种
+    for m in species:
+        if m.get("edibility") not in toxic:
+            continue
+        notes = m.get("lookalikeNotes") or {}
+        safe = []
+        for l in m.get("lookalikes", []):
+            o = by_id.get(l)
+            if not o or o.get("edibility") in toxic:
+                continue
+            safe.append(l)
+            other_notes = o.get("lookalikeNotes") or {}
+            if not notes.get(l) and not other_notes.get(m["id"]):
+                err("%s <-> %s: toxic/edible pair needs a hand-written lookalikeNotes entry"
+                    % (m["id"], l))
+        if m.get("edibility") == "deadly" and m.get("lookalikes") and not safe:
+            err("%s: deadly species must list at least one non-toxic lookalike" % m["id"])
     return ids
 
 
