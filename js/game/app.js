@@ -593,12 +593,22 @@
 
   // ---------------------------------------------------------------- collection
   var collFilter = 'all';
+  var collQuery = '';
+  function matchesQuery(m, q) {
+    if (!q) return true;
+    var L = C.labels || {};
+    var hay = [m.name, m.nameEn, m.latin, m.family, m.habitat,
+      (m.aka || []).join(' '),
+      L.substrate && L.substrate[m.substrate], L.biome && L.biome[m.biome]
+    ].join(' ').toLowerCase();
+    return hay.indexOf(q) >= 0;
+  }
   function renderCollection() {
-    var st = Storage.get();
-    $('coll-count').textContent = Storage.collected() + ' / ' + MUSHROOM_DATA.length;
+    $('coll-count').textContent = MUSHROOM_DATA.length + ' 种';
 
-    var filters = [['all', '全部'], ['owned', '已收集'], ['toxic', '☠️ 毒菌']]
-      .concat(C.rarities.map(function (r) { return [r, C.rarityLabels[r]]; }));
+    // 图鉴是现实图鉴：按野外遇见率筛，不按抽卡稀有度；不显示「已收集」
+    var filters = [['all', '全部'], ['toxic', '☠️ 有毒与剧毒']]
+      .concat(C.encounters.map(function (r) { return [r, C.encounterLabels[r]]; }));
     var fb = $('coll-filters');
     fb.innerHTML = '';
     filters.forEach(function (f) {
@@ -608,41 +618,49 @@
       b.addEventListener('click', function () { collFilter = f[0]; renderCollection(); });
       fb.appendChild(b);
     });
+    var inp = $('coll-search');
+    if (!inp._wired) {
+      inp._wired = true;
+      inp.addEventListener('input', function () {
+        collQuery = inp.value.trim().toLowerCase();
+        renderCollection();
+      });
+    }
 
+    var q = collQuery;
     var list = MUSHROOM_DATA.filter(function (m) {
+      if (!matchesQuery(m, q)) return false;
       if (collFilter === 'all') return true;
-      if (collFilter === 'owned') return Storage.has(m.id);
       if (collFilter === 'toxic') return m.edibility === 'poisonous' || m.edibility === 'deadly';
-      return m.rarity === collFilter;
+      return m.encounter === collFilter;
     });
-    var order = { common: 0, rare: 1, epic: 2, legend: 3 };
-    list.sort(function (a, b) { return order[a.rarity] - order[b.rarity]; });
+    var order = { common: 0, occasional: 1, rare: 2, seldom: 3 };
+    list.sort(function (a, b) {
+      return (order[a.encounter] - order[b.encounter]) || a.name.localeCompare(b.name, 'zh');
+    });
 
     var g = $('coll-grid');
     g.innerHTML = '';
+    if (!list.length) {
+      g.innerHTML = '<div class="muted" style="grid-column:1/-1;padding:24px 8px;text-align:center">没有匹配的菌子</div>';
+      return;
+    }
     list.forEach(function (m) {
-      var owned = Storage.has(m.id);
       var cell = document.createElement('button');
-      cell.className = 'cell' + (owned ? '' : ' locked');
+      cell.className = 'cell';
       cell.appendChild(art(m, 72));
       var nm = document.createElement('div');
       nm.className = 'nm';
-      nm.textContent = owned ? m.name : '???';
+      nm.textContent = m.name;
       cell.appendChild(nm);
-      var dot = document.createElement('span');
-      dot.className = 'dot';
-      dot.style.background = rarityColor(m.rarity);
-      cell.appendChild(dot);
-      if (owned && (m.edibility === 'deadly' || m.edibility === 'poisonous')) {
+      // 毒种标记永远显示，不受任何状态影响
+      if (m.edibility === 'deadly' || m.edibility === 'poisonous') {
         var sk = document.createElement('span');
         sk.className = 'skull';
         sk.textContent = m.edibility === 'deadly' ? '☠️' : '⚠️';
         cell.appendChild(sk);
       }
-      cell.addEventListener('click', function () {
-        if (owned) openDetail(m);
-        else toast('还没收集到这一种');
-      });
+      cell.addEventListener('click', function () { openDetail(m); });
       g.appendChild(cell);
     });
   }
@@ -706,9 +724,7 @@
         var oe = C.edibility[o.edibility];
         t2.innerHTML = o.name + '<br><span class="muted" style="font-size:11px">' + oe.label + '</span>';
         el.appendChild(t2);
-        el.addEventListener('click', function () {
-          if (Storage.has(o.id)) openDetail(o); else toast('还没收集到 ' + o.name);
-        });
+        el.addEventListener('click', function () { openDetail(o); });
         row.appendChild(el);
       });
       lk.appendChild(row);

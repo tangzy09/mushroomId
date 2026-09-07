@@ -13,6 +13,9 @@ var GameConfig = {
 
   rarities: ['common', 'rare', 'epic', 'legend'],
   rarityLabels: { common: '普通', rare: '稀有', epic: '珍稀', legend: '传说' },
+  // 野外遇见率（不是抽卡稀有度）：图鉴排序与筛选用它
+  encounters: ['common', 'occasional', 'rare', 'seldom'],
+  encounterLabels: { common: '常见', occasional: '偶见', rare: '罕见', seldom: '难得一见' },
   rarityColors: {
     common: '#7EC8A0', rare: '#4DA6FF', epic: '#B57BFF', legend: '#E0B400'
   },

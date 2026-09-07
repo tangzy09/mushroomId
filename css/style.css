@@ -331,6 +331,10 @@ input[type=range]::-moz-range-track { height: 5px; border-radius: 3px; backgroun
 .entry-card .entry-text { display: flex; flex-direction: column; gap: 2px; flex: 1; }
 .entry-card .chev { color: var(--muted); font-size: 22px; }
 .garden-top .back.chip { font-size: 12px; }
+
+/* 图鉴搜索框 */
+.search { width: 100%; box-sizing: border-box; padding: 9px 12px; border: 1px solid var(--line, #ddd); border-radius: 10px; font-size: 15px; margin-bottom: 8px; background: #fff; font-family: inherit; }
+.cell.locked { display: none; } /* 图鉴不再有锁，保险起见让旧样式失效 */
 .kv { display: grid; grid-template-columns: 5em 1fr; gap: 5px 10px; font-size: 13.5px; }
 .kv dt { color: var(--muted); }
 .kv dd { margin: 0; }

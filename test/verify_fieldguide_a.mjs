@@ -87,6 +87,26 @@ await page.goBack();
 await page.waitForTimeout(300);
 t('浏览器后退回到图鉴', (await active()) === 'page-collection', await active());
 
+/* C1 全部可点，没有 ??? */
+const qs = await page.evaluate(() => Array.from(document.querySelectorAll('#coll-grid .nm')).filter(n => n.textContent === '???').length);
+t('图鉴里没有 ???', qs === 0, qs + ' 个');
+const cellN = await page.evaluate(() => document.querySelectorAll('#coll-grid .cell').length);
+t('图鉴列出全部物种', cellN === 181, cellN + ' 个');
+/* C2 毒种标记永远显示 */
+const skulls = await page.evaluate(() => document.querySelectorAll('#coll-grid .skull').length);
+t('毒种标记全部显示（42）', skulls === 42, skulls + ' 个');
+/* C3 搜索命中学名与生境 */
+await page.fill('#coll-search', 'amanita');
+await page.waitForTimeout(200);
+const nA = await page.evaluate(() => document.querySelectorAll('#coll-grid .cell').length);
+t('搜学名 amanita 命中鹅膏属（≥10）', nA >= 10, nA + ' 个');
+await page.fill('#coll-search', '松');
+await page.waitForTimeout(200);
+const nS = await page.evaluate(() => document.querySelectorAll('#coll-grid .cell').length);
+t('搜「松」命中生境含松的种（≥5）', nS >= 5, nS + ' 个');
+await page.fill('#coll-search', '');
+await page.waitForTimeout(200);
+
 t('零 JS 异常', errs.length === 0, errs.slice(0, 2).join(' | '));
 await browser.close();
 console.log('\n' + pass + ' 过 / ' + fail + ' 失败');
