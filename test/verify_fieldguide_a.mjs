@@ -39,6 +39,18 @@ await closeOverlay();
 /* R1 首页是图鉴 */
 t('首页是图鉴', (await active()) === 'page-collection', await active());
 
+/* R1b 我的页有菌菇园入口，点进去有返回 */
+await page.click('#nav button[data-page="profile"]');
+await page.waitForTimeout(300);
+await page.click('#btn-garden');
+await page.waitForTimeout(500);
+t('从我的进菌菇园', (await active()) === 'page-garden', await active());
+await page.click('#page-garden [data-back]');
+await page.waitForTimeout(300);
+t('菌菇园返回回到我的', (await active()) === 'page-profile', await active());
+await page.click('#nav button[data-page="collection"]');
+await page.waitForTimeout(300);
+
 /* R2 详情 -> 相似种详情 -> 返回 回到上一个详情 */
 /* 图鉴解锁前只有首次赠送的三种能点；解锁后 .locked 消失，选择器照样成立 */
 const gotCell = await page.click('#coll-grid .cell:not(.locked)', { timeout: 3000 }).then(() => true).catch(() => false);

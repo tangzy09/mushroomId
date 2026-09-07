@@ -324,6 +324,13 @@ input[type=range]::-moz-range-track { height: 5px; border-radius: 3px; backgroun
 .sp-photo { object-fit: cover; display: block; background: rgba(0,0,0,.06); }
 .photo-credit { font-size: 10.5px; line-height: 1.4; color: var(--muted); text-align: center; }
 .photo-credit a { color: inherit; }
+
+/* 我的页的菌菇园入口卡 */
+.entry-card { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; cursor: pointer; font: inherit; color: inherit; }
+.entry-card .ico { font-size: 28px; }
+.entry-card .entry-text { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.entry-card .chev { color: var(--muted); font-size: 22px; }
+.garden-top .back.chip { font-size: 12px; }
 .kv { display: grid; grid-template-columns: 5em 1fr; gap: 5px 10px; font-size: 13.5px; }
 .kv dt { color: var(--muted); }
 .kv dd { margin: 0; }

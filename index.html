@@ -20,11 +20,12 @@
 <body>
 
 <!-- 菌菇园 -->
-<div class="page has-nav active" id="page-garden">
+<div class="page" id="page-garden">
   <div class="safety-bar" id="safety-bar"></div>
   <div id="garden-wrap">
     <canvas id="garden-canvas"></canvas>
     <div class="garden-top">
+      <button class="back chip" data-back>← 我的</button>
       <span class="chip" id="chip-weather">☀️ 晴</span>
       <span class="chip" id="chip-count">已收集 0</span>
       <span class="chip ready" id="chip-spores" hidden></span>
@@ -43,7 +44,7 @@
 </div>
 
 <!-- 图鉴 -->
-<div class="page has-nav" id="page-collection">
+<div class="page has-nav active" id="page-collection">
   <div class="page-header"><h1>图鉴</h1><span class="muted" id="coll-count"></span></div>
   <div class="safety-bar" id="safety-bar-2"></div>
   <div class="page-body">
@@ -56,6 +57,11 @@
 <div class="page has-nav" id="page-profile">
   <div class="page-header"><h1>我的</h1></div>
   <div class="page-body">
+    <button class="card entry-card" id="btn-garden">
+      <span class="ico">🌲</span>
+      <span class="entry-text"><b>菌菇园</b><span class="muted" id="garden-summary">进山采菌、抽卡、把认出的菌子种进园里</span></span>
+      <span class="chev">›</span>
+    </button>
     <div class="card">
       <h2>孢子与腐殖质</h2>
       <div class="res-strip" id="res-strip"></div>
@@ -151,8 +157,7 @@
 </div>
 
 <nav class="bottom-nav" id="nav">
-  <button data-page="garden" class="on"><span class="ico">🌲</span>菌菇园</button>
-  <button data-page="collection"><span class="ico">📖</span>图鉴</button>
+  <button data-page="collection" class="on"><span class="ico">📖</span>图鉴</button>
   <button data-page="profile"><span class="ico">🧺</span>我的</button>
 </nav>
 

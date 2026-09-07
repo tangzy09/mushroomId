@@ -747,6 +747,18 @@
   // ---------------------------------------------------------------- profile
   function renderProfile() {
     var st = Storage.get();
+    // 菌菇园退到这里之后，入口卡要把「园里有没有东西等你」说出来，否则没人记得进去
+    var placed = Storage.placed().length;
+    var ready = (st.slots || []).filter(function (sl) {
+      return World.growth(sl, C.garden).sporeReady;
+    }).length;
+    $('garden-summary').textContent = placed
+      ? '园里 ' + placed + ' 株' + (ready ? '，' + ready + ' 株孢子待收' : '')
+      : '进山采菌、抽卡、把认出的菌子种进园里';
+    if (!$('btn-garden')._wired) {
+      $('btn-garden')._wired = true;
+      $('btn-garden').addEventListener('click', function () { go('garden'); });
+    }
     var strip = $('res-strip');
     strip.innerHTML = C.rarities.map(function (r) {
       return '<span class="res"><i style="background:' + rarityColor(r) + '"></i>' +
