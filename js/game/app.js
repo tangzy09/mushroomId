@@ -18,7 +18,6 @@
   var weather = World.weatherFor(today, C.weather);
 
   var $ = function (id) { return document.getElementById(id); };
-  var page = 'garden', prev = 'garden';
   var round = null;          // active quiz round
 
   // ---------------------------------------------------------------- utils
@@ -116,15 +115,20 @@
   }
 
   // ---------------------------------------------------------------- router
-  function show(id) {
-    if (id !== page) { prev = page; page = id; }
+  // 栈式：根 tab 用 root()，进子页用 go()，返回用 back()。
+  // show() 只负责把某页画出来，不动栈——popstate 回来时也走它。
+  var ROOTS = { collection: 1, profile: 1 };
+  var stack = [{ page: 'collection' }];
+  var page = 'collection';
+
+  function show(id, arg) {
+    page = id;
     ['garden', 'collection', 'profile', 'biome', 'quiz', 'reveal', 'detail']
       .forEach(function (p) {
         var el = $('page-' + p);
         if (el) el.classList.toggle('active', p === id);
       });
-    var navPages = { garden: 1, collection: 1, profile: 1 };
-    $('nav').style.display = navPages[id] ? 'flex' : 'none';
+    $('nav').style.display = ROOTS[id] ? 'flex' : 'none';
     Array.prototype.forEach.call($('nav').children, function (b) {
       b.classList.toggle('on', b.dataset.page === id);
     });
@@ -132,13 +136,44 @@
     else Garden.stop();
     if (id === 'collection') renderCollection();
     if (id === 'profile') renderProfile();
+    if (id === 'detail' && arg && byId[arg]) renderDetail(byId[arg]);
   }
+  function root(id) {
+    stack = [{ page: id }];
+    history.replaceState({ depth: 1, page: id }, '');
+    show(id);
+  }
+  function go(id, arg) {
+    stack.push({ page: id, arg: arg });
+    history.pushState({ depth: stack.length, page: id, arg: arg }, '');
+    show(id, arg);
+  }
+  function back() {
+    if (stack.length > 1) history.back();
+    else root('collection');
+  }
+  // 回到栈里最近的某一页（reveal 的「回菌菇园」用）
+  function backTo(id) {
+    var i = stack.length - 1;
+    while (i > 0 && stack[i].page !== id) i--;
+    if (i === stack.length - 1) { show(stack[i].page, stack[i].arg); return; }
+    var steps = stack.length - 1 - i;
+    stack.length = i + 1;
+    history.go(-steps);
+  }
+  window.addEventListener('popstate', function (e) {
+    var d = (e.state && e.state.depth) || 1;
+    while (stack.length > d && stack.length > 1) stack.pop();
+    if (e.state && e.state.page) stack[stack.length - 1] = { page: e.state.page, arg: e.state.arg };
+    var top = stack[stack.length - 1];
+    show(top.page, top.arg);
+  });
   window.addEventListener('click', function (e) {
     var b = e.target.closest && e.target.closest('[data-back]');
-    if (b) show(prev === page ? 'garden' : prev);
+    if (b) back();
   });
   Array.prototype.forEach.call($('nav').children, function (b) {
-    b.addEventListener('click', function () { show(b.dataset.page); });
+    b.addEventListener('click', function () { root(b.dataset.page); });
   });
 
   // ---------------------------------------------------------------- garden
@@ -226,7 +261,7 @@
     var st = Storage.get();
     if (st.dailyRuns.free <= 0) { toast('今天的体力用完了，明天再来'); return; }
     renderBiomes();
-    show('biome');
+    go('biome');
   });
 
   var chosenBiome = Storage.get().lastBiome || 'pine';
@@ -262,7 +297,7 @@
     startRound();
     setTimeout(function () {
       $('foray-anim').classList.remove('on');
-      show('quiz');
+      go('quiz');
       showQuestion();
     }, 1600);
   });
@@ -411,8 +446,8 @@
         '<i style="background:' + rarityColor(r) + '"></i>' +
         C.rarityLabels[r] + '孢子 ×1</div>' +
         '<p class="muted" style="margin-top:14px">5 个同档孢子可以合成一张菌卡。</p>';
-      addBtn(actions, '回菌菇园', 'btn wide', function () { show('garden'); refreshGardenChrome(); });
-      show('reveal');
+      addBtn(actions, '回菌菇园', 'btn wide', function () { backTo('garden'); refreshGardenChrome(); });
+      go('reveal');
       return;
     }
 
@@ -420,7 +455,7 @@
     Gacha.updatePity(C.gacha, rarity, st.pityCount);
     Storage.commit();
     var sp = Gacha.pickEntity(MUSHROOM_DATA, rarity, chosenBiome, C.biomeWeight);
-    if (!sp) { show('garden'); return; }
+    if (!sp) { backTo('garden'); return; }
 
     var isNew = !Storage.has(sp.id);
     Storage.add(sp.id);
@@ -428,7 +463,7 @@
       Storage.addFragment(rarity, 1);
     }
     renderReveal(sp, isNew, round.correct === C.quiz.perRound);
-    show('reveal');
+    go('reveal');
   }
 
   function addBtn(parent, text, cls, fn) {
@@ -502,12 +537,12 @@
         if (!slot) { toast('菌菇园满了，先从图鉴里移走一个'); return; }
         Storage.place(sp.id, slot.id);
         checkMilestone();
-        show('garden');
+        backTo('garden');
         refreshGardenChrome();
       }).disabled = full;
       if (full) {
         addBtn(actions, '先收进图鉴', 'btn ghost wide', function () {
-          checkMilestone(); show('garden'); refreshGardenChrome();
+          checkMilestone(); backTo('garden'); refreshGardenChrome();
         });
       }
       addBtn(actions, '📤', 'btn ghost', function () { shareEntity(sp); });
@@ -516,7 +551,7 @@
       addBtn(actions, '♻️ 分解得 ' + val + ' 腐殖质', 'btn wide', function () {
         Storage.addEssence(val);
         toast('获得 ' + val + ' 腐殖质');
-        show('garden');
+        backTo('garden');
         refreshGardenChrome();
       });
       addBtn(actions, '📤', 'btn ghost', function () { shareEntity(sp); });
@@ -612,7 +647,7 @@
     });
   }
 
-  function openDetail(m) {
+  function renderDetail(m) {
     var ed = C.edibility[m.edibility];
     var b = $('detail-body');
     $('detail-title').textContent = m.name;
@@ -694,7 +729,7 @@
         Storage.place(m.id, slot.id);
         toast('已种下，等它长起来');
       }
-      openDetail(m);
+      renderDetail(m);
       refreshGardenChrome();
     });
     b.appendChild(act);
@@ -705,9 +740,9 @@
     sh.textContent = '📤 分享这张卡';
     sh.addEventListener('click', function () { shareEntity(m); });
     b.appendChild(sh);
-
-    show('detail');
   }
+
+  function openDetail(m) { go('detail', m.id); }
 
   // ---------------------------------------------------------------- profile
   function renderProfile() {
@@ -797,7 +832,7 @@
           Storage.add(sp.id);
           closeSheet();
           renderReveal(sp, isNew, false);
-          show('reveal');
+          go('reveal');
         });
       });
     });
@@ -846,7 +881,7 @@
             Storage.add(m.id);
             closeSheet();
             renderReveal(m, true, false);
-            show('reveal');
+            go('reveal');
           });
         });
       });
@@ -963,7 +998,7 @@
   }
 
   refreshGardenChrome();
-  show('garden');
+  root('collection');
   Garden.start();
   firstRun();
   setInterval(function () { Garden.autoNight(); }, 60000);

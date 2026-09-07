@@ -1,0 +1,81 @@
+/* test/verify_fieldguide_a.mjs — 一期 A 行为验收（走真实点击）
+ *   node test/verify_fieldguide_a.mjs [playwright-core 目录]
+ * 断言落在屏幕上发生了什么，不落在代码里写了什么。
+ * 需要 tools/serve.py 3141 在跑。 */
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+const pwDir = process.argv[2] || 'C:/Users/tangz/Documents/Projects/fishId/tests/node_modules';
+const { chromium } = await import(pathToFileURL(path.join(pwDir, 'playwright-core', 'index.mjs')).href);
+const BASE = 'http://127.0.0.1:3141/index.html';
+
+let pass = 0, fail = 0;
+const t = (name, ok, extra) => {
+  if (ok) { pass++; console.log('  OK   ' + name); }
+  else { fail++; console.log('  FAIL ' + name + (extra ? ' — ' + extra : '')); }
+};
+const browser = await chromium.launch();
+const page = await browser.newPage({ viewport: { width: 420, height: 900 } });
+const errs = [];
+page.on('pageerror', e => errs.push(String(e)));
+page.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
+const active = () => page.evaluate(() => (document.querySelector('.page.active') || {}).id);
+const closeOverlay = () => page.evaluate(() => { const o = document.getElementById('overlay'); if (o) o.classList.remove('on'); });
+
+await page.goto(BASE, { waitUntil: 'networkidle' });
+/* 首次赠送要点「我明白了」才发放；这里直接用模块层给几种收集状态，
+   图鉴解锁（Task 8）之后这一步无害，留着让路由验收不依赖解锁顺序 */
+await page.evaluate(() => {
+  Storage.update(function (s) {
+    MUSHROOM_DATA.slice(0, 6).forEach(function (m) {
+      if (!s.collections.some(function (c) { return c.entityId === m.id; })) {
+        s.collections.push({ entityId: m.id, count: 1, firstAt: new Date().toISOString() });
+      }
+    });
+  });
+});
+await page.reload({ waitUntil: 'networkidle' });
+await closeOverlay();
+
+/* R1 首页是图鉴 */
+t('首页是图鉴', (await active()) === 'page-collection', await active());
+
+/* R2 详情 -> 相似种详情 -> 返回 回到上一个详情 */
+/* 图鉴解锁前只有首次赠送的三种能点；解锁后 .locked 消失，选择器照样成立 */
+const gotCell = await page.click('#coll-grid .cell:not(.locked)', { timeout: 3000 }).then(() => true).catch(() => false);
+t('图鉴里有可点的格子', gotCell);
+if (!gotCell) {
+  console.log('\n' + pass + ' 过 / ' + (fail + 1) + ' 失败（图鉴未渲染，后续断言跳过）');
+  await browser.close();
+  process.exit(1);
+}
+await page.waitForTimeout(400);
+const first = await page.evaluate(() => document.getElementById('detail-title').textContent);
+const hasLk = await page.$('#page-detail .lookalike');
+if (hasLk) {
+  await hasLk.click();
+  await page.waitForTimeout(400);
+  const second = await page.evaluate(() => document.getElementById('detail-title').textContent);
+  t('点相似种进入另一个详情', second !== first, second);
+  await page.click('#page-detail [data-back]');
+  await page.waitForTimeout(400);
+  const back1 = await page.evaluate(() => document.getElementById('detail-title').textContent);
+  t('返回回到上一个详情，不是图鉴', back1 === first && (await active()) === 'page-detail', back1);
+  await page.click('#page-detail [data-back]');
+  await page.waitForTimeout(400);
+} else {
+  await page.click('#page-detail [data-back]');
+  await page.waitForTimeout(400);
+}
+t('再返回回到图鉴', (await active()) === 'page-collection', await active());
+
+/* R3 浏览器后退键也能返回 */
+await page.click('#coll-grid .cell:not(.locked)');
+await page.waitForTimeout(300);
+await page.goBack();
+await page.waitForTimeout(300);
+t('浏览器后退回到图鉴', (await active()) === 'page-collection', await active());
+
+t('零 JS 异常', errs.length === 0, errs.slice(0, 2).join(' | '));
+await browser.close();
+console.log('\n' + pass + ' 过 / ' + fail + ' 失败');
+process.exit(fail ? 1 : 0);
