@@ -1942,6 +1942,24 @@
       "stipeColor": "#F0EADA",
       "cluster": 4,
       "inkEdge": true
+    },
+    "idKeys": [
+      {
+        "text": "菌盖灰褐色，钟形到卵形，表面有细密纵纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "成熟后菌盖边缘自溶成黑色墨汁状液体",
+        "src": "wiki-en"
+      },
+      {
+        "text": "丛生于树桩或埋木附近的地面，常成簇出现",
+        "src": "photo"
+      }
+    ],
+    "lookalikeNotes": {
+      "shaggyink": "毛头鬼伞菌盖白色圆柱形带大片鳞片；墨汁鬼伞灰褐色光滑",
+      "micaceus": "晶粒小鬼伞更小、橙黄色，菌盖有闪亮颗粒"
     }
   },
   {
@@ -2025,6 +2043,25 @@
       "ringColor": "#F2EEE0",
       "volvaColor": "#F0ECDC",
       "gillColor": "#FBF8EE"
+    },
+    "idKeys": [
+      {
+        "text": "菌柄基部有一圈白色杯状菌托，常埋在落叶下",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌盖黄绿至橄榄色，湿时略带光泽，边缘无条纹",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌褶始终白色，菌柄上部有白色膜质菌环",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "greenrussula": "青头菌没有菌环和菌托，菌柄脆，一掰就断",
+      "strawmushroom": "草菇菌褶成熟后变粉红且无菌环；死帽菇菌褶始终白色且有菌环",
+      "caesar": "凯撒鹅膏菌盖橙红、菌褶和菌柄黄色；死帽菇菌盖橄榄绿、菌褶白色"
     }
   },
   {
@@ -2066,6 +2103,26 @@
       "volvaColor": "#F2EEE2",
       "gillColor": "#FFFDF6",
       "scales": true
+    },
+    "idKeys": [
+      {
+        "text": "通体纯白，菌柄基部有大型白色囊状菌托",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌盖光滑无鳞片，成熟后略呈丝绸质感",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌褶白色不变粉，这一点区别于可食的蘑菇属",
+        "src": "mushroomexpert"
+      }
+    ],
+    "lookalikeNotes": {
+      "button": "双孢蘑菇菌褶粉红转褐色且无菌托；毁灭天使菌褶始终白色，基部有菌托",
+      "fieldmushroom": "野蘑菇菌褶粉红转深褐，基部无菌托；毁灭天使菌褶纯白且有菌托",
+      "strawmushroom": "草菇菌褶变粉红且无菌环；毁灭天使菌褶纯白且有菌环",
+      "horsemushroom": "大肥菇菌褶粉褐、擦伤变黄、有茴香味；毁灭天使菌褶纯白无气味"
     }
   },
   {
@@ -2106,6 +2163,23 @@
       "volvaColor": "#EFEBE0",
       "gillColor": "#FBF9F2",
       "fibrils": true
+    },
+    "idKeys": [
+      {
+        "text": "菌盖深灰至灰褐色，有放射状深色纤维纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄白色带灰色鳞片，基部有白色囊状菌托",
+        "src": "photo"
+      },
+      {
+        "text": "菌褶白色，菌柄上部有白色菌环",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "grisette": "灰鹅膏没有菌环，菌盖边缘有明显条纹；灰花纹鹅膏有菌环且边缘无条纹"
     }
   },
   {
@@ -2144,6 +2218,24 @@
       "ringColor": "#F2EFE4",
       "volvaColor": "#EFEBDE",
       "gillColor": "#FFFEF8"
+    },
+    "idKeys": [
+      {
+        "text": "通体纯白，菌盖光滑无鳞片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄基部有白色囊状菌托，埋在土里要扒开才看得见",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶白色，菌环白色膜质，多见于华南阔叶林",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "termite": "鸡枞菌柄基部延伸成假根扎进蚁巢，无菌托无菌环",
+      "strawmushroom": "草菇菌褶变粉红且无菌环；致命鹅膏菌褶纯白且有菌环"
     }
   },
   {
@@ -2187,6 +2279,26 @@
       "volvaColor": "#F0ECDE",
       "gillColor": "#FFFDF4",
       "spots": "white"
+    },
+    "idKeys": [
+      {
+        "text": "红色菌盖上散布白色疣状鳞片，雨后可能被冲掉",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄白色，基部球状膨大并有数圈环带状菌托残迹",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌柄上部有下垂的白色菌环",
+        "src": "photo"
+      }
+    ],
+    "lookalikeNotes": {
+      "caesar": "凯撒鹅膏菌盖光滑无白点，菌褶和菌柄黄色",
+      "eggamanita": "橙盖鹅膏菌盖橙红光滑无白疣，菌褶黄色",
+      "blusher": "赭盖鹅膏菌盖褐红、受伤变红，疣点易脱落且不成整齐排列",
+      "amanitajack": "美洲橙盖鹅膏菌盖光滑无白点，边缘有条纹，菌褶黄色"
     }
   },
   {
@@ -2226,6 +2338,23 @@
       "volvaColor": "#EDE8DA",
       "gillColor": "#FDFBF4",
       "spots": "white"
+    },
+    "idKeys": [
+      {
+        "text": "菌盖褐色，密布纯白色小疣点，排列较整齐",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄基部球状膨大，上方有一至数圈环带状菌托边缘",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌环白色，菌褶白色，菌盖边缘有细条纹",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "blusher": "赭盖鹅膏受伤变红且基部无环带状菌托边缘；豹斑鹅膏不变色"
     }
   },
   {
@@ -2264,7 +2393,21 @@
       "volvaColor": "#EFEBD6",
       "gillColor": "#FDFCF0",
       "spots": "pale"
-    }
+    },
+    "idKeys": [
+      {
+        "text": "菌盖淡柠檬黄至近白色，常带白色片状菌幕残片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄基部有明显的球形膨大，边缘有一圈菌托痕",
+        "src": "wiki-en"
+      },
+      {
+        "text": "闻起来有生土豆的气味",
+        "src": "wiki-en"
+      }
+    ]
   },
   {
     "id": "blusher",
@@ -2423,6 +2566,24 @@
       "ringColor": "#EEE8D4",
       "volvaColor": "#EFEBDC",
       "gillColor": "#FCFAF0"
+    },
+    "idKeys": [
+      {
+        "text": "菌盖黄色至黄褐色，中央颜色较深",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄白色，基部有白色囊状菌托",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌环白色膜质，菌褶白色，多见于松林与阔叶林",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "eggamanita": "橙盖鹅膏菌盖橙红有边缘条纹，菌褶黄色；黄盖鹅膏菌褶白色，边缘无条纹",
+      "caesar": "凯撒鹅膏菌褶和菌柄黄色；黄盖鹅膏菌褶白色"
     }
   },
   {
@@ -2500,6 +2661,24 @@
       "gillColor": "#A8B48A",
       "ringColor": "#EEE6D0",
       "scales": true
+    },
+    "idKeys": [
+      {
+        "text": "菌褶成熟后由白色转为灰绿色，这是最可靠的一条",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌盖白色，中央有褐色鳞片，个头大",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌柄白色，有可活动的菌环，常成群长在草坪",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "parasol": "高大环柄菇菌褶始终白色，菌柄有蛇皮纹；绿褶菇菌褶变绿",
+      "chlorophyllumB": "褐鳞环柄菇菌褶始终白色，切开菌肉变橙红；绿褶菇菌褶变绿"
     }
   },
   {
@@ -2579,6 +2758,24 @@
       "gillColor": "#FBF8EE",
       "ringColor": "#E4D8C2",
       "scales": true
+    },
+    "idKeys": [
+      {
+        "text": "个头小，菌盖褐色鳞片呈同心圆排列",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌柄下部有褐色环带状鳞片，上部有菌环痕",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌褶白色，常见于花园、草地和路边",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "parasol": "高大环柄菇个头大得多，菌柄有蛇皮纹和可活动的菌环",
+      "fairyring": "硬柄小皮伞菌盖光滑无鳞片，菌柄坚韧无菌环"
     }
   },
   {
@@ -2617,6 +2814,23 @@
       "stipeColor": "#D8CEC0",
       "bruiseColor": "#A82A24",
       "sparseGills": true
+    },
+    "idKeys": [
+      {
+        "text": "菌盖灰白至浅褐色，中央下凹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶稀疏而厚，受伤后先变红再缓慢变黑",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄粗短白色，切开后菌肉也会缓慢变红",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "blackening": "黑变红菇受伤先变红再变黑但过程慢；亚稀褶红菇菌褶更稀更厚，变红更快"
     }
   },
   {
@@ -2654,6 +2868,24 @@
       "stipeColor": "#FAF7EC",
       "gillColor": "#FDFBF2",
       "glossy": true
+    },
+    "idKeys": [
+      {
+        "text": "菌盖鲜红色，湿时黏滑，表皮容易剥离",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌褶纯白，菌柄纯白，与菌盖对比鲜明",
+        "src": "wiki-en"
+      },
+      {
+        "text": "多长在松树下的苔藓地",
+        "src": "wiki-en"
+      }
+    ],
+    "lookalikeNotes": {
+      "charcoalburner": "蓝黄红菇菌盖紫绿杂色且菌褶柔韧不易碎；毒红菇鲜红且菌褶脆",
+      "bigred": "大红菇菌盖暗红色、菌褶淡黄、菌柄常带红晕；毒红菇鲜红、菌褶菌柄纯白"
     }
   },
   {
@@ -2694,6 +2926,27 @@
       "stipeColor": "#C4A87E",
       "cluster": 6,
       "ringColor": "#D2BC94"
+    },
+    "idKeys": [
+      {
+        "text": "菌盖蜜黄至褐色，小型，湿时颜色更深",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌柄有膜质菌环，菌褶锈褐色",
+        "src": "wiki-en"
+      },
+      {
+        "text": "丛生于腐木上，秋季多见，和可食的冬菇长在同样的地方",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "velvetfoot": "冬菇菌柄深褐色绒毛状且无菌环；秋盔孢伞菌柄有膜质菌环",
+      "honey": "蜜环菌个头大、丛生于树基、有明显白色菌环；秋盔孢伞小型，菌环薄易脱",
+      "enoki": "野生金针菇菌柄绒毛状深褐、无菌环、孢子印白；秋盔孢伞有菌环、孢子印锈褐",
+      "woodtuft": "毛腿库恩菌菌柄下部有褐色小鳞片、菌盖两色；秋盔孢伞菌柄光滑有膜质菌环",
+      "humongous": "奥氏蜜环菌大型、有明显菌环、丛生树基；秋盔孢伞小型，菌环薄"
     }
   },
   {
@@ -2734,6 +2987,24 @@
       "stipeColor": "#DCCE7A",
       "cluster": 10,
       "gillColor": "#8E9A5A"
+    },
+    "idKeys": [
+      {
+        "text": "菌盖硫磺黄色，中央略带橙褐",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶初为黄色，成熟后转为灰绿至紫黑色",
+        "src": "wiki-en"
+      },
+      {
+        "text": "密集丛生于腐木和树桩上",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "honey": "蜜环菌菌褶白色、有菌环；簇生垂幕菇菌褶黄绿转紫黑，无真正菌环",
+      "hypholomaL": "砖红垂幕菇菌盖砖红色、菌褶灰色；簇生垂幕菇硫磺黄、菌褶黄绿"
     }
   },
   {
@@ -2771,6 +3042,23 @@
       "stipeColor": "#D2A870",
       "gillColor": "#B87A3A",
       "cortina": true
+    },
+    "idKeys": [
+      {
+        "text": "菌盖红褐至橙褐色，圆锥形，表面有细纤维",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌柄黄褐色，有浅黄色环带状丝膜残迹",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌褶锈褐色，长在针叶林苔藓地",
+        "src": "wiki-en"
+      }
+    ],
+    "lookalikeNotes": {
+      "gypsy": "皱盖丝膜菌菌盖有白霜状覆盖、有膜质菌环；毒丝膜菌红褐圆锥形，只有丝膜痕"
     }
   },
   {
@@ -2809,6 +3097,25 @@
       "capColor2": "#AD6642",
       "stipeColor": "#F0E6D2",
       "wrinkle": true
+    },
+    "idKeys": [
+      {
+        "text": "菌盖红褐色，呈不规则脑状褶皱，不是蜂窝状",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄短粗白色，内部有腔室",
+        "src": "wiki-en"
+      },
+      {
+        "text": "春季长在针叶林沙质土上",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "morel": "羊肚菌帽部是蜂窝状凹坑且内部中空一体；鹿花菌是脑状褶皱且内部有腔室",
+      "blackmorel": "黑脉羊肚菌帽部纵向棱脊如梯；鹿花菌是无规则的脑状褶皱",
+      "saddle": "皱马鞍菌白色马鞍形帽、柄有深沟槽；鹿花菌红褐色脑状"
     }
   },
   {
@@ -2846,6 +3153,23 @@
       "stipeColor": "#D89A3E",
       "cluster": 5,
       "glowColor": "#9CFF7A"
+    },
+    "idKeys": [
+      {
+        "text": "通体橙色，菌褶是真正的刀状薄片并向下延生",
+        "src": "wiki-en"
+      },
+      {
+        "text": "丛生于树桩或埋木上，鸡油菌则单生于土中",
+        "src": "wiki-en"
+      },
+      {
+        "text": "夜间菌褶会发出微弱绿光",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "chanterelle": "鸡油菌下方是钝棱脉不是真菌褶，单生于土中；杰克灯笼菌菌褶锐利，丛生于木上"
     }
   },
   {
@@ -2884,6 +3208,24 @@
       "stipeColor": "#D8CAB4",
       "tiers": 3,
       "glowColor": "#9CFF7A"
+    },
+    "idKeys": [
+      {
+        "text": "菌盖紫褐至深褐色，贝壳形，长在山毛榉枯木上",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄短，切开后柄基部菌肉有紫黑色斑",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "夜间菌褶发出淡绿色光",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "oyster": "平菇菌柄基部切开无紫黑斑；月夜菌柄基部菌肉有紫黑色斑",
+      "lateoyster": "晚生北风菌菌褶黄色、菌盖橄榄绿；月夜菌菌褶白色、菌盖紫褐"
     }
   },
   {
@@ -4326,6 +4668,25 @@
       "gillColor": "#C4A8A0",
       "ringColor": "#F0EAD8",
       "bruiseColor": "#E8C42A"
+    },
+    "idKeys": [
+      {
+        "text": "菌柄基部切开或擦伤后迅速变亮黄色",
+        "src": "wiki-en"
+      },
+      {
+        "text": "闻起来有酚味，像消毒水或墨水",
+        "src": "wiki-en"
+      },
+      {
+        "text": "外观像可食的蘑菇属，菌褶粉红转褐色",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "button": "双孢蘑菇擦伤不变黄且无酚味；黄斑蘑菇基部擦伤立即变亮黄",
+      "fieldmushroom": "野蘑菇擦伤略变粉；黄斑蘑菇基部变亮黄且有墨水味",
+      "horsemushroom": "大肥菇擦伤变淡黄且有茴香甜味；黄斑蘑菇变亮黄且有刺鼻酚味"
     }
   },
   {
@@ -4399,7 +4760,21 @@
       "gillColor": "#C99A52",
       "inrolled": true,
       "bruiseColor": "#6E4A2A"
-    }
+    },
+    "idKeys": [
+      {
+        "text": "菌盖边缘明显向内卷曲，黄褐色",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶向下延生，受伤后变褐色",
+        "src": "wiki-en"
+      },
+      {
+        "text": "常见于桦树等阔叶树下",
+        "src": "wiki-zh"
+      }
+    ]
   },
   {
     "id": "bitterbolete",
@@ -4478,6 +4853,25 @@
       "bruiseColor": "#2A5A96",
       "fatStipe": true,
       "reticulum": true
+    },
+    "idKeys": [
+      {
+        "text": "菌盖灰白色，菌柄粗壮呈红色并有网纹",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌孔红色，切开后菌肉变蓝",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在石灰质土壤的阔叶林",
+        "src": "wiki-en"
+      }
+    ],
+    "lookalikeNotes": {
+      "jianshouqing": "见手青菌盖褐色不是灰白，菌柄红黄相间",
+      "magnificus": "华丽新牛肝菌菌盖红褐色；撒旦牛肝菌菌盖灰白",
+      "porcini": "美味牛肝菌菌孔白转黄绿、菌柄白褐有网纹、不变蓝；撒旦牛肝菌菌孔红色"
     }
   },
   {
@@ -4517,6 +4911,25 @@
       "stipeColor": "none",
       "warts": true,
       "thickSkin": true
+    },
+    "idKeys": [
+      {
+        "text": "外皮厚而硬，黄褐色，表面有龟裂状鳞片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "切开内部为紫黑色，可食马勃内部为纯白",
+        "src": "wiki-en"
+      },
+      {
+        "text": "没有菌柄，直接贴地生长",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "puffball": "网纹马勃外皮薄软、白色带小刺、内部白；硬皮马勃外皮厚硬黄褐、内部紫黑",
+      "giantpuffball": "大秃马勃巨大纯白光滑；硬皮马勃小、黄褐色龟裂",
+      "pisolithus": "彩色豆马勃有假根柄、切开是豆状小包；硬皮马勃无柄、内部均匀紫黑"
     }
   },
   {
@@ -4553,6 +4966,24 @@
       "capColor2": "#F2C4A8",
       "stipeColor": "#EFE0C8",
       "branches": 9
+    },
+    "idKeys": [
+      {
+        "text": "珊瑚状分枝，粉红至橙红色，分枝顶端偏黄",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "基部白色粗壮，整丛可达手掌大",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在阔叶林地面，秋季多见",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "coralRamaria": "葡萄状枝瑚菌分枝顶端粉红如葡萄、基部白色粗壮；美丽枝瑚菌整体粉橙、顶端偏黄",
+      "violetcoral": "紫珊瑚菌通体紫色"
     }
   },
   {
@@ -4624,6 +5055,23 @@
       "stipeColor": "#EFDCB8",
       "ridges": true,
       "scales": true
+    },
+    "idKeys": [
+      {
+        "text": "喇叭形，内侧橙红色带鳞片，外侧奶白色有钝棱脉",
+        "src": "wiki-en"
+      },
+      {
+        "text": "中空直通基部",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在针叶林",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "chanterelle": "鸡油菌实心、通体蛋黄色、外侧棱脉钝；毛钉菇中空、内侧橙红有鳞片"
     }
   },
   {
@@ -4664,7 +5112,24 @@
     },
     "aka": [
       "Clitocybe dealbata"
-    ]
+    ],
+    "idKeys": [
+      {
+        "text": "小型白色，菌盖表面有一层白霜状粉",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌褶向下延生，白色",
+        "src": "wiki-en"
+      },
+      {
+        "text": "草地群生，常与可食的硬柄小皮伞混在同一片草坪",
+        "src": "wiki-en"
+      }
+    ],
+    "lookalikeNotes": {
+      "fairyring": "硬柄小皮伞菌盖淡褐钟形、菌褶稀疏不延生、菌柄坚韧；白霜杯伞菌盖白色带霜、菌褶延生"
+    }
   },
   {
     "id": "livid",
@@ -4701,6 +5166,25 @@
       "capColor2": "#E8E4D4",
       "stipeColor": "#EFEBDC",
       "gillColor": "#D8A8A8"
+    },
+    "idKeys": [
+      {
+        "text": "菌褶初为白色，成熟后变粉红色",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌盖灰白至淡黄褐色，个头大，边缘略波状",
+        "src": "wiki-en"
+      },
+      {
+        "text": "闻起来有面粉味，长在阔叶林",
+        "src": "wiki-en"
+      }
+    ],
+    "lookalikeNotes": {
+      "woodblewit": "紫丁香蘑通体紫色、菌褶紫色；毒粉褶菌灰白、菌褶白转粉红",
+      "charcoalburner": "蓝黄红菇菌柄脆一掰就断、菌褶白；毒粉褶菌菌柄纤维质、菌褶变粉",
+      "deerpluteus": "鹿光柄菇长在腐木上、菌褶离生；毒粉褶菌长在土里、菌褶弯生"
     }
   },
   {
@@ -4736,6 +5220,23 @@
       "capColor2": "#E8D862",
       "stipeColor": "#E8DC8A",
       "gillColor": "#E0D050"
+    },
+    "idKeys": [
+      {
+        "text": "菌盖黄绿至橄榄黄色，中央有褐色鳞片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶硫磺黄色，菌柄淡黄色",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在松林沙地",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "matsutake": "松茸菌盖褐色有纤维鳞片、菌柄有大菌环、有松香味；油黄口蘑黄绿且无菌环"
     }
   },
   {
@@ -4770,7 +5271,21 @@
       "stipeColor": "#F2ECDC",
       "gillColor": "#C4A882",
       "droplets": "#D8C8A0"
-    }
+    },
+    "idKeys": [
+      {
+        "text": "菌盖奶油白至淡黄褐色，湿时黏滑",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌褶淡褐色，边缘湿时有小水珠",
+        "src": "wiki-en"
+      },
+      {
+        "text": "有萝卜味，长在阔叶林与针叶林地面",
+        "src": "wiki-en"
+      }
+    ]
   },
   {
     "id": "leucocoprinus",
@@ -4814,7 +5329,21 @@
       "ringColor": "#E8D870",
       "slim": true,
       "powdery": true
-    }
+    },
+    "idKeys": [
+      {
+        "text": "通体亮柠檬黄色，菌盖表面有粉状鳞片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌盖边缘有放射状沟纹，小型",
+        "src": "wiki-en"
+      },
+      {
+        "text": "常长在室内花盆和温室土里",
+        "src": "wiki-zh"
+      }
+    ]
   },
   {
     "id": "deerpluteus",
@@ -5208,6 +5737,24 @@
       "capColor2": "#F8F4EA",
       "stipeColor": "#F4EFE2",
       "gillColor": "#F6F2E6"
+    },
+    "idKeys": [
+      {
+        "text": "菌盖白色，中央下凹呈漏斗状",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶白色至淡黄色，密而细",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在常绿阔叶林地面",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "bigred": "大红菇菌盖暗红色；日本红菇菌盖白色",
+      "blackening": "黑变红菇受伤变红再变黑；日本红菇不变色"
     }
   },
   {
@@ -5246,6 +5793,24 @@
       "zones": true,
       "hairy": true,
       "inrolled": true
+    },
+    "idKeys": [
+      {
+        "text": "菌盖粉橙色带同心环纹，边缘密生白色长绒毛",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "受伤流出白色乳汁",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在桦树下",
+        "src": "wiki-en"
+      }
+    ],
+    "lookalikeNotes": {
+      "saffronmilk": "松乳菇乳汁橙色、受伤变绿；毛头乳菇乳汁白色、边缘有长绒毛",
+      "hatsudake": "红汁乳菇乳汁暗红色；毛头乳菇乳汁白色且边缘有绒毛"
     }
   },
   {
@@ -5285,6 +5850,24 @@
       "cluster": 7,
       "ringColor": "#E4C68A",
       "gillColor": "#C08A3A"
+    },
+    "idKeys": [
+      {
+        "text": "菌盖橙黄至锈橙色，大型，丛生于树桩和树基",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌褶锈褐色，菌柄有膜质菌环",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌肉黄色，味极苦",
+        "src": "wiki-en"
+      }
+    ],
+    "lookalikeNotes": {
+      "honey": "蜜环菌菌褶白色、孢子印白；橙黄裸伞菌褶锈褐、孢子印锈色、味极苦",
+      "gypsy": "皱盖丝膜菌菌盖有白霜、菌褶淡褐；橙黄裸伞橙黄、菌褶锈褐、味苦"
     }
   },
   {
@@ -5318,7 +5901,21 @@
       "capColor2": "#5E4A6E",
       "stipeColor": "#8E7A4A",
       "grain": true
-    }
+    },
+    "idKeys": [
+      {
+        "text": "长在禾本科植物的穗上，取代了谷粒",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "黑紫色角状硬块，比谷粒长而弯曲",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "秋季在黑麦、小麦和野草穗上可见",
+        "src": "wiki-zh"
+      }
+    ]
   },
   {
     "id": "pisolithus",
@@ -5438,6 +6035,24 @@
       "stipeColor": "#E0D2B4",
       "ringColor": "#D8C8A4",
       "slim": true
+    },
+    "idKeys": [
+      {
+        "text": "小型，菌盖蜜黄至锈褐色，钟形",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌柄有膜质菌环，这是与其它小褐菇的区别",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在木屑、草坪和花坛",
+        "src": "wiki-en"
+      }
+    ],
+    "lookalikeNotes": {
+      "fairyring": "硬柄小皮伞无菌环、菌褶稀疏白色；褶纹锥盖伞有膜质菌环、菌褶锈褐",
+      "micaceus": "晶粒小鬼伞菌盖有闪亮颗粒、成熟自溶、无菌环；褶纹锥盖伞有菌环且不自溶"
     }
   },
   {
@@ -5476,6 +6091,23 @@
       "volvaColor": "#EDE8D8",
       "gillColor": "#FCFAF2",
       "scales": true
+    },
+    "idKeys": [
+      {
+        "text": "通体白色，菌盖有锥形疣状鳞片",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌柄基部呈纺锤形膨大，有絮状鳞片",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在针叶林，常被误认为松茸",
+        "src": "wiki-en"
+      }
+    ],
+    "lookalikeNotes": {
+      "matsutake": "松茸有松香味、菌柄基部不膨大；史氏鹅膏有难闻气味、基部纺锤形膨大"
     }
   },
   {
@@ -5963,6 +6595,24 @@
       "stipeColor": "#C4A8BC",
       "slim": true,
       "striate": true
+    },
+    "idKeys": [
+      {
+        "text": "菌盖粉紫至淡紫色，钟形，边缘有条纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶淡紫色，菌柄同色且中空",
+        "src": "wiki-en"
+      },
+      {
+        "text": "有明显萝卜味，长在落叶层",
+        "src": "wiki-en"
+      }
+    ],
+    "lookalikeNotes": {
+      "amethyst": "紫晶蜡蘑菌褶厚而稀疏、菌柄坚韧；洁小菇菌褶密、菌柄中空脆、有萝卜味",
+      "bleedingbonnet": "血红小菇折断菌柄流出暗红汁液；洁小菇不流汁，有萝卜味"
     }
   },
   {
@@ -6330,6 +6980,24 @@
       "stipeColor": "#E8A08A",
       "branches": 5,
       "antler": true
+    },
+    "idKeys": [
+      {
+        "text": "鲜红至橙红色，指状或鹿角状分叉",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "从地面或腐木伸出，质地硬",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "分布于日本、韩国和中国南方，接触也可能引起皮肤炎",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "stagshorn": "粘胶角耳橙黄色、胶质软；火焰茸鲜红、质地硬",
+      "militaris": "蛹虫草橙色棒状从虫体伸出、顶端有颗粒；火焰茸从地面或腐木伸出、鹿角状分叉"
     }
   },
   {
@@ -6366,6 +7034,23 @@
       "stipeColor": "#F2ECE0",
       "tiers": 4,
       "sparseGills": true
+    },
+    "idKeys": [
+      {
+        "text": "小型白色，菌盖薄，菌褶稀疏且有横脉相连",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在云南的栎树等阔叶树枯枝上",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "外形像可食的裂褶菌但没有绒毛",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "splitgill": "裂褶菌菌盖有白色绒毛、菌褶沿中线纵裂；毒沟褶菌无毛、菌褶有横脉"
     }
   },
   {
@@ -6478,6 +7163,25 @@
       "poreColor": "#C4402E",
       "bruiseColor": "#1E4478",
       "fatStipe": true
+    },
+    "idKeys": [
+      {
+        "text": "菌盖黄褐色，表面有粉状质感",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌孔黄色，菌柄黄色带红褐色斑",
+        "src": "photo"
+      },
+      {
+        "text": "切开菌肉变蓝，长在针叶林",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "jianshouqing": "见手青菌盖褐色、菌柄红黄相间；毒新牛肝菌菌盖黄褐有粉状质感",
+      "magnificus": "华丽新牛肝菌菌盖红褐色；毒新牛肝菌菌盖黄褐",
+      "whiteonion": "白牛肝菌菌盖灰白至淡褐、菌柄淡黄；毒新牛肝菌菌盖黄褐带粉"
     }
   },
   {
@@ -6514,6 +7218,24 @@
       "capColor2": "#B89A66",
       "stipeColor": "#F2EAD6",
       "wrinkle": true
+    },
+    "idKeys": [
+      {
+        "text": "帽部有纵向皱褶，只在顶端与菌柄相连，像顶针套在柄上",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌柄白色，内部有絮状填充物",
+        "src": "wiki-en"
+      },
+      {
+        "text": "早春出现，比羊肚菌早",
+        "src": "wiki-zh"
+      }
+    ],
+    "lookalikeNotes": {
+      "morel": "羊肚菌帽部与菌柄下端相连成一体；皱柄钟菌帽只在顶端连接，像顶针",
+      "blackmorel": "黑脉羊肚菌帽部蜂窝状纵脊；皱柄钟菌帽部是皱褶不是蜂窝"
     }
   },
   {
@@ -6663,6 +7385,23 @@
       "stipeColor": "#F6F2E8",
       "patches": true,
       "inkEdge": true
+    },
+    "idKeys": [
+      {
+        "text": "菌盖深褐色，覆盖白色片状鳞片，像喜鹊羽毛",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄细长白色，比菌盖高很多",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在阔叶林落叶层，成熟后自溶",
+        "src": "wiki-en"
+      }
+    ],
+    "lookalikeNotes": {
+      "shaggyink": "毛头鬼伞菌盖白色圆柱形；喜鹊鬼伞深褐色带白斑"
     }
   },
   {
