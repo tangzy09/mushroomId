@@ -297,7 +297,7 @@ EC2 3.26.95.240（与 fishId 同一台），nginx 配置 `/etc/nginx/conf.d/mush
 ssh -i $pem ec2-user@3.26.95.240 "D=/var/www/mushroomid; B=<分支>;
   sudo git -C \$D fetch origin \$B && sudo git -C \$D reset --hard origin/\$B &&
   cd \$D && sudo python3 tools/build_data.py | tail -1"
-node test/smoke_prod.mjs        # 线上冒烟 24 项，退出码 0 才算部署成功
+node test/smoke_prod.mjs        # 线上冒烟 23 项，退出码 0 才算部署成功
 ```
 
 - `js/data.gen.js` 被 gitignore，服务器上要重建（服务器是 Python 3.9）。想让线上与本地测过的字节完全一致，
