@@ -40,7 +40,7 @@
     if (e.target === $('overlay')) closeSheet();
   });
 
-  function art(sp, px, opts) {
+  function drawnArt(sp, px, opts) {
     var cv = document.createElement('canvas');
     cv.width = px; cv.height = px;
     var c = cv.getContext('2d');
@@ -53,6 +53,53 @@
     c.translate(px / 2, base);
     ShroomArt.draw(c, sp, size, opts || { stage: 'mature' });
     return cv;
+  }
+
+  // Real photographs cover 166 of the 181 species. The rest keep the drawn
+  // form, which is not a stopgap: a drawing can show the volva and the ring
+  // that photographs of those species happen to miss.
+  function hasPhoto(sp) {
+    return typeof PHOTO_CREDITS !== 'undefined' && !!PHOTO_CREDITS[sp.id];
+  }
+
+  function art(sp, px, opts) {
+    // Growth stages other than mature only exist as drawings.
+    var stage = (opts && opts.stage) || 'mature';
+    if (!hasPhoto(sp) || stage !== 'mature') return drawnArt(sp, px, opts);
+    var im = document.createElement('img');
+    im.className = 'sp-photo';
+    im.width = px; im.height = px;
+    im.loading = 'lazy';
+    im.alt = sp.name;
+    im.src = 'assets/photos/' + (px <= 96 ? 'thumb' : 'real') + '/' + sp.id + '.webp';
+    // A missing or broken file falls back to the drawing rather than a gap.
+    im.addEventListener('error', function () {
+      if (im.parentNode) im.parentNode.replaceChild(drawnArt(sp, px, opts), im);
+    });
+    return im;
+  }
+
+  // cc-by and cc-by-sa both require the credit to be shown wherever the photo
+  // is. This goes under the detail-page image; nowhere else shows a big one.
+  function photoCredit(sp) {
+    if (!hasPhoto(sp)) return null;
+    var c = PHOTO_CREDITS[sp.id];
+    var d = document.createElement('div');
+    d.className = 'photo-credit';
+    // iNat 的 attribution 本身就写着 "(CC BY)"，再拼一次 license 会重复成
+    // 「… (CC BY) · CC-BY」。只有原文里认不出授权时才补。
+    var who = (c.by || '').replace(/\s*\/\s*(CC0|CC-BY(-SA)?|PD)\s*$/i, '').trim();
+    var lic = /\b(CC0|CC[ -]BY|public domain)\b/i.test(who)
+      ? '' : ' · ' + esc((c.license || '').toUpperCase());
+    d.innerHTML = '照片 ' + esc(who) + lic +
+      (c.url ? ' · <a href="' + esc(c.url) + '" target="_blank" rel="noopener">来源</a>' : '');
+    return d;
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (ch) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+    });
   }
 
   function rarityColor(r) { return C.rarityColors[r]; }
@@ -574,6 +621,8 @@
     var box = document.createElement('div');
     box.className = 'detail-art';
     box.appendChild(art(m, 180));
+    var credit = photoCredit(m);
+    if (credit) box.appendChild(credit);
     b.appendChild(box);
 
     var head = document.createElement('div');

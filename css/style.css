@@ -317,7 +317,13 @@ input[type=range]::-moz-range-track { height: 5px; border-radius: 3px; backgroun
 .cell .skull { position: absolute; top: 5px; left: 6px; font-size: 11px; }
 
 /* ---- detail ---- */
-.detail-art { height: 200px; display: grid; place-items: center; }
+.detail-art {
+  min-height: 200px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 6px;
+}
+.sp-photo { object-fit: cover; display: block; background: rgba(0,0,0,.06); }
+.photo-credit { font-size: 10.5px; line-height: 1.4; color: var(--muted); text-align: center; }
+.photo-credit a { color: inherit; }
 .kv { display: grid; grid-template-columns: 5em 1fr; gap: 5px 10px; font-size: 13.5px; }
 .kv dt { color: var(--muted); }
 .kv dd { margin: 0; }
