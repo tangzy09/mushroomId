@@ -176,6 +176,15 @@ def check_species(species):
             v = m.get(f)
             if not isinstance(v, str) or not v or not v.isascii():
                 err("%s: %s must be a non-empty ASCII string, got %r" % (sid, f, v))
+        # 一期 C：尺度对比尺用的真实尺寸（cm）。可缺省，缺了详情页不画尺；
+        # ⛔ 但绝不能拿 art.size（绘制缩放比）冒充，那会画出一把假尺
+        cc = m.get("capCm")
+        if cc is not None:
+            ok = (isinstance(cc, list) and len(cc) == 2
+                  and all(isinstance(x, (int, float)) and not isinstance(x, bool) for x in cc)
+                  and 0 < cc[0] <= cc[1] <= 200)
+            if not ok:
+                err("%s: capCm must be [min, max] cm with 0 < min <= max <= 200, got %r" % (sid, cc))
     # 毒/可食配对必须有人工差异句，且致命种至少有一个非毒相似种
     for m in species:
         if m.get("edibility") not in toxic:

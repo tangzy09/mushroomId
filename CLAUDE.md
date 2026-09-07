@@ -14,7 +14,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 > 2026-09-07 由「答题抽卡种菌菇园」的收集游戏改版而来，路径与 fishId 同类改版一致：
 > 游戏形态把查阅路径埋了（没抽到的种显示 `???` 不能点）。改版设计与一期 A 计划在
-> `docs/superpowers/`。一期 B（五路形态检索）、一期 C（其余识别要点、尺度尺）待做。
+> `docs/superpowers/`。一期 A / B / C 已于 2026-09-07 全部完成（查阅路径、五路检索、全库识别要点与尺度尺、照片分享卡）；
+> 二期（观察日志、训练重构）待做。
 
 ## 安全红线（最高优先级，违反视为严重缺陷）
 
@@ -90,12 +91,19 @@ python3 tools/build_data.py      # 改过 data/*.json 之后必须重跑
 python3 test/check_data.py       # 数据校验，退出码非零就是不能提交
 node test/core.test.js           # 内核测试
 node test/transfer.test.js       # 存档导出导入
-python3 tools/serve.py 3141      # http://localhost:3141/index.html
+node test/facet.test.js          # facet.js 与 browse 原始实现逐值对拍（7200 次）
+python3 tools/serve.py 3141      # http://localhost:3141/index.html（多线程，下面四套要它在跑）
+node test/verify_photos_ui.mjs   # 照片进列表 / 详情 / 署名          9 项
+node test/verify_fieldguide_a.mjs # 一期 A：导航、搜索、详情、路由     22 项
+node test/verify_fieldguide_b.mjs # 一期 B：五路检索、叠加、对比网格   18 项
+node test/verify_fieldguide_c.mjs # 一期 C：识别要点、对比尺、照片分享卡 23 项
 ```
 
-Windows / Git Bash 上没有 `python3`，一律用 `python`。
+Windows / Git Bash 上没有 `python3`，一律用 `python`。四套 `verify_*.mjs` 用 Playwright
+自带的 Chromium（默认从 fishId 的 `tests/node_modules` 借，第一个参数可改目录），
+走真实点击，每条都有退出码。
 
-四条命令里只有前三条是门：`check_data.py` 与两个 node 测试**退出码非零就是不能提交**。
+前面的命令里除 `serve.py` 外全是门：**退出码非零就是不能提交**。
 `core.test.js` 是一张平铺的 `t(name, fn)` 列表，**没有单测过滤参数**，整个文件跑完不到一秒，直接整跑。
 两个浏览器页是**肉眼验收，没有判据、没有退出码**，别把「打开了 e2e 页」当成测试通过：
 
@@ -233,7 +241,11 @@ fishId 有 43% 的题因为难度配置与题库分布对不上而永远抽不�
 
 - **`idKeys`**：识别要点，每条 `{text, src}`，`src ∈ wiki-zh / wiki-en / mushroomexpert / inat / photo`。
   写法是一句现场看得见的话（6–60 字），不是检索表术语（数值范围、μm、罗马数字会被门拦下）。
-  毒种 42 种必须恰好 3 条；其余种一期 C 补。详情页脚注如实写「AI 据公开资料整理，未经真菌学家审校」。
+  **181 种全部恰好 3 条**（毒种 42 种一期 A 人工写，其余 139 种一期 C 补齐）。
+  详情页脚注如实写「AI 据公开资料整理，未经真菌学家审校」。
+- **`capCm`**：`[常见下限, 最大记录]`，伞形 / 漏斗形是菌盖直径，其余是整体大小；门要求 `0 < lo ≤ hi ≤ 200`。
+  详情页「多大」对比尺按 `hi` 三档换参考物：≤5 比一元硬币（轴 6）、≤20 比手掌 18（轴 30）、
+  更大比小臂 60（轴按 30 取整）。数值取自 Wikipedia 描述，不精确，用途是给量级不是给测量。
 - **`lookalikeNotes`**：`{对方id: 差异句}`。**毒/可食配对必须有人工句**，门保证；其余配对渲染时取对方 `idKeys[0]`。
   「特征」不等于「区别」，这类句子不允许自动生成。
 - **`encounter`**：野外遇见率四档，由 `tools/census_to_encounter.py` 从 iNat 观察数分档 + 本土种修正表得出。
@@ -260,9 +272,11 @@ fishId 有 43% 的题因为难度配置与题库分布对不上而永远抽不�
 - [x] **一期 A（2026-09-07）**：导航减为图鉴/我的、图鉴 181 种全部可点、栈式路由可多级返回、
       全字段搜索、毒种 42 种识别要点、毒/可食配对人工差异句、无照片致命种提示、
       离线三层缓存、遇见率字段、安全文案不再自称游戏。行为验收 23 项全过
-- [ ] 一期 B：五路形态检索（轮廓 / 菌盖背面 / 长在哪 / 颜色 / 名字，`facet.js` 拷自 skill）、
-      `silhouette` / `colorGroup` / `pinyin` 字段、对比网格
-- [ ] 一期 C：其余 139 种识别要点、`capCm` 与尺度对比尺、分享卡改用照片
+- [x] **一期 B（2026-09-07）**：五路形态检索（轮廓 / 菌盖背面 / 长在哪 / 颜色 / 名字，`facet.js` 拷自 skill）、
+      `silhouette` / `colorGroup` / `pinyin` 字段各配门、叠加筛选剩余计数、条件维度、对比网格、
+      毒种对照提示。行为验收 18 项全过
+- [x] **一期 C（2026-09-07）**：其余 139 种识别要点（全库 181 × 3）、`capCm` 全库 181 条 + 详情页尺度对比尺、
+      分享卡改用真实照片（圆角方图 + 署名行，无照片回退绘制，丝带改遇见率）。行为验收 23 项全过
 - [ ] 二期：观察日志「我见过」、认菌训练重构、更多语言
 - [ ] 15 种无照片的种（清单在 `C:\tmp\mushroomId\README.md`）：开放图库里只有食材照与标本标签，
       要么保持绘制，要么找国内机构授权

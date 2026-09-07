@@ -65,8 +65,9 @@ var Share = (function () {
    * @param cfg     GameConfig
    * @param drawArt function(ctx, entity, size) — the renderer
    */
-  function entityCard(entity, cfg, drawArt) {
+  function entityCard(entity, cfg, drawArt, opts) {
     var W = 480, H = 620;
+    opts = opts || {};
     var k = canvas(W, H), c = k.ctx;
     backdrop(c, W, H, cfg);
 
@@ -74,20 +75,34 @@ var Share = (function () {
     var edib = cfg.edibility[entity.edibility];
     var deadly = entity.edibility === 'deadly';
 
-    // rarity ribbon
-    c.fillStyle = cfg.rarityColors[rarity];
+    // ribbon: the field guide talks about how often you meet a species, the
+    // garden game about rarity. Prefer the guide's word when the data has it.
+    var enc = entity.encounter && cfg.encounterLabels && cfg.encounterLabels[entity.encounter];
+    c.fillStyle = enc ? cfg.encounterColors[entity.encounter] : cfg.rarityColors[rarity];
     roundRect(c, W / 2 - 74, 34, 148, 30, 15);
     c.fill();
-    c.fillStyle = rarity === 'legend' ? '#3A2E00' : '#fff';
+    c.fillStyle = (!enc && rarity === 'legend') ? '#3A2E00' : '#fff';
     c.font = 'bold 15px system-ui,sans-serif';
     c.textAlign = 'center';
-    c.fillText(cfg.rarityLabels[rarity], W / 2, 54);
+    c.fillText(enc ? '遇见率 · ' + enc : cfg.rarityLabels[rarity], W / 2, 54);
 
-    // the specimen
-    c.save();
-    c.translate(W / 2, 300);
-    drawArt(c, entity, 230);
-    c.restore();
+    // the specimen: a real photo when one is loaded, the drawn art otherwise.
+    // Both sit on the same baseline (y=300) so the text below never moves.
+    if (opts.photo) {
+      var s = 230, px = W / 2 - s / 2, py = 300 - s;
+      var img = opts.photo, iw = img.naturalWidth || img.width, ih = img.naturalHeight || img.height;
+      var side = Math.min(iw, ih);
+      c.save();
+      roundRect(c, px, py, s, s, 18);
+      c.clip();
+      c.drawImage(img, (iw - side) / 2, (ih - side) / 2, side, side, px, py, s, s);
+      c.restore();
+    } else {
+      c.save();
+      c.translate(W / 2, 300);
+      drawArt(c, entity, 230);
+      c.restore();
+    }
 
     c.fillStyle = '#fff';
     c.font = 'bold 30px system-ui,sans-serif';
@@ -113,6 +128,14 @@ var Share = (function () {
     c.font = '14px system-ui,sans-serif';
     wrap(c, deadly ? '记住它的样子，别碰它。' : '「' + entity.quote + '」',
          W / 2, y + 16, W - 80, 22);
+
+    // photo credit rides just above the footer; the licence travels with the picture
+    if (opts.photo && opts.credit) {
+      c.fillStyle = 'rgba(255,255,255,0.45)';
+      c.font = '10px system-ui,sans-serif';
+      c.textAlign = 'center';
+      c.fillText(opts.credit, W / 2, H - 44);
+    }
 
     footer(c, W, H, cfg);
     return k.el;

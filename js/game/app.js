@@ -105,13 +105,34 @@
 
   function drawArtAt(c, sp, size) { ShroomArt.draw(c, sp, size, { stage: 'mature' }); }
 
+  // 分享卡优先用真实照片；照片拿不到（无照片 / 离线没缓存）就回退绘制，
+  // 两条路都走 entityCard，只是 opts 不同。署名跟着照片一起进卡。
+  function shareCredit(sp) {
+    if (!hasPhoto(sp)) return '';
+    var c = PHOTO_CREDITS[sp.id];
+    var who = (c.by || '').replace(/\s*\/\s*(CC0|CC-BY(-SA)?|PD)\s*$/i, '').trim();
+    var lic = /\b(CC0|CC[ -]BY|public domain)\b/i.test(who) ? '' : ' · ' + (c.license || '').toUpperCase();
+    return '照片 ' + who + lic;
+  }
+
+  function loadPhoto(sp) {
+    return new Promise(function (resolve) {
+      if (!hasPhoto(sp)) { resolve(null); return; }
+      var im = new Image();
+      im.onload = function () { resolve(im); };
+      im.onerror = function () { resolve(null); };
+      im.src = 'assets/photos/real/' + sp.id + '.webp';
+    });
+  }
+
   function shareEntity(sp) {
-    Share.offer(Share.entityCard(sp, C, drawArtAt), C,
-      '我在菌菇图鉴里认出了' + sp.name + '。' + C.share.footer)
-      .then(function (how) {
-        if (how === 'downloaded') toast('卡片已保存到下载');
-        else if (how === 'failed') toast('生成失败，换个浏览器试试');
-      });
+    loadPhoto(sp).then(function (photo) {
+      var card = Share.entityCard(sp, C, drawArtAt, { photo: photo, credit: shareCredit(sp) });
+      return Share.offer(card, C, '我在菌菇图鉴里认出了' + sp.name + '。' + C.share.footer);
+    }).then(function (how) {
+      if (how === 'downloaded') toast('卡片已保存到下载');
+      else if (how === 'failed') toast('生成失败，换个浏览器试试');
+    });
   }
 
   // ---------------------------------------------------------------- router
@@ -638,6 +659,30 @@
         m.idKeys.map(function (k) { return '<li>' + esc(k.text) + '</li>'; }).join('') +
         '</ol><p class="muted footnote">识别要点由 AI 据公开资料整理，未经真菌学家审校，仅供学习，不能作为采食依据。</p>';
       b.appendChild(ik);
+    }
+
+    // 尺度对比尺：「菌盖 5–15 cm」没人有概念，画一把带参考物的尺就有。
+    // 按量级三档换参考物；轴长取半程为整数的好看数，中间刻度才不会出现 12.5。
+    if (m.capCm && m.capCm.length === 2) {
+      var lo = m.capCm[0], hi = m.capCm[1];
+      var axis, refCm, refName;
+      if (hi <= 5) { axis = 6; refCm = 2.5; refName = '一元硬币'; }
+      else if (hi <= 20) { axis = 30; refCm = 18; refName = '手掌'; }
+      else { axis = Math.ceil(hi * 1.15 / 30) * 30; refCm = 60; refName = '小臂'; }
+      var pct = function (v) { return Math.max(0.8, Math.min(100, v / axis * 100)); };
+      var fmt = function (v) { return (v % 1 ? v.toFixed(1) : v) + ' cm'; };
+      var isCap = m.silhouette === 'umbrella' || m.silhouette === 'funnel';
+      var rl = document.createElement('div');
+      rl.className = 'card ruler-card';
+      rl.innerHTML = '<h2>多大</h2><div class="ruler">' +
+        '<div class="rrow"><span class="rl">本种</span><span class="rt">' +
+          '<u class="soft" style="width:' + pct(hi) + '%"></u><u style="width:' + pct(lo) + '%"></u></span>' +
+          '<span class="rv">' + (lo === hi ? fmt(lo) : lo + '–' + fmt(hi)) + '</span></div>' +
+        '<div class="rrow"><span class="rl">' + refName + '</span><span class="rt">' +
+          '<u class="ref" style="width:' + pct(refCm) + '%"></u></span><span class="rv">' + fmt(refCm) + '</span></div>' +
+        '<div class="raxis"><span>0</span><span>' + (axis / 2) + '</span><span>' + axis + ' cm</span></div></div>' +
+        '<p class="muted footnote">' + (isCap ? '菌盖直径' : '整体大小') + '。实心为常见范围，浅色到最大记录。</p>';
+      b.appendChild(rl);
     }
 
     var info = document.createElement('div');

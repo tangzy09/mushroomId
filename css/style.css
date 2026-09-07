@@ -372,6 +372,18 @@ input[type=range]::-moz-range-track { height: 5px; border-radius: 3px; backgroun
 .gcell b { display: block; margin-top: 6px; font-size: 14px; }
 .gcell i { display: block; font-style: normal; white-space: normal; color: #555; font-size: 11.5px; margin-top: 2px; line-height: 1.35; }
 
+/* 详情页：尺度对比尺 */
+.ruler { font-size: 12px; }
+.rrow { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+.rrow .rl { width: 4.5em; color: var(--muted); flex: 0 0 auto; }
+.rrow .rt { flex: 1; position: relative; height: 12px; background: rgba(0,0,0,.05); border-radius: 6px; overflow: hidden; }
+.rrow .rt u { position: absolute; left: 0; top: 0; height: 100%; text-decoration: none; background: var(--primary); border-radius: 6px; }
+.rrow .rt u.soft { opacity: .3; }
+.rrow .rt u.ref { background: #B9885A; }
+.rrow .rv { width: 6.5em; text-align: right; color: #444; flex: 0 0 auto; }
+.raxis { display: flex; justify-content: space-between; color: var(--muted); font-size: 10.5px; margin-left: calc(4.5em + 8px); margin-right: calc(6.5em + 8px); }
+.ruler-card .footnote { font-size: 11px; margin: 6px 0 0; }
+
 /* 详情页：识别要点、相似种差异句、无照片提示 */
 .idkeys ol { margin: 0; padding-left: 1.3em; font-size: 14.5px; line-height: 1.55; }
 .idkeys .footnote { font-size: 11px; margin: 8px 0 0; }

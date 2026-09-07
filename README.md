@@ -56,6 +56,12 @@ Windows / Git Bash 上没有 `python3`，用 `python`。
 python3 test/check_data.py     # 数据校验（字段、措辞、题库可达性、菌盖形状可画）
 node test/core.test.js         # 内核纯函数测试
 node test/transfer.test.js     # 存档导出导入往返
+node test/facet.test.js        # 筛选引擎对拍
+# 下面四套要先起 python tools/serve.py 3141，走真实点击，共 72 项
+node test/verify_photos_ui.mjs
+node test/verify_fieldguide_a.mjs
+node test/verify_fieldguide_b.mjs
+node test/verify_fieldguide_c.mjs
 # 浏览器里肉眼验收：http://localhost:3141/test/e2e.html  完整循环
 #                   http://localhost:3141/test/cards.html 分享卡片
 ```

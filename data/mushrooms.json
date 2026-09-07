@@ -40,7 +40,25 @@
     ],
     "pinyin": "xianggu",
     "pyAbbr": "xg",
-    "initial": "X"
+    "initial": "X",
+    "idKeys": [
+      {
+        "text": "菌盖褐色，表面常有白色龟裂状鳞片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶白色，菌柄偏生且带纤维鳞片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在阔叶树段木上，栽培品常见于木架",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "oyster",
@@ -88,7 +106,25 @@
     ],
     "pinyin": "pinggu",
     "pyAbbr": "pg",
-    "initial": "P"
+    "initial": "P",
+    "idKeys": [
+      {
+        "text": "贝壳形或扇形菌盖，灰白至灰褐色，侧生短柄",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶白色，向下延生到柄",
+        "src": "wiki-en"
+      },
+      {
+        "text": "层叠丛生于阔叶树的枯干和倒木上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      25
+    ]
   },
   {
     "id": "enoki",
@@ -136,7 +172,25 @@
     ],
     "pinyin": "jinzhengu",
     "pyAbbr": "jzg",
-    "initial": "J"
+    "initial": "J",
+    "idKeys": [
+      {
+        "text": "野生个体菌盖黄褐色黏滑，与超市白色细长的栽培品完全不同",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄下部深褐色，密生短绒毛",
+        "src": "wiki-en"
+      },
+      {
+        "text": "冬季丛生于阔叶树枯木，雪天也能见到",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      2,
+      8
+    ]
   },
   {
     "id": "kingoyster",
@@ -178,7 +232,25 @@
     ],
     "pinyin": "xingbaogu",
     "pyAbbr": "xbg",
-    "initial": "X"
+    "initial": "X",
+    "idKeys": [
+      {
+        "text": "菌柄粗壮白色，比菌盖还显眼",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌盖褐色，边缘内卷，菌褶向下延生",
+        "src": "wiki-en"
+      },
+      {
+        "text": "野生个体长在伞形科植物的根部",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      4,
+      12
+    ]
   },
   {
     "id": "woodear",
@@ -225,7 +297,25 @@
     ],
     "pinyin": "heimuer",
     "pyAbbr": "hme",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "耳状胶质，深褐至黑褐色，湿时半透明有弹性",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "干后收缩变硬变黑，遇水又能恢复",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "丛生于阔叶树枯木和段木上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      12
+    ]
   },
   {
     "id": "snowfungus",
@@ -270,7 +360,25 @@
     ],
     "pinyin": "yiner",
     "pyAbbr": "ye",
-    "initial": "Y"
+    "initial": "Y",
+    "idKeys": [
+      {
+        "text": "洁白半透明，花瓣状裂片层层叠叠",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "胶质柔软，干后变硬变黄",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在阔叶树枯木上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "lionsmane",
@@ -313,7 +421,25 @@
     ],
     "pinyin": "houtougu",
     "pyAbbr": "htg",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "整体白色团块，密生下垂的针状齿刺",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "没有菌盖和菌柄之分，像一团白毛",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在活的阔叶树伤口或枯木上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      25
+    ]
   },
   {
     "id": "button",
@@ -361,7 +487,25 @@
     ],
     "pinyin": "shuangbaomogu",
     "pyAbbr": "sbmg",
-    "initial": "S"
+    "initial": "S",
+    "idKeys": [
+      {
+        "text": "白色或褐色圆润菌盖，菌褶粉红转深褐",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄有薄菌环，基部无菌托",
+        "src": "wiki-en"
+      },
+      {
+        "text": "几乎只见于栽培，野外极少",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      10
+    ]
   },
   {
     "id": "strawmushroom",
@@ -407,7 +551,25 @@
     ],
     "pinyin": "caogu",
     "pyAbbr": "cg",
-    "initial": "C"
+    "initial": "C",
+    "idKeys": [
+      {
+        "text": "幼时被灰白色菌托整个包住，像一颗蛋",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌盖灰褐色，菌褶白色转粉红，没有菌环",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在稻草堆和堆肥上，主要是栽培品",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      4,
+      12
+    ]
   },
   {
     "id": "shimeji",
@@ -450,7 +612,25 @@
     ],
     "pinyin": "xieweigu",
     "pyAbbr": "xwg",
-    "initial": "X"
+    "initial": "X",
+    "idKeys": [
+      {
+        "text": "菌盖灰褐色，表面有大理石般的斑纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "丛生成一大簇，菌柄白色",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "野生个体长在阔叶树枯木上",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      2,
+      7
+    ]
   },
   {
     "id": "nameko",
@@ -493,7 +673,25 @@
     ],
     "pinyin": "huazigu",
     "pyAbbr": "hzg",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "菌盖橙褐色，表面覆盖一层透明黏液",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "密集丛生于阔叶树枯木上",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄有黏质菌环痕迹",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      3,
+      8
+    ]
   },
   {
     "id": "shaggyink",
@@ -540,7 +738,25 @@
     ],
     "pinyin": "maotouguisan",
     "pyAbbr": "mtgs",
-    "initial": "M"
+    "initial": "M",
+    "idKeys": [
+      {
+        "text": "菌盖白色圆柱形，覆盖大片翘起的鳞片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "成熟后从边缘开始自溶成黑色墨汁",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "常见于草地、路边和新翻的土地",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      4,
+      10
+    ]
   },
   {
     "id": "winecap",
@@ -584,7 +800,25 @@
     ],
     "pinyin": "daqiugaigu",
     "pyAbbr": "dqgg",
-    "initial": "D"
+    "initial": "D",
+    "idKeys": [
+      {
+        "text": "菌盖酒红至褐色，大型，菌褶灰紫转黑",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄粗壮白色，有厚而带齿的菌环",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在木屑和覆盖物上，常见于栽培和花坛",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      20
+    ]
   },
   {
     "id": "goldenoyster",
@@ -627,7 +861,25 @@
     ],
     "pinyin": "yuhuangmo",
     "pyAbbr": "yhm",
-    "initial": "Y"
+    "initial": "Y",
+    "idKeys": [
+      {
+        "text": "亮黄色扇形菌盖，层叠丛生",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶白色，向下延生到短柄",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在榆树等阔叶树的枯木上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      10
+    ]
   },
   {
     "id": "maitake",
@@ -670,7 +922,25 @@
     ],
     "pinyin": "huishuhua",
     "pyAbbr": "hsh",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "许多灰褐色扇形裂片叠成一大丛，像一朵花",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "下表面白色有细孔，没有菌褶",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在栎树等阔叶树的树基",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      15,
+      50
+    ]
   },
   {
     "id": "reishi",
@@ -715,7 +985,25 @@
     ],
     "pinyin": "lingzhi",
     "pyAbbr": "lz",
-    "initial": "L"
+    "initial": "L",
+    "idKeys": [
+      {
+        "text": "肾形或扇形菌盖，红褐色带漆样光泽",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "有同心环纹，边缘常带黄白色生长边",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄侧生，同样有光泽，长在阔叶树树基或根部",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      20
+    ]
   },
   {
     "id": "turkeytail",
@@ -770,7 +1058,25 @@
     ],
     "pinyin": "yunzhi",
     "pyAbbr": "yz",
-    "initial": "Y"
+    "initial": "Y",
+    "idKeys": [
+      {
+        "text": "薄而韧的扇形，多色同心环带像火鸡尾羽",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "上表面有细绒毛，下表面白色有细孔",
+        "src": "wiki-en"
+      },
+      {
+        "text": "层叠密生于枯木上，一年四季可见",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      2,
+      8
+    ]
   },
   {
     "id": "woodblewit",
@@ -816,7 +1122,25 @@
     ],
     "pinyin": "zidingxiangmo",
     "pyAbbr": "zdxm",
-    "initial": "Z"
+    "initial": "Z",
+    "idKeys": [
+      {
+        "text": "整体紫丁香色，菌盖成熟后转褐",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶紫色，菌柄同色而基部略膨大",
+        "src": "wiki-en"
+      },
+      {
+        "text": "秋末长在落叶层和堆肥上，有果香",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      6,
+      15
+    ]
   },
   {
     "id": "honey",
@@ -867,7 +1191,25 @@
     ],
     "pinyin": "mihuanjun",
     "pyAbbr": "mhj",
-    "initial": "M"
+    "initial": "M",
+    "idKeys": [
+      {
+        "text": "蜜黄至褐色菌盖，中央有细小鳞片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄有明显的白色膜质菌环",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "大丛生于树基和树根，常成片",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      12
+    ]
   },
   {
     "id": "velvetfoot",
@@ -914,7 +1256,25 @@
     ],
     "pinyin": "donggu",
     "pyAbbr": "dg",
-    "initial": "D"
+    "initial": "D",
+    "idKeys": [
+      {
+        "text": "橙黄色黏滑菌盖，小型",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄深褐色，密生天鹅绒般的短绒毛",
+        "src": "wiki-en"
+      },
+      {
+        "text": "冬季丛生于阔叶树枯木，没有菌环",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      2,
+      7
+    ]
   },
   {
     "id": "fairyring",
@@ -962,7 +1322,25 @@
     ],
     "pinyin": "yingbingxiaopisan",
     "pyAbbr": "ybxps",
-    "initial": "Y"
+    "initial": "Y",
+    "idKeys": [
+      {
+        "text": "菌盖淡褐色钟形，中央略凸起",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶稀疏，菌柄细而坚韧，掰不断只能扭",
+        "src": "wiki-en"
+      },
+      {
+        "text": "草坪上排成弧形或圆环",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      2,
+      5
+    ]
   },
   {
     "id": "fieldmushroom",
@@ -1009,7 +1387,25 @@
     ],
     "pinyin": "sibaomogu",
     "pyAbbr": "sbmg",
-    "initial": "S"
+    "initial": "S",
+    "idKeys": [
+      {
+        "text": "白色菌盖，菌褶粉红成熟后变深褐",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄有薄菌环，基部不膨大也无菌托",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在草地和牧场，气味清香",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      10
+    ]
   },
   {
     "id": "saffronmilk",
@@ -1055,7 +1451,25 @@
     ],
     "pinyin": "songrugu",
     "pyAbbr": "srg",
-    "initial": "S"
+    "initial": "S",
+    "idKeys": [
+      {
+        "text": "橙色菌盖带同心环纹，中央下凹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "受伤流出橙红色乳汁，之后变绿",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在松树下，秋季成片出现",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      4,
+      15
+    ]
   },
   {
     "id": "greenrussula",
@@ -1100,7 +1514,25 @@
     ],
     "pinyin": "qingtoujun",
     "pyAbbr": "qtj",
-    "initial": "Q"
+    "initial": "Q",
+    "idKeys": [
+      {
+        "text": "菌盖灰绿色，表皮龟裂成斑块状",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶白色，菌柄白色粗壮而脆",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在阔叶林地面，没有菌环和菌托",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "charcoalburner",
@@ -1147,7 +1579,25 @@
     ],
     "pinyin": "lanhuanghonggu",
     "pyAbbr": "lhhg",
-    "initial": "L"
+    "initial": "L",
+    "idKeys": [
+      {
+        "text": "菌盖颜色多变，紫、绿、蓝灰常混在一起",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶白色柔韧，用手指摩擦不碎，区别于其它红菇",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌柄白色，长在阔叶林",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "blackening",
@@ -1193,7 +1643,25 @@
     ],
     "pinyin": "xizhehonggu",
     "pyAbbr": "xzhg",
-    "initial": "X"
+    "initial": "X",
+    "idKeys": [
+      {
+        "text": "菌盖灰白至褐色，受伤先变红再慢慢变黑",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶厚而稀疏，是红菇里最稀的",
+        "src": "wiki-en"
+      },
+      {
+        "text": "老菌整体变黑，可留存到第二年",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      8,
+      20
+    ]
   },
   {
     "id": "porcini",
@@ -1242,7 +1710,25 @@
     ],
     "pinyin": "meiweiniuganjun",
     "pyAbbr": "mwngj",
-    "initial": "M"
+    "initial": "M",
+    "idKeys": [
+      {
+        "text": "菌盖褐色，边缘略浅，像烤过的面包",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄粗壮，上部有白色细网纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌孔白色转黄绿，切开不变色",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      8,
+      25
+    ]
   },
   {
     "id": "bainiugan",
@@ -1290,7 +1776,25 @@
     ],
     "pinyin": "bainiuganjun",
     "pyAbbr": "bngj",
-    "initial": "B"
+    "initial": "B",
+    "idKeys": [
+      {
+        "text": "菌盖白色至淡褐，表面干燥",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄粗壮白色，有细网纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在云南的松栎混交林",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      6,
+      15
+    ]
   },
   {
     "id": "jianshouqing",
@@ -1341,7 +1845,25 @@
     ],
     "pinyin": "lanmaoniuganjun",
     "pyAbbr": "lmngj",
-    "initial": "L"
+    "initial": "L",
+    "idKeys": [
+      {
+        "text": "菌盖褐色，菌孔黄色，受伤迅速变蓝",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄黄色带红褐斑，按压也变蓝",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "云南常见的牛肝菌，长在松林",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      12
+    ]
   },
   {
     "id": "whiteonion",
@@ -1390,7 +1912,25 @@
     ],
     "pinyin": "meihuanghuangrouniuganjun",
     "pyAbbr": "mhhrngj",
-    "initial": "M"
+    "initial": "M",
+    "idKeys": [
+      {
+        "text": "菌盖灰白至淡黄褐，菌孔淡黄",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄淡黄色，基部略带红",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在云南的松栎林",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      6,
+      15
+    ]
   },
   {
     "id": "magnificus",
@@ -1440,7 +1980,25 @@
     ],
     "pinyin": "hualixinniuganjun",
     "pyAbbr": "hlxngj",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "菌盖红褐色，菌孔红色",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄黄色带红色网纹，切开变蓝",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在云南的松林",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      6,
+      15
+    ]
   },
   {
     "id": "slipperyjack",
@@ -1485,7 +2043,25 @@
     ],
     "pinyin": "hehuanruniuganjun",
     "pyAbbr": "hhrngj",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "褐色菌盖覆盖一层滑腻黏液",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄上有明显的膜质菌环，这在乳牛肝菌里少见",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌孔黄色，长在松树下",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      12
+    ]
   },
   {
     "id": "larchbolete",
@@ -1530,7 +2106,25 @@
     ],
     "pinyin": "houhuanruniuganjun",
     "pyAbbr": "hhrngj",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "菌盖亮黄至橙黄色，黏滑",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄有菌环，菌孔黄色",
+        "src": "wiki-en"
+      },
+      {
+        "text": "只长在落叶松下",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      4,
+      12
+    ]
   },
   {
     "id": "chanterelle",
@@ -1578,7 +2172,25 @@
     ],
     "pinyin": "jiyoujun",
     "pyAbbr": "jyj",
-    "initial": "J"
+    "initial": "J",
+    "idKeys": [
+      {
+        "text": "整体蛋黄色，漏斗形，边缘波状",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "下方是钝而分叉的棱脉，不是薄片状的真菌褶",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "单生或散生于林地土中，不长在木头上",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      3,
+      10
+    ]
   },
   {
     "id": "blacktrumpet",
@@ -1621,7 +2233,25 @@
     ],
     "pinyin": "huilabajun",
     "pyAbbr": "hlbj",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "黑灰色喇叭形，薄而中空",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "外侧光滑或有细皱，没有菌褶",
+        "src": "wiki-en"
+      },
+      {
+        "text": "丛生于阔叶林落叶层，容易看漏",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      8
+    ]
   },
   {
     "id": "morel",
@@ -1667,7 +2297,25 @@
     ],
     "pinyin": "yangdujun",
     "pyAbbr": "ydj",
-    "initial": "Y"
+    "initial": "Y",
+    "idKeys": [
+      {
+        "text": "帽部像蜂窝，布满不规则凹坑",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "帽与柄连成一体，整体中空",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "春季出现，长在林缘和火烧迹地",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      10
+    ]
   },
   {
     "id": "blackmorel",
@@ -1713,7 +2361,25 @@
     ],
     "pinyin": "heimaiyangdujun",
     "pyAbbr": "hmydj",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "帽部深褐至黑色，纵向棱脊像梯子",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "帽与柄连成一体，整体中空",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "春季长在木屑、花坛和城市绿地",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      3,
+      10
+    ]
   },
   {
     "id": "bambooveil",
@@ -1758,7 +2424,25 @@
     ],
     "pinyin": "zhangqunzhusun",
     "pyAbbr": "zqzs",
-    "initial": "Z"
+    "initial": "Z",
+    "idKeys": [
+      {
+        "text": "菌柄白色海绵状，顶端是墨绿色带臭味的孢体帽",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "帽下垂着白色网状菌裙，展开后像一条裙子",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在竹林和阔叶林，从一颗白色的蛋里长出",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      10,
+      20
+    ]
   },
   {
     "id": "matsutake",
@@ -1807,7 +2491,25 @@
     ],
     "pinyin": "songrong",
     "pyAbbr": "sr",
-    "initial": "S"
+    "initial": "S",
+    "idKeys": [
+      {
+        "text": "菌盖褐色，覆盖纤维状鳞片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄粗壮，上有厚实的膜质菌环",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "有独特的松香辛辣味，长在松树下",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      20
+    ]
   },
   {
     "id": "fakematsutake",
@@ -1851,7 +2553,25 @@
     ],
     "pinyin": "jiasongrong",
     "pyAbbr": "jsr",
-    "initial": "J"
+    "initial": "J",
+    "idKeys": [
+      {
+        "text": "外形与松茸相似，菌盖褐色带鳞片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在栎树等阔叶树下，不长在松树下",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "气味比松茸淡",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "almond",
@@ -1898,7 +2618,25 @@
     ],
     "pinyin": "jisongrong",
     "pyAbbr": "jsr",
-    "initial": "J"
+    "initial": "J",
+    "idKeys": [
+      {
+        "text": "菌盖褐色带鳞片，菌褶粉红转深褐",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "有明显的杏仁香味",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在堆肥和富含腐殖质的土上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "termite",
@@ -1943,7 +2681,25 @@
     ],
     "pinyin": "jicong",
     "pyAbbr": "jc",
-    "initial": "J"
+    "initial": "J",
+    "idKeys": [
+      {
+        "text": "菌盖中央有明显的尖突，灰白至灰褐色",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄向下延伸成很长的假根，一直扎进白蚁巢",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "雨季从白蚁巢上方的地面长出",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      20
+    ]
   },
   {
     "id": "blackskin",
@@ -1992,7 +2748,25 @@
     ],
     "pinyin": "heipijicong",
     "pyAbbr": "hpjc",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "菌盖深褐至黑色，湿时黏滑",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄细长白色，向下延伸成假根",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在阔叶林地面，栽培品常见",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      4,
+      12
+    ]
   },
   {
     "id": "ganbajun",
@@ -2035,7 +2809,25 @@
     ],
     "pinyin": "ganbajun",
     "pyAbbr": "gbj",
-    "initial": "G"
+    "initial": "G",
+    "idKeys": [
+      {
+        "text": "灰白至灰褐色，扇形裂片叠成一丛",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "质地坚韧，没有菌盖菌柄之分",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在云南的松林地面，常夹着松针",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "tigerpaw",
@@ -2079,7 +2871,25 @@
     ],
     "pinyin": "qiaolinrouchijun",
     "pyAbbr": "qlrcj",
-    "initial": "Q"
+    "initial": "Q",
+    "idKeys": [
+      {
+        "text": "菌盖褐色，覆盖粗大的深色翘起鳞片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌盖下方是灰白色的齿刺，不是菌褶",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在南方的松林和栎林地面",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      8,
+      25
+    ]
   },
   {
     "id": "hedgehog",
@@ -2124,7 +2934,25 @@
     ],
     "pinyin": "juanyuanchijun",
     "pyAbbr": "jycj",
-    "initial": "J"
+    "initial": "J",
+    "idKeys": [
+      {
+        "text": "菌盖奶油黄色，形状不规则",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌盖下方是细密的白色针状齿刺",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄白色，长在林地",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      15
+    ]
   },
   {
     "id": "giantpuffball",
@@ -2167,7 +2995,25 @@
     ],
     "pinyin": "damabo",
     "pyAbbr": "dmb",
-    "initial": "D"
+    "initial": "D",
+    "idKeys": [
+      {
+        "text": "白色大球，可以长到足球大",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "表面光滑，没有菌柄，直接贴地",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在草地和牧场，切开幼时内部纯白",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      10,
+      80
+    ]
   },
   {
     "id": "puffball",
@@ -2212,7 +3058,25 @@
     ],
     "pinyin": "wangwenmabo",
     "pyAbbr": "wwmb",
-    "initial": "W"
+    "initial": "W",
+    "idKeys": [
+      {
+        "text": "白色梨形，表面布满细小锥刺",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "刺脱落后留下网状纹",
+        "src": "wiki-en"
+      },
+      {
+        "text": "成熟后顶端开口，一按就喷出褐色孢子",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      2,
+      6
+    ]
   },
   {
     "id": "earthstar",
@@ -2257,7 +3121,25 @@
     ],
     "pinyin": "jiandingdixing",
     "pyAbbr": "jddx",
-    "initial": "J"
+    "initial": "J",
+    "idKeys": [
+      {
+        "text": "外皮裂成星状瓣，中央一个球",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "球的基部有一圈领状结构",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在落叶层，成熟后顶端开口喷孢子",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      4,
+      12
+    ]
   },
   {
     "id": "barometer",
@@ -2301,7 +3183,25 @@
     ],
     "pinyin": "yingpidixing",
     "pyAbbr": "ypdx",
-    "initial": "Y"
+    "initial": "Y",
+    "idKeys": [
+      {
+        "text": "外皮裂成星状，星瓣表面有龟裂纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "潮湿时星瓣张开，干燥时合拢，像晴雨表",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在沙质土和路边",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      2,
+      8
+    ]
   },
   {
     "id": "birdsnest",
@@ -2345,7 +3245,25 @@
     ],
     "pinyin": "longwenheidanchaojun",
     "pyAbbr": "lwhdcj",
-    "initial": "L"
+    "initial": "L",
+    "idKeys": [
+      {
+        "text": "小杯状，杯内装着几个扁圆的小包，像鸟巢里的蛋",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "杯外壁褐色有毛，内壁有纵纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在腐木和木屑上，雨滴溅出小包传播",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      0.5,
+      1.5
+    ]
   },
   {
     "id": "inkcap",
@@ -2411,7 +3329,11 @@
     ],
     "pinyin": "mozhiguisan",
     "pyAbbr": "mzgs",
-    "initial": "M"
+    "initial": "M",
+    "capCm": [
+      3,
+      7
+    ]
   },
   {
     "id": "micaceus",
@@ -2461,7 +3383,25 @@
     ],
     "pinyin": "jinglixiaoguisan",
     "pyAbbr": "jlxgs",
-    "initial": "J"
+    "initial": "J",
+    "idKeys": [
+      {
+        "text": "菌盖橙黄色钟形，表面有闪亮的云母状颗粒",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "密集丛生于树桩和埋木附近",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "成熟后菌盖边缘自溶变黑",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      1,
+      4
+    ]
   },
   {
     "id": "deathcap",
@@ -2531,7 +3471,11 @@
     ],
     "pinyin": "duegao",
     "pyAbbr": "deg",
-    "initial": "D"
+    "initial": "D",
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "destroyingangel",
@@ -2600,7 +3544,11 @@
     ],
     "pinyin": "linbingbaiegao",
     "pyAbbr": "lbbeg",
-    "initial": "L"
+    "initial": "L",
+    "capCm": [
+      5,
+      12
+    ]
   },
   {
     "id": "fuliginea",
@@ -2666,7 +3614,11 @@
     ],
     "pinyin": "huihuawenegao",
     "pyAbbr": "hhweg",
-    "initial": "H"
+    "initial": "H",
+    "capCm": [
+      5,
+      10
+    ]
   },
   {
     "id": "exitialis",
@@ -2730,7 +3682,11 @@
     ],
     "pinyin": "zhimingegao",
     "pyAbbr": "zmeg",
-    "initial": "Z"
+    "initial": "Z",
+    "capCm": [
+      4,
+      9
+    ]
   },
   {
     "id": "flyagaric",
@@ -2802,7 +3758,11 @@
     ],
     "pinyin": "duyingsan",
     "pyAbbr": "dys",
-    "initial": "D"
+    "initial": "D",
+    "capCm": [
+      8,
+      20
+    ]
   },
   {
     "id": "panther",
@@ -2867,7 +3827,11 @@
     ],
     "pinyin": "baobanegao",
     "pyAbbr": "bbeg",
-    "initial": "B"
+    "initial": "B",
+    "capCm": [
+      5,
+      12
+    ]
   },
   {
     "id": "citrina",
@@ -2928,7 +3892,11 @@
     ],
     "pinyin": "ningmenghuangegao",
     "pyAbbr": "nmheg",
-    "initial": "N"
+    "initial": "N",
+    "capCm": [
+      4,
+      10
+    ]
   },
   {
     "id": "blusher",
@@ -2978,7 +3946,25 @@
     ],
     "pinyin": "zhegaiegao",
     "pyAbbr": "zgeg",
-    "initial": "Z"
+    "initial": "Z",
+    "idKeys": [
+      {
+        "text": "菌盖褐红色，带灰白色疣状鳞片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "受伤或被虫蛀处慢慢变红，是名字的由来",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄有菌环，基部膨大但菌托不明显",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "caesar",
@@ -3028,7 +4014,25 @@
     ],
     "pinyin": "chenggaiegao",
     "pyAbbr": "cgeg",
-    "initial": "C"
+    "initial": "C",
+    "idKeys": [
+      {
+        "text": "菌盖橙红色光滑，边缘有条纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶和菌柄都是黄色",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "基部有大而松软的白色菌托",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      8,
+      20
+    ]
   },
   {
     "id": "eggamanita",
@@ -3075,7 +4079,25 @@
     ],
     "pinyin": "honghuangegao",
     "pyAbbr": "hheg",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "菌盖橙红至红色，边缘有明显条纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶和菌柄黄色，菌柄有环带状花纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "基部有白色囊状菌托，幼时像一颗蛋",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      6,
+      15
+    ]
   },
   {
     "id": "subjunquillea",
@@ -3139,7 +4161,11 @@
     ],
     "pinyin": "huanggaiegao",
     "pyAbbr": "hgeg",
-    "initial": "H"
+    "initial": "H",
+    "capCm": [
+      4,
+      9
+    ]
   },
   {
     "id": "grisette",
@@ -3185,7 +4211,25 @@
     ],
     "pinyin": "huiegao",
     "pyAbbr": "heg",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "菌盖灰色，边缘有明显的放射状条纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "没有菌环，这在鹅膏里少见",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "基部有白色囊状菌托，菌柄细长",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      4,
+      10
+    ]
   },
   {
     "id": "greenspored",
@@ -3251,7 +4295,11 @@
     ],
     "pinyin": "daqingzhesan",
     "pyAbbr": "dqzs",
-    "initial": "D"
+    "initial": "D",
+    "capCm": [
+      7,
+      30
+    ]
   },
   {
     "id": "parasol",
@@ -3300,7 +4348,25 @@
     ],
     "pinyin": "gaodahuanbinggu",
     "pyAbbr": "gdhbg",
-    "initial": "G"
+    "initial": "G",
+    "idKeys": [
+      {
+        "text": "菌盖大而平展，褐色鳞片呈同心排列",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄细长，有蛇皮状花纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌环厚实，可以上下滑动",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      10,
+      30
+    ]
   },
   {
     "id": "lepiotabrun",
@@ -3366,7 +4432,11 @@
     ],
     "pinyin": "rouhelinhuanbinggu",
     "pyAbbr": "rhlhbg",
-    "initial": "R"
+    "initial": "R",
+    "capCm": [
+      2,
+      6
+    ]
   },
   {
     "id": "subnigricans",
@@ -3430,7 +4500,11 @@
     ],
     "pinyin": "yaxizhehonggu",
     "pyAbbr": "yxzhg",
-    "initial": "Y"
+    "initial": "Y",
+    "capCm": [
+      5,
+      12
+    ]
   },
   {
     "id": "sickener",
@@ -3494,7 +4568,11 @@
     ],
     "pinyin": "duhonggu",
     "pyAbbr": "dhg",
-    "initial": "D"
+    "initial": "D",
+    "capCm": [
+      3,
+      10
+    ]
   },
   {
     "id": "funeralbell",
@@ -3564,7 +4642,11 @@
     ],
     "pinyin": "qiushengkuibaosan",
     "pyAbbr": "qskbs",
-    "initial": "Q"
+    "initial": "Q",
+    "capCm": [
+      1.5,
+      5
+    ]
   },
   {
     "id": "sulphurtuft",
@@ -3631,7 +4713,11 @@
     ],
     "pinyin": "cushengchuimugu",
     "pyAbbr": "cscmg",
-    "initial": "C"
+    "initial": "C",
+    "capCm": [
+      2,
+      7
+    ]
   },
   {
     "id": "deadlywebcap",
@@ -3694,7 +4780,11 @@
     ],
     "pinyin": "xilinsimojun",
     "pyAbbr": "xlsmj",
-    "initial": "X"
+    "initial": "X",
+    "capCm": [
+      3,
+      8
+    ]
   },
   {
     "id": "falsemorel",
@@ -3760,7 +4850,11 @@
     ],
     "pinyin": "luhuajun",
     "pyAbbr": "lhj",
-    "initial": "L"
+    "initial": "L",
+    "capCm": [
+      3,
+      12
+    ]
   },
   {
     "id": "jackolantern",
@@ -3822,7 +4916,11 @@
     ],
     "pinyin": "aoerleiqigu",
     "pyAbbr": "aelqg",
-    "initial": "A"
+    "initial": "A",
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "tsukiyotake",
@@ -3887,7 +4985,11 @@
     ],
     "pinyin": "yueyejun",
     "pyAbbr": "yyj",
-    "initial": "Y"
+    "initial": "Y",
+    "capCm": [
+      10,
+      25
+    ]
   },
   {
     "id": "glowmycena",
@@ -3936,7 +5038,25 @@
     ],
     "pinyin": "yingguangxiaogu",
     "pyAbbr": "ygxg",
-    "initial": "Y"
+    "initial": "Y",
+    "idKeys": [
+      {
+        "text": "白天是灰白色半透明小菇，认不出来",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "夜间整个菌体发出绿色荧光",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "雨季长在竹林和阔叶林的枯枝落叶上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      1,
+      3
+    ]
   },
   {
     "id": "bittermycena",
@@ -3983,7 +5103,25 @@
     ],
     "pinyin": "kushangu",
     "pyAbbr": "ksg",
-    "initial": "K"
+    "initial": "K",
+    "idKeys": [
+      {
+        "text": "小型贝壳形，淡褐色，侧生短柄",
+        "src": "wiki-en"
+      },
+      {
+        "text": "层叠丛生于枯木上",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "北美的个体夜间发光，亚洲的多不发光",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      1,
+      3
+    ]
   },
   {
     "id": "stinkhorn",
@@ -4030,7 +5168,25 @@
     ],
     "pinyin": "baiguibi",
     "pyAbbr": "bgb",
-    "initial": "B"
+    "initial": "B",
+    "idKeys": [
+      {
+        "text": "白色海绵状菌柄，顶端是墨绿色黏滑的孢体帽",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "有强烈的腐臭味，招来苍蝇",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "从一颗白色的蛋里长出，几小时就长成",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      10,
+      25
+    ]
   },
   {
     "id": "redcage",
@@ -4076,7 +5232,25 @@
     ],
     "pinyin": "honglongtoujun",
     "pyAbbr": "hltj",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "鲜红色网笼状，没有菌柄",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "从白色的蛋里长出，内壁有臭味的孢体",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在花园和木屑覆盖物上",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "devilsfingers",
@@ -4123,7 +5297,25 @@
     ],
     "pinyin": "zhangyuguibi",
     "pyAbbr": "zygb",
-    "initial": "Z"
+    "initial": "Z",
+    "idKeys": [
+      {
+        "text": "鲜红色触手状分叉，展开像海星",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "触手内侧有黑色臭味的孢体",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "从白色的蛋里长出，长在木屑和草地",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "bleedingtooth",
@@ -4166,7 +5358,25 @@
     ],
     "pinyin": "chuxiechijun",
     "pyAbbr": "cxcj",
-    "initial": "C"
+    "initial": "C",
+    "idKeys": [
+      {
+        "text": "白色菌盖表面渗出鲜红色液滴",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌盖下方是齿刺，老菌整体变褐",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在针叶林地面",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      4,
+      12
+    ]
   },
   {
     "id": "bluemushroom",
@@ -4207,7 +5417,25 @@
     ],
     "pinyin": "huoshifenzhejun",
     "pyAbbr": "hsfzj",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "整体鲜蓝色，菌盖圆锥形",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶蓝色带红色边缘",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在新西兰和印度的森林",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      2,
+      4
+    ]
   },
   {
     "id": "indigomilk",
@@ -4249,7 +5477,25 @@
     ],
     "pinyin": "dianlanrugu",
     "pyAbbr": "dlrg",
-    "initial": "D"
+    "initial": "D",
+    "idKeys": [
+      {
+        "text": "整体靛蓝色，菌盖有同心环纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "受伤流出蓝色乳汁，久了变绿",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在美洲和东亚的林地",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "violetcoral",
@@ -4294,7 +5540,25 @@
     ],
     "pinyin": "zishanhujun",
     "pyAbbr": "zshj",
-    "initial": "Z"
+    "initial": "Z",
+    "idKeys": [
+      {
+        "text": "整体紫色，珊瑚状分枝",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "质地脆，长在草地和林地",
+        "src": "wiki-en"
+      },
+      {
+        "text": "颜色鲜艳，在绿草中很显眼",
+        "src": "photo"
+      }
+    ],
+    "capCm": [
+      3,
+      10
+    ]
   },
   {
     "id": "scarletcup",
@@ -4337,7 +5601,25 @@
     ],
     "pinyin": "xinghongroubeijun",
     "pyAbbr": "xhrbj",
-    "initial": "X"
+    "initial": "X",
+    "idKeys": [
+      {
+        "text": "鲜红色杯状，杯口略内卷",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "杯外侧淡色有细毛",
+        "src": "wiki-en"
+      },
+      {
+        "text": "早春长在落叶层的枯枝上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      1,
+      5
+    ]
   },
   {
     "id": "orangepeel",
@@ -4381,7 +5663,25 @@
     ],
     "pinyin": "chenghuangwangbaopanjun",
     "pyAbbr": "chwbpj",
-    "initial": "C"
+    "initial": "C",
+    "idKeys": [
+      {
+        "text": "亮橙色杯盘状，像扔在地上的橙子皮",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "没有菌柄，直接贴地",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在裸露的土地和路边，常成群",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      2,
+      10
+    ]
   },
   {
     "id": "greenelfcup",
@@ -4423,7 +5723,25 @@
     ],
     "pinyin": "xiaobaolvbeipanjun",
     "pyAbbr": "xblbpj",
-    "initial": "X"
+    "initial": "X",
+    "idKeys": [
+      {
+        "text": "蓝绿色小杯，只有几毫米",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在的枯木也会被染成蓝绿色",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在阔叶树枯枝上",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      0.2,
+      0.6
+    ]
   },
   {
     "id": "candlesnuff",
@@ -4469,7 +5787,25 @@
     ],
     "pinyin": "lujiaotanjiaojun",
     "pyAbbr": "ljtjj",
-    "initial": "L"
+    "initial": "L",
+    "idKeys": [
+      {
+        "text": "黑色柄，顶端白色粉状，像烛芯",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "常有鹿角状分叉",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在腐木和树桩上，全年可见",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      2,
+      6
+    ]
   },
   {
     "id": "deadmanfingers",
@@ -4514,7 +5850,25 @@
     ],
     "pinyin": "duoxingtanjiaojun",
     "pyAbbr": "dxtjj",
-    "initial": "D"
+    "initial": "D",
+    "idKeys": [
+      {
+        "text": "黑色棒状，从地面伸出像手指",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "表面粗糙，内部白色",
+        "src": "wiki-en"
+      },
+      {
+        "text": "丛生于埋在土里的腐木上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      8
+    ]
   },
   {
     "id": "kingalfred",
@@ -4565,7 +5919,25 @@
     ],
     "pinyin": "heiluncengtanke",
     "pyAbbr": "hlctk",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "黑褐色半球形，像烧焦的面包",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "切开内部有银灰与黑色相间的同心环",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在阔叶树枯木上，质地硬",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      2,
+      6
+    ]
   },
   {
     "id": "tinder",
@@ -4620,7 +5992,25 @@
     ],
     "pinyin": "muticengkongjun",
     "pyAbbr": "mtckj",
-    "initial": "M"
+    "initial": "M",
+    "idKeys": [
+      {
+        "text": "马蹄形，灰褐色带同心带纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "质地像木头，多年生，一年长一层",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在桦树和山毛榉的活树或枯木上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      30
+    ]
   },
   {
     "id": "artistconk",
@@ -4676,7 +6066,25 @@
     ],
     "pinyin": "shushelingzhi",
     "pyAbbr": "sslz",
-    "initial": "S"
+    "initial": "S",
+    "idKeys": [
+      {
+        "text": "扁平的半圆形，上表面灰褐色有同心纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "下表面白色，划过会留下褐色痕迹，能作画",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在阔叶树树干，多年生",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      10,
+      40
+    ]
   },
   {
     "id": "chickenwoods",
@@ -4720,7 +6128,25 @@
     ],
     "pinyin": "liuhuangjun",
     "pyAbbr": "lhj",
-    "initial": "L"
+    "initial": "L",
+    "idKeys": [
+      {
+        "text": "亮橙黄色层叠扇形，颜色像鸡蛋黄",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "下表面硫磺黄色有细孔",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在阔叶树树干上，可以长成一大片",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      10,
+      40
+    ]
   },
   {
     "id": "beefsteak",
@@ -4762,7 +6188,25 @@
     ],
     "pinyin": "ganseniupaijun",
     "pyAbbr": "gsnpj",
-    "initial": "G"
+    "initial": "G",
+    "idKeys": [
+      {
+        "text": "深红色舌状，表面湿润，像一块生肝",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "切开有红色汁液和肉纹，下表面淡黄色有细孔",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在栎树和栗树的树干基部",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      7,
+      25
+    ]
   },
   {
     "id": "splitgill",
@@ -4816,7 +6260,25 @@
     ],
     "pinyin": "liezhejun",
     "pyAbbr": "lzj",
-    "initial": "L"
+    "initial": "L",
+    "idKeys": [
+      {
+        "text": "灰白色小扇形，上表面密生绒毛",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "下方的菌褶沿中线纵向裂开，干时向内卷",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在各种枯木上，全球最常见的真菌之一",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      1,
+      4
+    ]
   },
   {
     "id": "chaga",
@@ -4869,7 +6331,25 @@
     ],
     "pinyin": "huahekongjun",
     "pyAbbr": "hhkj",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "黑色炭状不规则块，像烧焦的树瘤",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "掰开内部是橙褐色",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在活桦树的树干上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      10,
+      40
+    ]
   },
   {
     "id": "caterpillar",
@@ -4914,7 +6394,25 @@
     ],
     "pinyin": "dongchongxiacao",
     "pyAbbr": "dcxc",
-    "initial": "D"
+    "initial": "D",
+    "idKeys": [
+      {
+        "text": "下半是僵化的蝙蝠蛾幼虫，上半是从虫头长出的棒状子座",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "子座深褐色，比虫体细长",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在青藏高原的高山草甸，要挖出来才看得见",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      8
+    ]
   },
   {
     "id": "militaris",
@@ -4959,7 +6457,25 @@
     ],
     "pinyin": "yongchongcao",
     "pyAbbr": "ycc",
-    "initial": "Y"
+    "initial": "Y",
+    "idKeys": [
+      {
+        "text": "橙色棒状，顶端表面有细小颗粒",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "从埋在土里或落叶下的蛹伸出",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在林地落叶层，秋季多见",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      2,
+      6
+    ]
   },
   {
     "id": "zombieant",
@@ -5003,7 +6519,25 @@
     ],
     "pinyin": "pianceshechongcao",
     "pyAbbr": "pcscc",
-    "initial": "P"
+    "initial": "P",
+    "idKeys": [
+      {
+        "text": "一只蚂蚁咬在叶脉或树枝上不动，从头部伸出一根细长子座",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "子座顶端有一个略膨大的头",
+        "src": "wiki-en"
+      },
+      {
+        "text": "热带雨林的林下植物叶背可见",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      0.5,
+      1.5
+    ]
   },
   {
     "id": "blacktruffle",
@@ -5049,7 +6583,25 @@
     ],
     "pinyin": "heibaokuaijun",
     "pyAbbr": "hbkj",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "黑色不规则块状，表面布满多角形的疣",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "切开内部深褐带白色大理石纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在栎树根部的地下，要靠狗或猪嗅出来",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      8
+    ]
   },
   {
     "id": "chinesetruffle",
@@ -5095,7 +6647,25 @@
     ],
     "pinyin": "zhonghuakuaijun",
     "pyAbbr": "zhkj",
-    "initial": "Z"
+    "initial": "Z",
+    "idKeys": [
+      {
+        "text": "黑色块状，表面有疣，与黑孢块菌极像",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "切开内部褐色带白色纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在云南和四川的松栎林地下",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      2,
+      6
+    ]
   },
   {
     "id": "lobster",
@@ -5137,7 +6707,25 @@
     ],
     "pinyin": "longxiajun",
     "pyAbbr": "lxj",
-    "initial": "L"
+    "initial": "L",
+    "idKeys": [
+      {
+        "text": "橙红色扭曲团块，像煮熟的龙虾壳",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "其实是一种霉菌包住了别的蘑菇，表面粗糙有颗粒",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在针叶林地面",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "earpick",
@@ -5181,7 +6769,25 @@
     ],
     "pinyin": "ershijun",
     "pyAbbr": "esj",
-    "initial": "E"
+    "initial": "E",
+    "idKeys": [
+      {
+        "text": "小型，褐色菌盖侧生在细长的毛柄上",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌盖下方是齿刺",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "只长在埋在土里的松果上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      1,
+      3
+    ]
   },
   {
     "id": "witchbutter",
@@ -5227,7 +6833,25 @@
     ],
     "pinyin": "jiner",
     "pyAbbr": "je",
-    "initial": "J"
+    "initial": "J",
+    "idKeys": [
+      {
+        "text": "金黄色脑状胶质团",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "湿时饱满，干后收缩变硬",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在阔叶树枯木上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      8
+    ]
   },
   {
     "id": "blackwitch",
@@ -5276,7 +6900,25 @@
     ],
     "pinyin": "heier",
     "pyAbbr": "he",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "黑色胶质团块，表面有细小疣点",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "湿时膨大发亮，干后缩成硬壳",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在栎树等阔叶树的枯枝上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      2,
+      6
+    ]
   },
   {
     "id": "stagshorn",
@@ -5323,7 +6965,25 @@
     ],
     "pinyin": "jiaojiaoer",
     "pyAbbr": "jje",
-    "initial": "J"
+    "initial": "J",
+    "idKeys": [
+      {
+        "text": "橙黄色鹿角状分叉，胶质",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "手感滑腻有弹性，不脆",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在针叶树枯木上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      2,
+      8
+    ]
   },
   {
     "id": "amethyst",
@@ -5371,7 +7031,25 @@
     ],
     "pinyin": "zilamo",
     "pyAbbr": "zlm",
-    "initial": "Z"
+    "initial": "Z",
+    "idKeys": [
+      {
+        "text": "整体紫水晶色，干后褪成灰白",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶厚而稀疏，同样是紫色",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄细而坚韧，长在林地",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      2,
+      6
+    ]
   },
   {
     "id": "parrot",
@@ -5418,7 +7096,25 @@
     ],
     "pinyin": "yingwushisan",
     "pyAbbr": "ywss",
-    "initial": "Y"
+    "initial": "Y",
+    "idKeys": [
+      {
+        "text": "菌盖绿色转黄色，表面黏滑",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "小型，菌柄同样黏滑",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在草地和林缘",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      1,
+      4
+    ]
   },
   {
     "id": "scarletwaxcap",
@@ -5463,7 +7159,25 @@
     ],
     "pinyin": "hongshisan",
     "pyAbbr": "hss",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "鲜红色小型菌盖，湿时有蜡质光泽",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶厚，红色带黄边",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在未施肥的老草地上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      2,
+      5
+    ]
   },
   {
     "id": "wrinkledpeach",
@@ -5507,7 +7221,25 @@
     ],
     "pinyin": "wanggaihongzhesan",
     "pyAbbr": "wghzs",
-    "initial": "W"
+    "initial": "W",
+    "idKeys": [
+      {
+        "text": "粉红色菌盖，表面有网状皱纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶粉红色，菌柄偏生",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在榆树枯木上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      8
+    ]
   },
   {
     "id": "bleedingbonnet",
@@ -5555,7 +7287,25 @@
     ],
     "pinyin": "xuehongxiaogu",
     "pyAbbr": "xhxg",
-    "initial": "X"
+    "initial": "X",
+    "idKeys": [
+      {
+        "text": "粉红褐色钟形小菇，边缘有齿",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "折断菌柄流出暗红色汁液",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "丛生于阔叶树枯木上",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      1,
+      4
+    ]
   },
   {
     "id": "jellyear",
@@ -5603,7 +7353,25 @@
     ],
     "pinyin": "youtaier",
     "pyAbbr": "yte",
-    "initial": "Y"
+    "initial": "Y",
+    "idKeys": [
+      {
+        "text": "耳状胶质，红褐色，表面有细绒毛",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "湿时半透明有弹性",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在接骨木等阔叶树的枯枝上",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      3,
+      10
+    ]
   },
   {
     "id": "yellowstainer",
@@ -5670,7 +7438,11 @@
     ],
     "pinyin": "huangbanmogu",
     "pyAbbr": "hbmg",
-    "initial": "H"
+    "initial": "H",
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "horsemushroom",
@@ -5716,7 +7488,25 @@
     ],
     "pinyin": "yemogu",
     "pyAbbr": "ymg",
-    "initial": "Y"
+    "initial": "Y",
+    "idKeys": [
+      {
+        "text": "白色大型菌盖，擦伤后略变黄",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "有茴香的甜香味",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶粉褐转深褐，菌环双层，长在草地",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      8,
+      20
+    ]
   },
   {
     "id": "rollrim",
@@ -5773,7 +7563,11 @@
     ],
     "pinyin": "juanbianzhuanggu",
     "pyAbbr": "jbzg",
-    "initial": "J"
+    "initial": "J",
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "bitterbolete",
@@ -5819,7 +7613,25 @@
     ],
     "pinyin": "kufenbaoniuganjun",
     "pyAbbr": "kfbngj",
-    "initial": "K"
+    "initial": "K",
+    "idKeys": [
+      {
+        "text": "菌盖褐色，菌柄有深褐色粗网纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌孔白色转粉红，老菌明显发粉",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在针叶林，味极苦",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "satan",
@@ -5888,7 +7700,11 @@
     ],
     "pinyin": "sadanniuganjun",
     "pyAbbr": "sdngj",
-    "initial": "S"
+    "initial": "S",
+    "capCm": [
+      8,
+      25
+    ]
   },
   {
     "id": "earthball",
@@ -5955,7 +7771,11 @@
     ],
     "pinyin": "juhuangyingpimabo",
     "pyAbbr": "jhypmb",
-    "initial": "J"
+    "initial": "J",
+    "capCm": [
+      3,
+      10
+    ]
   },
   {
     "id": "formosa",
@@ -6018,7 +7838,11 @@
     ],
     "pinyin": "meilizhihujun",
     "pyAbbr": "mlzhj",
-    "initial": "M"
+    "initial": "M",
+    "capCm": [
+      8,
+      20
+    ]
   },
   {
     "id": "coralRamaria",
@@ -6062,7 +7886,25 @@
     ],
     "pinyin": "putaozhuangzhihujun",
     "pyAbbr": "ptzzhj",
-    "initial": "P"
+    "initial": "P",
+    "idKeys": [
+      {
+        "text": "珊瑚状分枝，白色基部粗壮",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "分枝顶端粉红色，像一串葡萄",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在阔叶林地面",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      7,
+      15
+    ]
   },
   {
     "id": "gomphus",
@@ -6124,7 +7966,11 @@
     ],
     "pinyin": "maodinggu",
     "pyAbbr": "mdg",
-    "initial": "M"
+    "initial": "M",
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "ivory",
@@ -6189,7 +8035,11 @@
     ],
     "pinyin": "baishuangbeisan",
     "pyAbbr": "bsbs",
-    "initial": "B"
+    "initial": "B",
+    "capCm": [
+      2,
+      5
+    ]
   },
   {
     "id": "livid",
@@ -6254,7 +8104,11 @@
     ],
     "pinyin": "dufenzhejun",
     "pyAbbr": "dfzj",
-    "initial": "D"
+    "initial": "D",
+    "capCm": [
+      6,
+      20
+    ]
   },
   {
     "id": "equestre",
@@ -6315,7 +8169,11 @@
     ],
     "pinyin": "youkoumo",
     "pyAbbr": "ykm",
-    "initial": "Y"
+    "initial": "Y",
+    "capCm": [
+      5,
+      12
+    ]
   },
   {
     "id": "poisonpie",
@@ -6372,7 +8230,11 @@
     ],
     "pinyin": "daduhuaxiusan",
     "pyAbbr": "ddhxs",
-    "initial": "D"
+    "initial": "D",
+    "capCm": [
+      4,
+      10
+    ]
   },
   {
     "id": "leucocoprinus",
@@ -6438,7 +8300,11 @@
     ],
     "pinyin": "chunhuangbaiguisan",
     "pyAbbr": "chbgs",
-    "initial": "C"
+    "initial": "C",
+    "capCm": [
+      2,
+      5
+    ]
   },
   {
     "id": "deerpluteus",
@@ -6486,7 +8352,25 @@
     ],
     "pinyin": "huiguangbinggu",
     "pyAbbr": "hgbg",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "菌盖褐色，表面有放射状纤维",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶白色转粉红，与菌柄分离",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在腐木和木屑上，没有菌环和菌托",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      4,
+      12
+    ]
   },
   {
     "id": "candolle",
@@ -6538,7 +8422,25 @@
     ],
     "pinyin": "baihuangxiaocuibinggu",
     "pyAbbr": "bhxcbg",
-    "initial": "B"
+    "initial": "B",
+    "idKeys": [
+      {
+        "text": "米白至淡黄褐色的小型薄菌盖",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌盖边缘常挂着白色菌幕碎片",
+        "src": "wiki-en"
+      },
+      {
+        "text": "丛生于草地和埋木附近，菌柄细而脆",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      7
+    ]
   },
   {
     "id": "crested",
@@ -6583,7 +8485,25 @@
     ],
     "pinyin": "guansuohujun",
     "pyAbbr": "gshj",
-    "initial": "G"
+    "initial": "G",
+    "idKeys": [
+      {
+        "text": "白色珊瑚状，分枝顶端呈鸡冠状细裂",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "质地脆，老菌变灰",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在林地落叶层",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      2,
+      8
+    ]
   },
   {
     "id": "redbelt",
@@ -6638,7 +8558,25 @@
     ],
     "pinyin": "hongyuannicengkongjun",
     "pyAbbr": "hynckj",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "蹄形，上表面黑灰色带红褐色边缘带",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "生长边白色，下表面淡黄色有细孔",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在针叶树枯木和倒木上，多年生",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      5,
+      25
+    ]
   },
   {
     "id": "birchpolypore",
@@ -6684,7 +8622,25 @@
     ],
     "pinyin": "huaboguanjun",
     "pyAbbr": "hbgj",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "半圆形，上表面灰白至淡褐色光滑",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "下表面白色有细孔，边缘圆钝",
+        "src": "wiki-en"
+      },
+      {
+        "text": "只长在桦树上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      20
+    ]
   },
   {
     "id": "giantpolypore",
@@ -6729,7 +8685,25 @@
     ],
     "pinyin": "jugaikongjun",
     "pyAbbr": "jgkj",
-    "initial": "J"
+    "initial": "J",
+    "idKeys": [
+      {
+        "text": "许多褐色扇形叠成一大丛，可达半米",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "下表面白色，按压后变黑",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在阔叶树树基和根部",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      20,
+      60
+    ]
   },
   {
     "id": "falseturkey",
@@ -6784,7 +8758,25 @@
     ],
     "pinyin": "maorengejun",
     "pyAbbr": "mrgj",
-    "initial": "M"
+    "initial": "M",
+    "idKeys": [
+      {
+        "text": "橙黄色薄片状，上表面有绒毛",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "下表面光滑无孔，这是与云芝的区别",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "层叠密生于枯木上",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      1,
+      4
+    ]
   },
   {
     "id": "lateoyster",
@@ -6830,7 +8822,25 @@
     ],
     "pinyin": "yaceer",
     "pyAbbr": "yce",
-    "initial": "Y"
+    "initial": "Y",
+    "idKeys": [
+      {
+        "text": "菌盖橄榄绿至黄绿色，表面黏滑",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶黄色，菌柄很短且侧生",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "晚秋到初冬长在阔叶树枯木上",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      3,
+      10
+    ]
   },
   {
     "id": "bigred",
@@ -6874,7 +8884,25 @@
     ],
     "pinyin": "huirouhonggu",
     "pyAbbr": "hrhg",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "菌盖暗红至紫红色，中央略下凹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶淡黄色，菌柄白色常带红晕",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在南方的常绿阔叶林",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      6,
+      12
+    ]
   },
   {
     "id": "japonica",
@@ -6937,7 +8965,11 @@
     ],
     "pinyin": "ribenhonggu",
     "pyAbbr": "rbhg",
-    "initial": "R"
+    "initial": "R",
+    "capCm": [
+      6,
+      15
+    ]
   },
   {
     "id": "woollymilk",
@@ -7002,7 +9034,11 @@
     ],
     "pinyin": "maotourugu",
     "pyAbbr": "mtrg",
-    "initial": "M"
+    "initial": "M",
+    "capCm": [
+      4,
+      12
+    ]
   },
   {
     "id": "laughing",
@@ -7067,7 +9103,11 @@
     ],
     "pinyin": "juhuangluosan",
     "pyAbbr": "jhls",
-    "initial": "J"
+    "initial": "J",
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "ergot",
@@ -7123,7 +9163,11 @@
     ],
     "pinyin": "maijiaojun",
     "pyAbbr": "mjj",
-    "initial": "M"
+    "initial": "M",
+    "capCm": [
+      1,
+      4
+    ]
   },
   {
     "id": "pisolithus",
@@ -7167,7 +9211,25 @@
     ],
     "pinyin": "doumabo",
     "pyAbbr": "dmb",
-    "initial": "D"
+    "initial": "D",
+    "idKeys": [
+      {
+        "text": "褐色不规则球块，有一根假根似的柄",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "切开内部是许多豆粒状小包",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在贫瘠的沙地和矿渣地",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      4,
+      12
+    ]
   },
   {
     "id": "stereumostrea",
@@ -7222,7 +9284,25 @@
     ],
     "pinyin": "shanxingrengejun",
     "pyAbbr": "sxrgj",
-    "initial": "S"
+    "initial": "S",
+    "idKeys": [
+      {
+        "text": "扇形薄片，橙褐色带同心环带",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "下表面光滑无孔",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "层叠长在阔叶树枯木上",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      2,
+      7
+    ]
   },
   {
     "id": "conocybe",
@@ -7287,7 +9367,11 @@
     ],
     "pinyin": "zhouzhuigaisan",
     "pyAbbr": "zzgs",
-    "initial": "Z"
+    "initial": "Z",
+    "capCm": [
+      1,
+      3
+    ]
   },
   {
     "id": "smithiana",
@@ -7350,7 +9434,11 @@
     ],
     "pinyin": "shishiegao",
     "pyAbbr": "sseg",
-    "initial": "S"
+    "initial": "S",
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "cornflower",
@@ -7396,7 +9484,25 @@
     ],
     "pinyin": "lanyuankongniuganjun",
     "pyAbbr": "lykngj",
-    "initial": "L"
+    "initial": "L",
+    "idKeys": [
+      {
+        "text": "菌盖淡黄色，表面有绒毛",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "切开或按压立刻变成深蓝色",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄中空，长在阔叶林沙质土",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      4,
+      12
+    ]
   },
   {
     "id": "sanghuang",
@@ -7450,7 +9556,25 @@
     ],
     "pinyin": "sanghuang",
     "pyAbbr": "sh",
-    "initial": "S"
+    "initial": "S",
+    "idKeys": [
+      {
+        "text": "蹄形或半圆形，上表面黄褐至黑褐色有裂纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "下表面黄色有细孔",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在桑树的活树干上，多年生",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      20
+    ]
   },
   {
     "id": "poria",
@@ -7493,7 +9617,25 @@
     ],
     "pinyin": "fuling",
     "pyAbbr": "fl",
-    "initial": "F"
+    "initial": "F",
+    "idKeys": [
+      {
+        "text": "不规则的地下块状，外皮褐色粗糙",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "内部白色，质地像土豆",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在松树根部的地下，要挖才看得见",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      10,
+      30
+    ]
   },
   {
     "id": "cauliflower",
@@ -7535,7 +9677,25 @@
     ],
     "pinyin": "xiuqiujun",
     "pyAbbr": "xqj",
-    "initial": "X"
+    "initial": "X",
+    "idKeys": [
+      {
+        "text": "白色至淡黄色，许多薄片叠成一大团，像花椰菜",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "薄片边缘波状，质地脆",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在针叶树树基",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      10,
+      30
+    ]
   },
   {
     "id": "chestnutbolete",
@@ -7580,7 +9740,25 @@
     ],
     "pinyin": "liseyuankongniuganjun",
     "pyAbbr": "lsykngj",
-    "initial": "L"
+    "initial": "L",
+    "idKeys": [
+      {
+        "text": "菌盖栗褐色，表面有绒毛",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄同色，中空且脆",
+        "src": "wiki-en"
+      },
+      {
+        "text": "菌孔白色转淡黄，长在阔叶林",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      8
+    ]
   },
   {
     "id": "dryadsaddle",
@@ -7623,7 +9801,25 @@
     ],
     "pinyin": "kuanlinduokongjun",
     "pyAbbr": "kldkj",
-    "initial": "K"
+    "initial": "K",
+    "idKeys": [
+      {
+        "text": "大型扇形，黄褐色，覆盖深褐色鳞片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "下表面白色，孔大而不规则",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "春季长在阔叶树树干上，有黄瓜味",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      10,
+      50
+    ]
   },
   {
     "id": "amanitajack",
@@ -7671,7 +9867,25 @@
     ],
     "pinyin": "jiekexunegao",
     "pyAbbr": "jkxeg",
-    "initial": "J"
+    "initial": "J",
+    "idKeys": [
+      {
+        "text": "菌盖鲜橙红色光滑，边缘有条纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶和菌柄黄色",
+        "src": "wiki-en"
+      },
+      {
+        "text": "基部有白色囊状菌托，长在北美的栎树下",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      6,
+      12
+    ]
   },
   {
     "id": "yellowfoot",
@@ -7718,7 +9932,25 @@
     ],
     "pinyin": "jinhuanglabajun",
     "pyAbbr": "jhlbj",
-    "initial": "J"
+    "initial": "J",
+    "idKeys": [
+      {
+        "text": "菌盖灰褐色漏斗形，菌柄黄色中空",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "下方是钝棱脉，不是真菌褶",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "秋末大群长在苔藓地",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      2,
+      5
+    ]
   },
   {
     "id": "mongolica",
@@ -7762,7 +9994,25 @@
     ],
     "pinyin": "menggukoumo",
     "pyAbbr": "mgkm",
-    "initial": "M"
+    "initial": "M",
+    "idKeys": [
+      {
+        "text": "白色大型菌盖，菌柄粗壮白色",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶白色，菌肉厚实",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在内蒙古草原，排成蘑菇圈",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      15
+    ]
   },
   {
     "id": "redveil",
@@ -7808,7 +10058,25 @@
     ],
     "pinyin": "hongtuozhusun",
     "pyAbbr": "htzs",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "菌柄白色，菌托红色，顶端有孢体帽",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "帽下有白色网状菌裙",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在竹林，栽培品常见于贵州",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      8,
+      15
+    ]
   },
   {
     "id": "goldenear",
@@ -7854,7 +10122,25 @@
     ],
     "pinyin": "yuer",
     "pyAbbr": "ye",
-    "initial": "Y"
+    "initial": "Y",
+    "idKeys": [
+      {
+        "text": "白色至淡粉色的胶质耳状体",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "上表面有绒毛，下表面光滑",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在榆树枯木上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      10
+    ]
   },
   {
     "id": "sordida",
@@ -7903,7 +10189,25 @@
     ],
     "pinyin": "zijingmo",
     "pyAbbr": "zjm",
-    "initial": "Z"
+    "initial": "Z",
+    "idKeys": [
+      {
+        "text": "整体淡紫色，比紫丁香蘑小而颜色淡",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌盖湿时颜色深，干后褪色",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在草地和堆肥上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      8
+    ]
   },
   {
     "id": "lilacbonnet",
@@ -7968,7 +10272,11 @@
     ],
     "pinyin": "jiexiaogu",
     "pyAbbr": "jxg",
-    "initial": "J"
+    "initial": "J",
+    "capCm": [
+      2,
+      5
+    ]
   },
   {
     "id": "woodtuft",
@@ -8017,7 +10325,25 @@
     ],
     "pinyin": "maobingkuengu",
     "pyAbbr": "mbkeg",
-    "initial": "M"
+    "initial": "M",
+    "idKeys": [
+      {
+        "text": "菌盖两色：中央深褐、边缘浅黄，湿时更明显",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄下部有褐色小鳞片，上部有菌环",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "丛生于阔叶树树桩上",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      3,
+      7
+    ]
   },
   {
     "id": "hypholomaL",
@@ -8063,7 +10389,25 @@
     ],
     "pinyin": "zhuanhongchuimugu",
     "pyAbbr": "zhcmg",
-    "initial": "Z"
+    "initial": "Z",
+    "idKeys": [
+      {
+        "text": "菌盖砖红色，边缘颜色浅",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶灰白转紫褐",
+        "src": "wiki-en"
+      },
+      {
+        "text": "秋末丛生于阔叶树树桩上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      3,
+      8
+    ]
   },
   {
     "id": "saddle",
@@ -8108,7 +10452,25 @@
     ],
     "pinyin": "zhoubingbaimaanjun",
     "pyAbbr": "zbbmaj",
-    "initial": "Z"
+    "initial": "Z",
+    "idKeys": [
+      {
+        "text": "白色马鞍形帽，边缘向上翻",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄白色，有深纵沟",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在林地和路边",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      3,
+      8
+    ]
   },
   {
     "id": "jellybaby",
@@ -8151,7 +10513,25 @@
     ],
     "pinyin": "huangbingjiaodichui",
     "pyAbbr": "hbjdc",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "黄褐色胶质小头，像一颗小软糖",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄黄色，同样是胶质",
+        "src": "wiki-en"
+      },
+      {
+        "text": "丛生于潮湿的林地",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      1,
+      3
+    ]
   },
   {
     "id": "earthtongue",
@@ -8193,7 +10573,25 @@
     ],
     "pinyin": "maoshejun",
     "pyAbbr": "msj",
-    "initial": "M"
+    "initial": "M",
+    "idKeys": [
+      {
+        "text": "黑色舌状，从地面直立伸出",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "表面有细绒毛，手摸粗糙",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在苔藓地和落叶层",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      2,
+      6
+    ]
   },
   {
     "id": "pinecone",
@@ -8237,7 +10635,25 @@
     ],
     "pinyin": "songtaniuganjun",
     "pyAbbr": "stngj",
-    "initial": "S"
+    "initial": "S",
+    "idKeys": [
+      {
+        "text": "菌盖覆盖黑灰色粗大鳞片，像松果",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄也有鳞片，菌盖边缘挂着菌幕碎片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌孔白色，受伤变红再变黑",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      4,
+      10
+    ]
   },
   {
     "id": "humongous",
@@ -8283,7 +10699,25 @@
     ],
     "pinyin": "aoshimihuanjun",
     "pyAbbr": "asmhj",
-    "initial": "A"
+    "initial": "A",
+    "idKeys": [
+      {
+        "text": "褐色菌盖带深色小鳞片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄有明显的白色菌环",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "大丛生于针叶树树基，地下菌丝可延伸数公里",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      4,
+      12
+    ]
   },
   {
     "id": "whitetruffle",
@@ -8328,7 +10762,25 @@
     ],
     "pinyin": "baikuaijun",
     "pyAbbr": "bkj",
-    "initial": "B"
+    "initial": "B",
+    "idKeys": [
+      {
+        "text": "淡黄至赭色不规则块状，表面光滑",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "切开内部淡褐色带白色大理石纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在意大利北部的栎树和杨树根部地下",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      2,
+      8
+    ]
   },
   {
     "id": "devilscigar",
@@ -8374,7 +10826,25 @@
     ],
     "pinyin": "dixingzhuangroupanjun",
     "pyAbbr": "dxzrpj",
-    "initial": "D"
+    "initial": "D",
+    "idKeys": [
+      {
+        "text": "未开时像一根深褐色雪茄",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "成熟后裂成星形，内侧橙褐色",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "只见于美国得州和日本，长在腐烂的树根上",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      3,
+      10
+    ]
   },
   {
     "id": "firecoral",
@@ -8439,7 +10909,11 @@
     ],
     "pinyin": "huoyanrong",
     "pyAbbr": "hyr",
-    "initial": "H"
+    "initial": "H",
+    "capCm": [
+      3,
+      12
+    ]
   },
   {
     "id": "trogia",
@@ -8500,7 +10974,11 @@
     ],
     "pinyin": "dugouzhejun",
     "pyAbbr": "dgzj",
-    "initial": "D"
+    "initial": "D",
+    "capCm": [
+      1,
+      3
+    ]
   },
   {
     "id": "hatsudake",
@@ -8546,7 +11024,25 @@
     ],
     "pinyin": "hongzhirugu",
     "pyAbbr": "hzrg",
-    "initial": "H"
+    "initial": "H",
+    "idKeys": [
+      {
+        "text": "菌盖粉橙色带同心环纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "受伤流出暗红色乳汁，之后变绿",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在松树下，初秋最常见",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      4,
+      10
+    ]
   },
   {
     "id": "coralhericium",
@@ -8590,7 +11086,25 @@
     ],
     "pinyin": "shanhuzhuanghoutoujun",
     "pyAbbr": "shzhtj",
-    "initial": "S"
+    "initial": "S",
+    "idKeys": [
+      {
+        "text": "白色分枝团块，每根分枝密生下垂的短齿刺",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "整体像一丛珊瑚",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在阔叶树枯木和倒木上",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      8,
+      25
+    ]
   },
   {
     "id": "venenatus",
@@ -8657,7 +11171,11 @@
     ],
     "pinyin": "duxinniuganjun",
     "pyAbbr": "dxngj",
-    "initial": "D"
+    "initial": "D",
+    "capCm": [
+      6,
+      15
+    ]
   },
   {
     "id": "verpa",
@@ -8719,7 +11237,11 @@
     ],
     "pinyin": "zhougaizhongjun",
     "pyAbbr": "zgzj",
-    "initial": "Z"
+    "initial": "Z",
+    "capCm": [
+      2,
+      5
+    ]
   },
   {
     "id": "gypsy",
@@ -8765,7 +11287,25 @@
     ],
     "pinyin": "zhougaisimojun",
     "pyAbbr": "zgsmj",
-    "initial": "Z"
+    "initial": "Z",
+    "idKeys": [
+      {
+        "text": "菌盖赭黄色，表面覆盖一层白霜状粉",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄有膜质菌环",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在针叶林苔藓地",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      5,
+      12
+    ]
   },
   {
     "id": "violetwebcap",
@@ -8810,7 +11350,25 @@
     ],
     "pinyin": "zirongsimojun",
     "pyAbbr": "zrsmj",
-    "initial": "Z"
+    "initial": "Z",
+    "idKeys": [
+      {
+        "text": "整体深紫色，菌盖有绒毛质感",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶深紫，老后转锈褐",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在阔叶林和针叶林",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      5,
+      12
+    ]
   },
   {
     "id": "waxcapconic",
@@ -8858,7 +11416,25 @@
     ],
     "pinyin": "bianheishisan",
     "pyAbbr": "bhss",
-    "initial": "B"
+    "initial": "B",
+    "idKeys": [
+      {
+        "text": "菌盖红橙色圆锥形，有蜡质光泽",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "受伤或老化后整体变黑",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在草地和林缘的草丛里",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      2,
+      5
+    ]
   },
   {
     "id": "magpie",
@@ -8921,7 +11497,11 @@
     ],
     "pinyin": "queguisan",
     "pyAbbr": "qgs",
-    "initial": "Q"
+    "initial": "Q",
+    "capCm": [
+      4,
+      8
+    ]
   },
   {
     "id": "whitebirdsnest",
@@ -8966,7 +11546,25 @@
     ],
     "pinyin": "baidanchaojun",
     "pyAbbr": "bdcj",
-    "initial": "B"
+    "initial": "B",
+    "idKeys": [
+      {
+        "text": "淡黄褐色小杯，杯内装着白色扁圆的小包",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "杯口幼时有一层白色盖膜",
+        "src": "wiki-en"
+      },
+      {
+        "text": "长在枯枝、木屑和落叶上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      0.5,
+      1
+    ]
   },
   {
     "id": "dogstinkhorn",
@@ -9013,7 +11611,25 @@
     ],
     "pinyin": "goushetoujun",
     "pyAbbr": "gstj",
-    "initial": "G"
+    "initial": "G",
+    "idKeys": [
+      {
+        "text": "细长的白色海绵状柄，顶端橙红色",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "顶端有深色臭味的孢体，被苍蝇吃掉后露出橙色",
+        "src": "wiki-en"
+      },
+      {
+        "text": "从白色的蛋里长出，长在落叶层和木屑",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      6,
+      12
+    ]
   },
   {
     "id": "summertruffle",
@@ -9059,7 +11675,25 @@
     ],
     "pinyin": "xiakuaijun",
     "pyAbbr": "xkj",
-    "initial": "X"
+    "initial": "X",
+    "idKeys": [
+      {
+        "text": "黑色块状，表面有粗大的多角形疣",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "切开内部淡褐色带白色细纹",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "长在阔叶树根部的浅土里",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      2,
+      8
+    ]
   },
   {
     "id": "chlorophyllumB",
@@ -9107,7 +11741,25 @@
     ],
     "pinyin": "culindahuanbinggu",
     "pyAbbr": "cldhbg",
-    "initial": "C"
+    "initial": "C",
+    "idKeys": [
+      {
+        "text": "菌盖褐色，覆盖粗大翘起的鳞片",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌褶白色，切开菌肉变橙红",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "菌柄光滑无花纹，有可活动的菌环",
+        "src": "wiki-en"
+      }
+    ],
+    "capCm": [
+      6,
+      15
+    ]
   },
   {
     "id": "stagshornCoral",
@@ -9153,6 +11805,24 @@
     ],
     "pinyin": "xiaobaolvbeishanhu",
     "pyAbbr": "xblbsh",
-    "initial": "X"
+    "initial": "X",
+    "idKeys": [
+      {
+        "text": "黄色小角状，不分叉或少分叉",
+        "src": "wiki-zh"
+      },
+      {
+        "text": "胶质，只有一两厘米高",
+        "src": "wiki-en"
+      },
+      {
+        "text": "成群长在阔叶树枯木上",
+        "src": "wiki-zh"
+      }
+    ],
+    "capCm": [
+      0.5,
+      1.5
+    ]
   }
 ]
