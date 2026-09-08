@@ -4,13 +4,33 @@
 (function () {
   'use strict';
 
+  // Language must be settled before anything reads a label, or the engine
+  // is up and every locale is registered while the screen still shows the
+  // wrong one — a real failure mode, not a hypothetical one.
+  I18N.setLang(I18N.detect(), { persist: false });
+  GameConfig.retag(I18N.lang());
+  // Static data-i18n markup must be stamped in before any boot-time render
+  // (deep links can call renderDetail/renderProfile before this line ends) —
+  // running this any later would clobber real content with the placeholder
+  // text still sitting in index.html's data-i18n elements.
+  I18N.applyDom();
+
   var C = GameConfig;
   var byId = {};
   MUSHROOM_DATA.forEach(function (m) { byId[m.id] = m; });
 
-  // the last milestone is the whole collection, whatever its size
+  // English idKeys/habitat/fact/quote/lookalikeNotes live in js/i18n_en.gen.js
+  // (build_data.py strips them out of data.gen.js so Chinese-only users don't
+  // download 85 KB of text they'll never see), keyed by species id — same
+  // lookup-by-id shape as PHOTO_CREDITS/PHOTO_EXTRA, not merged onto MUSHROOM_DATA.
+  function enOf(id) { return (typeof I18N_EN !== 'undefined' && I18N_EN[id]) || {}; }
+
+  // the last milestone is the whole collection, whatever its size. Appended
+  // at runtime (after MUSHROOM_DATA loads), so it sits outside config.js's
+  // retag snapshot — its title has to be kept in sync by hand on every
+  // language switch (see the #set-lang handler below).
   C.milestones = C.milestones.concat([
-    { n: MUSHROOM_DATA.length, title: '菌物学家', icon: '🔬' }
+    { n: MUSHROOM_DATA.length, title: I18N.lang() === 'en' ? 'Mycologist' : '菌物学家', icon: '🔬' }
   ]);
 
   var S = Storage.init(C);
@@ -100,10 +120,10 @@
     var who = (c.by || '').replace(/\s*\/\s*(CC0|CC-BY(-SA)?|PD)\s*$/i, '').trim();
     var lic = /\b(CC0|CC[ -]BY|public domain)\b/i.test(who)
       ? '' : ' · ' + esc((c.license || '').toUpperCase());
-    // CC0 / 公有领域的记录 iNat 写成 "no rights reserved"，中文页里直说
-    if (/^(no rights reserved|public domain)$/i.test(who)) { who = '公有领域'; lic = ' · ' + esc((c.license || 'CC0').toUpperCase()); }
-    d.innerHTML = '照片 ' + esc(who) + lic +
-      (c.url ? ' · <a href="' + esc(c.url) + '" target="_blank" rel="noopener">来源</a>' : '');
+    // CC0 / 公有领域的记录 iNat 写成 "no rights reserved"，界面上直说
+    if (/^(no rights reserved|public domain)$/i.test(who)) { who = I18N.t('photo.publicDomain'); lic = ' · ' + esc((c.license || 'CC0').toUpperCase()); }
+    d.innerHTML = I18N.t('photo.credit', { who: esc(who) }) + lic +
+      (c.url ? ' · <a href="' + esc(c.url) + '" target="_blank" rel="noopener">' + I18N.t('photo.source') + '</a>' : '');
     return d;
   }
 
@@ -125,9 +145,9 @@
     d.className = 'photo-credit';
     var who = (ex.by || '').replace(/\s*\/\s*(CC0|CC-BY(-SA)?|PD)\s*$/i, '').trim();
     var lic = /\b(CC0|CC[ -]BY|public domain)\b/i.test(who) ? '' : ' · ' + esc((ex.license || '').toUpperCase());
-    if (/^(no rights reserved|public domain)$/i.test(who)) { who = '公有领域'; lic = ' · ' + esc((ex.license || 'CC0').toUpperCase()); }
-    d.innerHTML = '照片 ' + esc(who) + lic +
-      (ex.url ? ' · <a href="' + esc(ex.url) + '" target="_blank" rel="noopener">来源</a>' : '');
+    if (/^(no rights reserved|public domain)$/i.test(who)) { who = I18N.t('photo.publicDomain'); lic = ' · ' + esc((ex.license || 'CC0').toUpperCase()); }
+    d.innerHTML = I18N.t('photo.credit', { who: esc(who) }) + lic +
+      (ex.url ? ' · <a href="' + esc(ex.url) + '" target="_blank" rel="noopener">' + I18N.t('photo.source') + '</a>' : '');
     return d;
   }
 
@@ -148,7 +168,7 @@
     var c = PHOTO_CREDITS[sp.id];
     var who = (c.by || '').replace(/\s*\/\s*(CC0|CC-BY(-SA)?|PD)\s*$/i, '').trim();
     var lic = /\b(CC0|CC[ -]BY|public domain)\b/i.test(who) ? '' : ' · ' + (c.license || '').toUpperCase();
-    return '照片 ' + who + lic;
+    return I18N.t('photo.credit', { who: who }) + lic;
   }
 
   function loadPhoto(sp) {
@@ -164,10 +184,10 @@
   function shareEntity(sp) {
     loadPhoto(sp).then(function (photo) {
       var card = Share.entityCard(sp, C, drawArtAt, { photo: photo, credit: shareCredit(sp) });
-      return Share.offer(card, C, '我在菌菇图鉴里认出了' + sp.name + '。' + C.share.footer);
+      return Share.offer(card, C, I18N.t('share.identified', { name: I18N.pick(sp.name, sp.nameEn) }) + C.share.footer);
     }).then(function (how) {
-      if (how === 'downloaded') toast('卡片已保存到下载');
-      else if (how === 'failed') toast('生成失败，换个浏览器试试');
+      if (how === 'downloaded') toast(I18N.t('toast.cardSaved'));
+      else if (how === 'failed') toast(I18N.t('toast.shareFailed'));
     });
   }
 
@@ -252,10 +272,48 @@
     };
   })();
 
+  // ---------------------------------------------------------------- language
+  function setLangCurrentLabel() {
+    var el = $('lang-current');
+    if (el) el.textContent = I18N.NATIVE[I18N.lang()];
+  }
+  function relanguage(code) {
+    I18N.setLang(code);
+    GameConfig.retag(I18N.lang());
+    // The final milestone is appended at runtime (see above) and sits
+    // outside config.js's retag snapshot, so it needs a manual re-sync here.
+    C.milestones[C.milestones.length - 1].title = I18N.lang() === 'en' ? 'Mycologist' : '菌物学家';
+    I18N.applyDom();
+    $('safety-bar').textContent = C.safety.banner;
+    $('safety-bar-2').textContent = C.safety.banner;
+    document.title = I18N.t('meta.appName');
+    setLangCurrentLabel();
+    var top = stack[stack.length - 1];
+    show(top.page, top.arg);
+  }
+  $('set-lang').addEventListener('click', function () {
+    sheet('<h2>' + I18N.t('settings.chooseLanguage') + '</h2>' +
+      I18N.SUPPORTED.map(function (code) {
+        return '<button class="row lang-opt" data-lang="' + code + '" style="width:100%;text-align:left;background:none;border:none;padding:0">' +
+          '<span class="lbl">' + I18N.NATIVE[code] + '</span><span class="spacer"></span>' +
+          (I18N.lang() === code ? '<span class="chev">✓</span>' : '') +
+          '</button>';
+      }).join(''),
+      function (el) {
+        Array.prototype.forEach.call(el.querySelectorAll('.lang-opt'), function (b) {
+          b.addEventListener('click', function () {
+            relanguage(b.dataset.lang);
+            closeSheet();
+          });
+        });
+      });
+  });
+  setLangCurrentLabel();
+
   function refreshGardenChrome() {
     var st = Storage.get();
     $('chip-weather').textContent = C.weather[weather].label;
-    $('chip-count').textContent = '已收集 ' + Storage.collected() + ' / ' + MUSHROOM_DATA.length;
+    $('chip-count').textContent = I18N.t('garden.collected', { n: Storage.collected(), total: MUSHROOM_DATA.length });
     $('foray-left').textContent = '(' + st.dailyRuns.free + ')';
 
     // Spores waiting is the reason a player opens the app on day two, so it
@@ -265,7 +323,7 @@
     }).length;
     var chip = $('chip-spores');
     chip.hidden = ready === 0;
-    chip.textContent = '🌀 ' + ready + ' 个孢子待收';
+    chip.textContent = I18N.t('garden.sporesWaiting', { n: ready });
   }
 
   Browse.init({ data: MUSHROOM_DATA, C: C, art: art, openDetail: openDetail, $: $ });
@@ -278,7 +336,7 @@
       Storage.addFragment(sp.rarity, 1);
       Storage.commit();
       Garden.harvested(item);
-      toast('收到 1 个' + C.rarityLabels[sp.rarity] + '孢子');
+      toast(I18N.t('toast.gotFragment', { rarity: C.rarityLabels[sp.rarity] }));
       refreshGardenChrome();
     }
   });
@@ -297,15 +355,15 @@
 
   $('btn-share-garden').addEventListener('click', function () {
     Share.offer(Share.sceneCard($('garden-canvas'), C,
-      '我的菌菇园 · 已收集 ' + Storage.collected() + ' / ' + MUSHROOM_DATA.length), C,
-      '我的菌菇园')
-      .then(function (how) { if (how === 'downloaded') toast('已保存到下载'); });
+      I18N.t('garden.shareCaption', { n: Storage.collected(), total: MUSHROOM_DATA.length })), C,
+      I18N.t('garden.shareText'))
+      .then(function (how) { if (how === 'downloaded') toast(I18N.t('toast.savedToDownloads')); });
   });
   $('btn-night').addEventListener('click', function () { Garden.toggleNight(); });
   $('btn-wind').addEventListener('click', function () { Garden.gust(); });
   $('btn-water').addEventListener('click', function () {
     var st = Storage.get();
-    if (st.hourlyActions.count <= 0) { toast('这一小时的水浇完了，等下一小时'); return; }
+    if (st.hourlyActions.count <= 0) { toast(I18N.t('toast.outOfWaterThisHour')); return; }
     Storage.update(function (s) {
       s.hourlyActions.count -= 1;
       var boost = World.waterBoostMs(C.garden);
@@ -315,7 +373,7 @@
     });
     Storage.bumpTask('water', 1);
     Garden.water();
-    toast('浇水完成，菌子长快了一点');
+    toast(I18N.t('toast.watered'));
   });
 
   // shake to make wind
@@ -332,7 +390,7 @@
   // ---------------------------------------------------------------- foray
   $('btn-foray').addEventListener('click', function () {
     var st = Storage.get();
-    if (st.dailyRuns.free <= 0) { toast('今天的体力用完了，明天再来'); return; }
+    if (st.dailyRuns.free <= 0) { toast(I18N.t('toast.outOfForaysToday')); return; }
     renderBiomes();
     go('biome');
   });
@@ -356,7 +414,7 @@
 
   $('btn-go').addEventListener('click', function () {
     var st = Storage.get();
-    if (st.dailyRuns.free <= 0) { toast('今天的体力用完了'); return; }
+    if (st.dailyRuns.free <= 0) { toast(I18N.t('toast.outOfForays')); return; }
     Storage.update(function (s) {
       s.dailyRuns.free -= 1;
       s.lastBiome = chosenBiome;
@@ -385,8 +443,8 @@
     var v = ref && /\?v=([^&]+)/.exec(ref.getAttribute('src'));
     var s = document.createElement('script');
     s.src = 'js/questions.gen.js' + (v ? '?v=' + v[1] : '');
-    s.onload = function () { if (typeof QUESTIONS !== 'undefined') cb(); else toast('题库加载失败'); };
-    s.onerror = function () { toast('题库加载失败，检查网络后再试'); };
+    s.onload = function () { if (typeof QUESTIONS !== 'undefined') cb(); else toast(I18N.t('toast.questionBankFailed')); };
+    s.onerror = function () { toast(I18N.t('toast.questionBankFailedRetry')); };
     document.head.appendChild(s);
   }
 
@@ -412,7 +470,7 @@
   // questions were picked and what happens when the round ends.
   function startTrainingRound(questions, opts) {
     round = {
-      mode: 'training', label: (opts && opts.label) || '训练',
+      mode: 'training', label: (opts && opts.label) || I18N.t('training.generic'),
       onDone: opts && opts.onDone,
       questions: questions, idx: 0, correct: 0, wrong: 0, toxicHit: false
     };
@@ -448,8 +506,8 @@
       var img = pool.filter(function (q) { return q.type === 'name_from_image'; });
       var rest = shuffledCopy(pool.filter(function (q) { return q.type !== 'name_from_image'; }));
       var qs = img.concat(rest).slice(0, 5);
-      if (!qs.length) { toast('这一种暂时没有题目'); return; }
-      startTrainingRound(qs, { label: m.name + ' · 速测' });
+      if (!qs.length) { toast(I18N.t('toast.noQuestionsForSpecies')); return; }
+      startTrainingRound(qs, { label: I18N.pick(m.name, m.nameEn) + I18N.t('training.quickTestSuffix') });
     });
   }
 
@@ -460,8 +518,8 @@
     ensureQuestions(function () {
       var ids = Browse._facet ? Browse._facet().results().map(function (m) { return m.id; }) : [];
       var qs = imageQuestionsFor(ids, C.quiz.perRound);
-      if (!qs.length) { toast('先去图鉴筛出几种再来'); return; }
-      startTrainingRound(qs, { label: '范围闪卡' });
+      if (!qs.length) { toast(I18N.t('toast.filterCollectionFirst')); return; }
+      startTrainingRound(qs, { label: I18N.t('training.flashcards') });
     });
   }
 
@@ -476,10 +534,11 @@
       (b.lookalikeNotes && b.lookalikeNotes[a.id]) ||
       (b.idKeys && b.idKeys[0] && b.idKeys[0].text) || '';
     var aFirst = Math.random() < 0.5;
-    var options = aFirst ? [a.name, b.name] : [b.name, a.name];
+    var aName = I18N.pick(a.name, a.nameEn), bName = I18N.pick(b.name, b.nameEn);
+    var options = aFirst ? [aName, bName] : [bName, aName];
     return {
       id: 'duel-' + a.id + '-' + b.id, type: 'lookalike_duel', entityId: a.id,
-      q: '这张图是哪一种？', options: options, answerIndex: aFirst ? 0 : 1,
+      q: I18N.t('training.whichOne'), options: options, answerIndex: aFirst ? 0 : 1,
       explanation: diff
     };
   }
@@ -493,8 +552,8 @@
       var q = duelQuestion(a);
       if (q) qs.push(q);
     }
-    if (!qs.length) { toast('数据里还没有配好的相似种可以对决'); return; }
-    startTrainingRound(qs, { label: '易混对决' });
+    if (!qs.length) { toast(I18N.t('toast.noDuelPairsYet')); return; }
+    startTrainingRound(qs, { label: I18N.t('training.duel') });
   }
 
   // "每日 5 题": lowest score first — high mastery and species already seen
@@ -514,19 +573,19 @@
   function startDailyFive() {
     ensureQuestions(function () {
       var qs = imageQuestionsFor(dailyFiveIds());
-      if (!qs.length) { toast('题库还没加载好，再试一次'); return; }
-      startTrainingRound(qs, { label: '每日 5 题' });
+      if (!qs.length) { toast(I18N.t('toast.questionBankNotReady')); return; }
+      startTrainingRound(qs, { label: I18N.t('training.dailyFive') });
     });
   }
 
   function startWrongBook() {
     var ids = Storage.wrongList();
-    if (!ids.length) { toast('错题本是空的，挺好'); return; }
+    if (!ids.length) { toast(I18N.t('toast.wrongBookEmpty')); return; }
     ensureQuestions(function () {
       var qs = imageQuestionsFor(ids, ids.length);
       if (!qs.length) qs = shuffledCopy(QUESTIONS.filter(function (q) { return ids.indexOf(q.entityId) >= 0; })).slice(0, ids.length);
-      if (!qs.length) { toast('这些题目暂时找不到了'); return; }
-      startTrainingRound(qs, { label: '错题本' });
+      if (!qs.length) { toast(I18N.t('toast.wrongBookQuestionsMissing')); return; }
+      startTrainingRound(qs, { label: I18N.t('training.wrongBook') });
     });
   }
 
@@ -545,7 +604,7 @@
     var pick = todaysPick();
     var todayCard = document.createElement('div');
     todayCard.className = 'card';
-    todayCard.innerHTML = '<h2>今日一鱼</h2>';
+    todayCard.innerHTML = '<h2>' + I18N.t('training.pickOfTheDay') + '</h2>';
     var row = document.createElement('div');
     row.className = 'row';
     var thumb = document.createElement('span');
@@ -554,23 +613,23 @@
     row.appendChild(thumb);
     var info = document.createElement('span');
     info.style.flex = '1';
-    info.innerHTML = '<b>' + esc(pick.name) + '</b><br><span class="muted" style="font-size:12px">' + esc(pick.latin) + '</span>';
+    info.innerHTML = '<b>' + esc(I18N.pick(pick.name, pick.nameEn)) + '</b><br><span class="muted" style="font-size:12px">' + esc(pick.latin) + '</span>';
     row.appendChild(info);
     todayCard.appendChild(row);
     var goBtn = document.createElement('button');
     goBtn.className = 'btn wide';
     goBtn.style.marginTop = '10px';
-    goBtn.textContent = '去测一测';
+    goBtn.textContent = I18N.t('training.goTest');
     goBtn.addEventListener('click', function () { startSingleQuiz(pick); });
     todayCard.appendChild(goBtn);
     host.appendChild(todayCard);
 
     var wrongN = Storage.wrongList().length;
     [
-      { label: '范围闪卡', desc: '按图鉴当前筛选出题', fn: startScopedFlashcards, icon: '🗂️' },
-      { label: '易混对决', desc: '两个最像的种，二选一', fn: startDuelQuiz, icon: '⚔️' },
-      { label: '每日 5 题', desc: '挑你最生疏的 5 种', fn: startDailyFive, icon: '📅' },
-      { label: '错题本', desc: wrongN ? ('还有 ' + wrongN + ' 道') : '空的，挺好', fn: startWrongBook, icon: '📕' }
+      { label: I18N.t('training.flashcards'), desc: I18N.t('training.flashcardsDesc'), fn: startScopedFlashcards, icon: '🗂️' },
+      { label: I18N.t('training.duel'), desc: I18N.t('training.duelDesc'), fn: startDuelQuiz, icon: '⚔️' },
+      { label: I18N.t('training.dailyFive'), desc: I18N.t('training.dailyFiveDesc'), fn: startDailyFive, icon: '📅' },
+      { label: I18N.t('training.wrongBook'), desc: wrongN ? I18N.t('training.wrongBookCount', { n: wrongN }) : I18N.t('training.wrongBookEmptyGood'), fn: startWrongBook, icon: '📕' }
     ].forEach(function (m) {
       var card = document.createElement('button');
       card.className = 'card entry-card';
@@ -590,7 +649,7 @@
     round.pres = pres;
     round.answered = false;
 
-    $('quiz-title').textContent = round.mode === 'training' ? round.label : '答题';
+    $('quiz-title').textContent = round.mode === 'training' ? round.label : I18N.t('quiz.title');
     $('quiz-idx').textContent = (round.idx + 1) + ' / ' + round.questions.length;
     $('quiz-bar').style.width = (round.idx / round.questions.length * 100) + '%';
     $('q-explain').innerHTML = '';
@@ -605,14 +664,21 @@
       artBox.style.display = 'none';
     }
 
-    $('q-text').textContent = q.q;
+    // name_from_image is the one question type whose prompt is a fixed
+    // template rather than per-question authored content, so it is the one
+    // type this pass can translate outright; the other 900-odd bank
+    // questions (feature/lookalike/edibility_class/trivia/cold_fact/
+    // myth_buster + curated) are still Chinese-only — see CLAUDE.md.
+    $('q-text').textContent = q.type === 'name_from_image' ? I18N.t('quiz.whichMushroom') : q.q;
+    // English options for name_from_image were baked in at build time
+    // (optionsEn); other types show only what the bank has.
+    var showEn = I18N.lang() === 'en' && pres.optionsEn;
     var box = $('q-opts');
     box.innerHTML = '';
     pres.options.forEach(function (opt, i) {
       var b = document.createElement('button');
       b.className = 'opt';
-      b.innerHTML = '<span>' + opt + '</span>' +
-        (pres.optionsEn ? '<span class="en">' + pres.optionsEn[i] + '</span>' : '');
+      b.innerHTML = showEn ? '<span>' + esc(pres.optionsEn[i]) + '</span>' : '<span>' + opt + '</span>';
       b.addEventListener('click', function () { answer(i); });
       box.appendChild(b);
     });
@@ -666,24 +732,24 @@
 
     var ex = $('q-explain');
     var parts = [];
-    if (choice === -1) parts.push('<b>时间到。</b>');
+    if (choice === -1) parts.push('<b>' + I18N.t('quiz.timeUp') + '</b>');
     if (q.explanation) parts.push(q.explanation);
     var ent2 = q.entityId && byId[q.entityId];
     if (ent2) {
       var ed = C.edibility[ent2.edibility];
-      parts.push('<span class="tag">' + ent2.name + '</span>：' + ent2.fact);
+      parts.push('<span class="tag">' + esc(I18N.pick(ent2.name, ent2.nameEn)) + '</span>：' + esc(I18N.pick(ent2.fact, enOf(ent2.id).factEn)));
       parts.push('<span class="edib" style="background:' + ed.color + '">' + ed.label + '</span> ' +
         '<span class="edib-note">' + ed.note + '</span>');
     }
     ex.innerHTML = '<div class="explain">' + parts.join('<br>') +
-      (q.disclaimer ? '<div class="disclaimer-note">本题考察的是资料如何记载，不是「能不能吃」。</div>' : '') +
+      (q.disclaimer ? '<div class="disclaimer-note">' + I18N.t('quiz.disclaimerNote') + '</div>' : '') +
       '</div>';
 
     var next = document.createElement('button');
     next.className = 'btn wide';
     next.style.marginTop = '12px';
     var isLast = round.idx + 1 >= round.questions.length;
-    next.textContent = !isLast ? '下一题' : (round.mode === 'training' ? '看看结果' : '看看采到了什么');
+    next.textContent = !isLast ? I18N.t('quiz.nextQuestion') : (round.mode === 'training' ? I18N.t('quiz.seeResults') : I18N.t('quiz.seeWhatYouFound'));
     next.addEventListener('click', advance);
     ex.appendChild(next);
     next.scrollIntoView({ block: 'nearest' });
@@ -708,7 +774,7 @@
     if (round.mode === 'training') {
       var onDone = round.onDone, correct = round.correct, total = round.questions.length;
       back();
-      toast('本轮 ' + correct + ' / ' + total + ' 答对');
+      toast(I18N.t('toast.roundScore', { correct: correct, total: total }));
       if (onDone) onDone();
       return;
     }
@@ -725,13 +791,13 @@
       var r = Gacha.rollFragmentRarity(C.gacha);
       Storage.addFragment(r, 1);
       body.innerHTML =
-        '<h2 style="margin-top:26px">只带回了孢子</h2>' +
-        '<p class="muted">答错 ' + round.wrong + ' 题，这趟没找到完整的菌子。</p>' +
+        '<h2 style="margin-top:26px">' + I18N.t('reveal.sporesOnlyTitle') + '</h2>' +
+        '<p class="muted">' + I18N.t('reveal.sporesOnlyBody', { n: round.wrong }) + '</p>' +
         '<div class="res" style="display:inline-flex;margin-top:10px">' +
         '<i style="background:' + rarityColor(r) + '"></i>' +
-        C.rarityLabels[r] + '孢子 ×1</div>' +
-        '<p class="muted" style="margin-top:14px">5 个同档孢子可以合成一张菌卡。</p>';
-      addBtn(actions, '回菌菇园', 'btn wide', function () { backTo('garden'); refreshGardenChrome(); });
+        C.rarityLabels[r] + I18N.t('common.fragmentSuffixX1') + '</div>' +
+        '<p class="muted" style="margin-top:14px">' + I18N.t('reveal.synthHint') + '</p>';
+      addBtn(actions, I18N.t('reveal.backToGarden'), 'btn wide', function () { backTo('garden'); refreshGardenChrome(); });
       go('reveal');
       return;
     }
@@ -770,14 +836,14 @@
     banner.className = 'rarity-banner';
     banner.style.background = rarityColor(sp.rarity);
     banner.style.color = sp.rarity === 'legend' ? '#3A2E00' : '#fff';
-    banner.textContent = deadly ? '☠️ 你遇到了致命的它 — 记住它的样子'
-      : C.rarityLabels[sp.rarity] + (isNew ? ' · 新收录' : ' · 重复');
+    banner.textContent = deadly ? I18N.t('reveal.deadlyBanner')
+      : C.rarityLabels[sp.rarity] + (isNew ? I18N.t('reveal.newSuffix') : I18N.t('reveal.dupeSuffix'));
     body.appendChild(banner);
 
     body.appendChild(art(sp, 190));
 
     var h = document.createElement('h2');
-    h.textContent = sp.name;
+    h.textContent = I18N.pick(sp.name, sp.nameEn);
     body.appendChild(h);
     var la = document.createElement('div');
     la.className = 'latin';
@@ -796,46 +862,46 @@
 
     var q = document.createElement('p');
     q.className = 'quote';
-    q.textContent = '「' + sp.quote + '」';
+    q.textContent = I18N.t('common.quoteOpen') + I18N.pick(sp.quote, enOf(sp.id).quoteEn) + I18N.t('common.quoteClose');
     body.appendChild(q);
 
     var f = document.createElement('p');
     f.className = 'muted';
     f.style.maxWidth = '30em';
     f.style.margin = '0 auto';
-    f.textContent = sp.fact;
+    f.textContent = I18N.pick(sp.fact, enOf(sp.id).factEn);
     body.appendChild(f);
 
     if (perfect) {
       var pf = document.createElement('p');
       pf.style.color = 'var(--accent)';
       pf.style.fontWeight = '600';
-      pf.textContent = '全对！额外获得 1 个' + C.rarityLabels[sp.rarity] + '孢子';
+      pf.textContent = I18N.t('reveal.perfectBonus', { rarity: C.rarityLabels[sp.rarity] });
       body.appendChild(pf);
     }
 
     actions.innerHTML = '';
     if (isNew) {
       var full = Storage.placed().length >= C.slots.max;
-      addBtn(actions, full ? '菌菇园已满' : '🌲 种进菌菇园', 'btn wide', function () {
+      addBtn(actions, full ? I18N.t('garden.full') : I18N.t('garden.plant'), 'btn wide', function () {
         var slot = World.slotFor(sp, C.garden, Storage.placed().map(function (s) { return s.slot; }));
-        if (!slot) { toast('菌菇园满了，先从图鉴里移走一个'); return; }
+        if (!slot) { toast(I18N.t('toast.gardenFullRemoveOne')); return; }
         Storage.place(sp.id, slot.id);
         checkMilestone();
         backTo('garden');
         refreshGardenChrome();
       }).disabled = full;
       if (full) {
-        addBtn(actions, '先收进图鉴', 'btn ghost wide', function () {
+        addBtn(actions, I18N.t('reveal.keepInGuide'), 'btn ghost wide', function () {
           checkMilestone(); backTo('garden'); refreshGardenChrome();
         });
       }
       addBtn(actions, '📤', 'btn ghost', function () { shareEntity(sp); });
     } else {
       var val = C.economy.essenceValue[sp.rarity];
-      addBtn(actions, '♻️ 分解得 ' + val + ' 腐殖质', 'btn wide', function () {
+      addBtn(actions, I18N.t('reveal.recycle', { n: val }), 'btn wide', function () {
         Storage.addEssence(val);
-        toast('获得 ' + val + ' 腐殖质');
+        toast(I18N.t('toast.gotEssence', { n: val }));
         backTo('garden');
         refreshGardenChrome();
       });
@@ -852,15 +918,15 @@
         Storage.commit();
         var ms = m;
         sheet('<h2>' + m.icon + ' ' + m.title + '</h2>' +
-          '<p>已经认识 ' + m.n + ' 种菌子了。</p>' +
+          '<p>' + I18N.t('milestone.body', { n: m.n }) + '</p>' +
           (m.n >= 25 && !st.flags.safetyCardSeen ? safetyCardHtml() : '') +
-          '<button class="btn wide" id="ms-share">📤 分享成就</button>' +
-          '<button class="btn ghost wide" id="ms-close" style="margin-top:8px">继续</button>',
+          '<button class="btn wide" id="ms-share">📤 ' + I18N.t('milestone.share') + '</button>' +
+          '<button class="btn ghost wide" id="ms-close" style="margin-top:8px">' + I18N.t('common.continue') + '</button>',
           function (el) {
             el.querySelector('#ms-share').addEventListener('click', function () {
               Share.offer(Share.milestoneCard(ms, MUSHROOM_DATA.length, C), C,
-                '菌菇图鉴 · ' + ms.title).then(function (how) {
-                  if (how === 'downloaded') toast('卡片已保存到下载');
+                I18N.t('meta.appName') + ' · ' + ms.title).then(function (how) {
+                  if (how === 'downloaded') toast(I18N.t('toast.cardSaved'));
                 });
             });
             el.querySelector('#ms-close').addEventListener('click', closeSheet);
@@ -871,7 +937,7 @@
   }
 
   function safetyCardHtml() {
-    return '<div class="card safety-card" style="margin-top:12px"><h2>🚑 记住这几步</h2><ol>' +
+    return '<div class="card safety-card" style="margin-top:12px"><h2>🚑 ' + I18N.t('safety.rememberSteps') + '</h2><ol>' +
       C.safety.emergency.map(function (s) { return '<li>' + s + '</li>'; }).join('') +
       '</ol></div>';
   }
@@ -883,7 +949,7 @@
   function renderDetail(m) {
     var ed = C.edibility[m.edibility];
     var b = $('detail-body');
-    $('detail-title').textContent = m.name;
+    $('detail-title').textContent = I18N.pick(m.name, m.nameEn);
     b.innerHTML = '';
 
     var box = document.createElement('div');
@@ -896,7 +962,7 @@
       var strip = document.createElement('div');
       strip.className = 'photo-strip';
       var mainPic = art(m, 400);
-      mainPic.addEventListener('click', function () { openLightbox(mainPic.currentSrc || mainPic.src, m.name); });
+      mainPic.addEventListener('click', function () { openLightbox(mainPic.currentSrc || mainPic.src, I18N.pick(m.name, m.nameEn)); });
       strip.appendChild(mainPic);
       extra.forEach(function (ex) {
         var im = document.createElement('img');
@@ -904,7 +970,7 @@
         im.loading = 'lazy';
         im.alt = m.name;
         im.src = ex.file;
-        im.addEventListener('click', function () { openLightbox(im.currentSrc || im.src, m.name); });
+        im.addEventListener('click', function () { openLightbox(im.currentSrc || im.src, I18N.pick(m.name, m.nameEn)); });
         strip.appendChild(im);
       });
       box.appendChild(strip);
@@ -930,14 +996,14 @@
       var pic = art(m, 400);
       box.appendChild(pic);
       if (hasPhoto(m)) {
-        pic.addEventListener('click', function () { openLightbox(pic.currentSrc || pic.src, m.name); });
+        pic.addEventListener('click', function () { openLightbox(pic.currentSrc || pic.src, I18N.pick(m.name, m.nameEn)); });
       }
       if (!hasPhoto(m)) {
         // 示意图是按形态字段画的，未必像真的；致命种要把这一点说得很重
         var np = document.createElement('div');
         np.className = 'photo-credit no-photo' + (m.edibility === 'deadly' ? ' warn' : '');
-        np.textContent = '暂无照片，示意图仅表示大致形态' +
-          (m.edibility === 'deadly' ? '。剧毒物种，切勿据此辨认' : '');
+        np.textContent = I18N.t('detail.noPhoto') +
+          (m.edibility === 'deadly' ? I18N.t('detail.noPhotoDeadly') : '');
         box.appendChild(np);
       }
       var credit = photoCredit(m);
@@ -948,23 +1014,26 @@
     var head = document.createElement('div');
     head.className = 'card';
     head.innerHTML =
-      '<div class="row"><b style="font-size:18px">' + m.name + '</b>' +
+      '<div class="row"><b style="font-size:18px">' + esc(I18N.pick(m.name, m.nameEn)) + '</b>' +
       '<span class="spacer"></span>' +
       // 详情页徽章是野外遇见率，不是抽卡稀有度——图鉴是现实图鉴
       '<span class="res"><i style="background:' + (C.encounterColors[m.encounter] || '#999') + '"></i>' +
       (C.encounterLabels[m.encounter] || '') + '</span></div>' +
-      '<div class="latin" style="margin:2px 0 8px">' + m.latin + ' · ' + m.nameEn + '</div>' +
+      '<div class="latin" style="margin:2px 0 8px">' + m.latin + (I18N.lang() !== 'en' ? ' · ' + m.nameEn : '') + '</div>' +
       '<span class="edib" style="background:' + ed.color + '">' + ed.label + '</span>' +
       '<div class="edib-note" style="margin-top:4px">' + ed.note + '</div>' +
       '<div class="disclaimer-note">' + C.safety.detail + '</div>';
     b.appendChild(head);
 
+    var idKeysEn = enOf(m.id).idKeysEn;
     if (m.idKeys && m.idKeys.length) {
       var ik = document.createElement('div');
       ik.className = 'card idkeys';
-      ik.innerHTML = '<h2>怎么认</h2><ol>' +
-        m.idKeys.map(function (k) { return '<li>' + esc(k.text) + '</li>'; }).join('') +
-        '</ol><p class="muted footnote">识别要点由 AI 据公开资料整理，未经真菌学家审校，仅供学习，不能作为采食依据。</p>';
+      var idkTexts = (I18N.lang() === 'en' && idKeysEn && idKeysEn.length === m.idKeys.length)
+        ? idKeysEn : m.idKeys.map(function (k) { return k.text; });
+      ik.innerHTML = '<h2>' + I18N.t('detail.howToTell') + '</h2><ol>' +
+        idkTexts.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') +
+        '</ol><p class="muted footnote">' + I18N.t('detail.idKeysFootnote') + '</p>';
       b.appendChild(ik);
     }
 
@@ -976,39 +1045,39 @@
     if (m.capCm && m.capCm.length === 2) {
       var lo = m.capCm[0], hi = m.capCm[1];
       var axis, refCm, refName;
-      if (hi <= 5) { axis = 6; refCm = 2.5; refName = '一元硬币'; }
-      else if (hi <= 20) { axis = 30; refCm = 18; refName = '手掌'; }
-      else { axis = Math.ceil(hi * 1.15 / 30) * 30; refCm = 60; refName = '小臂'; }
+      if (hi <= 5) { axis = 6; refCm = 2.5; refName = I18N.t('detail.refCoin'); }
+      else if (hi <= 20) { axis = 30; refCm = 18; refName = I18N.t('detail.refPalm'); }
+      else { axis = Math.ceil(hi * 1.15 / 30) * 30; refCm = 60; refName = I18N.t('detail.refForearm'); }
       var pct = function (v) { return Math.max(0.8, Math.min(100, v / axis * 100)); };
       var fmt = function (v) { return (v % 1 ? v.toFixed(1) : v) + ' cm'; };
       var isCap = m.silhouette === 'umbrella' || m.silhouette === 'funnel';
       var rl = document.createElement('div');
       rl.className = 'card ruler-card';
-      rl.innerHTML = '<h2>多大</h2><div class="ruler">' +
-        '<div class="rrow"><span class="rl">本种</span><span class="rt">' +
+      rl.innerHTML = '<h2>' + I18N.t('detail.howBig') + '</h2><div class="ruler">' +
+        '<div class="rrow"><span class="rl">' + I18N.t('detail.thisSpecies') + '</span><span class="rt">' +
           '<u class="soft" style="width:' + pct(hi) + '%"></u><u style="width:' + pct(lo) + '%"></u></span>' +
           '<span class="rv">' + (lo === hi ? fmt(lo) : lo + '–' + fmt(hi)) + '</span></div>' +
         '<div class="rrow"><span class="rl">' + refName + '</span><span class="rt">' +
           '<u class="ref" style="width:' + pct(refCm) + '%"></u></span><span class="rv">' + fmt(refCm) + '</span></div>' +
         '<div class="raxis"><span>0</span><span>' + (axis / 2) + '</span><span>' + axis + ' cm</span></div></div>' +
-        '<p class="muted footnote">' + (isCap ? '菌盖直径' : '整体大小') + '。实心为常见范围，浅色到最大记录。</p>';
+        '<p class="muted footnote">' + (isCap ? I18N.t('detail.capDiameter') : I18N.t('detail.overallSize')) + I18N.t('detail.rulerFootnote') + '</p>';
       b.appendChild(rl);
     }
 
     var info = document.createElement('div');
     info.className = 'card';
-    info.innerHTML = '<h2>特征</h2><dl class="kv">' +
+    info.innerHTML = '<h2>' + I18N.t('detail.characteristics') + '</h2><dl class="kv">' +
       C.entity.detailRows(m).map(function (r) {
         return '<dt>' + r[0] + '</dt><dd>' + r[1] + '</dd>';
       }).join('') +
-      '<dt>子实层</dt><dd>' + (C.labels.hymenium[m.hymenium] || m.hymenium) + '</dd>' +
+      '<dt>' + I18N.t('detail.hymenium') + '</dt><dd>' + (C.labels.hymenium[m.hymenium] || m.hymenium) + '</dd>' +
       '</dl>';
     b.appendChild(info);
 
     var fact = document.createElement('div');
     fact.className = 'card';
-    fact.innerHTML = '<h2>趣味知识</h2><p style="margin:0">' + m.fact + '</p>' +
-      '<p class="muted" style="margin:8px 0 0">「' + m.quote + '」</p>';
+    fact.innerHTML = '<h2>' + I18N.t('detail.funFact') + '</h2><p style="margin:0">' + esc(I18N.pick(m.fact, enOf(m.id).factEn)) + '</p>' +
+      '<p class="muted" style="margin:8px 0 0">' + I18N.t('common.quoteOpen') + esc(I18N.pick(m.quote, enOf(m.id).quoteEn)) + I18N.t('common.quoteClose') + '</p>';
     b.appendChild(fact);
 
     // 非毒种的相似种是「顺带认识一下」，留在趣味知识之后就好
@@ -1020,23 +1089,23 @@
     quizBtn.className = 'btn ghost wide';
     quizBtn.style.marginBottom = '8px';
     var stars = Storage.masteryFor(m.id);
-    quizBtn.textContent = '🧠 测一测' + (stars ? '　' + '★'.repeat(stars) + '☆'.repeat(3 - stars) : '');
+    quizBtn.textContent = I18N.t('detail.quizMe') + (stars ? '　' + '★'.repeat(stars) + '☆'.repeat(3 - stars) : '');
     quizBtn.addEventListener('click', function () { startSingleQuiz(m); });
     b.appendChild(quizBtn);
 
     var planted = Storage.isPlaced(m.id);
     var act = document.createElement('button');
     act.className = 'btn wide' + (planted ? ' ghost' : '');
-    act.textContent = planted ? '从菌菇园移出' : '🌲 种进菌菇园';
+    act.textContent = planted ? I18N.t('detail.unplant') : I18N.t('garden.plant');
     act.addEventListener('click', function () {
       if (planted) {
         Storage.unplace(m.id);
-        toast('已移出');
+        toast(I18N.t('toast.unplanted'));
       } else {
         var slot = World.slotFor(m, C.garden, Storage.placed().map(function (s) { return s.slot; }));
-        if (!slot) { toast('菌菇园满了'); return; }
+        if (!slot) { toast(I18N.t('toast.gardenFull')); return; }
         Storage.place(m.id, slot.id);
-        toast('已种下，等它长起来');
+        toast(I18N.t('toast.planted'));
       }
       renderDetail(m);
       refreshGardenChrome();
@@ -1046,7 +1115,7 @@
     var sh = document.createElement('button');
     sh.className = 'btn ghost wide';
     sh.style.marginTop = '8px';
-    sh.textContent = '📤 分享这张卡';
+    sh.textContent = I18N.t('detail.shareCard');
     sh.addEventListener('click', function () { shareEntity(m); });
     b.appendChild(sh);
   }
@@ -1057,8 +1126,8 @@
     if (m.lookalikes && m.lookalikes.length) {
       var lk = document.createElement('div');
       lk.className = 'card';
-      lk.innerHTML = '<h2>容易认错</h2><p class="muted" style="margin:0 0 6px">' +
-        '外形相似的物种往往需要显微或分子手段才能确认，不要凭肉眼下结论。</p>';
+      lk.innerHTML = '<h2>' + I18N.t('detail.lookalikes') + '</h2><p class="muted" style="margin:0 0 6px">' +
+        I18N.t('detail.lookalikesIntro') + '</p>';
       var row = document.createElement('div');
       row.className = 'lookalike-row';
       var toxic = function (x) { return x.edibility === 'poisonous' || x.edibility === 'deadly'; };
@@ -1071,13 +1140,18 @@
         var t2 = document.createElement('span');
         var oe = C.edibility[o.edibility];
         // 差异句：毒/可食配对必有人工句（校验门保证），其余取对方第一条识别要点
+        var mEn = enOf(m.id), oEn = enOf(o.id);
+        var enDiff = (mEn.lookalikeNotesEn && mEn.lookalikeNotesEn[id]) ||
+                     (oEn.lookalikeNotesEn && oEn.lookalikeNotesEn[m.id]) ||
+                     (oEn.idKeysEn && oEn.idKeysEn[0]) || '';
         var diff = (m.lookalikeNotes && m.lookalikeNotes[id]) ||
                    (o.lookalikeNotes && o.lookalikeNotes[m.id]) ||
                    (o.idKeys && o.idKeys[0] && o.idKeys[0].text) || '';
+        var diffText = I18N.lang() === 'en' && enDiff ? enDiff : diff;
         var mixed = toxic(m) !== toxic(o);
-        t2.innerHTML = '<b>' + esc(o.name) + '</b> <span class="muted" style="font-size:11px">' + oe.label + '</span>' +
-          (diff ? '<br><span class="diff">' + esc(diff) + '</span>' : '') +
-          (mixed ? '<br><span class="diff warn">一个可食一个有毒，肉眼未必分得清</span>' : '');
+        t2.innerHTML = '<b>' + esc(I18N.pick(o.name, o.nameEn)) + '</b> <span class="muted" style="font-size:11px">' + oe.label + '</span>' +
+          (diffText ? '<br><span class="diff">' + esc(diffText) + '</span>' : '') +
+          (mixed ? '<br><span class="diff warn">' + I18N.t('detail.mixedWarning') + '</span>' : '');
         el.appendChild(t2);
         el.addEventListener('click', function () { openDetail(o); });
         row.appendChild(el);
@@ -1100,22 +1174,28 @@
 
   function monthLabel(dateStr) {
     var p = (dateStr || '').split('-');
-    return p.length >= 2 ? (parseInt(p[0], 10) + '年' + parseInt(p[1], 10) + '月') : '日期不明';
+    if (p.length < 2) return I18N.t('obs.unknownDate');
+    var y = parseInt(p[0], 10), mo = parseInt(p[1], 10);
+    if (I18N.lang() === 'en') {
+      var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      return MON[mo - 1] + ' ' + y;
+    }
+    return y + '年' + mo + '月';
   }
 
   function openObsEditForm(sp, rec) {
-    sheet('<h2>' + esc(sp.name) + ' · 观察记录</h2>' +
-      '<label class="muted" style="font-size:12px">日期</label>' +
+    sheet('<h2>' + esc(I18N.pick(sp.name, sp.nameEn)) + ' · ' + I18N.t('obs.recordTitle') + '</h2>' +
+      '<label class="muted" style="font-size:12px">' + I18N.t('obs.date') + '</label>' +
       '<input type="date" class="obs-field" id="obs-date" value="' + esc(rec.date) + '">' +
-      '<label class="muted" style="font-size:12px;display:block;margin-top:10px">地点</label>' +
+      '<label class="muted" style="font-size:12px;display:block;margin-top:10px">' + I18N.t('obs.place') + '</label>' +
       '<div class="row" style="margin-top:4px">' +
-        '<input type="text" class="obs-field" id="obs-place" placeholder="选填，比如「垦丁后壁湖」" value="' + esc(rec.place) + '">' +
+        '<input type="text" class="obs-field" id="obs-place" placeholder="' + esc(I18N.t('obs.placePh')) + '" value="' + esc(rec.place) + '">' +
         '<button class="btn ghost" id="obs-gps" style="flex:none;padding:9px 12px">📍</button>' +
       '</div>' +
-      '<label class="muted" style="font-size:12px;display:block;margin-top:10px">备注</label>' +
-      '<textarea class="obs-field" id="obs-note" placeholder="选填，比如「长在腐木上，群生」">' + esc(rec.note) + '</textarea>' +
-      '<button class="btn wide" id="obs-save" style="margin-top:14px">保存</button>' +
-      '<button class="btn ghost wide" id="obs-del" style="margin-top:8px">删除这条记录</button>',
+      '<label class="muted" style="font-size:12px;display:block;margin-top:10px">' + I18N.t('obs.note') + '</label>' +
+      '<textarea class="obs-field" id="obs-note" placeholder="' + esc(I18N.t('obs.notePh')) + '">' + esc(rec.note) + '</textarea>' +
+      '<button class="btn wide" id="obs-save" style="margin-top:14px">' + I18N.t('common.save') + '</button>' +
+      '<button class="btn ghost wide" id="obs-del" style="margin-top:8px">' + I18N.t('obs.deleteRecord') + '</button>',
       function (el) {
         el.querySelector('#obs-save').addEventListener('click', function () {
           Storage.updateObservation(rec.oid, {
@@ -1124,23 +1204,23 @@
             note: el.querySelector('#obs-note').value.trim()
           });
           closeSheet();
-          toast('已保存');
+          toast(I18N.t('toast.saved'));
           if (page === 'detail') renderDetail(sp);
           if (page === 'observations') renderObservations();
         });
         el.querySelector('#obs-del').addEventListener('click', function () {
           Storage.deleteObservation(rec.oid);
           closeSheet();
-          toast('已删除这条记录');
+          toast(I18N.t('toast.recordDeleted'));
           if (page === 'detail') renderDetail(sp);
           if (page === 'observations') renderObservations();
         });
         el.querySelector('#obs-gps').addEventListener('click', function () {
-          if (!navigator.geolocation) { toast('这台设备不支持定位'); return; }
-          toast('正在定位…');
+          if (!navigator.geolocation) { toast(I18N.t('toast.geoUnsupported')); return; }
+          toast(I18N.t('toast.locating'));
           navigator.geolocation.getCurrentPosition(function (pos) {
             el.querySelector('#obs-place').value = formatCoord(pos.coords.latitude, pos.coords.longitude);
-          }, function () { toast('定位失败，检查一下定位权限'); }, { timeout: 8000 });
+          }, function () { toast(I18N.t('toast.geoFailed')); }, { timeout: 8000 });
         });
       });
   }
@@ -1150,11 +1230,11 @@
     var rows = list.map(function (r) {
       return '<button class="obs-item" data-oid="' + esc(r.oid) + '"><span class="info">' +
         '<b>' + esc(r.date) + '</b>' +
-        '<span>' + esc(r.place || '还没填地点') + (r.note ? ' · ' + esc(r.note) : '') + '</span>' +
+        '<span>' + esc(r.place || I18N.t('obs.noPlaceYet')) + (r.note ? ' · ' + esc(r.note) : '') + '</span>' +
         '</span></button>';
     }).join('');
-    sheet('<h2>' + esc(sp.name) + ' · 我的观察</h2>' + (rows || '<p class="muted">还没有记录</p>') +
-      '<button class="btn wide" id="obs-add" style="margin-top:14px">+ 再记一次</button>',
+    sheet('<h2>' + esc(I18N.pick(sp.name, sp.nameEn)) + ' · ' + I18N.t('obs.myObservations') + '</h2>' + (rows || '<p class="muted">' + I18N.t('obs.noRecordsYet') + '</p>') +
+      '<button class="btn wide" id="obs-add" style="margin-top:14px">' + I18N.t('obs.recordAnother') + '</button>',
       function (el) {
         Array.prototype.forEach.call(el.querySelectorAll('.obs-item'), function (row) {
           row.addEventListener('click', function () {
@@ -1173,16 +1253,16 @@
     card.className = 'card';
     var list = Storage.observationsFor(m.id);
     var last = list.length ? list.slice().sort(function (a, b) { return b.ts - a.ts; })[0] : null;
-    card.innerHTML = '<h2>我的观察</h2><p class="muted" style="margin:0 0 8px">' +
-      (last ? '已记录 ' + list.length + ' 次，最近一次 ' + esc(last.date) : '还没记录过，见到的话点一下') +
+    card.innerHTML = '<h2>' + I18N.t('obs.myObservations') + '</h2><p class="muted" style="margin:0 0 8px">' +
+      (last ? I18N.t('obs.recordedNTimes', { n: list.length, date: esc(last.date) }) : I18N.t('obs.notRecordedYet')) +
       '</p>';
     var btn = document.createElement('button');
     btn.className = 'btn wide' + (list.length ? ' ghost' : '');
-    btn.textContent = list.length ? '👁 查看 / 补充记录' : '👁 我见过';
+    btn.textContent = list.length ? I18N.t('obs.viewOrAdd') : I18N.t('obs.iSawThis');
     btn.addEventListener('click', function () {
       if (!list.length) {
         Storage.addObservation(m.id, {});
-        toast('已记录今天见过，点开可以补充地点和备注');
+        toast(I18N.t('toast.observationLogged'));
         renderDetail(m);
       } else {
         openObsListSheet(m);
@@ -1203,15 +1283,15 @@
     var stats = document.createElement('div');
     stats.className = 'card obs-stats';
     stats.innerHTML =
-      '<span class="s"><b>' + Object.keys(speciesSeen).length + '</b><span>见过的种</span></span>' +
-      '<span class="s"><b>' + all.length + '</b><span>观察记录</span></span>' +
-      '<span class="s"><b>' + Object.keys(places).length + '</b><span>去过的地点</span></span>';
+      '<span class="s"><b>' + Object.keys(speciesSeen).length + '</b><span>' + I18N.t('obs.statSpecies') + '</span></span>' +
+      '<span class="s"><b>' + all.length + '</b><span>' + I18N.t('obs.statRecords') + '</span></span>' +
+      '<span class="s"><b>' + Object.keys(places).length + '</b><span>' + I18N.t('obs.statPlaces') + '</span></span>';
     host.innerHTML = '';
     host.appendChild(stats);
     if (!all.length) {
       var empty = document.createElement('div');
       empty.className = 'fempty';
-      empty.innerHTML = '还没有观察记录<br>去图鉴里找一种，点「👁 我见过」';
+      empty.innerHTML = I18N.t('obs.emptyState');
       host.appendChild(empty);
       return;
     }
@@ -1235,7 +1315,7 @@
       row.appendChild(thumb);
       var info = document.createElement('span');
       info.className = 'info';
-      info.innerHTML = '<b>' + esc(sp.name) + '</b><span>' + esc(o.date) +
+      info.innerHTML = '<b>' + esc(I18N.pick(sp.name, sp.nameEn)) + '</b><span>' + esc(o.date) +
         (o.place ? ' · ' + esc(o.place) : '') + '</span>';
       row.appendChild(info);
       row.addEventListener('click', function () { openObsEditForm(sp, o); });
@@ -1252,20 +1332,20 @@
     st.observations.forEach(function (o) { obsSpecies[o.entityId] = 1; });
     var obsN = Object.keys(obsSpecies).length;
     $('obs-summary').textContent = obsN
-      ? '已记录 ' + obsN + ' 种 · ' + st.observations.length + ' 条'
-      : '记下你见过的每一种、每一次';
+      ? I18N.t('obs.summaryFilled', { species: obsN, total: st.observations.length })
+      : I18N.t('obs.summaryEmpty');
     var wrongN = st.wrong.length;
     $('training-summary').textContent = wrongN
-      ? '错题本还有 ' + wrongN + ' 道待复习'
-      : '范围闪卡、易混对决、每日 5 题、错题本';
+      ? I18N.t('training.summaryWrong', { n: wrongN })
+      : I18N.t('training.summaryEmpty');
     // 菌菇园退到这里之后，入口卡要把「园里有没有东西等你」说出来，否则没人记得进去
     var placed = Storage.placed().length;
     var ready = (st.slots || []).filter(function (sl) {
       return World.growth(sl, C.garden).sporeReady;
     }).length;
     $('garden-summary').textContent = placed
-      ? '园里 ' + placed + ' 株' + (ready ? '，' + ready + ' 株孢子待收' : '')
-      : '进山采菌、抽卡、把认出的菌子种进园里';
+      ? I18N.t('garden.summaryFilled', { n: placed }) + (ready ? I18N.t('garden.summaryReady', { n: ready }) : '')
+      : I18N.t('garden.summaryEmpty');
     if (!$('btn-garden')._wired) {
       $('btn-garden')._wired = true;
       $('btn-garden').addEventListener('click', function () { go('garden'); });
@@ -1273,9 +1353,9 @@
     var strip = $('res-strip');
     strip.innerHTML = C.rarities.map(function (r) {
       return '<span class="res"><i style="background:' + rarityColor(r) + '"></i>' +
-        C.rarityLabels[r] + '孢子 ' + (st.fragments[r] || 0) + '</span>';
+        C.rarityLabels[r] + I18N.t('common.fragmentSuffix') + ' ' + (st.fragments[r] || 0) + '</span>';
     }).join('') +
-      '<span class="res">🍂 腐殖质 ' + st.fragmentEssence + '</span>';
+      '<span class="res">🍂 ' + I18N.t('profile.essence') + ' ' + st.fragmentEssence + '</span>';
 
     var tl = $('task-list');
     tl.innerHTML = '';
@@ -1291,13 +1371,13 @@
         Math.min(got, task.goal) + '/' + task.goal + '</span>';
       var b = document.createElement('button');
       b.className = 'btn' + (done && !claimed ? '' : ' ghost');
-      b.textContent = claimed ? '已领' : '领取';
+      b.textContent = claimed ? I18N.t('common.claimed') : I18N.t('common.claim');
       b.disabled = !done || claimed;
       b.addEventListener('click', function () {
         Storage.update(function (s) { s.dailyTasks.claimed[task.id] = true; });
         if (task.reward.fragment) Storage.addFragment(task.reward.fragment, task.reward.n);
         if (task.reward.essence) Storage.addEssence(task.reward.essence);
-        toast('奖励已领取');
+        toast(I18N.t('toast.rewardClaimed'));
         renderProfile();
       });
       row.appendChild(b);
@@ -1305,16 +1385,21 @@
     });
 
     var sel = $('sel-difficulty');
-    if (!sel.options.length) {
-      Object.keys(C.quiz.levels).forEach(function (k) {
-        var o = document.createElement('option');
-        o.value = k;
-        o.textContent = C.quiz.levels[k].label;
-        sel.appendChild(o);
-      });
+    // Rebuilt every render (not just once) so a language switch re-labels the
+    // options too — a one-time populate would freeze them in whatever
+    // language was active on first paint.
+    sel.innerHTML = '';
+    Object.keys(C.quiz.levels).forEach(function (k) {
+      var o = document.createElement('option');
+      o.value = k;
+      o.textContent = C.quiz.levels[k].label;
+      sel.appendChild(o);
+    });
+    if (!sel._bound) {
+      sel._bound = true;
       sel.addEventListener('change', function () {
         Storage.update(function (s) { s.difficulty = sel.value; });
-        toast('难度已切换');
+        toast(I18N.t('toast.difficultyChanged'));
       });
     }
     sel.value = st.difficulty;
@@ -1338,14 +1423,14 @@
     var rows = C.rarities.map(function (r) {
       var n = st.fragments[r] || 0;
       var can = n >= C.economy.synthCount;
-      return '<div class="task"><span class="lbl">' + C.rarityLabels[r] + '孢子 ' +
+      return '<div class="task"><span class="lbl">' + C.rarityLabels[r] + I18N.t('common.fragmentSuffix') + ' ' +
         n + '/' + C.economy.synthCount + '</span>' +
         '<span class="spacer"></span>' +
         '<button class="btn' + (can ? '' : ' ghost') + '" data-syn="' + r + '"' +
-        (can ? '' : ' disabled') + '>合成</button></div>';
+        (can ? '' : ' disabled') + '>' + I18N.t('profile.synthesize') + '</button></div>';
     }).join('');
-    sheet('<h2>🧫 合成菌卡</h2><p class="muted">' + C.economy.synthCount +
-      ' 个同档孢子换一张随机同档菌卡。</p>' + rows, function (el) {
+    sheet('<h2>🧫 ' + I18N.t('profile.synthCardTitle') + '</h2><p class="muted">' +
+      I18N.t('profile.synthCardBody', { n: C.economy.synthCount }) + '</p>' + rows, function (el) {
       el.querySelectorAll('[data-syn]').forEach(function (b) {
         b.addEventListener('click', function () {
           var r = b.dataset.syn;
@@ -1370,13 +1455,13 @@
         return m.rarity === r && !Storage.has(m.id);
       }).length;
       return '<div class="task"><span class="lbl">' + C.rarityLabels[r] +
-        '<br><span class="muted" style="font-size:11px">还差 ' + left + ' 种</span></span>' +
+        '<br><span class="muted" style="font-size:11px">' + I18N.t('profile.stillMissing', { n: left }) + '</span></span>' +
         '<span class="spacer"></span><span class="muted">🍂 ' + cost + '</span>' +
         '<button class="btn' + (can && left ? '' : ' ghost') + '" data-shop="' + r + '"' +
-        (can && left ? '' : ' disabled') + '>挑一种</button></div>';
+        (can && left ? '' : ' disabled') + '>' + I18N.t('profile.pickOne') + '</button></div>';
     }).join('');
-    sheet('<h2>🧫 菌种库</h2><p class="muted">用腐殖质挑一种还没收集到的菌。当前 🍂 ' +
-      st.fragmentEssence + '</p>' + rows, function (el) {
+    sheet('<h2>🧫 ' + I18N.t('profile.shopTitle') + '</h2><p class="muted">' +
+      I18N.t('profile.shopBody', { n: st.fragmentEssence }) + '</p>' + rows, function (el) {
       el.querySelectorAll('[data-shop]').forEach(function (b) {
         b.addEventListener('click', function () { pickFromShop(b.dataset.shop); });
       });
@@ -1388,19 +1473,19 @@
     var pool = MUSHROOM_DATA.filter(function (m) {
       return m.rarity === rarity && !Storage.has(m.id);
     });
-    if (!pool.length) { toast('这一档已经收集齐了'); return; }
+    if (!pool.length) { toast(I18N.t('toast.tierComplete')); return; }
     var cells = pool.map(function (m) {
       return '<button class="cell" data-pick="' + m.id + '">' +
-        '<div class="nm">' + m.name + '</div></button>';
+        '<div class="nm">' + esc(I18N.pick(m.name, m.nameEn)) + '</div></button>';
     }).join('');
-    sheet('<h2>选一种（🍂 ' + cost + '）</h2><div class="grid">' + cells + '</div>',
+    sheet('<h2>' + I18N.t('profile.pickSpecies', { n: cost }) + '</h2><div class="grid">' + cells + '</div>',
       function (el) {
         // draw each thumbnail into its cell
         el.querySelectorAll('[data-pick]').forEach(function (b) {
           var m = byId[b.dataset.pick];
           b.insertBefore(art(m, 64), b.firstChild);
           b.addEventListener('click', function () {
-            if (!Storage.spendEssence(cost)) { toast('腐殖质不够'); return; }
+            if (!Storage.spendEssence(cost)) { toast(I18N.t('toast.notEnoughEssence')); return; }
             Storage.add(m.id);
             closeSheet();
             renderReveal(m, true, false);
@@ -1412,7 +1497,7 @@
 
   $('btn-basket').addEventListener('click', function () {
     var st = Storage.get();
-    if (st.lastBasket === Storage.today()) { toast('今天的菌篮已经领过了'); return; }
+    if (st.lastBasket === Storage.today()) { toast(I18N.t('toast.basketAlreadyClaimed')); return; }
     Storage.update(function (s) { s.lastBasket = Storage.today(); });
     var got = {};
     for (var i = 0; i < C.economy.basketSize; i++) {
@@ -1420,12 +1505,12 @@
       got[r] = (got[r] || 0) + 1;
       Storage.addFragment(r, 1);
     }
-    sheet('<h2>🧺 每日菌篮</h2>' +
+    sheet('<h2>🧺 ' + I18N.t('profile.dailyBasketTitle') + '</h2>' +
       Object.keys(got).map(function (r) {
         return '<div class="res" style="display:inline-flex;margin:3px"><i style="background:' +
-          rarityColor(r) + '"></i>' + C.rarityLabels[r] + '孢子 ×' + got[r] + '</div>';
+          rarityColor(r) + '"></i>' + C.rarityLabels[r] + I18N.t('common.fragmentSuffix') + ' ×' + got[r] + '</div>';
       }).join('') +
-      '<button class="btn wide" onclick="this.closest(\'.overlay\').classList.remove(\'on\')">收下</button>');
+      '<button class="btn wide" onclick="this.closest(\'.overlay\').classList.remove(\'on\')">' + I18N.t('common.accept') + '</button>');
     renderProfile();
   });
 
@@ -1436,8 +1521,8 @@
   // ---------------------------------------------------------------- transfer
   $('btn-export').addEventListener('click', function () {
     Transfer.exportSave(C)
-      .then(function () { toast('存档已导出，请妥善保存'); })
-      .catch(function () { toast('导出失败'); });
+      .then(function () { toast(I18N.t('toast.exportSaved')); })
+      .catch(function () { toast(I18N.t('toast.exportFailed')); });
   });
   $('btn-import').addEventListener('click', function () { $('file-import').click(); });
   $('file-import').addEventListener('change', function () {
@@ -1446,17 +1531,17 @@
     this.value = '';
     var reader = new FileReader();
     reader.onload = function () {
-      sheet('<h2>导入存档</h2><p>导入会<b>覆盖</b>这台设备上的现有进度，无法撤销。</p>' +
-        '<button class="btn cta wide" id="imp-yes">确认导入</button>' +
-        '<button class="btn ghost wide" id="imp-no" style="margin-top:8px">取消</button>',
+      sheet('<h2>' + I18N.t('profile.importTitle') + '</h2><p>' + I18N.t('profile.importWarning') + '</p>' +
+        '<button class="btn cta wide" id="imp-yes">' + I18N.t('profile.importConfirm') + '</button>' +
+        '<button class="btn ghost wide" id="imp-no" style="margin-top:8px">' + I18N.t('common.cancel') + '</button>',
         function (el) {
           el.querySelector('#imp-no').addEventListener('click', closeSheet);
           el.querySelector('#imp-yes').addEventListener('click', function () {
             Transfer.importSave(String(reader.result), C).then(function (info) {
               closeSheet();
-              sheet('<h2>导入成功</h2><p>已恢复 ' + info.collected +
-                ' 种收集记录。刷新页面后生效。</p>' +
-                '<button class="btn wide" id="imp-reload">刷新</button>',
+              sheet('<h2>' + I18N.t('profile.importSuccessTitle') + '</h2><p>' +
+                I18N.t('profile.importSuccessBody', { n: info.collected }) + '</p>' +
+                '<button class="btn wide" id="imp-reload">' + I18N.t('common.refresh') + '</button>',
                 function (e2) {
                   e2.querySelector('#imp-reload').addEventListener('click', function () {
                     location.reload();
@@ -1464,7 +1549,7 @@
                 });
             }).catch(function (err) {
               closeSheet();
-              toast(err.message || '导入失败');
+              toast(err.message || I18N.t('toast.importFailed'));
             });
           });
         });
@@ -1475,11 +1560,10 @@
   // ---------------------------------------------------------------- boot
   function firstRun() {
     if (localStorage.getItem(C.storageKeys.disclaimer)) { gift(); return; }
-    sheet('<h2>开始之前</h2>' +
+    sheet('<h2>' + I18N.t('intro.title') + '</h2>' +
       '<p>' + C.safety.banner + '</p>' +
-      '<p class="muted">这是一本菌菇图鉴。它教你认识菌子的样子和名字，' +
-      '不教你判断哪一朵能吃——没有任何简单方法能做到那件事。</p>' +
-      '<button class="btn wide" id="btn-agree">我明白了</button>',
+      '<p class="muted">' + I18N.t('intro.body') + '</p>' +
+      '<button class="btn wide" id="btn-agree">' + I18N.t('intro.agree') + '</button>',
       function (el) {
         el.querySelector('#btn-agree').addEventListener('click', function () {
           localStorage.setItem(C.storageKeys.disclaimer, '1');
@@ -1522,7 +1606,7 @@
     });
     Garden.refresh(Storage.get());
     refreshGardenChrome();
-    toast('送你三种常见菌，先认识一下');
+    toast(I18N.t('toast.starterGift'));
   }
 
   refreshGardenChrome();

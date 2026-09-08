@@ -84,7 +84,7 @@ var Share = (function () {
     c.fillStyle = (!enc && rarity === 'legend') ? '#3A2E00' : '#fff';
     c.font = 'bold 15px system-ui,sans-serif';
     c.textAlign = 'center';
-    c.fillText(enc ? '遇见率 · ' + enc : cfg.rarityLabels[rarity], W / 2, 54);
+    c.fillText(enc ? I18N.t('share.encounterPrefix') + enc : cfg.rarityLabels[rarity], W / 2, 54);
 
     // the specimen: a real photo when one is loaded, the drawn art otherwise.
     // Both sit on the same baseline (y=300) so the text below never moves.
@@ -106,7 +106,7 @@ var Share = (function () {
 
     c.fillStyle = '#fff';
     c.font = 'bold 30px system-ui,sans-serif';
-    c.fillText(entity.name, W / 2, 356);
+    c.fillText(I18N.pick(entity.name, entity.nameEn), W / 2, 356);
 
     c.fillStyle = 'rgba(255,255,255,0.6)';
     c.font = 'italic 15px system-ui,sans-serif';
@@ -126,7 +126,7 @@ var Share = (function () {
 
     c.fillStyle = 'rgba(255,255,255,0.9)';
     c.font = '14px system-ui,sans-serif';
-    wrap(c, deadly ? '记住它的样子，别碰它。' : '「' + entity.quote + '」',
+    wrap(c, deadly ? I18N.t('share.deadlyReminder') : I18N.t('common.quoteOpen') + I18N.pick(entity.quote, entity.quoteEn) + I18N.t('common.quoteClose'),
          W / 2, y + 16, W - 80, 22);
 
     // photo credit rides just above the footer; the licence travels with the picture
@@ -171,7 +171,7 @@ var Share = (function () {
     c.fillText(milestone.title, W / 2, 160);
     c.fillStyle = 'rgba(255,255,255,0.75)';
     c.font = '16px system-ui,sans-serif';
-    c.fillText('已经认识 ' + milestone.n + ' / ' + total + ' 种菌子', W / 2, 194);
+    c.fillText(I18N.t('share.milestoneCount', { n: milestone.n, total: total }), W / 2, 194);
     footer(c, W, H, cfg);
     return k.el;
   }

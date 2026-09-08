@@ -524,7 +524,7 @@ var Garden = (function () {
         ctx.fillStyle = '#2A2314';
         ctx.font = 'bold 9px system-ui';
         ctx.textAlign = 'center';
-        ctx.fillText('孢', bx0, by + 3);
+        ctx.fillText(typeof I18N !== 'undefined' && I18N.lang() === 'en' ? '!' : '孢', bx0, by + 3);
       }
 
       // name bubble after a tap
@@ -533,12 +533,13 @@ var Garden = (function () {
         // Tell the player what this slot is waiting for: the next stage while
         // it grows, the next spore once it is grown, nothing once it is ready
         // because the badge already says so.
+        var en = typeof I18N !== 'undefined' && I18N.lang() === 'en';
         var tail;
-        if (g.sporeReady) tail = ' · ' + g.label + ' · 点一下收走';
+        if (g.sporeReady) tail = ' · ' + g.label + (en ? ' · tap to collect' : ' · 点一下收走');
         else if (!g.mature) tail = ' · ' + g.label +
-          (g.minutesLeft != null ? ' · 还差 ' + World.humanMinutes(g.minutesLeft) : '');
-        else tail = ' · 下一个孢子还差 ' + World.humanMinutes(g.sporeMinutesLeft);
-        var label = it.sp.name + tail;
+          (g.minutesLeft != null ? (en ? ' · ' + World.humanMinutes(g.minutesLeft) + ' left' : ' · 还差 ' + World.humanMinutes(g.minutesLeft)) : '');
+        else tail = en ? ' · next spore in ' + World.humanMinutes(g.sporeMinutesLeft) : ' · 下一个孢子还差 ' + World.humanMinutes(g.sporeMinutesLeft);
+        var label = (en && it.sp.nameEn ? it.sp.nameEn : it.sp.name) + tail;
         ctx.font = '12px system-ui,sans-serif';
         var tw = ctx.measureText(label).width + 16;
         var bx = Math.max(4, Math.min(W - tw - 4, it.x - tw / 2));

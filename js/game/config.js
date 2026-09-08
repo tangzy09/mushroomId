@@ -156,13 +156,21 @@ var GameConfig = {
     subtitle: function (e) { return e.latin; },
     rarity: function (e) { return e.rarity; },
     detailRows: function (e) {
+      var en = typeof I18N !== 'undefined' && I18N.lang() === 'en';
+      var t = function (k) { return typeof I18N !== 'undefined' ? I18N.t(k) : k; };
+      // habitatEn lives in js/i18n_en.gen.js, keyed by id — see app.js's enOf().
+      var habitatEn = (typeof I18N_EN !== 'undefined' && I18N_EN[e.id] && I18N_EN[e.id].habitatEn) || null;
+      var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      var season = en
+        ? ((e.season || []).length >= 10 ? t('detail.allYear') : (e.season || []).map(function (mo) { return MON[mo - 1]; }).join(', '))
+        : ((e.season || []).length >= 10 ? '全年' : (e.season || []).join('、') + ' 月');
       return [
-        ['学名', e.latin],
-        ['科', e.family],
-        ['生境', e.habitat],
-        ['基质', GameConfig.labels.substrate[e.substrate] || e.substrate],
-        ['孢子印', GameConfig.labels.spore[e.sporePrint] || '—'],
-        ['季节', (e.season || []).length >= 10 ? '全年' : (e.season || []).join('、') + ' 月']
+        [t('detail.latin'), e.latin],
+        [t('detail.family'), en ? (e.familyEn || e.family) : e.family],
+        [t('detail.habitat'), en ? (habitatEn || e.habitat) : e.habitat],
+        [t('detail.substrate'), GameConfig.labels.substrate[e.substrate] || e.substrate],
+        [t('detail.sporePrint'), GameConfig.labels.spore[e.sporePrint] || '—'],
+        [t('detail.season'), season]
       ];
     }
   },
@@ -232,4 +240,259 @@ var GameConfig = {
       '症状缓解不等于痊愈，剧毒鹅膏有「假愈期」'
     ]
   }
+};
+
+// ---------------------------------------------------------------------
+// English overrides + the retag mechanism. Every label/note/desc dictionary
+// above stays the single source of truth *shape*-wise; this block only ever
+// overwrites leaf text values in place, so every existing "C.rarityLabels[r]"
+// style call site elsewhere in the app keeps working untouched regardless of
+// which language is live — nothing outside this file needs to know a
+// language switch happened.
+var I18N_EN_OVERRIDES = {
+  "rarityLabels": {
+    "common": "Common",
+    "rare": "Rare",
+    "epic": "Epic",
+    "legend": "Legendary"
+  },
+  "encounterLabels": {
+    "common": "Common",
+    "occasional": "Occasional",
+    "rare": "Rare",
+    "seldom": "Rarely Seen"
+  },
+  "quiz": {
+    "levels": {
+      "beginner": {
+        "label": "🍄 New Forager"
+      },
+      "intermediate": {
+        "label": "🧺 Foraging Enthusiast"
+      },
+      "expert": {
+        "label": "🔬 Mycologist"
+      }
+    }
+  },
+  "biomes": {
+    "pine": {
+      "label": "🌲 Pine Forest",
+      "desc": "Matsutake, Saffron Milk Cap, Blue-staining Bolete, Boletes"
+    },
+    "broadleaf": {
+      "label": "🌳 Broadleaf Forest",
+      "desc": "Chanterelle, Quilted Green Russula, Amanita, Ganbajun"
+    },
+    "deadwood": {
+      "label": "🪵 Deadwood",
+      "desc": "Wood Ear, Oyster Mushroom, Reishi, Glowing Mycena"
+    },
+    "meadow": {
+      "label": "🌾 Meadow",
+      "desc": "Puffball, Inky Cap, Fairy Ring Mushroom, Lawn Toadstools"
+    }
+  },
+  "weather": {
+    "sunny": {
+      "label": "☀️ Sunny"
+    },
+    "cloudy": {
+      "label": "☁️ Cloudy"
+    },
+    "rain": {
+      "label": "🌧 Rain"
+    },
+    "rainAfter": {
+      "label": "🌈 After Rain"
+    }
+  },
+  "milestones": [
+    {
+      "title": "New Forager"
+    },
+    {
+      "title": "Foraging Enthusiast"
+    },
+    {
+      "title": "Mountain Regular"
+    },
+    {
+      "title": "Fungi Observer"
+    },
+    {
+      "title": "Spore Hunter"
+    }
+  ],
+  "dailyTasks": [
+    {
+      "label": "Answer 10 questions correctly"
+    },
+    {
+      "label": "Forage 3 times"
+    },
+    {
+      "label": "Water 3 times"
+    },
+    {
+      "label": "Identify 1 toxic species"
+    }
+  ],
+  "edibility": {
+    "cultivated": {
+      "label": "🍽 Cultivated Edible",
+      "note": "A commercially cultivated edible fungus. Buy wild specimens only through reputable, regulated sources."
+    },
+    "wild_edible": {
+      "label": "🍽 Reported Edible (Wild)",
+      "note": "Reference sources describe this as an edible wild fungus. This guide provides no basis whatsoever for foraging or consumption."
+    },
+    "conditional": {
+      "label": "🔥 Edible With Preparation",
+      "note": "Sources report it requires expert processing before it can be eaten; cases of poisoning from improper handling have been recorded."
+    },
+    "medicinal": {
+      "label": "💊 Medicinal",
+      "note": "Traditionally used as a medicinal ingredient, not as food."
+    },
+    "inedible": {
+      "label": "❓ Inedible",
+      "note": "Non-toxic, but woody or intensely bitter in texture — not eaten as food."
+    },
+    "unknown": {
+      "label": "❓ Edibility Unknown",
+      "note": "Edibility is unknown and should be treated as poisonous."
+    },
+    "poisonous": {
+      "label": "⚠️ Poisonous",
+      "note": "Reference sources list this as a poisonous mushroom."
+    },
+    "deadly": {
+      "label": "☠️ Deadly Poisonous",
+      "note": "Reference sources describe this as highly toxic, with recorded fatalities."
+    }
+  },
+  "labels": {
+    "substrate": {
+      "wood": "Wood",
+      "soil": "Soil",
+      "grass": "Grassland",
+      "litter": "Leaf Litter",
+      "mycorrhizal": "Mycorrhizal",
+      "termite": "Termite Mound",
+      "insect": "Insects",
+      "parasitic": "Parasitic",
+      "conifer_cone": "Conifer Cone"
+    },
+    "spore": {
+      "white": "White",
+      "cream": "Cream",
+      "pink": "Pink",
+      "brown": "Brown",
+      "rusty": "Rusty Brown",
+      "purple_brown": "Purple-brown",
+      "black": "Black",
+      "green": "Green",
+      "olive": "Olive",
+      "lilac": "Lilac"
+    },
+    "hymenium": {
+      "gills": "Gills",
+      "pores": "Pores",
+      "teeth": "Teeth",
+      "ridges": "Ridges",
+      "smooth": "Smooth",
+      "gleba": "Gleba"
+    },
+    "silhouette": {
+      "umbrella": "Umbrella",
+      "funnel": "Funnels, Trumpets & Cups",
+      "shelf": "Shelf Brackets",
+      "ball": "Balls & Lumps",
+      "coral": "Corals & Branches",
+      "club": "Clubs & Fingers",
+      "brain": "Brains & Honeycombs",
+      "jelly": "Ears & Jellies"
+    },
+    "color": {
+      "white": "White",
+      "yellow": "Yellow",
+      "orange": "Orange",
+      "red": "Red",
+      "brown": "Brown",
+      "grey": "Grey",
+      "black": "Black",
+      "purple": "Purple",
+      "green": "Green"
+    },
+    "capSurface": {
+      "smooth": "Smooth",
+      "scaly": "Scaly",
+      "warty": "Warty & Patchy",
+      "slimy": "Slimy When Wet",
+      "fibrous": "Fibrous & Streaky"
+    },
+    "size": {
+      "small": "Small, up to 5 cm",
+      "medium": "Medium, 5–15 cm",
+      "large": "Large, over 15 cm"
+    }
+  },
+  "share": {
+    "footer": "For education and entertainment only · Never forage wild mushrooms based on this game"
+  },
+  "safety": {
+    "banner": "Every ‘edible / poisonous’ label in this guide simply repeats publicly available sources. It cannot be used for field identification, and must never serve as grounds for foraging. Do not pick, buy, or eat wild mushrooms.",
+    "detail": "The same species can be described differently across regions and stages of maturity, and countless look-alike species cannot be told apart by eye. Never use the information on this page to judge whether a real mushroom is safe to eat.",
+    "emergency": [
+      "Induce vomiting immediately (conscious victims only): drink warm salted water and stimulate the throat.",
+      "Save samples: keep the remaining mushroom and any vomit to help doctors identify the species.",
+      "Seek medical care immediately or call 120 (China's emergency medical number); tell the doctor ‘wild mushrooms were eaten’ and bring everyone who ate them.",
+      "Symptom relief does not mean recovery — deadly Amanita poisoning has a deceptive ‘false recovery’ phase."
+    ]
+  }
+};
+
+// Snapshot of the *original* (Chinese) values at the same paths, captured
+// once before any retag() call, so switching back to Chinese is a real
+// restore rather than "whatever the object happens to hold right now".
+function _i18nSnapshot(overrides, live) {
+  if (Array.isArray(overrides)) {
+    return overrides.map(function (item, i) {
+      return (item && typeof item === 'object' && !Array.isArray(item))
+        ? _i18nSnapshot(item, live[i]) : live[i];
+    });
+  }
+  var out = {};
+  Object.keys(overrides).forEach(function (k) {
+    var v = overrides[k];
+    out[k] = (v && typeof v === 'object') ? _i18nSnapshot(v, live[k]) : live[k];
+  });
+  return out;
+}
+var I18N_ZH_OVERRIDES = _i18nSnapshot(I18N_EN_OVERRIDES, GameConfig);
+
+function _i18nApply(live, overrides) {
+  if (Array.isArray(overrides)) {
+    overrides.forEach(function (item, i) {
+      if (!live[i]) return;
+      if (item && typeof item === 'object' && !Array.isArray(item)) _i18nApply(live[i], item);
+      else live[i] = item;
+    });
+    return;
+  }
+  Object.keys(overrides).forEach(function (k) {
+    var v = overrides[k];
+    if (v && typeof v === 'object') _i18nApply(live[k], v);
+    else live[k] = v;
+  });
+}
+
+/** Swap every retaggable label/note/desc in place. Call at boot and on every
+ *  language switch — cheap (a few dozen leaf assignments), and every module
+ *  that reads GameConfig.rarityLabels / .edibility / .labels / .biomes /
+ *  .weather / .milestones / .dailyTasks / .share / .safety picks the new
+ *  values up for free since they all hold the *same* object references. */
+GameConfig.retag = function (lang) {
+  _i18nApply(GameConfig, lang === 'en' ? I18N_EN_OVERRIDES : I18N_ZH_OVERRIDES);
 };

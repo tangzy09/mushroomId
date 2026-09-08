@@ -73,36 +73,41 @@ var Transfer = (function () {
     });
   }
 
+  // transfer.js runs inside test/transfer.test.js's bare Node VM context too,
+  // where i18n.js was never loaded — fall back to the Chinese original there
+  // rather than throw a ReferenceError while reporting a different error.
+  function tt(key, zh) { return (typeof I18N !== 'undefined') ? I18N.t(key) : zh; }
+
   function importSave(text, cfg) {
     var nl = text.indexOf('\n');
     if (nl < 0 || text.slice(0, nl).trim() !== cfg.transfer.magic) {
-      return Promise.reject(new Error('这不是菌菇图鉴的存档文件'));
+      return Promise.reject(new Error(tt('transfer.notOurSave', '这不是菌菇图鉴的存档文件')));
     }
     var raw;
     try { raw = unb64(text.slice(nl + 1).trim()); }
-    catch (e) { return Promise.reject(new Error('文件已损坏')); }
-    if (raw.length < 13) return Promise.reject(new Error('文件已损坏'));
+    catch (e) { return Promise.reject(new Error(tt('transfer.corrupted', '文件已损坏'))); }
+    if (raw.length < 13) return Promise.reject(new Error(tt('transfer.corrupted', '文件已损坏')));
 
     var iv = raw.subarray(0, 12), body = raw.subarray(12);
     return key().then(function (k) {
       return crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, k, body);
     }).catch(function () {
-      throw new Error('文件无法解密，可能已损坏或来自其他版本');
+      throw new Error(tt('transfer.decryptFailed', '文件无法解密，可能已损坏或来自其他版本'));
     }).then(function (buf) {
       var bag;
       try { bag = JSON.parse(new TextDecoder().decode(buf)); }
-      catch (e) { throw new Error('存档内容无法解析'); }
+      catch (e) { throw new Error(tt('transfer.parseFailed', '存档内容无法解析')); }
       if (!bag || bag.magic !== cfg.transfer.magic || !bag.keys) {
-        throw new Error('存档格式不对');
+        throw new Error(tt('transfer.badFormat', '存档格式不对'));
       }
       // Refuse a file whose main save is not even the right shape, rather
       // than half-writing it over a good one.
       var main = bag.keys[cfg.storageKey];
-      if (!main) throw new Error('存档里没有游戏进度');
+      if (!main) throw new Error(tt('transfer.noProgress', '存档里没有游戏进度'));
       var parsed;
-      try { parsed = JSON.parse(main); } catch (e) { throw new Error('游戏进度已损坏'); }
+      try { parsed = JSON.parse(main); } catch (e) { throw new Error(tt('transfer.progressCorrupted', '游戏进度已损坏')); }
       if (!parsed || !Array.isArray(parsed.collections)) {
-        throw new Error('游戏进度已损坏');
+        throw new Error(tt('transfer.progressCorrupted', '游戏进度已损坏'));
       }
       Object.keys(bag.keys).forEach(function (n) {
         try { localStorage.setItem(n, bag.keys[n]); } catch (e) { /* quota */ }

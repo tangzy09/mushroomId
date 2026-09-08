@@ -78,7 +78,7 @@
     /* 「其余条件不变时，(dim=value) 还剩几种」 */
     function countIf(name, value) {
       const dim = dims[name];
-      if (!dim) throw new Error('facet: 未声明的维度 ' + name);
+      if (!dim) throw new Error('facet: undeclared dimension ' + name);
       let n = 0;
       for (const item of data) {
         if (dim.multi) {
@@ -122,7 +122,7 @@
     /* 单选：同值再点 = 取消。多选：toggle。 */
     function pick(name, value) {
       const dim = dims[name];
-      if (!dim) throw new Error('facet: 未声明的维度 ' + name);
+      if (!dim) throw new Error('facet: undeclared dimension ' + name);
       if (dim.multi) {
         const i = state[name].indexOf(value);
         if (i >= 0) state[name].splice(i, 1); else state[name].push(value);

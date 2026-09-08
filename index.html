@@ -25,30 +25,30 @@
   <div id="garden-wrap">
     <canvas id="garden-canvas"></canvas>
     <div class="garden-top">
-      <button class="back chip" data-back>← 我的</button>
+      <button class="back chip" data-back><span data-i18n="nav.backProfile">← 我的</span></button>
       <span class="chip" id="chip-weather">☀️ 晴</span>
       <span class="chip" id="chip-count">已收集 0</span>
       <span class="chip ready" id="chip-spores" hidden></span>
       <span class="spacer"></span>
     </div>
     <div class="garden-tools">
-      <button class="tool" id="btn-water" title="浇水">💧</button>
-      <button class="tool" id="btn-night" title="切换昼夜">🌙</button>
-      <button class="tool" id="btn-wind" title="起风">🍃</button>
-      <button class="tool" id="btn-share-garden" title="分享菌菇园">📤</button>
+      <button class="tool" id="btn-water" data-i18n-title="tool.water" title="浇水">💧</button>
+      <button class="tool" id="btn-night" data-i18n-title="tool.night" title="切换昼夜">🌙</button>
+      <button class="tool" id="btn-wind" data-i18n-title="tool.wind" title="起风">🍃</button>
+      <button class="tool" id="btn-share-garden" data-i18n-title="tool.share" title="分享菌菇园">📤</button>
     </div>
   </div>
   <div class="garden-actions">
-    <button class="btn cta wide" id="btn-foray">🧺 进山采菌 <span id="foray-left"></span></button>
+    <button class="btn cta wide" id="btn-foray">🧺 <span data-i18n="garden.forayBtn">进山采菌</span> <span id="foray-left"></span></button>
   </div>
 </div>
 
 <!-- 图鉴 -->
 <div class="page has-nav active" id="page-collection">
-  <div class="page-header"><h1>图鉴</h1><span class="muted" id="coll-count"></span></div>
+  <div class="page-header"><h1 data-i18n="nav.collectionTitle">图鉴</h1><span class="muted" id="coll-count"></span></div>
   <div class="safety-bar" id="safety-bar-2"></div>
   <div class="page-body">
-    <input class="search" id="coll-search" type="search" placeholder="搜名字、拼音、学名、科、生境…" autocomplete="off">
+    <input class="search" id="coll-search" type="search" data-i18n-ph="browse.searchPh" placeholder="搜名字、拼音、学名、科、生境…" autocomplete="off">
     <div id="facet-tabs"></div>
     <div id="facet-bar"></div>
     <div id="facet-warn" hidden></div>
@@ -62,75 +62,79 @@
 
 <!-- 我的 -->
 <div class="page has-nav" id="page-profile">
-  <div class="page-header"><h1>我的</h1></div>
+  <div class="page-header"><h1 data-i18n="nav.profileTitle">我的</h1></div>
   <div class="page-body">
     <button class="card entry-card" id="btn-observations">
       <span class="ico">👁</span>
-      <span class="entry-text"><b>我的观察</b><span class="muted" id="obs-summary">记下你见过的每一种、每一次</span></span>
+      <span class="entry-text"><b data-i18n="obs.myObservations">我的观察</b><span class="muted" id="obs-summary" data-i18n="obs.entryDesc">记下你见过的每一种、每一次</span></span>
       <span class="chev">›</span>
     </button>
     <button class="card entry-card" id="btn-training">
       <span class="ico">🧠</span>
-      <span class="entry-text"><b>认菌训练</b><span class="muted" id="training-summary">范围闪卡、易混对决、每日 5 题、错题本</span></span>
+      <span class="entry-text"><b data-i18n="training.title">认菌训练</b><span class="muted" id="training-summary" data-i18n="training.entryDesc">范围闪卡、易混对决、每日 5 题、错题本</span></span>
       <span class="chev">›</span>
     </button>
     <button class="card entry-card" id="btn-garden">
       <span class="ico">🌲</span>
-      <span class="entry-text"><b>菌菇园</b><span class="muted" id="garden-summary">进山采菌、抽卡、把认出的菌子种进园里</span></span>
+      <span class="entry-text"><b data-i18n="garden.title">菌菇园</b><span class="muted" id="garden-summary" data-i18n="garden.entryDesc">进山采菌、抽卡、把认出的菌子种进园里</span></span>
       <span class="chev">›</span>
     </button>
     <div class="card">
-      <h2>孢子与腐殖质</h2>
+      <h2 data-i18n="profile.sporesHumus">孢子与腐殖质</h2>
       <div class="res-strip" id="res-strip"></div>
       <div class="tile-row">
-        <button class="btn ghost tile" id="btn-synth"><span class="ico">🧫</span>合成菌卡</button>
-        <button class="btn ghost tile" id="btn-basket"><span class="ico">🧺</span>每日菌篮</button>
-        <button class="btn ghost tile" id="btn-shop"><span class="ico">🌱</span>菌种库</button>
+        <button class="btn ghost tile" id="btn-synth"><span class="ico">🧫</span><span data-i18n="profile.tileSynth">合成菌卡</span></button>
+        <button class="btn ghost tile" id="btn-basket"><span class="ico">🧺</span><span data-i18n="profile.tileBasket">每日菌篮</span></button>
+        <button class="btn ghost tile" id="btn-shop"><span class="ico">🌱</span><span data-i18n="profile.tileShop">菌种库</span></button>
       </div>
     </div>
 
     <div class="card">
-      <h2>每日任务</h2>
+      <h2 data-i18n="profile.dailyTasks">每日任务</h2>
       <div id="task-list"></div>
     </div>
 
     <div class="card">
-      <h2>设置</h2>
+      <h2 data-i18n="settings.title">设置</h2>
+      <button class="row" id="set-lang" style="width:100%;text-align:left;background:none;border:none;padding:0">
+        <span class="lbl" data-i18n="settings.language">界面语言</span><span class="spacer"></span>
+        <span class="muted" id="lang-current"></span><span class="chev">›</span>
+      </button>
       <div class="row">
-        <span class="lbl">答题难度</span><span class="spacer"></span>
+        <span class="lbl" data-i18n="settings.difficulty">答题难度</span><span class="spacer"></span>
         <select id="sel-difficulty" class="pick"></select>
       </div>
       <div class="row">
-        <span class="lbl">看图题数量</span><span class="spacer"></span>
+        <span class="lbl" data-i18n="settings.imageCount">看图题数量</span><span class="spacer"></span>
         <input type="range" id="rng-image" min="0" max="5" step="1">
         <span id="rng-image-val" style="min-width:1.5em;text-align:right"></span>
       </div>
     </div>
 
     <div class="card">
-      <h2>存档迁移</h2>
-      <p class="muted" style="margin:0 0 10px">进度只存在这台设备的浏览器里。换设备前先导出，到新设备再导入。</p>
+      <h2 data-i18n="profile.saveTransfer">存档迁移</h2>
+      <p class="muted" style="margin:0 0 10px" data-i18n="profile.saveTransferDesc">进度只存在这台设备的浏览器里。换设备前先导出，到新设备再导入。</p>
       <div class="row">
-        <button class="btn ghost" id="btn-export">⬇️ 导出存档</button>
-        <button class="btn ghost" id="btn-import">⬆️ 导入存档</button>
+        <button class="btn ghost" id="btn-export">⬇️ <span data-i18n="common.export">导出存档</span></button>
+        <button class="btn ghost" id="btn-import">⬆️ <span data-i18n="common.import">导入存档</span></button>
         <input type="file" id="file-import" accept=".spore,text/plain" hidden>
       </div>
     </div>
 
     <div class="card safety-card">
-      <h2>🚑 野生菌中毒急救</h2>
+      <h2>🚑 <span data-i18n="safety.title">野生菌中毒急救</span></h2>
       <ol id="emergency-list"></ol>
-      <p class="muted" style="margin:8px 0 0;font-size:12px">内容依据疾控部门公开科普整理。本游戏不提供任何采食建议。</p>
+      <p class="muted" style="margin:8px 0 0;font-size:12px" data-i18n="safety.disclaimer">内容依据疾控部门公开科普整理。本游戏不提供任何采食建议。</p>
     </div>
 
     <div class="card">
-      <h2>关于</h2>
+      <h2 data-i18n="profile.about">关于</h2>
       <p class="muted" style="margin:0">
-        本图鉴收录 <b id="about-count">166</b> 种真实菌类，每种都配有真实照片，来自
+        <span data-i18n="profile.aboutBefore">本图鉴收录</span> <b id="about-count">166</b> <span data-i18n="profile.aboutAfter">种真实菌类，每种都配有真实照片，来自
         iNaturalist 社区鉴定记录、Wikimedia Commons 与 GBIF，均为可商用的开放授权，照片下方注明摄影者；
         每张照片都回到原始记录复核过物种，并经人眼逐张过目。
         识别要点由 AI 据公开资料整理，未经真菌学家审校，仅供学习。
-        食性标签仅转述公开资料，<b>不能用于野外鉴定，更不能作为采食依据</b>。
+        食性标签仅转述公开资料，不能用于野外鉴定，更不能作为采食依据。</span>
       </p>
     </div>
   </div>
@@ -138,17 +142,17 @@
 
 <!-- 选林地 -->
 <div class="page" id="page-biome">
-  <div class="page-header"><button class="back" data-back>← 返回</button><h1>去哪片林子？</h1></div>
+  <div class="page-header"><button class="back" data-back><span data-i18n="nav.backReturn">← 返回</span></button><h1 data-i18n="biome.title">去哪片林子？</h1></div>
   <div class="page-body">
-    <p class="muted" style="margin-top:0">选定的林地里，对应的菌出现概率更高。</p>
+    <p class="muted" style="margin-top:0" data-i18n="biome.desc">选定的林地里，对应的菌出现概率更高。</p>
     <div class="biome-grid" id="biome-grid"></div>
-    <button class="btn wide cta" id="btn-go" style="margin-top:16px">出发</button>
+    <button class="btn wide cta" id="btn-go" style="margin-top:16px" data-i18n="biome.go">出发</button>
   </div>
 </div>
 
 <!-- 答题 -->
 <div class="page" id="page-quiz">
-  <div class="page-header"><button class="back" data-back>← 退出</button><h1 id="quiz-title">答题</h1></div>
+  <div class="page-header"><button class="back" data-back><span data-i18n="nav.backExit">← 退出</span></button><h1 id="quiz-title">答题</h1></div>
   <div class="page-body">
     <div class="quiz-top">
       <span class="muted" id="quiz-idx">1 / 5</span>
@@ -172,35 +176,38 @@
 
 <!-- 详情 -->
 <div class="page" id="page-detail">
-  <div class="page-header"><button class="back" data-back>← 返回</button><h1 id="detail-title">详情</h1></div>
+  <div class="page-header"><button class="back" data-back><span data-i18n="nav.backReturn">← 返回</span></button><h1 id="detail-title">详情</h1></div>
   <div class="page-body" id="detail-body"></div>
 </div>
 
 <!-- 我的观察 -->
 <div class="page" id="page-observations">
-  <div class="page-header"><button class="back" data-back>← 我的</button><h1>我的观察</h1></div>
+  <div class="page-header"><button class="back" data-back><span data-i18n="nav.backProfile">← 我的</span></button><h1 data-i18n="obs.myObservations">我的观察</h1></div>
   <div class="page-body" id="obs-body"></div>
 </div>
 
 <!-- 认菌训练 -->
 <div class="page" id="page-training">
-  <div class="page-header"><button class="back" data-back>← 我的</button><h1>认菌训练</h1></div>
+  <div class="page-header"><button class="back" data-back><span data-i18n="nav.backProfile">← 我的</span></button><h1 data-i18n="training.title">认菌训练</h1></div>
   <div class="page-body" id="training-body"></div>
 </div>
 
 <nav class="bottom-nav" id="nav">
-  <button data-page="collection" class="on"><span class="ico">📖</span>图鉴</button>
-  <button data-page="profile"><span class="ico">🧺</span>我的</button>
+  <button data-page="collection" class="on"><span class="ico">📖</span><span data-i18n="nav.collectionTitle">图鉴</span></button>
+  <button data-page="profile"><span class="ico">🧺</span><span data-i18n="nav.profileTitle">我的</span></button>
 </nav>
 
 <div class="overlay" id="overlay"><div class="sheet" id="sheet"></div></div>
 <div id="lightbox" onclick="this.classList.remove('on')"><img alt=""></div>
 <div class="foray-anim" id="foray-anim">
   <div class="big">🧺</div>
-  <div id="foray-text">进山采菌中…</div>
+  <div id="foray-text" data-i18n="garden.forayingText">进山采菌中…</div>
 </div>
 <div class="toast" id="toast"></div>
 
+<script src="js/core/i18n.js?v=20260908d"></script>
+<script src="locales/zh-Hans.js?v=20260908d"></script>
+<script src="locales/en.js?v=20260908d"></script>
 <script src="js/game/config.js?v=20260908d"></script>
 <script src="js/core/storage.js?v=20260908d"></script>
 <script src="js/core/gacha.js?v=20260908d"></script>
@@ -213,6 +220,7 @@
 <script src="js/game/browse.js?v=20260908d"></script>
 <script src="js/game/garden.js?v=20260908d"></script>
 <script src="js/data.gen.js?v=20260908d"></script>
+<script src="js/i18n_en.gen.js?v=20260908d"></script>
 <script src="js/photo_credits.js?v=20260908d"></script>
 <script src="js/photo_extra.js?v=20260908d"></script>
 <script src="js/game/app.js?v=20260908d"></script>

@@ -73,7 +73,8 @@
     ],
     "habitatEn": "Hardwood logs or cultivation blocks",
     "factEn": "The white cracks on the cap form when cool, dry air can't keep pace with the flesh swelling underneath, splitting the skin apart. That crackling pattern is exactly what makes premium 'flower mushroom' shiitake pricier.",
-    "quoteEn": "My cracks are grown in the cold, not painted on."
+    "quoteEn": "My cracks are grown in the cold, not painted on.",
+    "familyEn": "Omphalotaceae"
   },
   {
     "id": "oyster",
@@ -152,7 +153,8 @@
     ],
     "habitatEn": "Dead and fallen hardwood",
     "factEn": "Oyster mushroom mycelium secretes a toxin that paralyzes tiny roundworms, then digests them — this is a mushroom that actually preys on animals.",
-    "quoteEn": "Vegetarian? I never said that."
+    "quoteEn": "Vegetarian? I never said that.",
+    "familyEn": "Pleurotaceae"
   },
   {
     "id": "enoki",
@@ -231,7 +233,8 @@
     ],
     "habitatEn": "Cultivation bottles; wild form on dead hardwood trunks",
     "factEn": "The pale, slender enoki sold in supermarkets is forced to grow in the dark under high CO2; the wild form has a brown cap and a short, stubby stem.",
-    "quoteEn": "I grew up in a dark room, that's why I'm this pale."
+    "quoteEn": "I grew up in a dark room, that's why I'm this pale.",
+    "familyEn": "Physalacriaceae"
   },
   {
     "id": "kingoyster",
@@ -304,7 +307,8 @@
     ],
     "habitatEn": "Wild form lives on the roots of eryngo and other umbellifers",
     "factEn": "It's one of the few oyster mushrooms that partners with an herb instead of a tree — in the wild it grows only on the dead roots of eryngo (sea holly).",
-    "quoteEn": "The others lean on trees. I lean on a weed."
+    "quoteEn": "The others lean on trees. I lean on a weed.",
+    "familyEn": "Pleurotaceae"
   },
   {
     "id": "woodear",
@@ -382,7 +386,8 @@
     ],
     "habitatEn": "Fallen hardwood and cut logs",
     "factEn": "The wood ear cultivated in China wasn't confirmed as its own species until 2014 — before that it was mistaken for Europe's jelly ear.",
-    "quoteEn": "Soak me and I'll swell to ten times my size. Don't underestimate me."
+    "quoteEn": "Soak me and I'll swell to ten times my size. Don't underestimate me.",
+    "familyEn": "Auriculariaceae"
   },
   {
     "id": "snowfungus",
@@ -456,7 +461,8 @@
     ],
     "habitatEn": "Rotting hardwood",
     "factEn": "Snow fungus can't fruit on its own — a partner fungus, the 'incense-ash fungus,' has to break the wood down first before it can grow alongside that neighbor.",
-    "quoteEn": "I need a roommate before I can even step outside."
+    "quoteEn": "I need a roommate before I can even step outside.",
+    "familyEn": "Tremellaceae"
   },
   {
     "id": "lionsmane",
@@ -530,7 +536,8 @@
     ],
     "habitatEn": "Wounds on oak, walnut and other hardwoods",
     "factEn": "It has no gills and no pores — spores form on the surface of dangling fleshy spines, which can grow up to 5 cm long.",
-    "quoteEn": "My hair is my organ."
+    "quoteEn": "My hair is my organ.",
+    "familyEn": "Hericiaceae"
   },
   {
     "id": "button",
@@ -610,7 +617,8 @@
     ],
     "habitatEn": "Compost and grassland",
     "factEn": "White button, cremini, and portobello are the same species at different strains and stages of maturity — not three separate mushrooms.",
-    "quoteEn": "I go by three stage names."
+    "quoteEn": "I go by three stage names.",
+    "familyEn": "Agaricaceae"
   },
   {
     "id": "shimeji",
@@ -686,7 +694,8 @@
     ],
     "habitatEn": "Dead hardwood such as beech",
     "factEn": "The marbled pattern on its cap gives the beech mushroom its name; the white 'bunashimeji' sold alongside it is just a pale strain of the same species.",
-    "quoteEn": "Raw, I turn bitter. Cooked, I turn sweet — do cook me through."
+    "quoteEn": "Raw, I turn bitter. Cooked, I turn sweet — do cook me through.",
+    "familyEn": "Lyophyllaceae"
   },
   {
     "id": "nameko",
@@ -761,7 +770,8 @@
     ],
     "habitatEn": "Fallen hardwood such as beech",
     "factEn": "The slick coating on its surface is a polysaccharide that locks in moisture during dry spells — it's also what gives miso soup its silky texture when nameko is stirred in.",
-    "quoteEn": "Slippery is my sunscreen."
+    "quoteEn": "Slippery is my sunscreen.",
+    "familyEn": "Strophariaceae"
   },
   {
     "id": "shaggyink",
@@ -839,7 +849,8 @@
     ],
     "habitatEn": "Lawns, roadsides and manured ground",
     "factEn": "As it matures, its gills digest themselves into dripping black ink, helping spores travel farther — pick one and it will dissolve within hours.",
-    "quoteEn": "My shelf life is one afternoon, tops."
+    "quoteEn": "My shelf life is one afternoon, tops.",
+    "familyEn": "Agaricaceae"
   },
   {
     "id": "winecap",
@@ -915,7 +926,8 @@
     ],
     "habitatEn": "Ground mulched with straw or wood chips",
     "factEn": "Markets sell it as 'red matsutake,' but it isn't even in the same family as true matsutake — the cap color is just a coincidence.",
-    "quoteEn": "They call me 'red matsutake.' Matsutake and I aren't even cousins."
+    "quoteEn": "They call me 'red matsutake.' Matsutake and I aren't even cousins.",
+    "familyEn": "Strophariaceae"
   },
   {
     "id": "goldenoyster",
@@ -989,7 +1001,8 @@
     ],
     "habitatEn": "Fallen hardwood, especially elm",
     "factEn": "Its vivid yellow fades almost completely once dried, making the dried product nearly impossible to tell apart from plain oyster mushroom.",
-    "quoteEn": "My yellow doesn't travel. Dry me out and it's gone."
+    "quoteEn": "My yellow doesn't travel. Dry me out and it's gone.",
+    "familyEn": "Pleurotaceae"
   },
   {
     "id": "maitake",
@@ -1063,7 +1076,8 @@
     ],
     "habitatEn": "Base of oaks",
     "factEn": "Its Japanese name, 'maitake,' or 'dancing mushroom,' supposedly comes from foragers dancing with joy on finding one — a wild cluster can weigh over ten kilograms.",
-    "quoteEn": "Legend says whoever finds me starts dancing."
+    "quoteEn": "Legend says whoever finds me starts dancing.",
+    "familyEn": "Fomitopsidaceae"
   },
   {
     "id": "reishi",
@@ -1139,7 +1153,8 @@
     ],
     "habitatEn": "Oak, chestnut and other hardwood stumps",
     "factEn": "The red reishi used in Chinese tradition wasn't formally split from Europe's Ganoderma lucidum until 2012, when it was named Ganoderma lingzhi.",
-    "quoteEn": "Traditionally used as medicine — not as food."
+    "quoteEn": "Traditionally used as medicine — not as food.",
+    "familyEn": "Ganodermataceae"
   },
   {
     "id": "turkeytail",
@@ -1224,7 +1239,8 @@
     ],
     "habitatEn": "Dead wood of many hardwoods",
     "factEn": "To tell it apart from its lookalike, the hairy curtain crust, flip it over: turkey tail has a fine, porous underside, while the impostor's back is smooth.",
-    "quoteEn": "Want to know it's really me? Turn me over."
+    "quoteEn": "Want to know it's really me? Turn me over.",
+    "familyEn": "Polyporaceae"
   },
   {
     "id": "woodblewit",
@@ -1300,7 +1316,8 @@
     ],
     "habitatEn": "Leaf litter and compost heaps",
     "factEn": "Records say it must be cooked thoroughly, as eating it raw causes stomach upset; its purple hue fades to brown as it matures.",
-    "quoteEn": "I was purple when I was young. Not so much anymore."
+    "quoteEn": "I was purple when I was young. Not so much anymore.",
+    "familyEn": "Tricholomataceae"
   },
   {
     "id": "honey",
@@ -1382,7 +1399,8 @@
     ],
     "habitatEn": "Base of living trees and stumps, in large clumps",
     "factEn": "Its black root-like cords, called rhizomorphs, glow faintly green at night — one source behind old legends of 'foxfire' in the woods.",
-    "quoteEn": "My cords glow at night."
+    "quoteEn": "My cords glow at night.",
+    "familyEn": "Physalacriaceae"
   },
   {
     "id": "velvetfoot",
@@ -1461,7 +1479,8 @@
     ],
     "habitatEn": "Dead hardwood trunks, often fruiting in snow",
     "factEn": "This is the wild form of enoki: a sticky, orange-brown cap and a stem with a dark velvety base, able to thaw out after freezing and keep growing.",
-    "quoteEn": "I only come out when it snows."
+    "quoteEn": "I only come out when it snows.",
+    "familyEn": "Physalacriaceae"
   },
   {
     "id": "fairyring",
@@ -1540,7 +1559,8 @@
     ],
     "habitatEn": "Lawns and pastures, often in rings",
     "factEn": "The 'fairy rings' on lawns form as mycelium spreads outward from a single point at a steady rate, growing the ring by roughly ten centimeters a year — the oldest rings are centuries old.",
-    "quoteEn": "I draw circles on the lawn, a little bigger every year."
+    "quoteEn": "I draw circles on the lawn, a little bigger every year.",
+    "familyEn": "Marasmiaceae"
   },
   {
     "id": "fieldmushroom",
@@ -1615,7 +1635,8 @@
     ],
     "habitatEn": "Pastures and grassland",
     "factEn": "Pink gills that darken to deep brown with age are a hallmark of the Agaricus genus; if the gills stay pure white, be wary — that could signal an Amanita instead.",
-    "quoteEn": "Check my gill color. Don't just look at the cap."
+    "quoteEn": "Check my gill color. Don't just look at the cap.",
+    "familyEn": "Agaricaceae"
   },
   {
     "id": "saffronmilk",
@@ -1695,7 +1716,8 @@
     ],
     "habitatEn": "Ground in pine woods",
     "factEn": "Break it open and carrot-orange milk oozes out, slowly turning green in the air; bruised spots stain a verdigris green too.",
-    "quoteEn": "I bleed orange. Then the wound turns green."
+    "quoteEn": "I bleed orange. Then the wound turns green.",
+    "familyEn": "Russulaceae"
   },
   {
     "id": "greenrussula",
@@ -1772,7 +1794,8 @@
     ],
     "habitatEn": "Oak woodland",
     "factEn": "The cap skin cracks into patches of green, like a dried-up riverbed — but deadly green Amanitas exist too, so color alone is never proof.",
-    "quoteEn": "Green doesn't mean safe. I remind myself of that too."
+    "quoteEn": "Green doesn't mean safe. I remind myself of that too.",
+    "familyEn": "Russulaceae"
   },
   {
     "id": "charcoalburner",
@@ -1846,7 +1869,8 @@
     ],
     "habitatEn": "Ground in broadleaf woods",
     "factEn": "Most Russula gills crumble at a touch, but this one is pliable enough to bend like oiled paper without snapping — its best field mark.",
-    "quoteEn": "Other russulas snap when you bend them. I don't."
+    "quoteEn": "Other russulas snap when you bend them. I don't.",
+    "familyEn": "Russulaceae"
   },
   {
     "id": "blackening",
@@ -1924,7 +1948,8 @@
     ],
     "habitatEn": "Ground in broadleaf woods",
     "factEn": "A bruise turns red first, then black, until the whole mushroom looks charred; the deadly rank russula only turns red and never black — a critical difference.",
-    "quoteEn": "I go red, then black. The one that only goes red — that one's dangerous."
+    "quoteEn": "I go red, then black. The one that only goes red — that one's dangerous.",
+    "familyEn": "Russulaceae"
   },
   {
     "id": "porcini",
@@ -2004,7 +2029,8 @@
     ],
     "habitatEn": "Ground in pine and oak woods",
     "factEn": "The fine white netting on its stem is porcini's ID card; the bitter bolete's netting is coarse and dark, and one bite of it is bitter enough to ruin an entire pot of soup.",
-    "quoteEn": "Look at the white net on my stem."
+    "quoteEn": "Look at the white net on my stem.",
+    "familyEn": "Boletaceae"
   },
   {
     "id": "jianshouqing",
@@ -2086,7 +2112,8 @@
     ],
     "habitatEn": "Ground in Yunnan pine forests",
     "factEn": "'Jian Shou Qing' isn't one species — it's a Yunnan folk name for a group of boletes whose flesh turns blue almost instantly when bruised, as enzymes oxidize pigments inside.",
-    "quoteEn": "Don't touch me, I'll turn blue in the face."
+    "quoteEn": "Don't touch me, I'll turn blue in the face.",
+    "familyEn": "Boletaceae"
   },
   {
     "id": "whiteonion",
@@ -2164,7 +2191,8 @@
     ],
     "habitatEn": "Pine-oak forests of Yunnan",
     "factEn": "Known in Yunnan as 'white onion,' it belongs to the same blue-staining bolete family, with flesh that bruises blue too; records say it must be cooked thoroughly.",
-    "quoteEn": "White onion, red onion — we're family."
+    "quoteEn": "White onion, red onion — we're family.",
+    "familyEn": "Boletaceae"
   },
   {
     "id": "slipperyjack",
@@ -2240,7 +2268,8 @@
     ],
     "habitatEn": "Ground in pine woods",
     "factEn": "The thick slime on its cap gets so slippery after rain you can barely hold it; records say the skin must be peeled off before eating, or it can cause diarrhea.",
-    "quoteEn": "Catch me on a rainy day — you can't."
+    "quoteEn": "Catch me on a rainy day — you can't.",
+    "familyEn": "Suillaceae"
   },
   {
     "id": "larchbolete",
@@ -2312,7 +2341,8 @@
     ],
     "habitatEn": "Larch woods, strictly with larch",
     "factEn": "It only partners with larch trees — find a larch and you stand a chance of finding it; look under any other pine and you're wasting your time.",
-    "quoteEn": "No larch, no me."
+    "quoteEn": "No larch, no me.",
+    "familyEn": "Suillaceae"
   },
   {
     "id": "chanterelle",
@@ -2392,7 +2422,8 @@
     ],
     "habitatEn": "Ground in oak and pine woods",
     "factEn": "What looks like gills underneath are really blunt, forking ridges running down toward the stem, rounded to the touch; the jack-o'-lantern's are thin, sharp, true gills.",
-    "quoteEn": "Feel my ridges. Round means it's really me."
+    "quoteEn": "Feel my ridges. Round means it's really me.",
+    "familyEn": "Cantharellaceae"
   },
   {
     "id": "blacktrumpet",
@@ -2466,7 +2497,8 @@
     ],
     "habitatEn": "Leaf litter in oak and beech woods",
     "factEn": "Nicknamed the 'poor man's truffle,' its charcoal-black body blends into leaf litter so well that foragers often walk right past a whole patch before spotting it underfoot.",
-    "quoteEn": "You've probably already walked right past me."
+    "quoteEn": "You've probably already walked right past me.",
+    "familyEn": "Cantharellaceae"
   },
   {
     "id": "morel",
@@ -2543,7 +2575,8 @@
     ],
     "habitatEn": "Woodland edges, burnt ground and river flats",
     "factEn": "The honeycomb pits on its cap are the spore-bearing layer, firing spores from the pit walls; records say it must be cooked thoroughly, as raw morels have caused poisoning.",
-    "quoteEn": "My pits aren't scars. They're my nursery."
+    "quoteEn": "My pits aren't scars. They're my nursery.",
+    "familyEn": "Morchellaceae"
   },
   {
     "id": "blackmorel",
@@ -2618,7 +2651,8 @@
     ],
     "habitatEn": "Cultivated fields and woodland edges",
     "factEn": "This is the leading species grown in China's field-cultivated morel industry; 'black-veined' refers to the vertical ridges darkening as it matures.",
-    "quoteEn": "I'm one of the rare wild foods humans actually managed to tame."
+    "quoteEn": "I'm one of the rare wild foods humans actually managed to tame.",
+    "familyEn": "Morchellaceae"
   },
   {
     "id": "bambooveil",
@@ -2694,7 +2728,8 @@
     ],
     "habitatEn": "Humus in bamboo groves",
     "factEn": "It emerges at dawn, unfurls its snow-white lace skirt within hours, then collapses and dissolves by afternoon — a bamboo fungus lives its whole life in under a day.",
-    "quoteEn": "I only wear this skirt for one morning."
+    "quoteEn": "I only wear this skirt for one morning.",
+    "familyEn": "Phallaceae"
   },
   {
     "id": "matsutake",
@@ -2774,7 +2809,8 @@
     ],
     "habitatEn": "Ectomycorrhizal on living roots of red pine and mountain pines",
     "factEn": "It must live in symbiosis with living pine roots and still can't be cultivated; from the moment its mycelium colonizes a root to the moment a mushroom appears takes five or six years.",
-    "quoteEn": "No living pine, no me."
+    "quoteEn": "No living pine, no me.",
+    "familyEn": "Tricholomataceae"
   },
   {
     "id": "almond",
@@ -2853,7 +2889,8 @@
     ],
     "habitatEn": "Cultivated on compost",
     "factEn": "Despite the 'matsutake' in some of its names, it's actually a cultivated Agaricus species in a completely different family from true matsutake, with a distinct almond scent.",
-    "quoteEn": "My name rode on someone else's fame. Sorry about that."
+    "quoteEn": "My name rode on someone else's fame. Sorry about that.",
+    "familyEn": "Agaricaceae"
   },
   {
     "id": "blackskin",
@@ -2929,7 +2966,8 @@
     ],
     "habitatEn": "Cultivated; wild form on buried rotting wood",
     "factEn": "Sold as 'black-skin termite mushroom,' it's actually a long-rooted Oudemansiella in a different family from true termite mushrooms — the upside is it can be cultivated.",
-    "quoteEn": "I can be farmed. That other one can't."
+    "quoteEn": "I can be farmed. That other one can't.",
+    "familyEn": "Physalacriaceae"
   },
   {
     "id": "ganbajun",
@@ -3003,7 +3041,8 @@
     ],
     "habitatEn": "Ground in Yunnan pine forests",
     "factEn": "It grows as a cluster of fan-shaped lobes, with pine needles and grit wedged into every crevice — cleaning half a kilo of it can take a full hour.",
-    "quoteEn": "Cleaning me is a chore. That's part of why I cost so much."
+    "quoteEn": "Cleaning me is a chore. That's part of why I cost so much.",
+    "familyEn": "Thelephoraceae"
   },
   {
     "id": "tigerpaw",
@@ -3080,7 +3119,8 @@
     ],
     "habitatEn": "Ground in spruce and pine woods",
     "factEn": "Called 'black tiger paw' in Yunnan, its upturned cap scales resemble tiger stripes, and the underside isn't gills but a dense mat of fleshy spines.",
-    "quoteEn": "Turn me over — I'm carrying a field of needles."
+    "quoteEn": "Turn me over — I'm carrying a field of needles.",
+    "familyEn": "Bankeraceae"
   },
   {
     "id": "hedgehog",
@@ -3155,7 +3195,8 @@
     ],
     "habitatEn": "Ground in broadleaf and conifer woods",
     "factEn": "European foragers love it because no poisonous mushroom shares its soft, cream-colored spines — though that's still no reason to identify by a single trait alone.",
-    "quoteEn": "My spines fall off at the slightest touch."
+    "quoteEn": "My spines fall off at the slightest touch.",
+    "familyEn": "Hydnaceae"
   },
   {
     "id": "giantpuffball",
@@ -3229,7 +3270,8 @@
     ],
     "habitatEn": "Grassland and woodland edges",
     "factEn": "A single giant puffball can produce several trillion spores — if every one of them survived, two generations later their combined mass would outweigh the Earth.",
-    "quoteEn": "I can release trillions of children in one breath."
+    "quoteEn": "I can release trillions of children in one breath.",
+    "familyEn": "Agaricaceae"
   },
   {
     "id": "puffball",
@@ -3306,7 +3348,8 @@
     ],
     "habitatEn": "Woodland leaf litter",
     "factEn": "Once mature, a small pore opens at the top; raindrops striking it squeeze out puffs of spores like squeezing a rubber ball — a clever trick for rain-powered dispersal.",
-    "quoteEn": "One raindrop taps me, and out puffs a cloud."
+    "quoteEn": "One raindrop taps me, and out puffs a cloud.",
+    "familyEn": "Agaricaceae"
   },
   {
     "id": "earthstar",
@@ -3380,7 +3423,8 @@
     ],
     "habitatEn": "Leaf litter in broadleaf woods",
     "factEn": "As it matures, the outer layer splits into star-shaped rays that curl back, lifting the central spore sac off the ground so wind can carry the spores away.",
-    "quoteEn": "I prop myself up just so the wind can reach me."
+    "quoteEn": "I prop myself up just so the wind can reach me.",
+    "familyEn": "Geastraceae"
   },
   {
     "id": "barometer",
@@ -3450,7 +3494,8 @@
     ],
     "habitatEn": "Sandy woodland",
     "factEn": "Its star-shaped rays open and close with humidity — spreading wide in damp air, curling shut when dry — which is how it earned the name 'barometer earthstar.'",
-    "quoteEn": "I'm a humidity gauge that runs on nothing."
+    "quoteEn": "I'm a humidity gauge that runs on nothing.",
+    "familyEn": "Astraeaceae"
   },
   {
     "id": "birdsnest",
@@ -3524,7 +3569,8 @@
     ],
     "habitatEn": "Rotting wood and wood-chip mulch",
     "factEn": "The 'eggs' in its little cup are spore packets; a raindrop landing inside can launch one over a meter away, with the cup's slanted walls angled exactly for the shot.",
-    "quoteEn": "I wait for a rainstorm, then launch my children into the world."
+    "quoteEn": "I wait for a rainstorm, then launch my children into the world.",
+    "familyEn": "Nidulariaceae"
   },
   {
     "id": "inkcap",
@@ -3611,7 +3657,8 @@
       "micaceus": "Glistening inkcap is smaller and tawny-orange, with a cap dusted in glittering granules."
     },
     "factEn": "It contains coprine, which causes little trouble on its own once cooked, but combined with alcohol it blocks alcohol metabolism, triggering flushing and a racing heart — symptoms that can return even days later if you drink again.",
-    "quoteEn": "Everyone who's had a drink with me has regretted it."
+    "quoteEn": "Everyone who's had a drink with me has regretted it.",
+    "familyEn": "Psathyrellaceae"
   },
   {
     "id": "micaceus",
@@ -3691,7 +3738,8 @@
     ],
     "habitatEn": "Base of stumps, often in large clumps",
     "factEn": "A young cap is dusted with mica-like glittering flecks, leftover remnants of its veil — one good rain washes them away.",
-    "quoteEn": "My glitter washes off with the next rain."
+    "quoteEn": "My glitter washes off with the next rain.",
+    "familyEn": "Psathyrellaceae"
   },
   {
     "id": "deathcap",
@@ -3782,7 +3830,8 @@
       "caesar": "Caesar's mushroom has an orange-red cap with yellow gills and stem; death cap has an olive-green cap and white gills."
     },
     "factEn": "It accounts for more mushroom poisoning deaths worldwide than any other species. Its amatoxins survive cooking unchanged, and victims often go through a deceptive 1-2 day period of feeling better before symptoms return — a delay that can cost precious time before help is sought.",
-    "quoteEn": "I'm handsome. Some say I'm delicious too — no one's lived to confirm it."
+    "quoteEn": "I'm handsome. Some say I'm delicious too — no one's lived to confirm it.",
+    "familyEn": "Amanitaceae"
   },
   {
     "id": "destroyingangel",
@@ -3872,7 +3921,8 @@
       "horsemushroom": "Horse mushroom has pinkish-brown gills, bruises yellow and smells of aniseed; destroying angel has pure white gills and no odour."
     },
     "factEn": "Pure white all over, with both a ring and a volva. Its biggest difference from edible field mushrooms is a white spore print and gills that never turn brown.",
-    "quoteEn": "Pure white is my only disguise."
+    "quoteEn": "Pure white is my only disguise.",
+    "familyEn": "Amanitaceae"
   },
   {
     "id": "fuliginea",
@@ -3957,7 +4007,8 @@
       "grisette": "Grisette has no ring and a clearly striate cap margin; East Asian death cap has a ring and a smooth margin."
     },
     "factEn": "It ranks first among mushroom-poisoning deaths in China. Its cap is a dull, unassuming grayish-brown — proof that 'only bright colors are dangerous' is simply false.",
-    "quoteEn": "I'm not flashy at all. That's exactly what makes me dangerous."
+    "quoteEn": "I'm not flashy at all. That's exactly what makes me dangerous.",
+    "familyEn": "Amanitaceae"
   },
   {
     "id": "flyagaric",
@@ -4053,7 +4104,8 @@
       "amanitajack": "American Caesar has a smooth cap with no white spots, a striate margin and yellow gills."
     },
     "factEn": "The white spots on its cap are leftover fragments of the veil that once wrapped the whole young mushroom — a heavy rain can wash them all away, leaving a bare red cap.",
-    "quoteEn": "I'm the red cap with white spots from every fairy tale. The stories skip the ending."
+    "quoteEn": "I'm the red cap with white spots from every fairy tale. The stories skip the ending.",
+    "familyEn": "Amanitaceae"
   },
   {
     "id": "panther",
@@ -4138,7 +4190,8 @@
       "blusher": "The blusher reddens when damaged and lacks the rim-like volva band at the base; panther cap does not change colour."
     },
     "factEn": "A neurotoxic mushroom in the same category as fly agaric, and often more potent; its cap is brown with white spots, and the volva has a distinct collar-like rim.",
-    "quoteEn": "The red one gets the fame. I'm the stronger one."
+    "quoteEn": "The red one gets the fame. I'm the stronger one.",
+    "familyEn": "Amanitaceae"
   },
   {
     "id": "citrina",
@@ -4215,7 +4268,8 @@
     ],
     "habitatEn": "Ground in oak and pine woods",
     "factEn": "Break it open and it smells distinctly of raw potato, one clue for telling it apart from the death cap — though smell alone should never be the deciding factor.",
-    "quoteEn": "I smell like a raw potato."
+    "quoteEn": "I smell like a raw potato.",
+    "familyEn": "Amanitaceae"
   },
   {
     "id": "blusher",
@@ -4295,7 +4349,8 @@
     ],
     "habitatEn": "Ground in broadleaf and conifer woods",
     "factEn": "Spots nibbled by insects or bruised by a touch slowly flush wine-red, which is how it got its name; raw specimens contain a blood-cell-destroying toxin, and records say it must be cooked thoroughly.",
-    "quoteEn": "Touch me and I'll blush."
+    "quoteEn": "Touch me and I'll blush.",
+    "familyEn": "Amanitaceae"
   },
   {
     "id": "caesar",
@@ -4377,7 +4432,8 @@
     ],
     "habitatEn": "Oak woodland",
     "factEn": "Named for the Roman emperors who favored it, it's separated from its deadly Amanita cousins by only a handful of features, and history records no shortage of fatal misidentifications.",
-    "quoteEn": "Emperors loved me. Emperors also kept servants who knew their mushrooms."
+    "quoteEn": "Emperors loved me. Emperors also kept servants who knew their mushrooms.",
+    "familyEn": "Amanitaceae"
   },
   {
     "id": "eggamanita",
@@ -4455,7 +4511,8 @@
     ],
     "habitatEn": "Oak woodland in Yunnan and elsewhere",
     "factEn": "Called 'egg mushroom' in Yunnan, a young specimen is fully wrapped in a white volva and looks just like an egg. It shares its genus with the deadly East Asian yellow death cap, making foraging risky.",
-    "quoteEn": "Breaking out of my shell, I look just like an egg."
+    "quoteEn": "Breaking out of my shell, I look just like an egg.",
+    "familyEn": "Amanitaceae"
   },
   {
     "id": "subjunquillea",
@@ -4539,7 +4596,8 @@
       "caesar": "Caesar's mushroom has yellow gills and stem; East Asian yellow death cap has white gills."
     },
     "factEn": "It contains amatoxins and is a major cause of death in East Asia; its yellow-brown cap is easily mistaken for the edible Caesar's mushroom or egg mushroom.",
-    "quoteEn": "The egg mushroom and I differ by little more than a shade of color."
+    "quoteEn": "The egg mushroom and I differ by little more than a shade of color.",
+    "familyEn": "Amanitaceae"
   },
   {
     "id": "grisette",
@@ -4616,7 +4674,8 @@
     ],
     "habitatEn": "Ground in broadleaf and conifer woods",
     "factEn": "It's an unusual Amanita with a volva but no ring, and its cap edge shows distinct radiating grooves; the deadly East Asian death cap looks similar enough to cause confusion.",
-    "quoteEn": "I have no ring, but I do have a volva."
+    "quoteEn": "I have no ring, but I do have a volva.",
+    "familyEn": "Amanitaceae"
   },
   {
     "id": "greenspored",
@@ -4704,7 +4763,8 @@
       "chlorophyllumB": "Shaggy parasol's gills stay white and its flesh turns orange-red when cut; green-spored parasol's gills turn green."
     },
     "factEn": "It's the mushroom behind more reported poisoning cases in China than any other. Its spore print is greenish-gray, the most reliable way to tell it from the edible parasol mushroom, whose spore print is white.",
-    "quoteEn": "I grow right on the lawn you walk past every day."
+    "quoteEn": "I grow right on the lawn you walk past every day.",
+    "familyEn": "Agaricaceae"
   },
   {
     "id": "parasol",
@@ -4783,7 +4843,8 @@
     ],
     "habitatEn": "Grassy woodland edges",
     "factEn": "Its stem carries a snakeskin-like brown pattern, and the ring can slide up and down; the green-spored parasol it's often confused with has, as the name suggests, a green spore print.",
-    "quoteEn": "My ring slides up and down the stem. Go ahead, try it."
+    "quoteEn": "My ring slides up and down the stem. Go ahead, try it.",
+    "familyEn": "Agaricaceae"
   },
   {
     "id": "lepiotabrun",
@@ -4869,7 +4930,8 @@
       "fairyring": "Fairy ring champignon has a smooth, scaleless cap and a tough stem with no ring."
     },
     "factEn": "Small in size but packed with amatoxins, it's one of China's deadly species; it often turns up in residential planting beds, easily dismissed as just another little lawn mushroom.",
-    "quoteEn": "I'm small. My toxicity isn't."
+    "quoteEn": "I'm small. My toxicity isn't.",
+    "familyEn": "Agaricaceae"
   },
   {
     "id": "subnigricans",
@@ -4953,7 +5015,8 @@
       "blackening": "Blackening brittlegill reddens then blackens when damaged, but slowly; rank russula has sparser, thicker gills and reddens faster."
     },
     "factEn": "It causes rhabdomyolysis poisoning with a high death rate. Its gills are sparse and bruise red but never turn black — while the edible blackening brittlegill goes red, then black.",
-    "quoteEn": "Red, but never black. Remember that half-sentence."
+    "quoteEn": "Red, but never black. Remember that half-sentence.",
+    "familyEn": "Russulaceae"
   },
   {
     "id": "sickener",
@@ -5035,7 +5098,8 @@
       "charcoalburner": "Charcoal burner has a mottled purple-green cap and pliable gills that don't crumble; the sickener is bright red with brittle gills."
     },
     "factEn": "A gastrointestinal-irritant mushroom whose Latin name literally means 'the one that makes you vomit'; the bright red cap skin peels off in one clean piece.",
-    "quoteEn": "My name is basically the symptom."
+    "quoteEn": "My name is basically the symptom.",
+    "familyEn": "Russulaceae"
   },
   {
     "id": "funeralbell",
@@ -5129,7 +5193,8 @@
       "humongous": "Humongous fungus is large, with a prominent ring, clumped at tree bases; funeral bell is small with a thin ring."
     },
     "factEn": "It carries the same amatoxins as the death cap but looks like velvet shank or honey fungus, often crowding onto the very same rotting log — a rusty-brown spore print is the key giveaway.",
-    "quoteEn": "Your dinner and I grow on the very same log."
+    "quoteEn": "Your dinner and I grow on the very same log.",
+    "familyEn": "Hymenogastraceae"
   },
   {
     "id": "sulphurtuft",
@@ -5218,7 +5283,8 @@
       "hypholomaL": "Brick cap has a brick-red cap and grey gills; sulphur tuft is sulphur-yellow with yellow-green gills."
     },
     "factEn": "Its sulfur-yellow clusters can be found nearly year-round and taste intensely bitter; it's often mistaken for honey fungus and picked by mistake, making it a common cause of poisoning in Europe.",
-    "quoteEn": "Bitter enough to make you spit me out — consider that me saving your life."
+    "quoteEn": "Bitter enough to make you spit me out — consider that me saving your life.",
+    "familyEn": "Strophariaceae"
   },
   {
     "id": "deadlywebcap",
@@ -5297,7 +5363,8 @@
       "gypsy": "Gypsy mushroom has a frosted-looking cap and a membranous ring; deadly webcap is red-brown and conical, with only a cobweb-like trace."
     },
     "factEn": "It contains orellanine, a toxin that targets the kidneys, with a latency period stretching two to three weeks — by the time symptoms appear, no one remembers eating any mushroom at all.",
-    "quoteEn": "By the time you remember me, three weeks will have gone by."
+    "quoteEn": "By the time you remember me, three weeks will have gone by.",
+    "familyEn": "Cortinariaceae"
   },
   {
     "id": "falsemorel",
@@ -5384,7 +5451,8 @@
       "saddle": "White saddle has a white saddle-shaped cap and a deeply grooved stem; false morel is red-brown and brain-like."
     },
     "factEn": "It contains gyromitrin, which the body converts into monomethylhydrazine — the same compound used as rocket fuel. Its cap is a solid, brain-like mass of folds, while a true morel's is hollow and honeycombed.",
-    "quoteEn": "Cut me open: I'm a solid brain. The morel's a hollow honeycomb."
+    "quoteEn": "Cut me open: I'm a solid brain. The morel's a hollow honeycomb.",
+    "familyEn": "Discinaceae"
   },
   {
     "id": "jackolantern",
@@ -5465,7 +5533,8 @@
       "chanterelle": "Chanterelle has blunt ridges beneath, not true gills, and grows singly from soil; jack-o'-lantern has sharp gills and clusters on wood."
     },
     "factEn": "Its gills glow faintly green in the dark. Its biggest difference from the chanterelle: it grows on wood and has true, sharp-edged gills, while the chanterelle grows from the ground and has only blunt ridges.",
-    "quoteEn": "Turn off the lights, and you'll know it's me."
+    "quoteEn": "Turn off the lights, and you'll know it's me.",
+    "familyEn": "Mycenaceae"
   },
   {
     "id": "tsukiyotake",
@@ -5549,7 +5618,8 @@
       "lateoyster": "Late oyster has yellow gills and an olive-green cap; moonlight mushroom has white gills and a purple-brown cap."
     },
     "factEn": "The mushroom behind more poisoning cases in Japan than any other, because it grows on the same dead wood as oyster mushrooms; snap the stem base and you'll find a dark purple-black patch, and at night the gills glow green.",
-    "quoteEn": "By day I pass for an oyster mushroom. By night, I stop pretending."
+    "quoteEn": "By day I pass for an oyster mushroom. By night, I stop pretending.",
+    "familyEn": "Mycenaceae"
   },
   {
     "id": "glowmycena",
@@ -5628,7 +5698,8 @@
     ],
     "habitatEn": "Rotting twigs in subtropical bamboo and broadleaf forests",
     "factEn": "It glows through a luciferin-luciferase reaction, the same chemistry fireflies use; it shines brightest on its second night after fruiting, then fades fast.",
-    "quoteEn": "I only shine for one night. Don't miss it."
+    "quoteEn": "I only shine for one night. Don't miss it.",
+    "familyEn": "Mycenaceae"
   },
   {
     "id": "bittermycena",
@@ -5701,7 +5772,8 @@
     ],
     "habitatEn": "Dead hardwood branches",
     "factEn": "Curiously, only its North American populations glow — the same species in Europe barely lights up at all. One species, two very different nightlives.",
-    "quoteEn": "Whether I glow depends entirely on which continent I live on."
+    "quoteEn": "Whether I glow depends entirely on which continent I live on.",
+    "familyEn": "Mycenaceae"
   },
   {
     "id": "stinkhorn",
@@ -5778,7 +5850,8 @@
     ],
     "habitatEn": "Woodland humus and wood chips",
     "factEn": "The blackish-green slime on its tip smells like rotting flesh, drawing flies that carry its spores away — it has outsourced pollination to flies.",
-    "quoteEn": "I don't rely on the wind. I hire flies."
+    "quoteEn": "I don't rely on the wind. I hire flies.",
+    "familyEn": "Phallaceae"
   },
   {
     "id": "redcage",
@@ -5853,7 +5926,8 @@
     ],
     "habitatEn": "Garden mulch and humus",
     "factEn": "It bursts from a white 'egg' into a bright red, lattice-like cage in just a few hours, the inside smeared with foul-smelling spore slime.",
-    "quoteEn": "I'm a cage that hatched from an egg."
+    "quoteEn": "I'm a cage that hatched from an egg.",
+    "familyEn": "Phallaceae"
   },
   {
     "id": "devilsfingers",
@@ -5929,7 +6003,8 @@
     ],
     "habitatEn": "Grassland and mulch at woodland edges",
     "factEn": "Native to Australia and New Zealand, it hitched a ride to Europe with military supplies during World War I; once hatched, it spreads four to seven bright red arms, like an upturned octopus.",
-    "quoteEn": "I sailed to Europe on a warship."
+    "quoteEn": "I sailed to Europe on a warship.",
+    "familyEn": "Phallaceae"
   },
   {
     "id": "bleedingtooth",
@@ -6003,7 +6078,8 @@
     ],
     "habitatEn": "Ground in conifer woods",
     "factEn": "The bright red droplets oozing from a young specimen are actually excess water forced out by root pressure, and they contain an anticoagulant compound.",
-    "quoteEn": "That's not blood. It's just water being squeezed out."
+    "quoteEn": "That's not blood. It's just water being squeezed out.",
+    "familyEn": "Bankeraceae"
   },
   {
     "id": "bluemushroom",
@@ -6074,7 +6150,8 @@
     ],
     "habitatEn": "Southern beech forests of New Zealand",
     "factEn": "It's printed on New Zealand's fifty-dollar note. Its indigo blue comes from three rare azulene pigments — true blue is scarce in nature.",
-    "quoteEn": "I've been on the money."
+    "quoteEn": "I've been on the money.",
+    "familyEn": "Entolomataceae"
   },
   {
     "id": "indigomilk",
@@ -6146,7 +6223,8 @@
     ],
     "habitatEn": "Ground in mixed pine-oak woods",
     "factEn": "Break it open and deep indigo-blue milk oozes out, slowly turning inky green in the air — one of the world's few genuinely blue mushrooms.",
-    "quoteEn": "I bleed blue milk."
+    "quoteEn": "I bleed blue milk.",
+    "familyEn": "Russulaceae"
   },
   {
     "id": "violetcoral",
@@ -6220,7 +6298,8 @@
     ],
     "habitatEn": "Unfertilised old grassland and woodland",
     "factEn": "An indicator of healthy grassland, it only appears where the soil has gone untilled and unfertilized for years, and it's listed on the Red List in several European countries.",
-    "quoteEn": "If you see me, this meadow has never been touched."
+    "quoteEn": "If you see me, this meadow has never been touched.",
+    "familyEn": "Clavariaceae"
   },
   {
     "id": "scarletcup",
@@ -6293,7 +6372,8 @@
     ],
     "habitatEn": "Fallen twigs in damp woodland",
     "factEn": "It appears in early spring while patches of snow still linger, on moss-covered fallen branches; a light tap when mature sends up a small puff of spore cloud.",
-    "quoteEn": "The snow hasn't even melted, and here I am."
+    "quoteEn": "The snow hasn't even melted, and here I am.",
+    "familyEn": "Sarcoscyphaceae"
   },
   {
     "id": "orangepeel",
@@ -6368,7 +6448,8 @@
     ],
     "habitatEn": "Bare soil on roadsides and forest tracks",
     "factEn": "It looks exactly like an orange peel tossed carelessly on the ground, often appearing in clusters on compacted dirt paths.",
-    "quoteEn": "Don't step on me. I'm not litter."
+    "quoteEn": "Don't step on me. I'm not litter.",
+    "familyEn": "Pyronemataceae"
   },
   {
     "id": "greenelfcup",
@@ -6440,7 +6521,8 @@
     ],
     "habitatEn": "Fallen wood, especially oak",
     "factEn": "Its mycelium stains wood a striking blue-green; that 'green oak' has been used in English Tunbridge ware marquetry for centuries.",
-    "quoteEn": "I dye the wood green, and craftsmen line up for it."
+    "quoteEn": "I dye the wood green, and craftsmen line up for it.",
+    "familyEn": "Chlorociboriaceae"
   },
   {
     "id": "candlesnuff",
@@ -6512,7 +6594,8 @@
     ],
     "habitatEn": "Rotting stumps",
     "factEn": "Its tips are dusted with white conidial powder, resembling a spent candlewick; its mycelium gives off an extremely faint glow in the dark.",
-    "quoteEn": "I look like a candle that's already burned out."
+    "quoteEn": "I look like a candle that's already burned out.",
+    "familyEn": "Xylariaceae"
   },
   {
     "id": "deadmanfingers",
@@ -6586,7 +6669,8 @@
     ],
     "habitatEn": "Base of hardwood stumps",
     "factEn": "A cluster of blackened, swollen finger-like stalks pokes up from the soil beside a stump, hence the name; its woody flesh is tough enough to survive a whole winter.",
-    "quoteEn": "What's reaching out of the soil — that's my hand."
+    "quoteEn": "What's reaching out of the soil — that's my hand.",
+    "familyEn": "Xylariaceae"
   },
   {
     "id": "kingalfred",
@@ -6666,7 +6750,8 @@
     ],
     "habitatEn": "Dead branches of ash and other hardwoods",
     "factEn": "Cut it open and you'll find concentric black-and-white rings like tree growth rings; once dried, it catches fire easily and smolders for a long time, a classic natural tinder in the wild.",
-    "quoteEn": "Split me open — I've got growth rings inside."
+    "quoteEn": "Split me open — I've got growth rings inside.",
+    "familyEn": "Hypoxylaceae"
   },
   {
     "id": "tinder",
@@ -6751,7 +6836,8 @@
     ],
     "habitatEn": "Trunks of birch and beech",
     "factEn": "Otzi the Iceman, who lived 5,300 years ago, carried this fungus with him; its processed flesh could hold a smoldering ember — one of the oldest known pieces of evidence for humans using fungi.",
-    "quoteEn": "The Iceman carried me across the Alps."
+    "quoteEn": "The Iceman carried me across the Alps.",
+    "familyEn": "Polyporaceae"
   },
   {
     "id": "artistconk",
@@ -6838,7 +6924,8 @@
     ],
     "habitatEn": "Hardwood trunks and stumps",
     "factEn": "Scratch its white pore surface and the mark instantly turns brown; the line can last for decades, which is how it earned the name 'artist's conk.'",
-    "quoteEn": "Draw on my belly, and it'll last for decades."
+    "quoteEn": "Draw on my belly, and it'll last for decades.",
+    "familyEn": "Ganodermataceae"
   },
   {
     "id": "chickenwoods",
@@ -6912,7 +6999,8 @@
     ],
     "habitatEn": "Living trees and dead trunks of oak, willow and others",
     "factEn": "Named for its chicken-breast-like texture, but a good number of people get gastrointestinal reactions after eating it, and specimens growing on trees like yew call for particular caution.",
-    "quoteEn": "Some say I taste like chicken. Others really regret finding out."
+    "quoteEn": "Some say I taste like chicken. Others really regret finding out.",
+    "familyEn": "Fomitopsidaceae"
   },
   {
     "id": "beefsteak",
@@ -6984,7 +7072,8 @@
     ],
     "habitatEn": "Base of oak and chestnut",
     "factEn": "Slice into it and you'll find marbled flesh oozing red juice — it genuinely looks like a cut of raw beef.",
-    "quoteEn": "Slice me open and you'll think you wandered into a butcher shop."
+    "quoteEn": "Slice me open and you'll think you wandered into a butcher shop.",
+    "familyEn": "Fistulinaceae"
   },
   {
     "id": "splitgill",
@@ -7067,7 +7156,8 @@
     ],
     "habitatEn": "Dead wood of all kinds, worldwide",
     "factEn": "It has over 23,000 mating types, so it can pair with nearly any encounter of its own kind; Yunnan calls it 'white ginseng' and cooks it as food, but it's also one of the very few fungi known to infect humans.",
-    "quoteEn": "I have more than twenty-three thousand sexes."
+    "quoteEn": "I have more than twenty-three thousand sexes.",
+    "familyEn": "Schizophyllaceae"
   },
   {
     "id": "chaga",
@@ -7148,7 +7238,8 @@
     ],
     "habitatEn": "Trunk wounds on living birch",
     "factEn": "That charcoal-like black lump on the trunk isn't the fruiting body — it's a sclerotium. The actual spore-producing part hides beneath the bark and only shows once the tree dies.",
-    "quoteEn": "That lump of charcoal you see is just my storeroom."
+    "quoteEn": "That lump of charcoal you see is just my storeroom.",
+    "familyEn": "Hymenochaetaceae"
   },
   {
     "id": "militaris",
@@ -7223,7 +7314,8 @@
     ],
     "habitatEn": "Buried moth pupae in woodland soil",
     "factEn": "Unlike wild caterpillar fungus, it can be mass-cultivated on a rice-based substrate; its orange-red fruiting bodies are sold in markets as 'northern caterpillar fungus.'",
-    "quoteEn": "I can be grown on a bed of rice. The wild one can't."
+    "quoteEn": "I can be grown on a bed of rice. The wild one can't.",
+    "familyEn": "Cordycipitaceae"
   },
   {
     "id": "zombieant",
@@ -7291,7 +7383,8 @@
     ],
     "habitatEn": "Tropical rainforest, parasitic on carpenter ants",
     "factEn": "It manipulates its ant host into climbing to the underside of a leaf, clamping onto a vein, and dying there — then sprouts a fruiting body from the ant's head, at just the right height and spot to rain spores down on the ant trail below.",
-    "quoteEn": "I let the ant walk itself to exactly the right spot."
+    "quoteEn": "I let the ant walk itself to exactly the right spot.",
+    "familyEn": "Ophiocordycipitaceae"
   },
   {
     "id": "chinesetruffle",
@@ -7367,7 +7460,8 @@
     ],
     "habitatEn": "Underground in oak woods of Yunnan and Sichuan",
     "factEn": "Nearly indistinguishable in appearance from the European black truffle, though its aroma is much weaker; in earlier years it was often exported cheaply in bulk and passed off as the European kind.",
-    "quoteEn": "I look like him. I'm not him."
+    "quoteEn": "I look like him. I'm not him.",
+    "familyEn": "Tuberaceae"
   },
   {
     "id": "lobster",
@@ -7438,7 +7532,8 @@
     ],
     "habitatEn": "Parasitic on fruitbodies of Russula and Lactarius",
     "factEn": "It isn't really a mushroom's 'body' at all — it's a parasitic fungus that engulfs a host mushroom entirely, twisting it into a solid orange-red mass and even changing its flavor.",
-    "quoteEn": "I'm not a mushroom. I'm a shell wrapped around one."
+    "quoteEn": "I'm not a mushroom. I'm a shell wrapped around one.",
+    "familyEn": "Hypocreaceae"
   },
   {
     "id": "earpick",
@@ -7509,7 +7604,8 @@
     ],
     "habitatEn": "Pine cones buried in leaf litter",
     "factEn": "It grows only on fallen pine cones, with a stem attached off-center to the cap, giving the whole thing the look of a tiny earpick.",
-    "quoteEn": "In my whole life, I only ever recognize one pine cone."
+    "quoteEn": "In my whole life, I only ever recognize one pine cone.",
+    "familyEn": "Auriscalpiaceae"
   },
   {
     "id": "blackwitch",
@@ -7586,7 +7682,8 @@
     ],
     "habitatEn": "Fallen branches of oak and other hardwoods",
     "factEn": "When wet it's a blob of black jelly; dried out, it shrinks to a thin black crust pressed flat against the bark — then swells back to life the next time it rains.",
-    "quoteEn": "Dry me out. Rain will bring me back."
+    "quoteEn": "Dry me out. Rain will bring me back.",
+    "familyEn": "Exidiaceae"
   },
   {
     "id": "stagshorn",
@@ -7662,7 +7759,8 @@
     ],
     "habitatEn": "Buried conifer wood",
     "factEn": "It looks like a coral fungus, but feels rubbery and gel-like — you can't snap it or crumble it, which is exactly what sets it apart from true coral fungi.",
-    "quoteEn": "I look brittle. I'm actually tough as rubber."
+    "quoteEn": "I look brittle. I'm actually tough as rubber.",
+    "familyEn": "Dacrymycetaceae"
   },
   {
     "id": "amethyst",
@@ -7740,7 +7838,8 @@
     ],
     "habitatEn": "Leaf litter in beech and oak woods",
     "factEn": "The 'deceiver' in its English name refers to how drastically its color shifts: vivid purple when wet, fading to grayish-white when dry, almost like a different species.",
-    "quoteEn": "Once I dry out, you won't recognize me."
+    "quoteEn": "Once I dry out, you won't recognize me.",
+    "familyEn": "Hydnangiaceae"
   },
   {
     "id": "parrot",
@@ -7818,7 +7917,8 @@
     ],
     "habitatEn": "Old grassland and mossy ground",
     "factEn": "It emerges bright green all over; as it matures, the cap top shifts to yellow, then orange, so a single mushroom can show three colors at once.",
-    "quoteEn": "I go from green all the way to orange."
+    "quoteEn": "I go from green all the way to orange.",
+    "familyEn": "Hygrophoraceae"
   },
   {
     "id": "scarletwaxcap",
@@ -7890,7 +7990,8 @@
     ],
     "habitatEn": "Unfertilised old grassland",
     "factEn": "Waxcaps are indicator species for grassland health, appearing in numbers only on meadows left untilled and unfertilized for decades; in Europe they're a conservation priority.",
-    "quoteEn": "I'm proof of how old this meadow really is."
+    "quoteEn": "I'm proof of how old this meadow really is.",
+    "familyEn": "Hygrophoraceae"
   },
   {
     "id": "wrinkledpeach",
@@ -7961,7 +8062,8 @@
     ],
     "habitatEn": "Fallen elm",
     "factEn": "Its cap is covered in a pinkish-orange, wrinkled gelatinous skin, somewhere between a brain and a peach; as elm trees decline from disease, it's now on the Red List in over a dozen European countries.",
-    "quoteEn": "I only grow on elm. Fewer elms, fewer of me."
+    "quoteEn": "I only grow on elm. Fewer elms, fewer of me.",
+    "familyEn": "Physalacriaceae"
   },
   {
     "id": "bleedingbonnet",
@@ -8039,7 +8141,8 @@
     ],
     "habitatEn": "Rotting hardwood, often in small clumps",
     "factEn": "Pinch its stem and it oozes dark red fluid, like it's bleeding — a distinctive field mark within the Mycena genus.",
-    "quoteEn": "Pinch my stem, and I'll really bleed."
+    "quoteEn": "Pinch my stem, and I'll really bleed.",
+    "familyEn": "Mycenaceae"
   },
   {
     "id": "jellyear",
@@ -8116,7 +8219,8 @@
     ],
     "habitatEn": "Dead branches of elder and other hardwoods",
     "factEn": "This European species grows mainly on elder trees; the black wood ear cultivated in China is a separate species, though the two look nearly identical.",
-    "quoteEn": "I'm the European ear."
+    "quoteEn": "I'm the European ear.",
+    "familyEn": "Auriculariaceae"
   },
   {
     "id": "yellowstainer",
@@ -8204,7 +8308,8 @@
       "horsemushroom": "Horse mushroom bruises pale yellow and smells sweetly of aniseed; yellow stainer turns bright yellow with a sharp phenol smell."
     },
     "factEn": "One of the most common causes of gastrointestinal poisoning in Europe. Cut into the stem base and it flushes chrome yellow within seconds, giving off a smell of ink or carbolic acid.",
-    "quoteEn": "Slice into my base and you'll catch a whiff of ink."
+    "quoteEn": "Slice into my base and you'll catch a whiff of ink.",
+    "familyEn": "Agaricaceae"
   },
   {
     "id": "horsemushroom",
@@ -8277,7 +8382,8 @@
     ],
     "habitatEn": "Pastures and grassland",
     "factEn": "It has a distinct almond or anise scent, a sharp contrast to the yellow stainer's inky smell — though scent alone should never be the deciding test.",
-    "quoteEn": "I smell like almonds."
+    "quoteEn": "I smell like almonds.",
+    "familyEn": "Agaricaceae"
   },
   {
     "id": "rollrim",
@@ -8357,7 +8463,8 @@
     ],
     "habitatEn": "Ground in birch and oak woods",
     "factEn": "It was long regarded as an edible mushroom, until repeated consumption was found to trigger fatal immune-mediated blood destruction in some people — the danger doesn't come from a single meal, but from the body slowly becoming sensitized.",
-    "quoteEn": "Eat me ninety-nine times and you're fine. The hundredth time might not be."
+    "quoteEn": "Eat me ninety-nine times and you're fine. The hundredth time might not be.",
+    "familyEn": "Paxillaceae"
   },
   {
     "id": "bitterbolete",
@@ -8432,7 +8539,8 @@
     ],
     "habitatEn": "Ground in conifer woods",
     "factEn": "Not toxic, but bitter enough that a single small piece can ruin a whole pot of soup. One way to tell it from porcini: its stem netting is coarser and darker brown, and its pores have a pinkish tint.",
-    "quoteEn": "I'm not poisonous. I'll just ruin your dinner."
+    "quoteEn": "I'm not poisonous. I'll just ruin your dinner.",
+    "familyEn": "Boletaceae"
   },
   {
     "id": "satan",
@@ -8519,7 +8627,8 @@
       "porcini": "Porcini's pores go white to yellow-green, its stem is white-brown with a net and it doesn't blue; Satan's bolete has red pores."
     },
     "factEn": "A pale grayish cap paired with blood-red pores, and a stout stem etched with red netting; eaten raw it causes violent vomiting, making it Europe's most notorious poisonous bolete.",
-    "quoteEn": "White cap, red socks — don't mess with me."
+    "quoteEn": "White cap, red socks — don't mess with me.",
+    "familyEn": "Boletaceae"
   },
   {
     "id": "earthball",
@@ -8606,7 +8715,8 @@
       "pisolithus": "Dyeball has a root-like stem and cuts open to show pea-like chambers; earthball has no stem and a uniformly purple-black interior."
     },
     "factEn": "Cutting one open is the key test: a true puffball's interior is pure white and uniform when young, while the earthball's is a purplish-black mass of spores, and its skin is much thicker and tougher.",
-    "quoteEn": "Cut me open — inside, it's black."
+    "quoteEn": "Cut me open — inside, it's black.",
+    "familyEn": "Sclerodermataceae"
   },
   {
     "id": "formosa",
@@ -8689,7 +8799,8 @@
       "violetcoral": "Violet coral is violet throughout."
     },
     "factEn": "Its pinkish-orange branches tip into yellow — beautiful, but it causes severe gastrointestinal reactions; within its genus, edible and toxic species look almost identical.",
-    "quoteEn": "A pretty coral doesn't belong in the pot just because it's pretty."
+    "quoteEn": "A pretty coral doesn't belong in the pot just because it's pretty.",
+    "familyEn": "Gomphaceae"
   },
   {
     "id": "coralRamaria",
@@ -8764,7 +8875,8 @@
     ],
     "habitatEn": "Ground in broadleaf woods",
     "factEn": "Called 'broom fungus' in Yunnan, its branch tips carry a pink blush and its thick base looks like a head of cauliflower; it needs careful distinguishing from the toxic beautiful coral.",
-    "quoteEn": "I look like a broom. Also like a head of cauliflower."
+    "quoteEn": "I look like a broom. Also like a head of cauliflower.",
+    "familyEn": "Gomphaceae"
   },
   {
     "id": "gomphus",
@@ -8845,7 +8957,8 @@
       "chanterelle": "Chanterelle is solid, egg-yellow throughout, with blunt ridges outside; woolly chanterelle is hollow, orange-red and scaly inside."
     },
     "factEn": "It looks like a supersized chanterelle, its orange-red funnel covered in coarse scales; records classify it as a gastrointestinal-irritant mushroom, though some regions still eat it by tradition.",
-    "quoteEn": "I'm the chanterelle, blown up several sizes."
+    "quoteEn": "I'm the chanterelle, blown up several sizes.",
+    "familyEn": "Gomphaceae"
   },
   {
     "id": "ivory",
@@ -8926,7 +9039,8 @@
       "fairyring": "Fairy ring champignon has a pale brown bell-shaped cap, sparse non-decurrent gills and a tough stem; ivory funnel has a frosted white cap and decurrent gills."
     },
     "factEn": "It contains muscarine, and poisoning causes heavy sweating and drooling. It often grows in the same meadow as the edible fairy ring champignon, and the two look similar in size and color.",
-    "quoteEn": "The fairy ring mushroom and I live right next to each other."
+    "quoteEn": "The fairy ring mushroom and I live right next to each other.",
+    "familyEn": "Tricholomataceae"
   },
   {
     "id": "livid",
@@ -9013,7 +9127,8 @@
       "deerpluteus": "Deer shield grows on rotting wood and has free gills; livid pinkgill grows on soil and has sinuate gills."
     },
     "factEn": "One of the species behind the most mass-poisoning incidents in Europe. Its gills turn flesh-pink with age, and its spore print is pink — the shared signature of the Entoloma genus.",
-    "quoteEn": "My gills turn flesh-pink over time."
+    "quoteEn": "My gills turn flesh-pink over time.",
+    "familyEn": "Entolomataceae"
   },
   {
     "id": "equestre",
@@ -9094,7 +9209,8 @@
       "matsutake": "Matsutake has a brown cap with fibrous scales, a large stem ring and a resinous pine scent; yellow knight is yellow-green with no ring."
     },
     "factEn": "Once prized as a delicious edible, until cases of fatal rhabdomyolysis in France, following days of repeated heavy consumption, forced a full reassessment.",
-    "quoteEn": "I used to be a celebrated dish."
+    "quoteEn": "I used to be a celebrated dish.",
+    "familyEn": "Tricholomataceae"
   },
   {
     "id": "poisonpie",
@@ -9171,7 +9287,8 @@
     ],
     "habitatEn": "Ground in broadleaf woods, often in rows",
     "factEn": "It has a distinct radish smell; when damp, tiny droplets bead along the gill edges, leaving brown spots once they dry.",
-    "quoteEn": "Smells like radish? That's probably me."
+    "quoteEn": "Smells like radish? That's probably me.",
+    "familyEn": "Hymenogastraceae"
   },
   {
     "id": "leucocoprinus",
@@ -9260,7 +9377,8 @@
     ],
     "habitatEn": "Potting soil in flowerpots and greenhouses",
     "factEn": "This is the little yellow parasol that suddenly appears in a houseplant's pot. It feeds on organic matter in the soil, doesn't harm the plant, but does contain a gastrointestinal-irritant toxin.",
-    "quoteEn": "I'm the uninvited guest in your flowerpot."
+    "quoteEn": "I'm the uninvited guest in your flowerpot.",
+    "familyEn": "Agaricaceae"
   },
   {
     "id": "deerpluteus",
@@ -9338,7 +9456,8 @@
     ],
     "habitatEn": "Rotting wood and wood-chip piles",
     "factEn": "A pink spore print, gills that are free (not attached to the stem), and no ring or volva at all — this combination marks the Pluteus genus.",
-    "quoteEn": "My gills never quite touch my stem."
+    "quoteEn": "My gills never quite touch my stem.",
+    "familyEn": "Pluteaceae"
   },
   {
     "id": "candolle",
@@ -9418,7 +9537,8 @@
     ],
     "habitatEn": "Buried wood in grassland, near stumps",
     "factEn": "Its stem is extremely brittle and snaps at the slightest touch; the cap edge often carries scraps of white veil, like a fringe of tassels.",
-    "quoteEn": "The gentlest touch, and my stem snaps."
+    "quoteEn": "The gentlest touch, and my stem snaps.",
+    "familyEn": "Psathyrellaceae"
   },
   {
     "id": "crested",
@@ -9489,7 +9609,8 @@
     ],
     "habitatEn": "Woodland leaf litter",
     "factEn": "Its white branches fork at the tips like antlers into small crowns; it's often parasitized by another fungus and turns grayish-purple as a result.",
-    "quoteEn": "Each of my branch tips wears a tiny crown."
+    "quoteEn": "Each of my branch tips wears a tiny crown.",
+    "familyEn": "Clavulinaceae"
   },
   {
     "id": "redbelt",
@@ -9573,7 +9694,8 @@
     ],
     "habitatEn": "Dead standing and fallen conifers",
     "factEn": "The bright red or orange band along its growing edge marks the part still expanding; the color deepens toward the center, ring by ring recording each passing year.",
-    "quoteEn": "My red rim is the part I grew this year."
+    "quoteEn": "My red rim is the part I grew this year.",
+    "familyEn": "Fomitopsidaceae"
   },
   {
     "id": "birchpolypore",
@@ -9648,7 +9770,8 @@
     ],
     "habitatEn": "Dead or weakened birch",
     "factEn": "Dried, its texture resembles fine leather; it was historically cut into strips for honing razors, earning it the nickname 'razor strop fungus.'",
-    "quoteEn": "Barbers once used me to strop their razors."
+    "quoteEn": "Barbers once used me to strop their razors.",
+    "familyEn": "Fomitopsidaceae"
   },
   {
     "id": "giantpolypore",
@@ -9719,7 +9842,8 @@
     ],
     "habitatEn": "Base of beech and other hardwoods",
     "factEn": "A single cluster can grow up to a meter wide. Bruise the pore surface and it turns black within minutes — a reliable way to tell it from maitake.",
-    "quoteEn": "Bump me, and I'll turn black within minutes."
+    "quoteEn": "Bump me, and I'll turn black within minutes.",
+    "familyEn": "Fomitopsidaceae"
   },
   {
     "id": "falseturkey",
@@ -9803,7 +9927,8 @@
     ],
     "habitatEn": "Dead hardwood branches and stumps",
     "factEn": "It's turkey tail's biggest impostor: the top has the same colorful bands, but the underside is completely smooth with no pores, and the surface is fuzzy with fine hairs.",
-    "quoteEn": "The front passes for turkey tail. The back gives me away."
+    "quoteEn": "The front passes for turkey tail. The back gives me away.",
+    "familyEn": "Stereaceae"
   },
   {
     "id": "lateoyster",
@@ -9880,7 +10005,8 @@
     ],
     "habitatEn": "Fallen hardwood, fruiting in late autumn",
     "factEn": "Called 'frozen mushroom' or 'yuan mushroom' in northeast China, it fruits in force only after the first frost; its cap ranges olive-green to yellowish-brown, with a very short, off-center stem.",
-    "quoteEn": "Not until the first frost does it become my turn."
+    "quoteEn": "Not until the first frost does it become my turn.",
+    "familyEn": "Crepidotaceae"
   },
   {
     "id": "japonica",
@@ -9957,7 +10083,8 @@
       "blackening": "Blackening brittlegill reddens then blackens when damaged; Japanese russula does not change colour."
     },
     "factEn": "A large white russula with crowded gills, it's a common gastrointestinal-irritant mushroom in East Asia, frequently mistaken for edible white russulas.",
-    "quoteEn": "A white russula can still be poisonous."
+    "quoteEn": "A white russula can still be poisonous.",
+    "familyEn": "Russulaceae"
   },
   {
     "id": "woollymilk",
@@ -10042,7 +10169,8 @@
       "hatsudake": "Hatsudake has dark red milk; woolly milkcap has white milk and a hairy cap margin."
     },
     "factEn": "Its cap edge is thick with shaggy hairs, and its milk is white and fiercely peppery; northern Europe has a tradition of eating it after a lengthy salting process, but raw it causes severe gastrointestinal reactions.",
-    "quoteEn": "I've got a ring of whiskers around my edge."
+    "quoteEn": "I've got a ring of whiskers around my edge.",
+    "familyEn": "Russulaceae"
   },
   {
     "id": "laughing",
@@ -10129,7 +10257,8 @@
       "gypsy": "Gypsy mushroom has a frosted cap and pale brown gills; spectacular rustgill is orange-yellow with rusty-brown gills and a bitter taste."
     },
     "factEn": "Japan calls it the 'laughing mushroom,' after records of unusual excitement following ingestion; its golden clusters are hard to miss on autumn tree stumps.",
-    "quoteEn": "Eating me makes people laugh. It's not a happy laugh."
+    "quoteEn": "Eating me makes people laugh. It's not a happy laugh.",
+    "familyEn": "Hymenogastraceae"
   },
   {
     "id": "ergot",
@@ -10200,7 +10329,8 @@
     ],
     "habitatEn": "Flower heads of rye and other grasses",
     "factEn": "It replaces a grain kernel with a purplish-black sclerotium of its own. In medieval Europe, eating bread baked from ergot-contaminated rye triggered mass poisonings known as 'St. Anthony's Fire.'",
-    "quoteEn": "I once rewrote the course of European history."
+    "quoteEn": "I once rewrote the course of European history.",
+    "familyEn": "Clavicipitaceae"
   },
   {
     "id": "pisolithus",
@@ -10274,7 +10404,8 @@
     ],
     "habitatEn": "Poor sandy soil and road embankments",
     "factEn": "Cut it open and it looks like a mosaic, packed with countless tiny spore chambers; it can dye wool everything from golden yellow to deep brown, earning it the name 'dyeball.'",
-    "quoteEn": "Cut me open and I look like a mosaic."
+    "quoteEn": "Cut me open and I look like a mosaic.",
+    "familyEn": "Sclerodermataceae"
   },
   {
     "id": "stereumostrea",
@@ -10355,7 +10486,8 @@
     ],
     "habitatEn": "Fallen hardwood",
     "factEn": "Its bands are wider and warmer in tone than turkey tail's, and the underside is likewise smooth with no pores; telling apart this trio of 'true and false turkey tails' is a classic beginner's exercise.",
-    "quoteEn": "The three of us look alike. Only the underside never lies."
+    "quoteEn": "The three of us look alike. Only the underside never lies.",
+    "familyEn": "Stereaceae"
   },
   {
     "id": "conocybe",
@@ -10437,7 +10569,8 @@
       "micaceus": "Glistening inkcap has a cap dusted with glittering granules, dissolves when mature and has no ring; deadly conecap has a ring and doesn't dissolve."
     },
     "factEn": "An unremarkable little lawn mushroom that carries the very same amatoxins as the death cap — a reminder that 'small mushrooms are harmless' is simply wrong.",
-    "quoteEn": "I'm small. That doesn't mean I'm harmless."
+    "quoteEn": "I'm small. That doesn't mean I'm harmless.",
+    "familyEn": "Bolbitiaceae"
   },
   {
     "id": "smithiana",
@@ -10516,7 +10649,8 @@
       "matsutake": "Matsutake smells of pine resin and its stem base is not swollen; Smith's amanita smells unpleasant, with a spindle-shaped swollen base."
     },
     "factEn": "The Pacific Northwest has recorded multiple cases of acute kidney failure after it was mistaken for matsutake and eaten; unlike matsutake, it lacks that strong, spicy aroma.",
-    "quoteEn": "No spicy pine scent? That might be me."
+    "quoteEn": "No spicy pine scent? That might be me.",
+    "familyEn": "Amanitaceae"
   },
   {
     "id": "cornflower",
@@ -10589,7 +10723,8 @@
     ],
     "habitatEn": "Sandy ground in conifer woods",
     "factEn": "One of the most dramatically blue-staining boletes: slice it and the flesh turns cornflower blue within seconds.",
-    "quoteEn": "Give me a few seconds, and I go from white to blue."
+    "quoteEn": "Give me a few seconds, and I go from white to blue.",
+    "familyEn": "Gyroporaceae"
   },
   {
     "id": "chestnutbolete",
@@ -10661,7 +10796,8 @@
     ],
     "habitatEn": "Sandy oak woodland",
     "factEn": "Its stem hollows out with age and collapses at the lightest squeeze — an unusual trait among boletes.",
-    "quoteEn": "My stem is hollow. Give it a squeeze and you'll feel it."
+    "quoteEn": "My stem is hollow. Give it a squeeze and you'll feel it.",
+    "familyEn": "Gyroporaceae"
   },
   {
     "id": "dryadsaddle",
@@ -10733,7 +10869,8 @@
     ],
     "habitatEn": "Wounds on hardwoods and fallen trunks, in spring",
     "factEn": "It has a distinct watermelon-rind smell, with large dark-brown scales arranged in concentric rings across the cap; only when very young does its texture avoid feeling like leather.",
-    "quoteEn": "Give it a sniff — I smell like watermelon."
+    "quoteEn": "Give it a sniff — I smell like watermelon.",
+    "familyEn": "Polyporaceae"
   },
   {
     "id": "amanitajack",
@@ -10808,7 +10945,8 @@
     ],
     "habitatEn": "Oak and pine woods of eastern North America",
     "factEn": "North America's counterpart to Caesar's mushroom, with a distinctly grooved cap edge; deadly relatives in the same genus share its woodlands, so the risk in foraging is always there.",
-    "quoteEn": "I'm the New World's answer to the emperor's mushroom."
+    "quoteEn": "I'm the New World's answer to the emperor's mushroom.",
+    "familyEn": "Amanitaceae"
   },
   {
     "id": "yellowfoot",
@@ -10885,7 +11023,8 @@
     ],
     "habitatEn": "Mossy ground in conifer woods, often in large numbers",
     "factEn": "It fruits by the hundreds in mossy patches come late autumn; its hollow yellow stem is the giveaway, and foragers can pick it right up until the first frost.",
-    "quoteEn": "Right up until the first frost, I'm still here."
+    "quoteEn": "Right up until the first frost, I'm still here.",
+    "familyEn": "Cantharellaceae"
   },
   {
     "id": "mongolica",
@@ -10961,7 +11100,8 @@
     ],
     "habitatEn": "Inner Mongolian steppe, often in fairy rings",
     "factEn": "It fruits in enormous rings across the grassland; the grass inside each ring grows especially lush and dark, fed by nutrients its mycelium releases, and herders track that green ring to find it.",
-    "quoteEn": "Follow the dark green ring across the grassland and you'll find me."
+    "quoteEn": "Follow the dark green ring across the grassland and you'll find me.",
+    "familyEn": "Tricholomataceae"
   },
   {
     "id": "goldenear",
@@ -11037,7 +11177,8 @@
     ],
     "habitatEn": "Fallen elm and other hardwoods",
     "factEn": "A specialty of northeast China, its gel-like flesh is covered in fine down and colored a pale flesh-pink; the dried form needs a long soak to rehydrate.",
-    "quoteEn": "I'm the ear that grows on an elm."
+    "quoteEn": "I'm the ear that grows on an elm.",
+    "familyEn": "Auriscalpiaceae"
   },
   {
     "id": "sordida",
@@ -11116,7 +11257,8 @@
     ],
     "habitatEn": "Grassland, vegetable gardens and compost edges",
     "factEn": "Smaller and thinner than wood blewit, and its color fades faster too; both share the pale pink spore print typical of the Lepista genus.",
-    "quoteEn": "I'm the pocket-sized version of wood blewit."
+    "quoteEn": "I'm the pocket-sized version of wood blewit.",
+    "familyEn": "Tricholomataceae"
   },
   {
     "id": "lilacbonnet",
@@ -11198,7 +11340,8 @@
       "bleedingbonnet": "Bleeding fairy helmet oozes dark red juice when the stem is broken; lilac bonnet does not, and smells of radish."
     },
     "factEn": "It has a distinct radish smell, contains trace muscarine, and has even been reported to carry hallucinogenic compounds — one of the few Mycena species clearly documented as toxic.",
-    "quoteEn": "I smell like radish. Don't mistake me for one."
+    "quoteEn": "I smell like radish. Don't mistake me for one.",
+    "familyEn": "Mycenaceae"
   },
   {
     "id": "woodtuft",
@@ -11277,7 +11420,8 @@
     ],
     "habitatEn": "Hardwood stumps, in dense clumps",
     "factEn": "It looks almost identical to the deadly funeral bell and often grows on the very same log; European foraging guides single out this pair as the most dangerous case of mistaken identity.",
-    "quoteEn": "The one growing right next to me — that one can kill."
+    "quoteEn": "The one growing right next to me — that one can kill.",
+    "familyEn": "Strophariaceae"
   },
   {
     "id": "hypholomaL",
@@ -11353,7 +11497,8 @@
     ],
     "habitatEn": "Hardwood stumps, in clumps",
     "factEn": "In the same genus as sulphur tuft, with a brick-red cap and a milder taste; sources disagree on its edibility, so it's left undetermined here.",
-    "quoteEn": "Whether I'm edible — even the books can't agree."
+    "quoteEn": "Whether I'm edible — even the books can't agree.",
+    "familyEn": "Strophariaceae"
   },
   {
     "id": "saddle",
@@ -11427,7 +11572,8 @@
     ],
     "habitatEn": "Track edges and ground in broadleaf woods",
     "factEn": "Its cap looks like a crumpled white saddle, and its stem has deep grooves and hollow chambers; it contains compounds similar to false morel's, and records advise against eating it.",
-    "quoteEn": "My stem is riddled with hollow chambers."
+    "quoteEn": "My stem is riddled with hollow chambers.",
+    "familyEn": "Helvellaceae"
   },
   {
     "id": "jellybaby",
@@ -11496,7 +11642,8 @@
     ],
     "habitatEn": "Among moss in damp woodland",
     "factEn": "A little gelatinous club, its cap olive-green and its stem bright yellow, the whole thing slick and slippery like a gummy candy.",
-    "quoteEn": "I look like a gumdrop that fell into the moss."
+    "quoteEn": "I look like a gumdrop that fell into the moss.",
+    "familyEn": "Bulgariaceae"
   },
   {
     "id": "earthtongue",
@@ -11564,7 +11711,8 @@
     ],
     "habitatEn": "Mossy ground and old grassland",
     "factEn": "Like tiny black tongues poking up out of the moss, its surface bristles with fine hairs you need a magnifying glass to really see.",
-    "quoteEn": "I'm the black tongue poking out of the moss."
+    "quoteEn": "I'm the black tongue poking out of the moss.",
+    "familyEn": "Geoglossaceae"
   },
   {
     "id": "pinecone",
@@ -11645,7 +11793,8 @@
     ],
     "habitatEn": "Ground in broadleaf woods",
     "factEn": "Covered head to toe in rough, upturned black scales, it looks like a pine cone or a scruffy old man; slice into the flesh and it turns red, then black.",
-    "quoteEn": "They call me the old man of the woods."
+    "quoteEn": "They call me the old man of the woods.",
+    "familyEn": "Boletaceae"
   },
   {
     "id": "humongous",
@@ -11718,7 +11867,8 @@
     ],
     "habitatEn": "Roots of living conifers and stumps",
     "factEn": "A single individual of this species in Oregon's Blue Mountains spreads its mycelial network across roughly nine square kilometers and is estimated to be thousands of years old — widely considered the largest single organism on Earth.",
-    "quoteEn": "I've spread nine square kilometers underground, and I'm still growing."
+    "quoteEn": "I've spread nine square kilometers underground, and I'm still growing.",
+    "familyEn": "Physalacriaceae"
   },
   {
     "id": "whitetruffle",
@@ -11792,7 +11942,8 @@
     ],
     "habitatEn": "Underground on oak, poplar and willow roots in northern Italy",
     "factEn": "Still essentially impossible to cultivate, it can only be tracked down by trained dogs in specific woodlands, and its price has topped nearly every other ingredient for years.",
-    "quoteEn": "No one can grow me. You can only come and find me."
+    "quoteEn": "No one can grow me. You can only come and find me.",
+    "familyEn": "Tuberaceae"
   },
   {
     "id": "devilscigar",
@@ -11867,7 +12018,8 @@
     ],
     "habitatEn": "Dead cedar roots in Texas, USA; dead wood in Kyushu, Japan",
     "factEn": "Recorded nowhere on Earth except Texas and Japan, making it one of the strangest distributions in the fungal world; when it splits open it releases an audible hiss and a puff of spores.",
-    "quoteEn": "There are only two places on Earth where I live."
+    "quoteEn": "There are only two places on Earth where I live.",
+    "familyEn": "Sarcosomataceae"
   },
   {
     "id": "firecoral",
@@ -11948,7 +12100,8 @@
       "militaris": "Scarlet caterpillar club is an orange club rising from an insect body, with a granular tip; poison fire coral rises from soil or rotting wood, antler-like."
     },
     "factEn": "It contains trichothecene toxins and is one of the rare fungi reported to cause skin reactions from mere contact; accidental ingestion carries a high death rate.",
-    "quoteEn": "Don't touch me. I mean that literally."
+    "quoteEn": "Don't touch me. I mean that literally.",
+    "familyEn": "Hypocreaceae"
   },
   {
     "id": "hatsudake",
@@ -12021,7 +12174,8 @@
     ],
     "habitatEn": "Ground in Masson pine woods",
     "factEn": "Its milk runs wine-red rather than the saffron milk cap's carrot-orange, and it likewise turns bluish-green where bruised.",
-    "quoteEn": "What I bleed is wine-red."
+    "quoteEn": "What I bleed is wine-red.",
+    "familyEn": "Russulaceae"
   },
   {
     "id": "coralhericium",
@@ -12095,7 +12249,8 @@
     ],
     "habitatEn": "Fallen hardwood",
     "factEn": "In the same genus as lion's mane, but instead of forming one ball it branches into many slender twigs, each hung with short spines.",
-    "quoteEn": "I'm the lion's mane that decided to branch out."
+    "quoteEn": "I'm the lion's mane that decided to branch out.",
+    "familyEn": "Hericiaceae"
   },
   {
     "id": "venenatus",
@@ -12180,7 +12335,8 @@
       "whiteonion": "White onion bolete has a grey-white to pale brown cap and a pale yellow stem; poison bolete has a powdery yellow-brown cap."
     },
     "factEn": "It looks nearly identical to the Jian Shou Qing group and bruises blue just the same, but records document clear cases of gastrointestinal poisoning from it — turning blue doesn't mean it belongs on your plate.",
-    "quoteEn": "I turn blue too. That proves nothing."
+    "quoteEn": "I turn blue too. That proves nothing.",
+    "familyEn": "Boletaceae"
   },
   {
     "id": "verpa",
@@ -12259,7 +12415,8 @@
       "blackmorel": "Black morel's cap has honeycomb-like vertical ridges; early morel's cap is wrinkled, not honeycombed."
     },
     "factEn": "It fruits earlier in the season than true morels, its cap attached to the stem only at the very top, like a bell hanging from a hook; some people experience coordination problems after eating it.",
-    "quoteEn": "My cap just hangs there, attached at a single point."
+    "quoteEn": "My cap just hangs there, attached at a single point.",
+    "familyEn": "Morchellaceae"
   },
   {
     "id": "gypsy",
@@ -12335,7 +12492,8 @@
     ],
     "habitatEn": "Conifer woods, among bilberry",
     "factEn": "Most Cortinarius species are inedible or outright deadly, but this is one of the few with a history of being eaten; Nordic foragers recognize it by the wrinkled cap and the white ring.",
-    "quoteEn": "Not many in my genus are safe. I'm one of the exceptions."
+    "quoteEn": "Not many in my genus are safe. I'm one of the exceptions.",
+    "familyEn": "Cortinariaceae"
   },
   {
     "id": "violetwebcap",
@@ -12410,7 +12568,8 @@
     ],
     "habitatEn": "Ground in birch and oak woods",
     "factEn": "Deep violet from cap to gills to stem, its surface covered in fine down; a rusty-brown spore print marks it as a member of the Cortinarius genus.",
-    "quoteEn": "I'm purple from head to toe."
+    "quoteEn": "I'm purple from head to toe.",
+    "familyEn": "Cortinariaceae"
   },
   {
     "id": "waxcapconic",
@@ -12488,7 +12647,8 @@
     ],
     "habitatEn": "Grassland and mossy ground",
     "factEn": "A bright red-and-yellow, pointed little cap that turns coal-black wherever it's bruised or as it ages — one of the easiest waxcaps to recognize.",
-    "quoteEn": "Wherever you touch me, it turns black."
+    "quoteEn": "Wherever you touch me, it turns black.",
+    "familyEn": "Hygrophoraceae"
   },
   {
     "id": "magpie",
@@ -12567,7 +12727,8 @@
       "shaggyink": "Shaggy ink cap has a white, cylindrical cap; magpie inkcap is dark brown with white patches."
     },
     "factEn": "Large white veil patches cling to its dark brown cap like a magpie's black-and-white feathers; it, too, dissolves itself into ink.",
-    "quoteEn": "Black and white all over, just like a magpie."
+    "quoteEn": "Black and white all over, just like a magpie.",
+    "familyEn": "Psathyrellaceae"
   },
   {
     "id": "whitebirdsnest",
@@ -12642,7 +12803,8 @@
     ],
     "habitatEn": "Wood chips and dead twigs",
     "factEn": "Unlike the fluted bird's nest, its cup interior is smooth rather than grooved; the 'eggs' are white and tethered to the cup floor by an impossibly thin cord.",
-    "quoteEn": "My eggs are tied down with a single thread."
+    "quoteEn": "My eggs are tied down with a single thread.",
+    "familyEn": "Nidulariaceae"
   },
   {
     "id": "dogstinkhorn",
@@ -12719,7 +12881,8 @@
     ],
     "habitatEn": "Woodland leaf litter and wood chips",
     "factEn": "Much smaller and slighter than the common stinkhorn, with just a short cap of orange-red spore slime, and a far milder smell.",
-    "quoteEn": "I'm the compact version of the common stinkhorn."
+    "quoteEn": "I'm the compact version of the common stinkhorn.",
+    "familyEn": "Phallaceae"
   },
   {
     "id": "summertruffle",
@@ -12793,7 +12956,8 @@
     ],
     "habitatEn": "Underground in European oak woods",
     "factEn": "Its warty skin is larger and more angular than a black truffle's, the inside marbled a lighter brown with a milder aroma — and a price tag that's a fraction of the black truffle's.",
-    "quoteEn": "I'm the summer one, and a whole lot cheaper."
+    "quoteEn": "I'm the summer one, and a whole lot cheaper.",
+    "familyEn": "Tuberaceae"
   },
   {
     "id": "chlorophyllumB",
@@ -12872,7 +13036,8 @@
     ],
     "habitatEn": "Conifer edges, compost and gardens",
     "factEn": "Cut flesh turns orange-red, then brown, and the spore print is white — the key pairing with the green-spored parasol, whose print is green; some people still get gastrointestinal reactions after eating it.",
-    "quoteEn": "Cut me open and I turn red. That other one won't."
+    "quoteEn": "Cut me open and I turn red. That other one won't.",
+    "familyEn": "Agaricaceae"
   },
   {
     "id": "stagshornCoral",
@@ -12944,6 +13109,7 @@
     ],
     "habitatEn": "Fallen hardwood branches",
     "factEn": "Much smaller than yellow stagshorn, usually growing as unbranched little yellow spikes, packed densely along fallen branches.",
-    "quoteEn": "I'm the little horn that never forks."
+    "quoteEn": "I'm the little horn that never forks.",
+    "familyEn": "Dacrymycetaceae"
   }
 ]

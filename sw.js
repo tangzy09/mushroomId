@@ -17,9 +17,10 @@ const KEEP = [CORE, THUMB, IMG];
 // ⚠ 必须与 index.html 实际加载的脚本一一对应，漏一个离线时就是 ReferenceError
 const CORE_URLS = [
   'index.html', 'manifest.webmanifest', 'css/style.css',
+  'js/core/i18n.js', 'locales/zh-Hans.js', 'locales/en.js',
   'js/game/config.js', 'js/core/storage.js', 'js/core/gacha.js', 'js/core/quiz.js',
   'js/core/share.js', 'js/core/transfer.js', 'js/game/weather.js', 'js/game/shroom-art.js',
-  'js/core/facet.js', 'js/game/browse.js', 'js/game/garden.js', 'js/data.gen.js', 'js/questions.gen.js', 'js/photo_credits.js', 'js/photo_extra.js', 'js/game/app.js',
+  'js/core/facet.js', 'js/game/browse.js', 'js/game/garden.js', 'js/data.gen.js', 'js/i18n_en.gen.js', 'js/questions.gen.js', 'js/photo_credits.js', 'js/photo_extra.js', 'js/game/app.js',
   'assets/icons/icon-192.png', 'assets/icons/icon-512.png'
 ];
 const CORE_SET = new Set(CORE_URLS.map(u => new URL(u, self.registration.scope).pathname));

@@ -96,9 +96,11 @@ var World = (function () {
 
   function humanMinutes(m) {
     if (m == null) return '';
-    if (m < 1) return '不到 1 分钟';
-    if (m < 60) return Math.ceil(m) + ' 分钟';
+    var en = typeof I18N !== 'undefined' && I18N.lang() === 'en';
+    if (m < 1) return en ? 'under 1 min' : '不到 1 分钟';
+    if (m < 60) return Math.ceil(m) + (en ? ' min' : ' 分钟');
     var h = Math.floor(m / 60), r = Math.ceil(m % 60);
+    if (en) return h + 'h' + (r ? ' ' + r + 'm' : '');
     return h + ' 小时' + (r ? ' ' + r + ' 分钟' : '');
   }
 

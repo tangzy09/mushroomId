@@ -47,19 +47,19 @@ var Browse = (function () {
     return s === 'umbrella' || s === 'funnel';
   };
   var TABS = [
-    { key: 'silhouette', label: '轮廓' },
-    { key: 'hymenium',   label: '菌盖背面', when: hymeniumApplies },
-    { key: 'capSurface', label: '菌盖表面', when: hymeniumApplies },
-    { key: 'substrate',  label: '长在哪' },
-    { key: 'colors',     label: '颜色' },
-    { key: 'size',       label: '大小' },
-    { key: 'name',       label: '名字' }
+    { key: 'silhouette', label: function () { return I18N.t('browse.tabSilhouette'); } },
+    { key: 'hymenium',   label: function () { return I18N.t('browse.tabHymenium'); }, when: hymeniumApplies },
+    { key: 'capSurface', label: function () { return I18N.t('browse.tabCapSurface'); }, when: hymeniumApplies },
+    { key: 'substrate',  label: function () { return I18N.t('browse.tabSubstrate'); } },
+    { key: 'colors',     label: function () { return I18N.t('browse.tabColors'); } },
+    { key: 'size',       label: function () { return I18N.t('browse.tabSize'); } },
+    { key: 'name',       label: function () { return I18N.t('browse.tabName'); } }
   ];
   var GHOSTS = [
-    { key: 'ring',   value: 'yes', label: '有菌环' },
-    { key: 'volva',  value: 'yes', label: '有菌托' },
-    { key: 'season', value: null,  label: '当季' },
-    { key: 'toxic',  value: 'yes', label: '☠️ 有毒与剧毒' }
+    { key: 'ring',   value: 'yes', label: function () { return I18N.t('browse.ghostRing'); } },
+    { key: 'volva',  value: 'yes', label: function () { return I18N.t('browse.ghostVolva'); } },
+    { key: 'season', value: null,  label: function () { return I18N.t('browse.ghostSeason'); } },
+    { key: 'toxic',  value: 'yes', label: function () { return '☠️ ' + I18N.t('browse.toxicWarning'); } }
   ];
 
   var esc = function (s) {
@@ -68,45 +68,62 @@ var Browse = (function () {
     });
   };
   var isToxic = function (m) { return m.edibility === 'poisonous' || m.edibility === 'deadly'; };
+  // idKeysEn/habitatEn live in js/i18n_en.gen.js, keyed by id — same lookup
+  // shape as app.js's enOf(), duplicated here since browse.js is its own IIFE.
+  var enOf = function (id) { return (typeof I18N_EN !== 'undefined' && I18N_EN[id]) || {}; };
 
   function label(dim, v) {
     if (dim === 'silhouette') return (L.silhouette || {})[v] || v;
     if (dim === 'hymenium') return (L.hymenium || {})[v] || v;
-    if (dim === 'substrate') return v === 'parasitic' ? '虫体与寄生' : ((L.substrate || {})[v] || v);
+    if (dim === 'substrate') return v === 'parasitic' ? I18N.t('browse.parasitic') : ((L.substrate || {})[v] || v);
     if (dim === 'colors') return (L.color || {})[v] || v;
     if (dim === 'capSurface') return (L.capSurface || {})[v] || v;
     if (dim === 'size') return (L.size || {})[v] || v;
-    if (dim === 'season') return v + ' 月';
-    if (dim === 'ring') return '有菌环';
-    if (dim === 'volva') return '有菌托';
-    if (dim === 'toxic') return '☠️ 有毒与剧毒';
+    if (dim === 'season') return I18N.lang() === 'en' ? MONTH_EN[v - 1] : v + ' 月';
+    if (dim === 'ring') return I18N.t('browse.ghostRing');
+    if (dim === 'volva') return I18N.t('browse.ghostVolva');
+    if (dim === 'toxic') return '☠️ ' + I18N.t('browse.toxicWarning');
     return v;
   }
+  var MONTH_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
   // 搜索：用户会打「松树」而生境写的是「松林」，会打「有毒」而标签是「☠️ 剧毒」。
   // 所以 ① 把常见写法归一成词根再匹配；② 识别要点与食性标签也进搜索面。
-  var SYN = [
+  // 中英文各一张归一表——两边"常见写法"完全不同，不能共用一张。
+  var SYN_ZH = [
     [/松树|松木|松林/g, '松'], [/栎树|橡树|栎林|橡木/g, '栎'], [/桦树|桦木/g, '桦'],
     [/杉树|杉木/g, '杉'], [/枯木|朽木|倒木|树桩|树干/g, '木'], [/草坪|草原/g, '草地'],
     [/有毒|毒菌|毒蘑菇|剧毒|致命/g, '毒'], [/能吃|可食|食用/g, '食']
   ];
-  var hayCache = {};
+  var SYN_EN = [
+    [/pine ?trees?|pine ?woods?/g, 'pine'], [/oak ?trees?|oak ?woods?/g, 'oak'],
+    [/birch ?trees?/g, 'birch'], [/dead ?wood|rotting ?wood|fallen ?log|stump/g, 'wood'],
+    [/poisonous|toxic|deadly|lethal/g, 'poison'], [/edible|safe to eat/g, 'edible']
+  ];
+  var hayCache = { 'zh-Hans': {}, en: {} };
   function haystack(m) {
-    if (!hayCache[m.id]) {
+    var lang = I18N.lang();
+    var cache = hayCache[lang];
+    if (!cache[m.id]) {
       var ed = (C.edibility || {})[m.edibility] || {};
-      var toxicWords = (m.edibility === 'poisonous' || m.edibility === 'deadly') ? ' 毒 有毒 毒菌' : '';
-      var parts = [m.name, m.nameEn, m.latin, m.family, m.habitat, m.pinyin, m.pyAbbr,
-        (m.aka || []).join(' '), (L.substrate || {})[m.substrate], ed.label || '', toxicWords,
-        (m.idKeys || []).map(function (k) { return k.text; }).join(' ')];
+      var en = lang === 'en';
+      var toxicWords = (m.edibility === 'poisonous' || m.edibility === 'deadly')
+        ? (en ? ' poison toxic deadly' : ' 毒 有毒 毒菌') : '';
+      var mEn = enOf(m.id);
+      var idk = en && mEn.idKeysEn ? mEn.idKeysEn : (m.idKeys || []).map(function (k) { return k.text; });
+      var parts = [m.name, m.nameEn, m.latin, m.family, m.familyEn,
+        en ? (mEn.habitatEn || m.habitat) : m.habitat,
+        m.pinyin, m.pyAbbr, (m.aka || []).join(' '),
+        (L.substrate || {})[m.substrate], ed.label || '', toxicWords, idk.join(' ')];
       var s = parts.join(' ').toLowerCase();
-      SYN.forEach(function (r) { s = s.replace(r[0], r[1]); });
-      hayCache[m.id] = s;
+      (en ? SYN_EN : SYN_ZH).forEach(function (r) { s = s.replace(r[0], r[1]); });
+      cache[m.id] = s;
     }
-    return hayCache[m.id];
+    return cache[m.id];
   }
   function normQuery(q) {
     var s = q;
-    SYN.forEach(function (r) { s = s.replace(r[0], r[1]); });
+    (I18N.lang() === 'en' ? SYN_EN : SYN_ZH).forEach(function (r) { s = s.replace(r[0], r[1]); });
     return s;
   }
   function matchesQuery(m, q) {
@@ -130,7 +147,7 @@ var Browse = (function () {
     $('facet-tabs').innerHTML = TABS.filter(function (t) { return !t.when || t.when(); })
       .map(function (t) {
         return '<button data-tab="' + t.key + '"' + (t.key === tab ? ' class="on"' : '') + '>' +
-          esc(t.label) + '</button>';
+          esc(t.label()) + '</button>';
       }).join('');
   }
 
@@ -143,11 +160,11 @@ var Browse = (function () {
       if (F.isSet(g.key)) return;
       var v = g.value == null ? (new Date().getMonth() + 1) : g.value;
       out.push('<button class="fchip ghost" data-pick="' + g.key + '" data-val="' + esc(v) + '">＋ ' +
-        esc(g.label) + '</button>');
+        esc(g.label()) + '</button>');
     });
-    if (F.activeCount() || query) out.push('<button class="fchip ghost" id="facet-clear">清空</button>');
+    if (F.activeCount() || query) out.push('<button class="fchip ghost" id="facet-clear">' + I18N.t('common.clear') + '</button>');
     var n = F.results().length;
-    out.push('<span class="fcnt">' + (F.activeCount() || query ? '剩 ' : '共 ') + '<b>' + n + '</b> 种</span>');
+    out.push('<span class="fcnt">' + I18N.t(F.activeCount() || query ? 'browse.countLeft' : 'browse.countTotal', { n: n }) + '</span>');
     $('facet-bar').innerHTML = out.join('');
   }
 
@@ -156,9 +173,9 @@ var Browse = (function () {
     var msgs = [];
     var hasT = list.some(isToxic), hasS = list.some(function (m) { return !isToxic(m); });
     if (hasT && hasS && (F.activeCount() || query)) {
-      msgs.push('这组里有毒菌，它们和可食种可能长得一样。毒种带 ☠️ 或 ⚠️ 标记。');
+      msgs.push(I18N.t('browse.mixedToxicWarning'));
     }
-    if (tab === 'colors') msgs.push('颜色不能判断毒性，且会随干湿和成熟度变化。');
+    if (tab === 'colors') msgs.push(I18N.t('browse.colorWarning'));
     var w = $('facet-warn');
     w.hidden = !msgs.length;
     w.textContent = msgs.join(' ');
@@ -219,7 +236,7 @@ var Browse = (function () {
     b.appendChild(art(m, 44));
     var s = document.createElement('span');
     s.className = 'lbl';
-    s.innerHTML = '<b>' + esc(m.name) + '</b>' +
+    s.innerHTML = '<b>' + esc(I18N.pick(m.name, m.nameEn)) + '</b>' +
       (isToxic(m) ? ' <span class="tox">' + (m.edibility === 'deadly' ? '☠️' : '⚠️') + '</span>' : '') +
       '<i>' + esc(m.latin) + '</i>';
     b.appendChild(s);
@@ -232,7 +249,7 @@ var Browse = (function () {
     right.innerHTML = '';
     var list = F.results();
     if (!list.length) {
-      right.innerHTML = '<div class="fempty">这些条件下没有菌子<br>去掉一两个条件再试</div>';
+      right.innerHTML = '<div class="fempty">' + I18N.t('browse.emptyResults') + '</div>';
       return;
     }
     var CAP = 90;
@@ -240,7 +257,7 @@ var Browse = (function () {
     if (list.length > CAP) {
       var more = document.createElement('div');
       more.className = 'fempty';
-      more.textContent = '还有 ' + (list.length - CAP) + ' 种没显示，再加个条件';
+      more.textContent = I18N.t('browse.moreHidden', { n: list.length - CAP });
       right.appendChild(more);
     }
     right.scrollTop = 0;
@@ -263,7 +280,7 @@ var Browse = (function () {
       }
       host.appendChild(cardEl(m));
     });
-    if (!list.length) host.innerHTML = '<div class="fempty">当前筛选条件下没有菌子</div>';
+    if (!list.length) host.innerHTML = '<div class="fempty">' + I18N.t('browse.emptyFiltered') + '</div>';
   }
 
   function renderGrid() {
@@ -274,8 +291,10 @@ var Browse = (function () {
       cell.className = 'gcell';
       cell.appendChild(art(m, 160));
       var t = document.createElement('span');
-      var hint = (m.idKeys && m.idKeys[0] && m.idKeys[0].text) || m.latin;
-      t.innerHTML = '<b>' + esc(m.name) +
+      var mIdKeysEn = enOf(m.id).idKeysEn;
+      var hint = I18N.lang() === 'en' && mIdKeysEn && mIdKeysEn[0] ? mIdKeysEn[0]
+        : (m.idKeys && m.idKeys[0] && m.idKeys[0].text) || m.latin;
+      t.innerHTML = '<b>' + esc(I18N.pick(m.name, m.nameEn)) +
         (isToxic(m) ? ' <span class="tox">' + (m.edibility === 'deadly' ? '☠️' : '⚠️') + '</span>' : '') +
         '</b><i>' + esc(hint) + '</i>';
       cell.appendChild(t);
@@ -285,7 +304,7 @@ var Browse = (function () {
     var note = document.createElement('div');
     note.className = 'fempty';
     note.style.gridColumn = '1 / -1';
-    note.textContent = '只剩 ' + F.results().length + ' 种，左右比对最快 · 点开看完整识别要点';
+    note.textContent = I18N.t('browse.gridHint', { n: F.results().length });
     g.appendChild(note);
   }
 
