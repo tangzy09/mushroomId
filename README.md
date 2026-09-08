@@ -23,6 +23,11 @@
 「我的」页的「我的观察」按月列出所有记录，三个数字（见过的种 / 观察记录 / 去过的地点）
 一眼看出自己认了多少、去了多少地方。这条记录和下面「菌菇园」的收集小游戏是两回事，互不影响。
 
+「我的」页的「认菌训练」是独立于抽卡的答题入口：详情页「测一测」单种速测（熟练度攒到几星
+按钮上直接看得到）、范围闪卡（按图鉴当前筛选出题）、易混对决（两个最像的种二选一，答错了才
+知道自己到底分不分得清）、每日 5 题（自动挑你最生疏的种）、错题本（答错一次就记住，答对一次
+才移出）。答题不再是抽卡的门票，是查完之后顺手练一下的工具。
+
 ## 附赠玩法：菌菇园
 
 从「我的」页进。
@@ -67,13 +72,14 @@ python3 test/check_species_pages.py  # 物种静态页与 sitemap 一致性
 node test/core.test.js               # 内核纯函数测试
 node test/transfer.test.js           # 存档导出导入往返
 node test/facet.test.js              # 筛选引擎对拍
-# 下面六套要先起 python tools/serve.py 3141，走真实点击，共 119 项
+# 下面七套要先起 python tools/serve.py 3141，走真实点击，共 142 项
 node test/verify_photos_ui.mjs
 node test/verify_fieldguide_a.mjs
 node test/verify_fieldguide_b.mjs
 node test/verify_fieldguide_c.mjs
 node test/verify_fieldguide_d.mjs
 node test/verify_observations.mjs
+node test/verify_training.mjs
 # 浏览器里肉眼验收：http://localhost:3141/test/e2e.html  完整循环
 #                   http://localhost:3141/test/cards.html 分享卡片
 ```
