@@ -58,7 +58,22 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "花菇",
+      "香蕈",
+      "北菇",
+      "椎茸"
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Cap brown, surface often cracked with white scale-like patches",
+      "Gills white; stem off-center, with fibrous scales",
+      "Grows on hardwood logs; cultivated stock common on wooden racks"
+    ],
+    "habitatEn": "Hardwood logs or cultivation blocks",
+    "factEn": "The white cracks on the cap form when cool, dry air can't keep pace with the flesh swelling underneath, splitting the skin apart. That crackling pattern is exactly what makes premium 'flower mushroom' shiitake pricier.",
+    "quoteEn": "My cracks are grown in the cold, not painted on."
   },
   {
     "id": "oyster",
@@ -124,7 +139,20 @@
     "capCm": [
       5,
       25
-    ]
+    ],
+    "aka": [
+      "侧耳",
+      "糙皮侧耳",
+      "蚝菇"
+    ],
+    "idKeysEn": [
+      "Cap shell- or fan-shaped, gray-white to grayish brown, with a short lateral stem",
+      "Gills white, running down onto the stem",
+      "Grows in overlapping clusters on dead hardwood trunks and fallen logs"
+    ],
+    "habitatEn": "Dead and fallen hardwood",
+    "factEn": "Oyster mushroom mycelium secretes a toxin that paralyzes tiny roundworms, then digests them — this is a mushroom that actually preys on animals.",
+    "quoteEn": "Vegetarian? I never said that."
   },
   {
     "id": "enoki",
@@ -190,7 +218,20 @@
     "capCm": [
       2,
       8
-    ]
+    ],
+    "aka": [
+      "金菇",
+      "朴菇"
+    ],
+    "capSurface": "slimy",
+    "idKeysEn": [
+      "Wild caps yellow-brown and sticky, unlike the slender white cultivated form sold in stores",
+      "Lower stem dark brown, densely covered in short velvety hairs",
+      "Clusters on dead hardwood in winter, even visible in snow"
+    ],
+    "habitatEn": "Cultivation bottles; wild form on dead hardwood trunks",
+    "factEn": "The pale, slender enoki sold in supermarkets is forced to grow in the dark under high CO2; the wild form has a brown cap and a short, stubby stem.",
+    "quoteEn": "I grew up in a dark room, that's why I'm this pale."
   },
   {
     "id": "kingoyster",
@@ -250,7 +291,20 @@
     "capCm": [
       4,
       12
-    ]
+    ],
+    "aka": [
+      "刺芹侧耳",
+      "雪茸"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Stem thick and white, more conspicuous than the cap",
+      "Cap brown with an inrolled margin; gills run down the stem",
+      "Wild specimens grow at the roots of umbellifer plants"
+    ],
+    "habitatEn": "Wild form lives on the roots of eryngo and other umbellifers",
+    "factEn": "It's one of the few oyster mushrooms that partners with an herb instead of a tree — in the wild it grows only on the dead roots of eryngo (sea holly).",
+    "quoteEn": "The others lean on trees. I lean on a weed."
   },
   {
     "id": "woodear",
@@ -315,7 +369,20 @@
     "capCm": [
       3,
       12
-    ]
+    ],
+    "aka": [
+      "木耳",
+      "云耳",
+      "光木耳"
+    ],
+    "idKeysEn": [
+      "Ear-shaped and gelatinous, dark brown to blackish brown; translucent and rubbery when wet",
+      "Shrinks, hardens, and blackens when dry, reviving when wetted",
+      "Clusters on dead hardwood and cut logs"
+    ],
+    "habitatEn": "Fallen hardwood and cut logs",
+    "factEn": "The wood ear cultivated in China wasn't confirmed as its own species until 2014 — before that it was mistaken for Europe's jelly ear.",
+    "quoteEn": "Soak me and I'll swell to ten times my size. Don't underestimate me."
   },
   {
     "id": "snowfungus",
@@ -377,7 +444,19 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "白木耳",
+      "雪耳"
+    ],
+    "idKeysEn": [
+      "Pure white and translucent, with petal-like lobes layered on layered",
+      "Soft and gelatinous, turning hard and yellow when dry",
+      "Grows on dead hardwood"
+    ],
+    "habitatEn": "Rotting hardwood",
+    "factEn": "Snow fungus can't fruit on its own — a partner fungus, the 'incense-ash fungus,' has to break the wood down first before it can grow alongside that neighbor.",
+    "quoteEn": "I need a roommate before I can even step outside."
   },
   {
     "id": "lionsmane",
@@ -413,7 +492,7 @@
       "stipeColor": "none",
       "spines": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "ball",
     "colorGroup": [
       "white"
@@ -438,7 +517,20 @@
     "capCm": [
       5,
       25
-    ]
+    ],
+    "aka": [
+      "猴头菌",
+      "猴头蘑",
+      "刺猬菌"
+    ],
+    "idKeysEn": [
+      "A white mass covered in dense, hanging spine-like teeth",
+      "No distinct cap or stem, resembling a ball of white fur",
+      "Grows on wounds of living hardwoods or on dead wood"
+    ],
+    "habitatEn": "Wounds on oak, walnut and other hardwoods",
+    "factEn": "It has no gills and no pores — spores form on the surface of dangling fleshy spines, which can grow up to 5 cm long.",
+    "quoteEn": "My hair is my organ."
   },
   {
     "id": "button",
@@ -504,7 +596,21 @@
     "capCm": [
       3,
       10
-    ]
+    ],
+    "aka": [
+      "白蘑菇",
+      "洋蘑菇",
+      "口蘑"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap rounded, white or brown; gills pink, aging to dark brown",
+      "Stem with a thin ring; base lacks a volva",
+      "Almost only seen in cultivation, very rare in the wild"
+    ],
+    "habitatEn": "Compost and grassland",
+    "factEn": "White button, cremini, and portobello are the same species at different strains and stages of maturity — not three separate mushrooms.",
+    "quoteEn": "I go by three stage names."
   },
   {
     "id": "shimeji",
@@ -565,7 +671,22 @@
     "capCm": [
       2,
       7
-    ]
+    ],
+    "aka": [
+      "真姬菇",
+      "玉蕈",
+      "斑玉蕈",
+      "海鲜菇"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap grayish brown, marbled with mottled patterning",
+      "Grows in a large cluster; stem white",
+      "Wild specimens grow on dead hardwood"
+    ],
+    "habitatEn": "Dead hardwood such as beech",
+    "factEn": "The marbled pattern on its cap gives the beech mushroom its name; the white 'bunashimeji' sold alongside it is just a pale strain of the same species.",
+    "quoteEn": "Raw, I turn bitter. Cooked, I turn sweet — do cook me through."
   },
   {
     "id": "nameko",
@@ -626,7 +747,21 @@
     "capCm": [
       3,
       8
-    ]
+    ],
+    "aka": [
+      "滑菇",
+      "珍珠菇",
+      "光帽鳞伞"
+    ],
+    "capSurface": "slimy",
+    "idKeysEn": [
+      "Cap orange-brown, coated in a layer of clear slime",
+      "Densely clustered on dead hardwood",
+      "Stem shows a gelatinous ring zone"
+    ],
+    "habitatEn": "Fallen hardwood such as beech",
+    "factEn": "The slick coating on its surface is a polysaccharide that locks in moisture during dry spells — it's also what gives miso soup its silky texture when nameko is stirred in.",
+    "quoteEn": "Slippery is my sunscreen."
   },
   {
     "id": "shaggyink",
@@ -691,7 +826,20 @@
     "capCm": [
       4,
       10
-    ]
+    ],
+    "aka": [
+      "鸡腿菇",
+      "鸡腿蘑"
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Cap white and cylindrical, covered in large upturned scales",
+      "Deliquesces into black ink starting from the margin as it matures",
+      "Common on lawns, roadsides, and freshly disturbed ground"
+    ],
+    "habitatEn": "Lawns, roadsides and manured ground",
+    "factEn": "As it matures, its gills digest themselves into dripping black ink, helping spores travel farther — pick one and it will dissolve within hours.",
+    "quoteEn": "My shelf life is one afternoon, tops."
   },
   {
     "id": "winecap",
@@ -753,7 +901,21 @@
     "capCm": [
       5,
       20
-    ]
+    ],
+    "aka": [
+      "赤松茸",
+      "酒红球盖菇",
+      "皱环球盖菇"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap wine-red to brown, large; gills grayish purple, aging to black",
+      "Stem thick and white, with a thick, toothed ring",
+      "Grows on wood chips and mulch, common in cultivation and flower beds"
+    ],
+    "habitatEn": "Ground mulched with straw or wood chips",
+    "factEn": "Markets sell it as 'red matsutake,' but it isn't even in the same family as true matsutake — the cap color is just a coincidence.",
+    "quoteEn": "They call me 'red matsutake.' Matsutake and I aren't even cousins."
   },
   {
     "id": "goldenoyster",
@@ -814,7 +976,20 @@
     "capCm": [
       3,
       10
-    ]
+    ],
+    "aka": [
+      "金顶侧耳",
+      "金顶蘑",
+      "玉皇蘑"
+    ],
+    "idKeysEn": [
+      "Cap bright yellow, fan-shaped, growing in overlapping clusters",
+      "Gills white, running down onto a short stem",
+      "Grows on dead elm and other hardwoods"
+    ],
+    "habitatEn": "Fallen hardwood, especially elm",
+    "factEn": "Its vivid yellow fades almost completely once dried, making the dried product nearly impossible to tell apart from plain oyster mushroom.",
+    "quoteEn": "My yellow doesn't travel. Dry me out and it's gone."
   },
   {
     "id": "maitake",
@@ -849,7 +1024,7 @@
       "stipeColor": "#EDE4CE",
       "tiers": 5
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "coral",
     "colorGroup": [
       "grey",
@@ -875,7 +1050,20 @@
     "capCm": [
       15,
       50
-    ]
+    ],
+    "aka": [
+      "舞茸",
+      "栗子蘑",
+      "莲花菌"
+    ],
+    "idKeysEn": [
+      "Many grayish brown fan-shaped lobes stack into a large cluster, flower-like",
+      "Underside white with fine pores, no gills",
+      "Grows at the base of oak and other hardwoods"
+    ],
+    "habitatEn": "Base of oaks",
+    "factEn": "Its Japanese name, 'maitake,' or 'dancing mushroom,' supposedly comes from foragers dancing with joy on finding one — a wild cluster can weigh over ten kilograms.",
+    "quoteEn": "Legend says whoever finds me starts dancing."
   },
   {
     "id": "reishi",
@@ -938,7 +1126,20 @@
     "capCm": [
       5,
       20
-    ]
+    ],
+    "aka": [
+      "赤芝",
+      "红芝",
+      "瑞草"
+    ],
+    "idKeysEn": [
+      "Cap kidney- or fan-shaped, reddish brown with a lacquered sheen",
+      "Marked with concentric rings; margin often has a pale yellow-white growth band",
+      "Stem lateral, equally glossy; grows at the base or roots of hardwoods"
+    ],
+    "habitatEn": "Oak, chestnut and other hardwood stumps",
+    "factEn": "The red reishi used in Chinese tradition wasn't formally split from Europe's Ganoderma lucidum until 2012, when it was named Ganoderma lingzhi.",
+    "quoteEn": "Traditionally used as medicine — not as food."
   },
   {
     "id": "turkeytail",
@@ -1011,7 +1212,19 @@
     "capCm": [
       2,
       8
-    ]
+    ],
+    "aka": [
+      "彩绒革盖菌",
+      "杂色云芝"
+    ],
+    "idKeysEn": [
+      "Thin, tough, and fan-shaped, with multicolored concentric bands like a turkey's tail",
+      "Upper surface finely velvety; underside white with fine pores",
+      "Grows in dense overlapping tiers on dead wood, visible year-round"
+    ],
+    "habitatEn": "Dead wood of many hardwoods",
+    "factEn": "To tell it apart from its lookalike, the hairy curtain crust, flip it over: turkey tail has a fine, porous underside, while the impostor's back is smooth.",
+    "quoteEn": "Want to know it's really me? Turn me over."
   },
   {
     "id": "woodblewit",
@@ -1075,7 +1288,19 @@
     "capCm": [
       6,
       15
-    ]
+    ],
+    "aka": [
+      "裸口蘑"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Overall lilac colored, cap fading to brown with age",
+      "Gills lilac; stem the same color, slightly swollen at the base",
+      "Grows in leaf litter and compost in late autumn, with a fruity smell"
+    ],
+    "habitatEn": "Leaf litter and compost heaps",
+    "factEn": "Records say it must be cooked thoroughly, as eating it raw causes stomach upset; its purple hue fades to brown as it matures.",
+    "quoteEn": "I was purple when I was young. Not so much anymore."
   },
   {
     "id": "honey",
@@ -1144,7 +1369,20 @@
     "capCm": [
       3,
       12
-    ]
+    ],
+    "aka": [
+      "榛蘑",
+      "蜜蘑"
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Cap honey-yellow to brown, with fine scales at the center",
+      "Stem with a prominent white membranous ring",
+      "Grows in large clusters at tree bases and roots, often in extensive patches"
+    ],
+    "habitatEn": "Base of living trees and stumps, in large clumps",
+    "factEn": "Its black root-like cords, called rhizomorphs, glow faintly green at night — one source behind old legends of 'foxfire' in the woods.",
+    "quoteEn": "My cords glow at night."
   },
   {
     "id": "velvetfoot",
@@ -1209,7 +1447,21 @@
     "capCm": [
       2,
       7
-    ]
+    ],
+    "aka": [
+      "毛柄金钱菌",
+      "绒柄金钱菌",
+      "冻菌"
+    ],
+    "capSurface": "slimy",
+    "idKeysEn": [
+      "Cap small, orange-yellow, and sticky",
+      "Stem dark brown, densely covered in velvety short hairs",
+      "Clusters on dead hardwood in winter, no ring"
+    ],
+    "habitatEn": "Dead hardwood trunks, often fruiting in snow",
+    "factEn": "This is the wild form of enoki: a sticky, orange-brown cap and a stem with a dark velvety base, able to thaw out after freezing and keep growing.",
+    "quoteEn": "I only come out when it snows."
   },
   {
     "id": "fairyring",
@@ -1275,7 +1527,20 @@
     "capCm": [
       2,
       5
-    ]
+    ],
+    "aka": [
+      "硬柄皮伞",
+      "仙环菇"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap pale brown, bell-shaped, with a slight central bump",
+      "Gills sparse; stem thin and tough, bends rather than breaks",
+      "Forms arcs or rings on lawns"
+    ],
+    "habitatEn": "Lawns and pastures, often in rings",
+    "factEn": "The 'fairy rings' on lawns form as mycelium spreads outward from a single point at a steady rate, growing the ring by roughly ten centimeters a year — the oldest rings are centuries old.",
+    "quoteEn": "I draw circles on the lawn, a little bigger every year."
   },
   {
     "id": "fieldmushroom",
@@ -1302,7 +1567,8 @@
       "yellowstainer",
       "destroyingangel",
       "button",
-      "mongolica"
+      "mongolica",
+      "poisonpie"
     ],
     "habitat": "牧场、草地",
     "fact": "幼时菌褶粉红、成熟转深褐是蘑菇属的共同特征；若菌褶始终纯白，就要警惕是不是鹅膏属。",
@@ -1340,7 +1606,16 @@
     "capCm": [
       3,
       10
-    ]
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap white; gills pink, darkening to deep brown with age",
+      "Stem with a thin ring; base not swollen and lacks a volva",
+      "Grows in meadows and pastures, with a pleasant smell"
+    ],
+    "habitatEn": "Pastures and grassland",
+    "factEn": "Pink gills that darken to deep brown with age are a hallmark of the Agaricus genus; if the gills stay pure white, be wary — that could signal an Amanita instead.",
+    "quoteEn": "Check my gill color. Don't just look at the cap."
   },
   {
     "id": "saffronmilk",
@@ -1365,7 +1640,8 @@
     "behavior": "bruise",
     "lookalikes": [
       "hatsudake",
-      "woollymilk"
+      "woollymilk",
+      "rollrim"
     ],
     "habitat": "松林地面",
     "fact": "掰开会流出胡萝卜色的乳汁，暴露在空气里会慢慢变绿，被压伤的地方也会染上铜绿色。",
@@ -1378,7 +1654,7 @@
       "bruiseColor": "#4E7A46",
       "zones": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "funnel",
     "colorGroup": [
       "orange",
@@ -1404,7 +1680,22 @@
     "capCm": [
       4,
       15
-    ]
+    ],
+    "aka": [
+      "松菌",
+      "雁来蕈",
+      "枞树菌",
+      "重阳菌"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap orange with concentric zones, center depressed",
+      "Bleeds orange-red latex when cut, later staining green",
+      "Grows under pine, appearing in patches in autumn"
+    ],
+    "habitatEn": "Ground in pine woods",
+    "factEn": "Break it open and carrot-orange milk oozes out, slowly turning green in the air; bruised spots stain a verdigris green too.",
+    "quoteEn": "I bleed orange. Then the wound turns green."
   },
   {
     "id": "greenrussula",
@@ -1442,7 +1733,7 @@
       "stipeColor": "#F6F2E4",
       "texture": "cracks"
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "umbrella",
     "colorGroup": [
       "green"
@@ -1467,7 +1758,21 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "变绿红菇",
+      "青菌",
+      "绿菇"
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Cap grayish green, surface cracking into patches",
+      "Gills white; stem white, stout, and brittle",
+      "Grows on the floor of hardwood forests, no ring or volva"
+    ],
+    "habitatEn": "Oak woodland",
+    "factEn": "The cap skin cracks into patches of green, like a dried-up riverbed — but deadly green Amanitas exist too, so color alone is never proof.",
+    "quoteEn": "Green doesn't mean safe. I remind myself of that too."
   },
   {
     "id": "charcoalburner",
@@ -1532,7 +1837,16 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap color variable, often a mix of purple, green, and blue-gray",
+      "Gills white and pliable, not crumbling when rubbed, unlike other Russula",
+      "Stem white; grows in hardwood forests"
+    ],
+    "habitatEn": "Ground in broadleaf woods",
+    "factEn": "Most Russula gills crumble at a touch, but this one is pliable enough to bend like oiled paper without snapping — its best field mark.",
+    "quoteEn": "Other russulas snap when you bend them. I don't."
   },
   {
     "id": "blackening",
@@ -1557,7 +1871,8 @@
     "behavior": "bruise",
     "lookalikes": [
       "subnigricans",
-      "japonica"
+      "japonica",
+      "rollrim"
     ],
     "habitat": "阔叶林地面",
     "fact": "伤口先变红、再转黑，整朵最后变成焦炭色；剧毒的亚稀褶红菇只变红不变黑，这是关键差别。",
@@ -1596,7 +1911,20 @@
     "capCm": [
       8,
       20
-    ]
+    ],
+    "aka": [
+      "稀褶黑菇",
+      "火炭菌"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap grayish white to brown, bruising red then slowly blackening",
+      "Gills thick and widely spaced, the most sparse of any Russula",
+      "Old fruitbodies blacken entirely and can persist into the following year"
+    ],
+    "habitatEn": "Ground in broadleaf woods",
+    "factEn": "A bruise turns red first, then black, until the whole mushroom looks charred; the deadly rank russula only turns red and never black — a critical difference.",
+    "quoteEn": "I go red, then black. The one that only goes red — that one's dangerous."
   },
   {
     "id": "porcini",
@@ -1662,7 +1990,21 @@
     "capCm": [
       8,
       25
-    ]
+    ],
+    "aka": [
+      "大脚菇",
+      "白牛肝菌",
+      "大腿蘑"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap brown, margin slightly paler, like a baked loaf",
+      "Stem stout, with fine white netting on the upper part",
+      "Pores white, aging to yellow-green; flesh does not change color when cut"
+    ],
+    "habitatEn": "Ground in pine and oak woods",
+    "factEn": "The fine white netting on its stem is porcini's ID card; the bitter bolete's netting is coarse and dark, and one bite of it is bitter enough to ruin an entire pot of soup.",
+    "quoteEn": "Look at the white net on my stem."
   },
   {
     "id": "jianshouqing",
@@ -1730,7 +2072,21 @@
     "capCm": [
       5,
       12
-    ]
+    ],
+    "aka": [
+      "见手青",
+      "红葱",
+      "红见手"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap brown, pores yellow, bruising blue quickly",
+      "Stem yellow with reddish brown spots, also bluing under pressure",
+      "A bolete common in Yunnan, growing in pine forests"
+    ],
+    "habitatEn": "Ground in Yunnan pine forests",
+    "factEn": "'Jian Shou Qing' isn't one species — it's a Yunnan folk name for a group of boletes whose flesh turns blue almost instantly when bruised, as enzymes oxidize pigments inside.",
+    "quoteEn": "Don't touch me, I'll turn blue in the face."
   },
   {
     "id": "whiteonion",
@@ -1796,7 +2152,19 @@
     "capCm": [
       6,
       15
-    ]
+    ],
+    "aka": [
+      "白葱"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap grayish white to pale yellowish brown, pores pale yellow",
+      "Stem pale yellow, faintly reddish at the base",
+      "Grows in pine-oak forests of Yunnan"
+    ],
+    "habitatEn": "Pine-oak forests of Yunnan",
+    "factEn": "Known in Yunnan as 'white onion,' it belongs to the same blue-staining bolete family, with flesh that bruises blue too; records say it must be cooked thoroughly.",
+    "quoteEn": "White onion, red onion — we're family."
   },
   {
     "id": "slipperyjack",
@@ -1859,7 +2227,20 @@
     "capCm": [
       5,
       12
-    ]
+    ],
+    "aka": [
+      "松蘑",
+      "松树蘑"
+    ],
+    "capSurface": "slimy",
+    "idKeysEn": [
+      "Cap brown, coated in a slippery layer of slime",
+      "Stem with a prominent membranous ring, unusual among Suillus",
+      "Pores yellow; grows under pine"
+    ],
+    "habitatEn": "Ground in pine woods",
+    "factEn": "The thick slime on its cap gets so slippery after rain you can barely hold it; records say the skin must be peeled off before eating, or it can cause diarrhea.",
+    "quoteEn": "Catch me on a rainy day — you can't."
   },
   {
     "id": "larchbolete",
@@ -1907,22 +2288,31 @@
     "initial": "H",
     "idKeys": [
       {
-        "text": "菌盖亮黄至橙黄色，黏滑",
+        "text": "菌盖亮黄至橙黄色，湿时黏滑发亮",
         "src": "wiki-zh"
       },
       {
-        "text": "菌柄有菌环，菌孔黄色",
-        "src": "wiki-en"
+        "text": "菌柄有淡黄色胶质菌环，菌孔黄色，受伤略变褐",
+        "src": "wiki-zh"
       },
       {
-        "text": "只长在落叶松下",
+        "text": "只长在落叶松树下",
         "src": "wiki-zh"
       }
     ],
     "capCm": [
       4,
       12
-    ]
+    ],
+    "capSurface": "slimy",
+    "idKeysEn": [
+      "Cap bright yellow to orange-yellow, sticky and glossy when wet",
+      "Stem with a pale yellow gelatinous ring; pores yellow, browning slightly when bruised",
+      "Grows only under larch"
+    ],
+    "habitatEn": "Larch woods, strictly with larch",
+    "factEn": "It only partners with larch trees — find a larch and you stand a chance of finding it; look under any other pine and you're wasting your time.",
+    "quoteEn": "No larch, no me."
   },
   {
     "id": "chanterelle",
@@ -1962,7 +2352,7 @@
       "stipeColor": "#F0BE55",
       "ridges": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "funnel",
     "colorGroup": [
       "yellow",
@@ -1988,7 +2378,21 @@
     "capCm": [
       3,
       10
-    ]
+    ],
+    "aka": [
+      "黄丝菌",
+      "杏菌",
+      "鸡蛋黄菌"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Overall egg-yolk yellow, funnel-shaped, with a wavy margin",
+      "Underside has blunt, forked ridges, not true blade-like gills",
+      "Grows singly or scattered in forest soil, never on wood"
+    ],
+    "habitatEn": "Ground in oak and pine woods",
+    "factEn": "What looks like gills underneath are really blunt, forking ridges running down toward the stem, rounded to the touch; the jack-o'-lantern's are thin, sharp, true gills.",
+    "quoteEn": "Feel my ridges. Round means it's really me."
   },
   {
     "id": "blacktrumpet",
@@ -2049,7 +2453,20 @@
     "capCm": [
       3,
       8
-    ]
+    ],
+    "aka": [
+      "黑喇叭菌",
+      "灰号角"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Blackish gray, trumpet-shaped, thin and hollow",
+      "Outer surface smooth or finely wrinkled, no gills",
+      "Clusters in hardwood leaf litter, easy to overlook"
+    ],
+    "habitatEn": "Leaf litter in oak and beech woods",
+    "factEn": "Nicknamed the 'poor man's truffle,' its charcoal-black body blends into leaf litter so well that foragers often walk right past a whole patch before spotting it underfoot.",
+    "quoteEn": "You've probably already walked right past me."
   },
   {
     "id": "morel",
@@ -2087,7 +2504,7 @@
       "stipeColor": "#F0E6CC",
       "wrinkle": true
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "brain",
     "colorGroup": [
       "yellow",
@@ -2113,7 +2530,20 @@
     "capCm": [
       3,
       10
-    ]
+    ],
+    "aka": [
+      "羊肚蘑",
+      "羊肚蛋",
+      "羊肚子"
+    ],
+    "idKeysEn": [
+      "Cap honeycomb-like, covered in irregular pits",
+      "Cap fused to the stem, entirely hollow inside",
+      "Appears in spring, growing at woodland edges and burn sites"
+    ],
+    "habitatEn": "Woodland edges, burnt ground and river flats",
+    "factEn": "The honeycomb pits on its cap are the spore-bearing layer, firing spores from the pit walls; records say it must be cooked thoroughly, as raw morels have caused poisoning.",
+    "quoteEn": "My pits aren't scars. They're my nursery."
   },
   {
     "id": "blackmorel",
@@ -2151,7 +2581,7 @@
       "stipeColor": "#EDE2C4",
       "wrinkle": true
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "brain",
     "colorGroup": [
       "black",
@@ -2177,7 +2607,18 @@
     "capCm": [
       3,
       10
-    ]
+    ],
+    "aka": [
+      "梯棱羊肚菌"
+    ],
+    "idKeysEn": [
+      "Cap dark brown to black, with vertical ridges like a ladder",
+      "Cap fused to the stem, entirely hollow inside",
+      "Grows in spring on wood chips, flower beds, and urban green spaces"
+    ],
+    "habitatEn": "Cultivated fields and woodland edges",
+    "factEn": "This is the leading species grown in China's field-cultivated morel industry; 'black-veined' refers to the vertical ridges darkening as it matures.",
+    "quoteEn": "I'm one of the rare wild foods humans actually managed to tame."
   },
   {
     "id": "bambooveil",
@@ -2239,7 +2680,21 @@
     "capCm": [
       10,
       20
-    ]
+    ],
+    "aka": [
+      "竹荪",
+      "竹参",
+      "竹笙"
+    ],
+    "capSurface": "slimy",
+    "idKeysEn": [
+      "Stem white and spongy, topped with a foul-smelling olive-green spore cap",
+      "A white net-like skirt hangs from beneath the cap, unfurling like a dress",
+      "Grows in bamboo and hardwood forests, emerging from a white \"egg\""
+    ],
+    "habitatEn": "Humus in bamboo groves",
+    "factEn": "It emerges at dawn, unfurls its snow-white lace skirt within hours, then collapses and dissolves by afternoon — a bamboo fungus lives its whole life in under a day.",
+    "quoteEn": "I only wear this skirt for one morning."
   },
   {
     "id": "matsutake",
@@ -2305,7 +2760,21 @@
     "capCm": [
       5,
       20
-    ]
+    ],
+    "aka": [
+      "松口蘑",
+      "松蕈",
+      "合菌"
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Cap brown, covered in fibrous scales",
+      "Stem stout, with a thick membranous ring",
+      "Has a distinctive spicy, piney smell; grows under pine"
+    ],
+    "habitatEn": "Ectomycorrhizal on living roots of red pine and mountain pines",
+    "factEn": "It must live in symbiosis with living pine roots and still can't be cultivated; from the moment its mycelium colonizes a root to the moment a mushroom appears takes five or six years.",
+    "quoteEn": "No living pine, no me."
   },
   {
     "id": "almond",
@@ -2370,7 +2839,21 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "巴西蘑菇",
+      "巴西菇",
+      "柏氏蘑菇"
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Cap brown with scales; gills pink, darkening to deep brown",
+      "Has a pronounced almond smell",
+      "Grows in compost and humus-rich soil"
+    ],
+    "habitatEn": "Cultivated on compost",
+    "factEn": "Despite the 'matsutake' in some of its names, it's actually a cultivated Agaricus species in a completely different family from true matsutake, with a distinct almond scent.",
+    "quoteEn": "My name rode on someone else's fame. Sorry about that."
   },
   {
     "id": "blackskin",
@@ -2407,7 +2890,9 @@
       "longRoot": true
     },
     "aka": [
-      "Hymenopellis raphanipes"
+      "Hymenopellis raphanipes",
+      "长根菇",
+      "黑鸡枞"
     ],
     "encounter": "occasional",
     "silhouette": "umbrella",
@@ -2435,7 +2920,16 @@
     "capCm": [
       4,
       12
-    ]
+    ],
+    "capSurface": "slimy",
+    "idKeysEn": [
+      "Cap dark brown to black, sticky when wet",
+      "Stem slender and white, tapering downward into a rooting base",
+      "Grows on the floor of hardwood forests; common in cultivation"
+    ],
+    "habitatEn": "Cultivated; wild form on buried rotting wood",
+    "factEn": "Sold as 'black-skin termite mushroom,' it's actually a long-rooted Oudemansiella in a different family from true termite mushrooms — the upside is it can be cultivated.",
+    "quoteEn": "I can be farmed. That other one can't."
   },
   {
     "id": "ganbajun",
@@ -2496,7 +2990,20 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "干巴革菌",
+      "对花菌",
+      "马牙菌"
+    ],
+    "idKeysEn": [
+      "Grayish white to grayish brown, fan-shaped lobes stacked into a cluster",
+      "Texture tough, with no distinction between cap and stem",
+      "Grows on the floor of Yunnan pine forests, often tangled with pine needles"
+    ],
+    "habitatEn": "Ground in Yunnan pine forests",
+    "factEn": "It grows as a cluster of fan-shaped lobes, with pine needles and grit wedged into every crevice — cleaning half a kilo of it can take a full hour.",
+    "quoteEn": "Cleaning me is a chore. That's part of why I cost so much."
   },
   {
     "id": "tigerpaw",
@@ -2520,7 +3027,8 @@
     "size": 0.9,
     "behavior": "default",
     "lookalikes": [
-      "hedgehog"
+      "hedgehog",
+      "pinecone"
     ],
     "habitat": "云杉、松林地面",
     "fact": "云南叫「黑虎掌」，菌盖上翘起的大鳞片像虎皮，背面不是菌褶而是密密的肉刺。",
@@ -2558,7 +3066,21 @@
     "capCm": [
       8,
       25
-    ]
+    ],
+    "aka": [
+      "獐子菌",
+      "黑虎掌菌",
+      "老鹰菌"
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Cap brown, covered in coarse, dark, upturned scales",
+      "Underside bears grayish white spines, not gills",
+      "Grows on the floor of pine and oak forests in southern regions"
+    ],
+    "habitatEn": "Ground in spruce and pine woods",
+    "factEn": "Called 'black tiger paw' in Yunnan, its upturned cap scales resemble tiger stripes, and the underside isn't gills but a dense mat of fleshy spines.",
+    "quoteEn": "Turn me over — I'm carrying a field of needles."
   },
   {
     "id": "hedgehog",
@@ -2621,7 +3143,19 @@
     "capCm": [
       3,
       15
-    ]
+    ],
+    "aka": [
+      "美味齿菌"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap creamy yellow, irregularly shaped",
+      "Underside bears fine white needle-like spines",
+      "Stem white; grows in woodland"
+    ],
+    "habitatEn": "Ground in broadleaf and conifer woods",
+    "factEn": "European foragers love it because no poisonous mushroom shares its soft, cream-colored spines — though that's still no reason to identify by a single trait alone.",
+    "quoteEn": "My spines fall off at the slightest touch."
   },
   {
     "id": "giantpuffball",
@@ -2682,7 +3216,20 @@
     "capCm": [
       10,
       80
-    ]
+    ],
+    "aka": [
+      "大秃马勃",
+      "马粪包",
+      "马屁泡"
+    ],
+    "idKeysEn": [
+      "A large white ball, growing as big as a soccer ball",
+      "Surface smooth, stemless, sitting directly on the ground",
+      "Grows in meadows and pastures; flesh pure white inside when young"
+    ],
+    "habitatEn": "Grassland and woodland edges",
+    "factEn": "A single giant puffball can produce several trillion spores — if every one of them survived, two generations later their combined mass would outweigh the Earth.",
+    "quoteEn": "I can release trillions of children in one breath."
   },
   {
     "id": "puffball",
@@ -2745,7 +3292,21 @@
     "capCm": [
       2,
       6
-    ]
+    ],
+    "aka": [
+      "马勃",
+      "灰包",
+      "马屁包",
+      "网纹灰包"
+    ],
+    "idKeysEn": [
+      "White and pear-shaped, covered in tiny conical spines",
+      "Spines leave a net-like pattern once shed",
+      "An apical pore opens at maturity, puffing brown spores when pressed"
+    ],
+    "habitatEn": "Woodland leaf litter",
+    "factEn": "Once mature, a small pore opens at the top; raindrops striking it squeeze out puffs of spores like squeezing a rubber ball — a clever trick for rain-powered dispersal.",
+    "quoteEn": "One raindrop taps me, and out puffs a cloud."
   },
   {
     "id": "earthstar",
@@ -2808,7 +3369,18 @@
     "capCm": [
       4,
       12
-    ]
+    ],
+    "aka": [
+      "地星"
+    ],
+    "idKeysEn": [
+      "Outer layer splits into star-shaped rays around a central ball",
+      "The ball has a collar-like ring at its base",
+      "Grows in leaf litter; an apical pore opens to puff spores at maturity"
+    ],
+    "habitatEn": "Leaf litter in broadleaf woods",
+    "factEn": "As it matures, the outer layer splits into star-shaped rays that curl back, lifting the central spore sac off the ground so wind can carry the spores away.",
+    "quoteEn": "I prop myself up just so the wind can reach me."
   },
   {
     "id": "barometer",
@@ -2870,7 +3442,15 @@
     "capCm": [
       2,
       8
-    ]
+    ],
+    "idKeysEn": [
+      "Outer layer splits into a star, the rays cracked on the surface",
+      "Rays open when damp and close when dry, acting like a barometer",
+      "Grows in sandy soil and along roadsides"
+    ],
+    "habitatEn": "Sandy woodland",
+    "factEn": "Its star-shaped rays open and close with humidity — spreading wide in damp air, curling shut when dry — which is how it earned the name 'barometer earthstar.'",
+    "quoteEn": "I'm a humidity gauge that runs on nothing."
   },
   {
     "id": "birdsnest",
@@ -2932,7 +3512,19 @@
     "capCm": [
       0.5,
       1.5
-    ]
+    ],
+    "aka": [
+      "鸟巢菌"
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Small and cup-shaped, holding several flattened round packets like eggs in a nest",
+      "Outer cup wall brown and hairy; inner wall lined",
+      "Grows on rotten wood and wood chips; raindrops splash the packets out to disperse them"
+    ],
+    "habitatEn": "Rotting wood and wood-chip mulch",
+    "factEn": "The 'eggs' in its little cup are spore packets; a raindrop landing inside can launch one over a meter away, with the cup's slanted walls angled exactly for the shot.",
+    "quoteEn": "I wait for a rainstorm, then launch my children into the world."
   },
   {
     "id": "inkcap",
@@ -3002,7 +3594,24 @@
     "capCm": [
       3,
       7
-    ]
+    ],
+    "aka": [
+      "鬼伞",
+      "墨菇"
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Cap grayish brown, bell- to egg-shaped, finely lined on the surface",
+      "Cap margin deliquesces into black ink-like liquid at maturity",
+      "Clusters on the ground near stumps or buried wood, often in tight groups"
+    ],
+    "habitatEn": "Buried wood, roadsides and grassland",
+    "lookalikeNotesEn": {
+      "shaggyink": "Shaggy ink cap has a white, cylindrical cap with large shaggy scales; common inkcap is smooth and grey-brown.",
+      "micaceus": "Glistening inkcap is smaller and tawny-orange, with a cap dusted in glittering granules."
+    },
+    "factEn": "It contains coprine, which causes little trouble on its own once cooked, but combined with alcohol it blocks alcohol metabolism, triggering flushing and a racing heart — symptoms that can return even days later if you drink again.",
+    "quoteEn": "Everyone who's had a drink with me has regretted it."
   },
   {
     "id": "micaceus",
@@ -3070,7 +3679,19 @@
     "capCm": [
       1,
       4
-    ]
+    ],
+    "aka": [
+      "晶粒鬼伞"
+    ],
+    "capSurface": "warty",
+    "idKeysEn": [
+      "Cap orange-yellow, bell-shaped, with glistening mica-like granules",
+      "Densely clustered near stumps and buried wood",
+      "Cap margin deliquesces black at maturity"
+    ],
+    "habitatEn": "Base of stumps, often in large clumps",
+    "factEn": "A young cap is dusted with mica-like glittering flecks, leftover remnants of its veil — one good rain washes them away.",
+    "quoteEn": "My glitter washes off with the next rain."
   },
   {
     "id": "deathcap",
@@ -3130,7 +3751,7 @@
       "greenrussula": "青头菌没有菌环和菌托，菌柄脆，一掰就断",
       "caesar": "凯撒鹅膏菌盖橙红、菌褶和菌柄黄色；死帽菇菌盖橄榄绿、菌褶白色"
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "green",
@@ -3142,7 +3763,26 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "死帽菇",
+      "鬼笔鹅膏",
+      "死亡帽",
+      "绿帽菌"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Stem base has a white cup-shaped volva, often buried under leaf litter",
+      "Cap yellow-green to olive, faintly glossy when wet; margin not striate",
+      "Gills remain white; upper stem has a white membranous ring"
+    ],
+    "habitatEn": "Ectomycorrhizal under oak and other hardwoods",
+    "lookalikeNotesEn": {
+      "greenrussula": "Green-cracking russula has no ring or volva, and its brittle stem snaps cleanly.",
+      "caesar": "Caesar's mushroom has an orange-red cap with yellow gills and stem; death cap has an olive-green cap and white gills."
+    },
+    "factEn": "It accounts for more mushroom poisoning deaths worldwide than any other species. Its amatoxins survive cooking unchanged, and victims often go through a deceptive 1-2 day period of feeling better before symptoms return — a delay that can cost precious time before help is sought.",
+    "quoteEn": "I'm handsome. Some say I'm delicious too — no one's lived to confirm it."
   },
   {
     "id": "destroyingangel",
@@ -3202,7 +3842,7 @@
       "fieldmushroom": "野蘑菇菌褶粉红转深褐，基部无菌托；毁灭天使菌褶纯白且有菌托",
       "horsemushroom": "大肥菇菌褶粉褐、擦伤变黄、有茴香味；毁灭天使菌褶纯白无气味"
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "umbrella",
     "colorGroup": [
       "white"
@@ -3213,7 +3853,26 @@
     "capCm": [
       5,
       12
-    ]
+    ],
+    "aka": [
+      "毁灭天使",
+      "白毒伞",
+      "鳞柄白毒伞"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Entirely white, with a large white sac-like volva at the stem base",
+      "Cap smooth, without scales, faintly silky at maturity",
+      "Gills stay white and never turn pink, unlike similar Agaricus mushrooms"
+    ],
+    "habitatEn": "Ground in oak and birch woods",
+    "lookalikeNotesEn": {
+      "button": "Button mushroom's gills turn pink then brown and it has no volva; destroying angel's gills stay white and its base sits in a volva.",
+      "fieldmushroom": "Field mushroom's gills turn pink then dark brown, with no volva; destroying angel's gills are pure white and it has a volva.",
+      "horsemushroom": "Horse mushroom has pinkish-brown gills, bruises yellow and smells of aniseed; destroying angel has pure white gills and no odour."
+    },
+    "factEn": "Pure white all over, with both a ring and a volva. Its biggest difference from edible field mushrooms is a white spore print and gills that never turn brown.",
+    "quoteEn": "Pure white is my only disguise."
   },
   {
     "id": "fuliginea",
@@ -3283,7 +3942,22 @@
     "capCm": [
       5,
       10
-    ]
+    ],
+    "aka": [
+      "灰花纹毒伞"
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Cap dark gray to grayish brown, with radiating dark fibrils",
+      "Stem white with grayish scales; base has a white sac-like volva",
+      "Gills white; upper stem has a white ring"
+    ],
+    "habitatEn": "Oak woodland in southern China",
+    "lookalikeNotesEn": {
+      "grisette": "Grisette has no ring and a clearly striate cap margin; East Asian death cap has a ring and a smooth margin."
+    },
+    "factEn": "It ranks first among mushroom-poisoning deaths in China. Its cap is a dull, unassuming grayish-brown — proof that 'only bright colors are dangerous' is simply false.",
+    "quoteEn": "I'm not flashy at all. That's exactly what makes me dangerous."
   },
   {
     "id": "flyagaric",
@@ -3359,7 +4033,27 @@
     "capCm": [
       8,
       20
-    ]
+    ],
+    "aka": [
+      "毒蝇鹅膏",
+      "蛤蟆菌",
+      "捕蝇菌"
+    ],
+    "capSurface": "warty",
+    "idKeysEn": [
+      "Cap red, scattered with white wart-like scales that may wash off after rain",
+      "Stem white, with a bulbous base ringed by several bands of volva remnants",
+      "Upper stem has a drooping white ring"
+    ],
+    "habitatEn": "Ectomycorrhizal, on the ground in birch and pine woods",
+    "lookalikeNotesEn": {
+      "caesar": "Caesar's mushroom has a smooth cap without white spots, and yellow gills and stem.",
+      "eggamanita": "Half-dyed slender caesar has a smooth orange-red cap with no white warts, and yellow gills.",
+      "blusher": "The blusher has a brownish-red cap that reddens when damaged; its warts rub off easily and are not neatly arranged.",
+      "amanitajack": "American Caesar has a smooth cap with no white spots, a striate margin and yellow gills."
+    },
+    "factEn": "The white spots on its cap are leftover fragments of the veil that once wrapped the whole young mushroom — a heavy rain can wash them all away, leaving a bare red cap.",
+    "quoteEn": "I'm the red cap with white spots from every fairy tale. The stories skip the ending."
   },
   {
     "id": "panther",
@@ -3416,7 +4110,7 @@
     "lookalikeNotes": {
       "blusher": "赭盖鹅膏受伤变红且基部无环带状菌托边缘；豹斑鹅膏不变色"
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "brown",
@@ -3428,7 +4122,23 @@
     "capCm": [
       5,
       12
-    ]
+    ],
+    "aka": [
+      "豹斑毒伞",
+      "满天星"
+    ],
+    "capSurface": "warty",
+    "idKeysEn": [
+      "Cap brown, densely covered in neat rows of pure white warts",
+      "Stem base bulbous, with one to several ring-like volva edges above it",
+      "Ring white, gills white; cap margin finely striate"
+    ],
+    "habitatEn": "Ground in broadleaf and conifer woods",
+    "lookalikeNotesEn": {
+      "blusher": "The blusher reddens when damaged and lacks the rim-like volva band at the base; panther cap does not change colour."
+    },
+    "factEn": "A neurotoxic mushroom in the same category as fly agaric, and often more potent; its cap is brown with white spots, and the volva has a distinct collar-like rim.",
+    "quoteEn": "The red one gets the fame. I'm the stronger one."
   },
   {
     "id": "citrina",
@@ -3481,7 +4191,7 @@
         "src": "wiki-en"
       }
     ],
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "yellow",
@@ -3493,7 +4203,19 @@
     "capCm": [
       4,
       10
-    ]
+    ],
+    "aka": [
+      "柠檬黄毒伞"
+    ],
+    "capSurface": "warty",
+    "idKeysEn": [
+      "Cap pale lemon-yellow to nearly white, often patched with white veil remnants",
+      "Stem base distinctly bulbous, rimmed with a volva scar",
+      "Smells of raw potato"
+    ],
+    "habitatEn": "Ground in oak and pine woods",
+    "factEn": "Break it open and it smells distinctly of raw potato, one clue for telling it apart from the death cap — though smell alone should never be the deciding factor.",
+    "quoteEn": "I smell like a raw potato."
   },
   {
     "id": "blusher",
@@ -3561,7 +4283,19 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "赭盖伞"
+    ],
+    "capSurface": "warty",
+    "idKeysEn": [
+      "Cap reddish brown, with grayish white wart-like scales",
+      "Bruised or insect-damaged spots slowly turn red, the source of its name",
+      "Stem has a ring; base swollen but volva indistinct"
+    ],
+    "habitatEn": "Ground in broadleaf and conifer woods",
+    "factEn": "Spots nibbled by insects or bruised by a touch slowly flush wine-red, which is how it got its name; raw specimens contain a blood-cell-destroying toxin, and records say it must be cooked thoroughly.",
+    "quoteEn": "Touch me and I'll blush."
   },
   {
     "id": "caesar",
@@ -3603,7 +4337,7 @@
       "volvaColor": "#F7F3E6",
       "gillColor": "#F5DC7A"
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "umbrella",
     "colorGroup": [
       "orange",
@@ -3629,7 +4363,21 @@
     "capCm": [
       8,
       20
-    ]
+    ],
+    "aka": [
+      "凯撒蘑菇",
+      "鸡蛋菌",
+      "橙盖伞"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap orange-red and smooth, margin striate",
+      "Gills and stem both yellow",
+      "Base has a large, loose white volva"
+    ],
+    "habitatEn": "Oak woodland",
+    "factEn": "Named for the Roman emperors who favored it, it's separated from its deadly Amanita cousins by only a handful of features, and history records no shortage of fatal misidentifications.",
+    "quoteEn": "Emperors loved me. Emperors also kept servants who knew their mushrooms."
   },
   {
     "id": "eggamanita",
@@ -3694,7 +4442,20 @@
     "capCm": [
       6,
       15
-    ]
+    ],
+    "aka": [
+      "鸡蛋菌",
+      "黄罗伞"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap orange-red to red, margin clearly striate",
+      "Gills and stem yellow; stem banded with ring-like markings",
+      "Base has a white sac-like volva, egg-like when young"
+    ],
+    "habitatEn": "Oak woodland in Yunnan and elsewhere",
+    "factEn": "Called 'egg mushroom' in Yunnan, a young specimen is fully wrapped in a white volva and looks just like an egg. It shares its genus with the deadly East Asian yellow death cap, making foraging risky.",
+    "quoteEn": "Breaking out of my shell, I look just like an egg."
   },
   {
     "id": "subjunquillea",
@@ -3762,7 +4523,23 @@
     "capCm": [
       4,
       9
-    ]
+    ],
+    "aka": [
+      "黄盖毒伞"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap yellow to yellowish brown, darker at the center",
+      "Stem white, base with a white sac-like volva",
+      "Ring white and membranous, gills white; found in pine and hardwood forests"
+    ],
+    "habitatEn": "Mixed conifer-broadleaf forests of East Asia",
+    "lookalikeNotesEn": {
+      "eggamanita": "Half-dyed slender caesar has an orange-red cap with a striate margin and yellow gills; East Asian yellow death cap has white gills, no striations.",
+      "caesar": "Caesar's mushroom has yellow gills and stem; East Asian yellow death cap has white gills."
+    },
+    "factEn": "It contains amatoxins and is a major cause of death in East Asia; its yellow-brown cap is easily mistaken for the edible Caesar's mushroom or egg mushroom.",
+    "quoteEn": "The egg mushroom and I differ by little more than a shade of color."
   },
   {
     "id": "grisette",
@@ -3826,7 +4603,20 @@
     "capCm": [
       4,
       10
-    ]
+    ],
+    "aka": [
+      "灰托鹅膏",
+      "灰托柄菇"
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Cap gray, margin distinctly radially striate",
+      "Lacks a ring, unusual for an Amanita",
+      "Base has a white sac-like volva; stem slender"
+    ],
+    "habitatEn": "Ground in broadleaf and conifer woods",
+    "factEn": "It's an unusual Amanita with a volva but no ring, and its cap edge shows distinct radiating grooves; the deadly East Asian death cap looks similar enough to cause confusion.",
+    "quoteEn": "I have no ring, but I do have a volva."
   },
   {
     "id": "greenspored",
@@ -3896,7 +4686,25 @@
     "capCm": [
       7,
       30
-    ]
+    ],
+    "aka": [
+      "铅绿褶菇",
+      "绿褶菇",
+      "铅青褶伞"
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Gills turn from white to grayish green at maturity, the most reliable field mark",
+      "Cap white, large, with brown scales at the center",
+      "Stem white with a movable ring; often grows in groups on lawns"
+    ],
+    "habitatEn": "Urban lawns, parks and planted verges",
+    "lookalikeNotesEn": {
+      "parasol": "Parasol mushroom's gills stay white and its stem has a snakeskin pattern; green-spored parasol's gills turn green.",
+      "chlorophyllumB": "Shaggy parasol's gills stay white and its flesh turns orange-red when cut; green-spored parasol's gills turn green."
+    },
+    "factEn": "It's the mushroom behind more reported poisoning cases in China than any other. Its spore print is greenish-gray, the most reliable way to tell it from the edible parasol mushroom, whose spore print is white.",
+    "quoteEn": "I grow right on the lawn you walk past every day."
   },
   {
     "id": "parasol",
@@ -3963,7 +4771,19 @@
     "capCm": [
       10,
       30
-    ]
+    ],
+    "aka": [
+      "高环柄菇"
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Cap large and flat, with brown scales arranged in concentric rings",
+      "Stem slender, patterned like snakeskin",
+      "Ring thick and movable up and down the stem"
+    ],
+    "habitatEn": "Grassy woodland edges",
+    "factEn": "Its stem carries a snakeskin-like brown pattern, and the ring can slide up and down; the green-spored parasol it's often confused with has, as the name suggests, a green spore print.",
+    "quoteEn": "My ring slides up and down the stem. Go ahead, try it."
   },
   {
     "id": "lepiotabrun",
@@ -4033,7 +4853,23 @@
     "capCm": [
       2,
       6
-    ]
+    ],
+    "aka": [
+      "肉褐鳞小伞"
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Small, with brown cap scales arranged in concentric circles",
+      "Lower stem banded with brown scales; upper stem shows a ring zone",
+      "Gills white; common in gardens, lawns, and roadsides"
+    ],
+    "habitatEn": "Urban lawns, flower beds and parks",
+    "lookalikeNotesEn": {
+      "parasol": "Parasol mushroom is far larger, with a snakeskin-patterned stem and a movable ring.",
+      "fairyring": "Fairy ring champignon has a smooth, scaleless cap and a tough stem with no ring."
+    },
+    "factEn": "Small in size but packed with amatoxins, it's one of China's deadly species; it often turns up in residential planting beds, easily dismissed as just another little lawn mushroom.",
+    "quoteEn": "I'm small. My toxicity isn't."
   },
   {
     "id": "subnigricans",
@@ -4101,7 +4937,23 @@
     "capCm": [
       5,
       12
-    ]
+    ],
+    "aka": [
+      "亚稀褶黑菇",
+      "火炭菌"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap grayish white to pale brown, center depressed",
+      "Gills sparse and thick, bruising red then slowly blackening",
+      "Stem short, stout, and white; flesh also slowly reddens when cut"
+    ],
+    "habitatEn": "Ground in broadleaf woods of southern China",
+    "lookalikeNotesEn": {
+      "blackening": "Blackening brittlegill reddens then blackens when damaged, but slowly; rank russula has sparser, thicker gills and reddens faster."
+    },
+    "factEn": "It causes rhabdomyolysis poisoning with a high death rate. Its gills are sparse and bruise red but never turn black — while the edible blackening brittlegill goes red, then black.",
+    "quoteEn": "Red, but never black. Remember that half-sentence."
   },
   {
     "id": "sickener",
@@ -4155,7 +5007,7 @@
     "lookalikeNotes": {
       "charcoalburner": "蓝黄红菇菌盖紫绿杂色且菌褶柔韧不易碎；毒红菇鲜红且菌褶脆"
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "umbrella",
     "colorGroup": [
       "red",
@@ -4167,7 +5019,23 @@
     "capCm": [
       3,
       10
-    ]
+    ],
+    "aka": [
+      "呕吐红菇",
+      "催吐红菇"
+    ],
+    "capSurface": "slimy",
+    "idKeysEn": [
+      "Cap bright red, sticky when wet; skin peels easily",
+      "Gills and stem pure white, sharply contrasting with the cap",
+      "Grows mostly in mossy ground under pine"
+    ],
+    "habitatEn": "Pine woods and sphagnum bogs",
+    "lookalikeNotesEn": {
+      "charcoalburner": "Charcoal burner has a mottled purple-green cap and pliable gills that don't crumble; the sickener is bright red with brittle gills."
+    },
+    "factEn": "A gastrointestinal-irritant mushroom whose Latin name literally means 'the one that makes you vomit'; the bright red cap skin peels off in one clean piece.",
+    "quoteEn": "My name is basically the symptom."
   },
   {
     "id": "funeralbell",
@@ -4241,7 +5109,27 @@
     "capCm": [
       1.5,
       5
-    ]
+    ],
+    "aka": [
+      "纹缘盔孢伞",
+      "秋盔孢伞"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap small, honey-yellow to brown, darker when wet",
+      "Stem with a membranous ring; gills rusty brown",
+      "Clusters on rotten wood, common in autumn, sharing habitat with velvet shank"
+    ],
+    "habitatEn": "Rotting conifer wood, often on the same log as edible species",
+    "lookalikeNotesEn": {
+      "velvetfoot": "Velvet shank has a dark brown velvety stem and no ring; funeral bell has a membranous ring on the stem.",
+      "honey": "Honey fungus is large, clumped at tree bases, with a prominent white ring; funeral bell is small, with a thin ring that soon falls away.",
+      "enoki": "Wild enoki has a dark brown velvety stem, no ring and a white spore print; funeral bell has a ring and a rusty-brown spore print.",
+      "woodtuft": "Sheathed woodtuft has small brown scales on the lower stem and a two-toned cap; funeral bell has a smooth stem with a membranous ring.",
+      "humongous": "Humongous fungus is large, with a prominent ring, clumped at tree bases; funeral bell is small with a thin ring."
+    },
+    "factEn": "It carries the same amatoxins as the death cap but looks like velvet shank or honey fungus, often crowding onto the very same rotting log — a rusty-brown spore print is the key giveaway.",
+    "quoteEn": "Your dinner and I grow on the very same log."
   },
   {
     "id": "sulphurtuft",
@@ -4269,7 +5157,8 @@
     "behavior": "cluster",
     "lookalikes": [
       "honey",
-      "hypholomaL"
+      "hypholomaL",
+      "leucocoprinus"
     ],
     "habitat": "树桩、埋木，密集成丛",
     "fact": "硫黄色的大丛几乎全年可见，味极苦；常被当成蜜环菌采回，是欧洲常见的中毒原因。",
@@ -4312,7 +5201,24 @@
     "capCm": [
       2,
       7
-    ]
+    ],
+    "aka": [
+      "簇生沿丝伞",
+      "簇生黄韧伞"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap sulphur-yellow, faintly orange-brown at the center",
+      "Gills yellow at first, aging to grayish green then purplish black",
+      "Densely clustered on rotten wood and stumps"
+    ],
+    "habitatEn": "Stumps and buried wood, in dense clumps",
+    "lookalikeNotesEn": {
+      "honey": "Honey fungus has white gills and a ring; sulphur tuft's gills go from yellow-green to purple-black and it has no true ring.",
+      "hypholomaL": "Brick cap has a brick-red cap and grey gills; sulphur tuft is sulphur-yellow with yellow-green gills."
+    },
+    "factEn": "Its sulfur-yellow clusters can be found nearly year-round and taste intensely bitter; it's often mistaken for honey fungus and picked by mistake, making it a common cause of poisoning in Europe.",
+    "quoteEn": "Bitter enough to make you spit me out — consider that me saving your life."
   },
   {
     "id": "deadlywebcap",
@@ -4367,7 +5273,7 @@
     "lookalikeNotes": {
       "gypsy": "皱盖丝膜菌菌盖有白霜状覆盖、有膜质菌环；毒丝膜菌红褐圆锥形，只有丝膜痕"
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "umbrella",
     "colorGroup": [
       "orange",
@@ -4379,7 +5285,19 @@
     "capCm": [
       3,
       8
-    ]
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Cap reddish brown to orange-brown, conical, finely fibrous",
+      "Stem yellowish brown, banded with pale yellow cortina remnants",
+      "Gills rusty brown; grows in mossy conifer forest"
+    ],
+    "habitatEn": "Conifer woods and sphagnum bogs",
+    "lookalikeNotesEn": {
+      "gypsy": "Gypsy mushroom has a frosted-looking cap and a membranous ring; deadly webcap is red-brown and conical, with only a cobweb-like trace."
+    },
+    "factEn": "It contains orellanine, a toxin that targets the kidneys, with a latency period stretching two to three weeks — by the time symptoms appear, no one remembers eating any mushroom at all.",
+    "quoteEn": "By the time you remember me, three weeks will have gone by."
   },
   {
     "id": "falsemorel",
@@ -4437,7 +5355,7 @@
       "blackmorel": "黑脉羊肚菌帽部纵向棱脊如梯；鹿花菌是无规则的脑状褶皱",
       "saddle": "皱马鞍菌白色马鞍形帽、柄有深沟槽；鹿花菌红褐色脑状"
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "brain",
     "colorGroup": [
       "brown",
@@ -4449,7 +5367,24 @@
     "capCm": [
       3,
       12
-    ]
+    ],
+    "aka": [
+      "鹿花蕈",
+      "假羊肚菌"
+    ],
+    "idKeysEn": [
+      "Cap reddish brown, irregularly brain-like and wrinkled, not honeycombed",
+      "Stem short, stout, and white, chambered inside",
+      "Grows in spring on sandy soil in conifer forests"
+    ],
+    "habitatEn": "Sandy soil in conifer woods, burnt ground",
+    "lookalikeNotesEn": {
+      "morel": "Morel's cap is honeycomb-pitted and hollow in one piece; false morel is brain-like and wrinkled, with chambers inside.",
+      "blackmorel": "Black morel's cap has ladder-like vertical ridges; false morel is irregularly brain-like and wrinkled.",
+      "saddle": "White saddle has a white saddle-shaped cap and a deeply grooved stem; false morel is red-brown and brain-like."
+    },
+    "factEn": "It contains gyromitrin, which the body converts into monomethylhydrazine — the same compound used as rocket fuel. Its cap is a solid, brain-like mass of folds, while a true morel's is hollow and honeycombed.",
+    "quoteEn": "Cut me open: I'm a solid brain. The morel's a hollow honeycomb."
   },
   {
     "id": "jackolantern",
@@ -4490,21 +5425,21 @@
     "idKeys": [
       {
         "text": "通体橙色，菌褶是真正的刀状薄片并向下延生",
-        "src": "wiki-en"
+        "src": "wiki-zh"
       },
       {
-        "text": "丛生于树桩或埋木上，鸡油菌则单生于土中",
-        "src": "wiki-en"
+        "text": "菌肉橙色，夜间菌褶会发出微弱绿光",
+        "src": "wiki-zh"
       },
       {
-        "text": "夜间菌褶会发出微弱绿光",
+        "text": "成丛长在树桩或埋木上，鸡油菌则单生于土中",
         "src": "wiki-zh"
       }
     ],
     "lookalikeNotes": {
       "chanterelle": "鸡油菌下方是钝棱脉不是真菌褶，单生于土中；杰克灯笼菌菌褶锐利，丛生于木上"
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "funnel",
     "colorGroup": [
       "orange"
@@ -4515,7 +5450,22 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "发光类脐菇"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Entirely orange; gills true blade-like lamellae, running down the stem",
+      "Flesh orange; gills faintly glow green at night",
+      "Grows in clusters on stumps or buried wood, unlike the singly growing chanterelle in soil"
+    ],
+    "habitatEn": "Oak stumps and buried roots, in clumps",
+    "lookalikeNotesEn": {
+      "chanterelle": "Chanterelle has blunt ridges beneath, not true gills, and grows singly from soil; jack-o'-lantern has sharp gills and clusters on wood."
+    },
+    "factEn": "Its gills glow faintly green in the dark. Its biggest difference from the chanterelle: it grows on wood and has true, sharp-edged gills, while the chanterelle grows from the ground and has only blunt ridges.",
+    "quoteEn": "Turn off the lights, and you'll know it's me."
   },
   {
     "id": "tsukiyotake",
@@ -4572,7 +5522,7 @@
       "oyster": "平菇菌柄基部切开无紫黑斑；月夜菌柄基部菌肉有紫黑色斑",
       "lateoyster": "晚生北风菌菌褶黄色、菌盖橄榄绿；月夜菌菌褶白色、菌盖紫褐"
     },
-    "encounter": "rare",
+    "encounter": "seldom",
     "silhouette": "shelf",
     "colorGroup": [
       "brown",
@@ -4584,7 +5534,22 @@
     "capCm": [
       10,
       25
-    ]
+    ],
+    "aka": [
+      "月夜蕈"
+    ],
+    "idKeysEn": [
+      "Cap purplish brown to dark brown, shell-shaped, growing on dead beech",
+      "Stem short; flesh at the stem base shows a purplish black patch when cut",
+      "Gills glow pale green at night"
+    ],
+    "habitatEn": "Fallen beech, in overlapping tiers",
+    "lookalikeNotesEn": {
+      "oyster": "Oyster mushroom shows no dark blotch when the stem base is cut; moonlight mushroom has a purple-black blotch in the flesh at the stem base.",
+      "lateoyster": "Late oyster has yellow gills and an olive-green cap; moonlight mushroom has white gills and a purple-brown cap."
+    },
+    "factEn": "The mushroom behind more poisoning cases in Japan than any other, because it grows on the same dead wood as oyster mushrooms; snap the stem base and you'll find a dark purple-black patch, and at night the gills glow green.",
+    "quoteEn": "By day I pass for an oyster mushroom. By night, I stop pretending."
   },
   {
     "id": "glowmycena",
@@ -4625,7 +5590,7 @@
       "slim": true,
       "glowColor": "#7CFF9A"
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "umbrella",
     "colorGroup": [
       "white",
@@ -4651,7 +5616,19 @@
     "capCm": [
       1,
       3
-    ]
+    ],
+    "aka": [
+      "发光小菇"
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "By day just a small, grayish white, translucent mushroom, easy to overlook",
+      "The entire fruitbody glows green at night",
+      "Grows in the rainy season on fallen twigs and leaf litter in bamboo and hardwood forests"
+    ],
+    "habitatEn": "Rotting twigs in subtropical bamboo and broadleaf forests",
+    "factEn": "It glows through a luciferin-luciferase reaction, the same chemistry fireflies use; it shines brightest on its second night after fruiting, then fades fast.",
+    "quoteEn": "I only shine for one night. Don't miss it."
   },
   {
     "id": "bittermycena",
@@ -4716,7 +5693,15 @@
     "capCm": [
       1,
       3
-    ]
+    ],
+    "idKeysEn": [
+      "Small, shell-shaped, pale brown, with a short lateral stem",
+      "Grows in overlapping clusters on dead wood",
+      "North American specimens glow at night; Asian ones usually do not"
+    ],
+    "habitatEn": "Dead hardwood branches",
+    "factEn": "Curiously, only its North American populations glow — the same species in Europe barely lights up at all. One species, two very different nightlives.",
+    "quoteEn": "Whether I glow depends entirely on which continent I live on."
   },
   {
     "id": "stinkhorn",
@@ -4755,7 +5740,7 @@
       "volvaColor": "#E8E0CC",
       "flies": 4
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "white",
@@ -4781,7 +5766,19 @@
     "capCm": [
       10,
       25
-    ]
+    ],
+    "aka": [
+      "鬼笔"
+    ],
+    "capSurface": "slimy",
+    "idKeysEn": [
+      "Stem white and spongy, topped with a slimy olive-green spore cap",
+      "Has a strong carrion smell that attracts flies",
+      "Emerges from a white \"egg\", maturing within hours"
+    ],
+    "habitatEn": "Woodland humus and wood chips",
+    "factEn": "The blackish-green slime on its tip smells like rotting flesh, drawing flies that carry its spores away — it has outsourced pollination to flies.",
+    "quoteEn": "I don't rely on the wind. I hire flies."
   },
   {
     "id": "redcage",
@@ -4820,7 +5817,7 @@
       "volvaColor": "#EFE8D6",
       "flies": 3
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "ball",
     "colorGroup": [
       "red"
@@ -4845,7 +5842,18 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "笼头菌"
+    ],
+    "idKeysEn": [
+      "Bright red, cage-like lattice, stemless",
+      "Emerges from a white \"egg\"; inner walls bear foul-smelling spore mass",
+      "Grows in gardens and on wood-chip mulch"
+    ],
+    "habitatEn": "Garden mulch and humus",
+    "factEn": "It bursts from a white 'egg' into a bright red, lattice-like cage in just a few hours, the inside smeared with foul-smelling spore slime.",
+    "quoteEn": "I'm a cage that hatched from an egg."
   },
   {
     "id": "devilsfingers",
@@ -4910,7 +5918,18 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "魔鬼手指"
+    ],
+    "idKeysEn": [
+      "Bright red, tentacle-like arms that spread out starfish-like",
+      "Inner surface of the arms bears a black, foul-smelling spore mass",
+      "Emerges from a white \"egg\"; grows in wood chips and lawns"
+    ],
+    "habitatEn": "Grassland and mulch at woodland edges",
+    "factEn": "Native to Australia and New Zealand, it hitched a ride to Europe with military supplies during World War I; once hatched, it spreads four to seven bright red arms, like an upturned octopus.",
+    "quoteEn": "I sailed to Europe on a warship."
   },
   {
     "id": "bleedingtooth",
@@ -4956,22 +5975,35 @@
     "initial": "C",
     "idKeys": [
       {
-        "text": "白色菌盖表面渗出鲜红色液滴",
+        "text": "幼时白色菌盖表面渗出鲜红色液滴",
         "src": "wiki-zh"
       },
       {
-        "text": "菌盖下方是齿刺，老菌整体变褐",
+        "text": "菌盖下方是密生的短齿刺，老菌整体变褐",
         "src": "wiki-zh"
       },
       {
-        "text": "长在针叶林地面",
+        "text": "长在针叶林地面，常几朵连成一片",
         "src": "wiki-zh"
       }
     ],
     "capCm": [
       4,
       12
-    ]
+    ],
+    "aka": [
+      "流血齿菌",
+      "恶魔牙齿"
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Cap white when young, oozing bright red droplets on the surface",
+      "Underside bears dense short spines; old fruitbodies turn brown overall",
+      "Grows on the floor of conifer forests, often fused into a patch"
+    ],
+    "habitatEn": "Ground in conifer woods",
+    "factEn": "The bright red droplets oozing from a young specimen are actually excess water forced out by root pressure, and they contain an anticoagulant compound.",
+    "quoteEn": "That's not blood. It's just water being squeezed out."
   },
   {
     "id": "bluemushroom",
@@ -5005,7 +6037,7 @@
       "stipeColor": "#2E8FB4",
       "gillColor": "#D8A0B4"
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "umbrella",
     "colorGroup": [
       "purple"
@@ -5030,7 +6062,19 @@
     "capCm": [
       2,
       4
-    ]
+    ],
+    "aka": [
+      "天蓝蘑菇"
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Entirely bright blue, cap conical",
+      "Gills blue with red edges",
+      "Grows in the forests of New Zealand and India"
+    ],
+    "habitatEn": "Southern beech forests of New Zealand",
+    "factEn": "It's printed on New Zealand's fifty-dollar note. Its indigo blue comes from three rare azulene pigments — true blue is scarce in nature.",
+    "quoteEn": "I've been on the money."
   },
   {
     "id": "indigomilk",
@@ -5065,7 +6109,7 @@
       "bruiseColor": "#2A4A6E",
       "zones": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "funnel",
     "colorGroup": [
       "purple"
@@ -5090,7 +6134,19 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "蓝乳菇"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Entirely indigo blue, cap marked with concentric zones",
+      "Bleeds blue latex when cut, turning green over time",
+      "Grows in woodlands of the Americas and East Asia"
+    ],
+    "habitatEn": "Ground in mixed pine-oak woods",
+    "factEn": "Break it open and deep indigo-blue milk oozes out, slowly turning inky green in the air — one of the world's few genuinely blue mushrooms.",
+    "quoteEn": "I bleed blue milk."
   },
   {
     "id": "violetcoral",
@@ -5153,7 +6209,18 @@
     "capCm": [
       3,
       10
-    ]
+    ],
+    "aka": [
+      "紫珊瑚"
+    ],
+    "idKeysEn": [
+      "Entirely purple, with coral-like branches",
+      "Brittle in texture; grows in grassland and woodland",
+      "Vividly colored, standing out against green grass"
+    ],
+    "habitatEn": "Unfertilised old grassland and woodland",
+    "factEn": "An indicator of healthy grassland, it only appears where the soil has gone untilled and unfertilized for years, and it's listed on the Red List in several European countries.",
+    "quoteEn": "If you see me, this meadow has never been touched."
   },
   {
     "id": "scarletcup",
@@ -5189,7 +6256,7 @@
       "capColor2": "#E2503C",
       "stipeColor": "#E8DCC4"
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "funnel",
     "colorGroup": [
       "red"
@@ -5214,7 +6281,19 @@
     "capCm": [
       1,
       5
-    ]
+    ],
+    "aka": [
+      "绯红肉杯菌"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Bright red, cup-shaped, with a slightly inrolled rim",
+      "Outer surface pale and finely hairy",
+      "Grows in early spring on fallen twigs in leaf litter"
+    ],
+    "habitatEn": "Fallen twigs in damp woodland",
+    "factEn": "It appears in early spring while patches of snow still linger, on moss-covered fallen branches; a light tap when mature sends up a small puff of spore cloud.",
+    "quoteEn": "The snow hasn't even melted, and here I am."
   },
   {
     "id": "orangepeel",
@@ -5251,7 +6330,7 @@
       "stipeColor": "none",
       "wavy": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "funnel",
     "colorGroup": [
       "orange"
@@ -5276,7 +6355,20 @@
     "capCm": [
       2,
       10
-    ]
+    ],
+    "aka": [
+      "橘皮菌",
+      "橙皮菌"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Bright orange, cup- or disc-shaped, like a discarded orange peel",
+      "Stemless, sitting directly on the ground",
+      "Grows on bare soil and roadsides, often in groups"
+    ],
+    "habitatEn": "Bare soil on roadsides and forest tracks",
+    "factEn": "It looks exactly like an orange peel tossed carelessly on the ground, often appearing in clusters on compacted dirt paths.",
+    "quoteEn": "Don't step on me. I'm not litter."
   },
   {
     "id": "greenelfcup",
@@ -5311,7 +6403,7 @@
       "stipeColor": "#3E9A86",
       "cluster": 6
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "funnel",
     "colorGroup": [
       "green"
@@ -5321,22 +6413,34 @@
     "initial": "X",
     "idKeys": [
       {
-        "text": "蓝绿色小杯，只有几毫米",
+        "text": "蓝绿色小杯盘，只有几毫米宽",
         "src": "wiki-zh"
       },
       {
-        "text": "长在的枯木也会被染成蓝绿色",
+        "text": "着生的枯木也被染成同样的蓝绿色",
         "src": "wiki-zh"
       },
       {
-        "text": "长在阔叶树枯枝上",
-        "src": "wiki-en"
+        "text": "长在阔叶树尤其栎木的枯枝上",
+        "src": "wiki-zh"
       }
     ],
     "capCm": [
       0.2,
       0.6
-    ]
+    ],
+    "aka": [
+      "绿杯盘菌"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Small blue-green cup or disc, only a few millimeters wide",
+      "The dead wood it grows on is stained the same blue-green",
+      "Grows on dead branches of hardwoods, especially oak"
+    ],
+    "habitatEn": "Fallen wood, especially oak",
+    "factEn": "Its mycelium stains wood a striking blue-green; that 'green oak' has been used in English Tunbridge ware marquetry for centuries.",
+    "quoteEn": "I dye the wood green, and craftsmen line up for it."
   },
   {
     "id": "candlesnuff",
@@ -5385,22 +6489,30 @@
     "initial": "L",
     "idKeys": [
       {
-        "text": "黑色柄，顶端白色粉状，像烛芯",
+        "text": "黑色扁平细柄，顶端覆白色粉末像烛芯",
         "src": "wiki-zh"
       },
       {
-        "text": "常有鹿角状分叉",
+        "text": "上部常分成鹿角状叉，质地硬韧",
         "src": "wiki-zh"
       },
       {
         "text": "长在腐木和树桩上，全年可见",
-        "src": "wiki-en"
+        "src": "wiki-zh"
       }
     ],
     "capCm": [
       2,
       6
-    ]
+    ],
+    "idKeysEn": [
+      "Stem black, flattened, and slender, tip dusted white like a candle wick",
+      "Upper part often forks antler-like, tough in texture",
+      "Grows on rotten wood and stumps, visible year-round"
+    ],
+    "habitatEn": "Rotting stumps",
+    "factEn": "Its tips are dusted with white conidial powder, resembling a spent candlewick; its mycelium gives off an extremely faint glow in the dark.",
+    "quoteEn": "I look like a candle that's already burned out."
   },
   {
     "id": "deadmanfingers",
@@ -5463,7 +6575,18 @@
     "capCm": [
       3,
       8
-    ]
+    ],
+    "aka": [
+      "死人手指"
+    ],
+    "idKeysEn": [
+      "Black and club-shaped, poking from the ground like fingers",
+      "Surface rough; flesh white inside",
+      "Clusters on rotten wood buried in soil"
+    ],
+    "habitatEn": "Base of hardwood stumps",
+    "factEn": "A cluster of blackened, swollen finger-like stalks pokes up from the soil beside a stump, hence the name; its woody flesh is tough enough to survive a whole winter.",
+    "quoteEn": "What's reaching out of the soil — that's my hand."
   },
   {
     "id": "kingalfred",
@@ -5506,7 +6629,7 @@
       "stipeColor": "none",
       "rings": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "ball",
     "colorGroup": [
       "black",
@@ -5532,7 +6655,18 @@
     "capCm": [
       2,
       6
-    ]
+    ],
+    "aka": [
+      "炭球菌"
+    ],
+    "idKeysEn": [
+      "Dark brown and hemispherical, like a charred loaf",
+      "Cut surface shows alternating silver-gray and black concentric rings",
+      "Grows on dead hardwood, hard in texture"
+    ],
+    "habitatEn": "Dead branches of ash and other hardwoods",
+    "factEn": "Cut it open and you'll find concentric black-and-white rings like tree growth rings; once dried, it catches fire easily and smolders for a long time, a classic natural tinder in the wild.",
+    "quoteEn": "Split me open — I've got growth rings inside."
   },
   {
     "id": "tinder",
@@ -5605,7 +6739,19 @@
     "capCm": [
       5,
       30
-    ]
+    ],
+    "aka": [
+      "木蹄",
+      "火绒菌"
+    ],
+    "idKeysEn": [
+      "Hoof-shaped, grayish brown with concentric zones",
+      "Woody in texture, perennial, adding one layer each year",
+      "Grows on living or dead birch and beech"
+    ],
+    "habitatEn": "Trunks of birch and beech",
+    "factEn": "Otzi the Iceman, who lived 5,300 years ago, carried this fungus with him; its processed flesh could hold a smoldering ember — one of the oldest known pieces of evidence for humans using fungi.",
+    "quoteEn": "The Iceman carried me across the Alps."
   },
   {
     "id": "artistconk",
@@ -5679,7 +6825,20 @@
     "capCm": [
       10,
       40
-    ]
+    ],
+    "aka": [
+      "树舌",
+      "平盖灵芝",
+      "老牛肝"
+    ],
+    "idKeysEn": [
+      "Flat and semicircular, upper surface grayish brown with concentric zones",
+      "Underside white, marks brown when scratched, usable for drawing",
+      "Grows on hardwood trunks, perennial"
+    ],
+    "habitatEn": "Hardwood trunks and stumps",
+    "factEn": "Scratch its white pore surface and the mark instantly turns brown; the line can last for decades, which is how it earned the name 'artist's conk.'",
+    "quoteEn": "Draw on my belly, and it'll last for decades."
   },
   {
     "id": "chickenwoods",
@@ -5741,7 +6900,19 @@
     "capCm": [
       10,
       40
-    ]
+    ],
+    "aka": [
+      "硫磺多孔菌",
+      "树鸡"
+    ],
+    "idKeysEn": [
+      "Bright orange-yellow, fan-shaped in overlapping tiers, colored like egg yolk",
+      "Underside sulphur-yellow with fine pores",
+      "Grows on hardwood trunks, sometimes forming a large mass"
+    ],
+    "habitatEn": "Living trees and dead trunks of oak, willow and others",
+    "factEn": "Named for its chicken-breast-like texture, but a good number of people get gastrointestinal reactions after eating it, and specimens growing on trees like yew call for particular caution.",
+    "quoteEn": "Some say I taste like chicken. Others really regret finding out."
   },
   {
     "id": "beefsteak",
@@ -5775,7 +6946,7 @@
       "stipeColor": "none",
       "droplets": "#8E1E1A"
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "club",
     "colorGroup": [
       "red",
@@ -5801,7 +6972,19 @@
     "capCm": [
       7,
       25
-    ]
+    ],
+    "aka": [
+      "牛排菌",
+      "牛舌菌"
+    ],
+    "idKeysEn": [
+      "Dark red, tongue-shaped, moist surface, resembling raw liver",
+      "Oozes red juice with meat-like veining when cut; underside pale yellow with fine pores",
+      "Grows at the base of oak and chestnut trunks"
+    ],
+    "habitatEn": "Base of oak and chestnut",
+    "factEn": "Slice into it and you'll find marbled flesh oozing red juice — it genuinely looks like a cut of raw beef.",
+    "quoteEn": "Slice me open and you'll think you wandered into a butcher shop."
   },
   {
     "id": "splitgill",
@@ -5871,7 +7054,20 @@
     "capCm": [
       1,
       4
-    ]
+    ],
+    "aka": [
+      "白参",
+      "白参菌",
+      "树花"
+    ],
+    "idKeysEn": [
+      "Small, grayish white, fan-shaped, upper surface densely hairy",
+      "Underside gills split lengthwise along the midline, rolling inward when dry",
+      "Grows on all kinds of dead wood; one of the world's most common fungi"
+    ],
+    "habitatEn": "Dead wood of all kinds, worldwide",
+    "factEn": "It has over 23,000 mating types, so it can pair with nearly any encounter of its own kind; Yunnan calls it 'white ginseng' and cooks it as food, but it's also one of the very few fungi known to infect humans.",
+    "quoteEn": "I have more than twenty-three thousand sexes."
   },
   {
     "id": "chaga",
@@ -5914,7 +7110,7 @@
       "stipeColor": "none",
       "cracked": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "ball",
     "colorGroup": [
       "black",
@@ -5940,7 +7136,19 @@
     "capCm": [
       10,
       40
-    ]
+    ],
+    "aka": [
+      "白桦茸",
+      "桦树茸"
+    ],
+    "idKeysEn": [
+      "Black, charcoal-like, irregular mass, resembling a burnt burl",
+      "Interior orange-brown when broken open",
+      "Grows on the trunks of living birch"
+    ],
+    "habitatEn": "Trunk wounds on living birch",
+    "factEn": "That charcoal-like black lump on the trunk isn't the fruiting body — it's a sclerotium. The actual spore-producing part hides beneath the bark and only shows once the tree dies.",
+    "quoteEn": "That lump of charcoal you see is just my storeroom."
   },
   {
     "id": "militaris",
@@ -5977,7 +7185,7 @@
       "larva": true,
       "cluster": 3
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "club",
     "colorGroup": [
       "orange"
@@ -6002,7 +7210,20 @@
     "capCm": [
       2,
       6
-    ]
+    ],
+    "aka": [
+      "北虫草",
+      "北冬虫夏草",
+      "蛹草"
+    ],
+    "idKeysEn": [
+      "Orange and club-shaped, tip finely granular on the surface",
+      "Emerges from a pupa buried in soil or under leaf litter",
+      "Grows in forest leaf litter, common in autumn"
+    ],
+    "habitatEn": "Buried moth pupae in woodland soil",
+    "factEn": "Unlike wild caterpillar fungus, it can be mass-cultivated on a rice-based substrate; its orange-red fruiting bodies are sold in markets as 'northern caterpillar fungus.'",
+    "quoteEn": "I can be grown on a bed of rice. The wild one can't."
   },
   {
     "id": "zombieant",
@@ -6062,7 +7283,15 @@
     "capCm": [
       0.5,
       1.5
-    ]
+    ],
+    "idKeysEn": [
+      "An ant clamped motionless onto a leaf vein or twig, a slender stalk growing from its head",
+      "Stalk tipped with a slightly swollen head",
+      "Seen on the undersides of understory leaves in tropical rainforest"
+    ],
+    "habitatEn": "Tropical rainforest, parasitic on carpenter ants",
+    "factEn": "It manipulates its ant host into climbing to the underside of a leaf, clamping onto a vein, and dying there — then sprouts a fruiting body from the ant's head, at just the right height and spot to rain spores down on the ant trail below.",
+    "quoteEn": "I let the ant walk itself to exactly the right spot."
   },
   {
     "id": "chinesetruffle",
@@ -6125,7 +7354,20 @@
     "capCm": [
       2,
       6
-    ]
+    ],
+    "aka": [
+      "印度块菌",
+      "中国黑松露",
+      "猪拱菌"
+    ],
+    "idKeysEn": [
+      "Black and lumpy, warty surface, closely resembling the black Perigord truffle",
+      "Interior brown with white veining when cut",
+      "Grows underground in pine-oak forests of Yunnan and Sichuan"
+    ],
+    "habitatEn": "Underground in oak woods of Yunnan and Sichuan",
+    "factEn": "Nearly indistinguishable in appearance from the European black truffle, though its aroma is much weaker; in earlier years it was often exported cheaply in bulk and passed off as the European kind.",
+    "quoteEn": "I look like him. I'm not him."
   },
   {
     "id": "lobster",
@@ -6170,22 +7412,33 @@
     "initial": "L",
     "idKeys": [
       {
-        "text": "橙红色扭曲团块，像煮熟的龙虾壳",
+        "text": "橙红色扭曲团块，颜色像龙虾壳",
         "src": "wiki-zh"
       },
       {
-        "text": "其实是一种霉菌包住了别的蘑菇，表面粗糙有颗粒",
+        "text": "是一层霉菌包住了别的蘑菇，表面粗糙有细颗粒",
         "src": "wiki-zh"
       },
       {
-        "text": "长在针叶林地面",
-        "src": "wiki-en"
+        "text": "菌褶被包成钝棱状，原来蘑菇的形状几乎看不出",
+        "src": "wiki-zh"
       }
     ],
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "龙虾蘑菇"
+    ],
+    "idKeysEn": [
+      "Orange-red, contorted mass, colored like lobster shell",
+      "A mold coating a host mushroom, surface rough and finely granular",
+      "Gills fused into blunt ridges, the original mushroom's shape nearly unrecognizable"
+    ],
+    "habitatEn": "Parasitic on fruitbodies of Russula and Lactarius",
+    "factEn": "It isn't really a mushroom's 'body' at all — it's a parasitic fungus that engulfs a host mushroom entirely, twisting it into a solid orange-red mass and even changing its flavor.",
+    "quoteEn": "I'm not a mushroom. I'm a shell wrapped around one."
   },
   {
     "id": "earpick",
@@ -6232,22 +7485,31 @@
     "initial": "E",
     "idKeys": [
       {
-        "text": "小型，褐色菌盖侧生在细长的毛柄上",
+        "text": "小型褐色菌盖，侧生在细长的毛柄上",
         "src": "wiki-zh"
       },
       {
-        "text": "菌盖下方是齿刺",
+        "text": "菌盖下方是灰白色的齿刺，不是菌褶",
         "src": "wiki-zh"
       },
       {
-        "text": "只长在埋在土里的松果上",
+        "text": "只长在埋在落叶下的松果上",
         "src": "wiki-zh"
       }
     ],
     "capCm": [
       1,
       3
-    ]
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Cap small and brown, set laterally on a slender hairy stem",
+      "Underside bears grayish white spines, not gills",
+      "Grows only on pine cones buried under leaf litter"
+    ],
+    "habitatEn": "Pine cones buried in leaf litter",
+    "factEn": "It grows only on fallen pine cones, with a stem attached off-center to the cap, giving the whole thing the look of a tiny earpick.",
+    "quoteEn": "In my whole life, I only ever recognize one pine cone."
   },
   {
     "id": "blackwitch",
@@ -6288,7 +7550,7 @@
       "jelly": true,
       "glossy": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "jelly",
     "colorGroup": [
       "black"
@@ -6313,7 +7575,18 @@
     "capCm": [
       2,
       6
-    ]
+    ],
+    "aka": [
+      "黑胶耳"
+    ],
+    "idKeysEn": [
+      "Black, gelatinous mass, finely warted on the surface",
+      "Swells and glistens when wet, shrinking to a hard crust when dry",
+      "Grows on dead branches of oak and other hardwoods"
+    ],
+    "habitatEn": "Fallen branches of oak and other hardwoods",
+    "factEn": "When wet it's a blob of black jelly; dried out, it shrinks to a thin black crust pressed flat against the bark — then swells back to life the next time it rains.",
+    "quoteEn": "Dry me out. Rain will bring me back."
   },
   {
     "id": "stagshorn",
@@ -6378,7 +7651,18 @@
     "capCm": [
       2,
       8
-    ]
+    ],
+    "aka": [
+      "胶角菌"
+    ],
+    "idKeysEn": [
+      "Orange-yellow, antler-like branches, gelatinous",
+      "Feels slippery and springy, not brittle",
+      "Grows on dead conifer wood"
+    ],
+    "habitatEn": "Buried conifer wood",
+    "factEn": "It looks like a coral fungus, but feels rubbery and gel-like — you can't snap it or crumble it, which is exactly what sets it apart from true coral fungi.",
+    "quoteEn": "I look brittle. I'm actually tough as rubber."
   },
   {
     "id": "amethyst",
@@ -6419,7 +7703,7 @@
       "gillColor": "#B48ECC",
       "slim": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "purple"
@@ -6444,7 +7728,19 @@
     "capCm": [
       2,
       6
-    ]
+    ],
+    "aka": [
+      "紫晶蜡蘑"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Entirely amethyst purple, fading to grayish white when dry",
+      "Gills thick and widely spaced, also purple",
+      "Stem slender and tough; grows in woodland"
+    ],
+    "habitatEn": "Leaf litter in beech and oak woods",
+    "factEn": "The 'deceiver' in its English name refers to how drastically its color shifts: vivid purple when wet, fading to grayish-white when dry, almost like a different species.",
+    "quoteEn": "Once I dry out, you won't recognize me."
   },
   {
     "id": "parrot",
@@ -6470,7 +7766,8 @@
     "behavior": "default",
     "lookalikes": [
       "waxcapconic",
-      "scarletwaxcap"
+      "scarletwaxcap",
+      "leucocoprinus"
     ],
     "habitat": "老草地、苔藓地",
     "fact": "刚出土时通体亮绿，随着成熟从盖顶开始转黄、转橙，一朵菇身上能同时看到三种颜色。",
@@ -6494,22 +7791,34 @@
     "initial": "Y",
     "idKeys": [
       {
-        "text": "菌盖绿色转黄色，表面黏滑",
+        "text": "菌盖幼时鲜绿色，老后转黄或橙色，表面黏滑",
         "src": "wiki-zh"
       },
       {
-        "text": "小型，菌柄同样黏滑",
-        "src": "wiki-en"
+        "text": "小型，菌柄同样黏滑，常带一抹绿色",
+        "src": "wiki-zh"
       },
       {
-        "text": "长在草地和林缘",
+        "text": "长在老草地和苔藓地上",
         "src": "wiki-zh"
       }
     ],
     "capCm": [
       1,
       4
-    ]
+    ],
+    "aka": [
+      "青绿湿伞"
+    ],
+    "capSurface": "slimy",
+    "idKeysEn": [
+      "Cap bright green when young, aging to yellow or orange, sticky surface",
+      "Small, stem equally sticky, often tinged green",
+      "Grows in old grassland and mossy ground"
+    ],
+    "habitatEn": "Old grassland and mossy ground",
+    "factEn": "It emerges bright green all over; as it matures, the cap top shifts to yellow, then orange, so a single mushroom can show three colors at once.",
+    "quoteEn": "I go from green all the way to orange."
   },
   {
     "id": "scarletwaxcap",
@@ -6547,7 +7856,7 @@
       "glossy": true,
       "slim": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "red"
@@ -6572,7 +7881,16 @@
     "capCm": [
       2,
       5
-    ]
+    ],
+    "capSurface": "slimy",
+    "idKeysEn": [
+      "Cap small and bright red, with a waxy sheen when wet",
+      "Gills thick, red with yellow edges",
+      "Grows in old, unfertilized grassland"
+    ],
+    "habitatEn": "Unfertilised old grassland",
+    "factEn": "Waxcaps are indicator species for grassland health, appearing in numbers only on meadows left untilled and unfertilized for decades; in Europe they're a conservation priority.",
+    "quoteEn": "I'm proof of how old this meadow really is."
   },
   {
     "id": "wrinkledpeach",
@@ -6608,7 +7926,7 @@
       "gillColor": "#E0907A",
       "veined": true
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "umbrella",
     "colorGroup": [
       "orange",
@@ -6619,22 +7937,31 @@
     "initial": "W",
     "idKeys": [
       {
-        "text": "粉红色菌盖，表面有网状皱纹",
+        "text": "粉红至橙粉色菌盖，表面布满网状皱纹",
         "src": "wiki-zh"
       },
       {
-        "text": "菌褶粉红色，菌柄偏生",
-        "src": "wiki-en"
+        "text": "菌褶粉红色，菌柄偏生，有时渗出红色小液滴",
+        "src": "wiki-zh"
       },
       {
-        "text": "长在榆树枯木上",
+        "text": "长在榆树的枯干或倒木上",
         "src": "wiki-zh"
       }
     ],
     "capCm": [
       3,
       8
-    ]
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap pink to orange-pink, covered in a net-like wrinkled surface",
+      "Gills pink; stem off-center, sometimes oozing small red droplets",
+      "Grows on dead elm trunks or fallen logs"
+    ],
+    "habitatEn": "Fallen elm",
+    "factEn": "Its cap is covered in a pinkish-orange, wrinkled gelatinous skin, somewhere between a brain and a peach; as elm trees decline from disease, it's now on the Red List in over a dozen European countries.",
+    "quoteEn": "I only grow on elm. Fewer elms, fewer of me."
   },
   {
     "id": "bleedingbonnet",
@@ -6700,7 +8027,19 @@
     "capCm": [
       1,
       4
-    ]
+    ],
+    "aka": [
+      "红汁小菇"
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "A small, pinkish brown, bell-shaped mushroom with a toothed margin",
+      "Oozes dark red juice when the stem is broken",
+      "Clusters on dead hardwood"
+    ],
+    "habitatEn": "Rotting hardwood, often in small clumps",
+    "factEn": "Pinch its stem and it oozes dark red fluid, like it's bleeding — a distinctive field mark within the Mycena genus.",
+    "quoteEn": "Pinch my stem, and I'll really bleed."
   },
   {
     "id": "jellyear",
@@ -6766,7 +8105,18 @@
     "capCm": [
       3,
       10
-    ]
+    ],
+    "aka": [
+      "犹大耳"
+    ],
+    "idKeysEn": [
+      "Ear-shaped and gelatinous, reddish brown, finely hairy surface",
+      "Translucent and rubbery when wet",
+      "Grows on dead branches of elder and other hardwoods"
+    ],
+    "habitatEn": "Dead branches of elder and other hardwoods",
+    "factEn": "This European species grows mainly on elder trees; the black wood ear cultivated in China is a separate species, though the two look nearly identical.",
+    "quoteEn": "I'm the European ear."
   },
   {
     "id": "yellowstainer",
@@ -6826,7 +8176,7 @@
       "fieldmushroom": "野蘑菇擦伤略变粉；黄斑蘑菇基部变亮黄且有墨水味",
       "horsemushroom": "大肥菇擦伤变淡黄且有茴香甜味；黄斑蘑菇变亮黄且有刺鼻酚味"
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "white"
@@ -6837,7 +8187,24 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "黄斑菇"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Stem base turns bright yellow quickly when cut or bruised",
+      "Smells phenolic, like disinfectant or ink",
+      "Resembles common Agaricus mushrooms in appearance; gills pink, aging to brown"
+    ],
+    "habitatEn": "Grassland, parks and woodland edges",
+    "lookalikeNotesEn": {
+      "button": "Button mushroom doesn't yellow when bruised and has no phenol smell; yellow stainer's base turns bright yellow at once when bruised.",
+      "fieldmushroom": "Field mushroom bruises faintly pink; yellow stainer's base turns bright yellow and smells of ink.",
+      "horsemushroom": "Horse mushroom bruises pale yellow and smells sweetly of aniseed; yellow stainer turns bright yellow with a sharp phenol smell."
+    },
+    "factEn": "One of the most common causes of gastrointestinal poisoning in Europe. Cut into the stem base and it flushes chrome yellow within seconds, giving off a smell of ink or carbolic acid.",
+    "quoteEn": "Slice into my base and you'll catch a whiff of ink."
   },
   {
     "id": "horsemushroom",
@@ -6890,18 +8257,27 @@
         "src": "wiki-zh"
       },
       {
-        "text": "有茴香的甜香味",
+        "text": "菌褶灰粉转深褐，菌环双层，下层像齿轮",
         "src": "wiki-zh"
       },
       {
-        "text": "菌褶粉褐转深褐，菌环双层，长在草地",
-        "src": "wiki-en"
+        "text": "有茴香的甜香味，长在牧场和草地",
+        "src": "wiki-zh"
       }
     ],
     "capCm": [
       8,
       20
-    ]
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap large and white, staining faintly yellow when bruised",
+      "Gills grayish pink, darkening to deep brown; ring double-layered, the lower layer gear-like",
+      "Smells sweetly of anise; grows in pastures and meadows"
+    ],
+    "habitatEn": "Pastures and grassland",
+    "factEn": "It has a distinct almond or anise scent, a sharp contrast to the yellow stainer's inky smell — though scent alone should never be the deciding test.",
+    "quoteEn": "I smell like almonds."
   },
   {
     "id": "rollrim",
@@ -6924,7 +8300,10 @@
     "volva": false,
     "size": 0.7,
     "behavior": "bruise",
-    "lookalikes": [],
+    "lookalikes": [
+      "saffronmilk",
+      "blackening"
+    ],
     "habitat": "桦、栎林地面",
     "fact": "它曾长期被当作可食菌，直到有人反复食用后发生致命的免疫性溶血——毒性不是一次吃出来的，而是身体逐渐被致敏。",
     "quote": "吃我一百次没事，第一百零一次可能出事。",
@@ -6962,7 +8341,23 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "lookalikeNotes": {
+      "saffronmilk": "松乳菇受伤流出橙红色乳汁；卷边桩菇没有乳汁，菌褶按压只变褐",
+      "blackening": "稀褶红菇菌褶厚而稀疏、受伤先红后黑；卷边桩菇菌褶密且边缘明显内卷"
+    },
+    "aka": [
+      "卷边网褶菌"
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Cap margin distinctly inrolled, yellowish brown",
+      "Gills run down the stem, browning when bruised",
+      "Common under birch and other hardwoods"
+    ],
+    "habitatEn": "Ground in birch and oak woods",
+    "factEn": "It was long regarded as an edible mushroom, until repeated consumption was found to trigger fatal immune-mediated blood destruction in some people — the danger doesn't come from a single meal, but from the body slowly becoming sensitized.",
+    "quoteEn": "Eat me ninety-nine times and you're fine. The hundredth time might not be."
   },
   {
     "id": "bitterbolete",
@@ -7000,7 +8395,7 @@
       "fatStipe": true,
       "reticulum": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "brown"
@@ -7025,7 +8420,19 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "苦牛肝菌"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap brown; stem coarsely netted with dark brown",
+      "Pores white, turning pink; distinctly pink in old specimens",
+      "Grows in conifer forests; extremely bitter"
+    ],
+    "habitatEn": "Ground in conifer woods",
+    "factEn": "Not toxic, but bitter enough that a single small piece can ruin a whole pot of soup. One way to tell it from porcini: its stem netting is coarser and darker brown, and its pores have a pinkish tint.",
+    "quoteEn": "I'm not poisonous. I'll just ruin your dinner."
   },
   {
     "id": "satan",
@@ -7096,7 +8503,23 @@
     "capCm": [
       8,
       25
-    ]
+    ],
+    "aka": [
+      "魔鬼牛肝菌"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap grayish white; stem stout, red, and netted",
+      "Pores red; flesh bruises blue when cut",
+      "Grows in hardwood forests on calcareous soil"
+    ],
+    "habitatEn": "Oak woods on limestone",
+    "lookalikeNotesEn": {
+      "jianshouqing": "Lanmao's bolete has a brown cap rather than grey-white, and a red-and-yellow stem.",
+      "porcini": "Porcini's pores go white to yellow-green, its stem is white-brown with a net and it doesn't blue; Satan's bolete has red pores."
+    },
+    "factEn": "A pale grayish cap paired with blood-red pores, and a stout stem etched with red netting; eaten raw it causes violent vomiting, making it Europe's most notorious poisonous bolete.",
+    "quoteEn": "White cap, red socks — don't mess with me."
   },
   {
     "id": "earthball",
@@ -7167,7 +8590,23 @@
     "capCm": [
       3,
       10
-    ]
+    ],
+    "aka": [
+      "硬皮马勃"
+    ],
+    "idKeysEn": [
+      "Outer skin thick and hard, yellowish brown, surface cracked into scales",
+      "Interior purplish black when cut, unlike the pure white interior of true puffballs",
+      "Stemless, sitting directly on the ground"
+    ],
+    "habitatEn": "Acid soil and mossy ground",
+    "lookalikeNotesEn": {
+      "puffball": "Common puffball has a thin, soft white skin with small spines and a white interior; earthball has a thick, hard yellow-brown skin and purple-black interior.",
+      "giantpuffball": "Giant puffball is huge, pure white and smooth; earthball is small, yellow-brown and cracked.",
+      "pisolithus": "Dyeball has a root-like stem and cuts open to show pea-like chambers; earthball has no stem and a uniformly purple-black interior."
+    },
+    "factEn": "Cutting one open is the key test: a true puffball's interior is pure white and uniform when young, while the earthball's is a purplish-black mass of spores, and its skin is much thicker and tougher.",
+    "quoteEn": "Cut me open — inside, it's black."
   },
   {
     "id": "formosa",
@@ -7234,7 +8673,23 @@
     "capCm": [
       8,
       20
-    ]
+    ],
+    "aka": [
+      "扫帚菌",
+      "刷把菌"
+    ],
+    "idKeysEn": [
+      "Coral-like branches, pink to orange-red, branch tips yellowish",
+      "Base white and stout; the whole cluster can reach the size of a hand",
+      "Grows on the floor of hardwood forests, common in autumn"
+    ],
+    "habitatEn": "Ground in broadleaf woods",
+    "lookalikeNotesEn": {
+      "coralRamaria": "Pink-tipped coral has grape-pink branch tips and a stout white base; beautiful coral is pinkish-orange overall with yellowish tips.",
+      "violetcoral": "Violet coral is violet throughout."
+    },
+    "factEn": "Its pinkish-orange branches tip into yellow — beautiful, but it causes severe gastrointestinal reactions; within its genus, edible and toxic species look almost identical.",
+    "quoteEn": "A pretty coral doesn't belong in the pot just because it's pretty."
   },
   {
     "id": "coralRamaria",
@@ -7281,22 +8736,35 @@
     "initial": "P",
     "idKeys": [
       {
-        "text": "珊瑚状分枝，白色基部粗壮",
+        "text": "珊瑚状分枝，白色基部粗壮像菜花",
         "src": "wiki-zh"
       },
       {
-        "text": "分枝顶端粉红色，像一串葡萄",
+        "text": "分枝顶端粉红至酒红色，像一串葡萄",
         "src": "wiki-zh"
       },
       {
-        "text": "长在阔叶林地面",
-        "src": "wiki-en"
+        "text": "长在阔叶林地面，秋季可见",
+        "src": "wiki-zh"
       }
     ],
     "capCm": [
       7,
       15
-    ]
+    ],
+    "aka": [
+      "扫帚菌",
+      "刷把菌",
+      "珊瑚菌"
+    ],
+    "idKeysEn": [
+      "Coral-like branches, stout white base resembling cauliflower",
+      "Branch tips pink to wine-red, like a bunch of grapes",
+      "Grows on the floor of hardwood forests, seen in autumn"
+    ],
+    "habitatEn": "Ground in broadleaf woods",
+    "factEn": "Called 'broom fungus' in Yunnan, its branch tips carry a pink blush and its thick base looks like a head of cauliflower; it needs careful distinguishing from the toxic beautiful coral.",
+    "quoteEn": "I look like a broom. Also like a head of cauliflower."
   },
   {
     "id": "gomphus",
@@ -7335,22 +8803,22 @@
     },
     "idKeys": [
       {
-        "text": "喇叭形，内侧橙红色带鳞片，外侧奶白色有钝棱脉",
-        "src": "wiki-en"
+        "text": "喇叭形，内侧橙红色覆盖翘起鳞片",
+        "src": "wiki-zh"
       },
       {
-        "text": "中空直通基部",
-        "src": "wiki-en"
+        "text": "外侧奶白色，有钝的棱脉而不是菌褶",
+        "src": "wiki-zh"
       },
       {
-        "text": "多见于针叶林地面",
+        "text": "中空直通基部，多见于针叶林地面",
         "src": "wiki-zh"
       }
     ],
     "lookalikeNotes": {
       "chanterelle": "鸡油菌实心、通体蛋黄色、外侧棱脉钝；毛钉菇中空、内侧橙红有鳞片"
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "funnel",
     "colorGroup": [
       "orange",
@@ -7362,7 +8830,22 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "喇叭陀螺菌"
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Trumpet-shaped, inner surface orange-red, covered in upturned scales",
+      "Outer surface creamy white, with blunt ridges instead of gills",
+      "Hollow all the way to the base, common on conifer forest floors"
+    ],
+    "habitatEn": "Ground in conifer woods",
+    "lookalikeNotesEn": {
+      "chanterelle": "Chanterelle is solid, egg-yellow throughout, with blunt ridges outside; woolly chanterelle is hollow, orange-red and scaly inside."
+    },
+    "factEn": "It looks like a supersized chanterelle, its orange-red funnel covered in coarse scales; records classify it as a gastrointestinal-irritant mushroom, though some regions still eat it by tradition.",
+    "quoteEn": "I'm the chanterelle, blown up several sizes."
   },
   {
     "id": "ivory",
@@ -7420,7 +8903,7 @@
     "lookalikeNotes": {
       "fairyring": "硬柄小皮伞菌盖淡褐钟形、菌褶稀疏不延生、菌柄坚韧；白霜杯伞菌盖白色带霜、菌褶延生"
     },
-    "encounter": "rare",
+    "encounter": "seldom",
     "silhouette": "funnel",
     "colorGroup": [
       "white"
@@ -7431,7 +8914,19 @@
     "capCm": [
       2,
       5
-    ]
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Small and white, cap coated in a frost-like powder",
+      "Gills white, running down the stem",
+      "Grows in groups on lawns, often mixed with fairy ring champignon on the same turf"
+    ],
+    "habitatEn": "Lawns and roadsides, often alongside fairy rings",
+    "lookalikeNotesEn": {
+      "fairyring": "Fairy ring champignon has a pale brown bell-shaped cap, sparse non-decurrent gills and a tough stem; ivory funnel has a frosted white cap and decurrent gills."
+    },
+    "factEn": "It contains muscarine, and poisoning causes heavy sweating and drooling. It often grows in the same meadow as the edible fairy ring champignon, and the two look similar in size and color.",
+    "quoteEn": "The fairy ring mushroom and I live right next to each other."
   },
   {
     "id": "livid",
@@ -7457,7 +8952,8 @@
     "lookalikes": [
       "woodblewit",
       "charcoalburner",
-      "deerpluteus"
+      "deerpluteus",
+      "poisonpie"
     ],
     "habitat": "栎、山毛榉林地",
     "fact": "欧洲引起集体中毒最多的种之一。菌褶成熟后转为肉粉色，孢子印粉红，这是粉褶菌属的共同标记。",
@@ -7500,7 +8996,24 @@
     "capCm": [
       6,
       20
-    ]
+    ],
+    "aka": [
+      "毒粉褶蕈"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Gills white at first, turning pink at maturity",
+      "Cap grayish white to pale yellowish brown, large, margin slightly wavy",
+      "Smells of flour; grows in hardwood forests"
+    ],
+    "habitatEn": "Oak and beech woodland",
+    "lookalikeNotesEn": {
+      "woodblewit": "Wood blewit is lilac throughout with lilac gills; livid pinkgill is grey-white with gills turning from white to pink.",
+      "charcoalburner": "Charcoal burner has a brittle stem that snaps cleanly and white gills; livid pinkgill has a fibrous stem and gills that turn pink.",
+      "deerpluteus": "Deer shield grows on rotting wood and has free gills; livid pinkgill grows on soil and has sinuate gills."
+    },
+    "factEn": "One of the species behind the most mass-poisoning incidents in Europe. Its gills turn flesh-pink with age, and its spore print is pink — the shared signature of the Entoloma genus.",
+    "quoteEn": "My gills turn flesh-pink over time."
   },
   {
     "id": "equestre",
@@ -7538,22 +9051,22 @@
     },
     "idKeys": [
       {
-        "text": "菌盖黄绿至橄榄黄色，中央有褐色鳞片",
+        "text": "菌盖黄绿至橄榄黄色，中央有褐色细鳞片",
         "src": "wiki-zh"
       },
       {
-        "text": "菌褶硫磺黄色，菌柄淡黄色",
+        "text": "菌褶硫磺黄色，菌柄淡黄色，没有菌环",
         "src": "wiki-zh"
       },
       {
-        "text": "长在松林沙地",
+        "text": "秋季长在松林的沙质地面上",
         "src": "wiki-zh"
       }
     ],
     "lookalikeNotes": {
       "matsutake": "松茸菌盖褐色有纤维鳞片、菌柄有大菌环、有松香味；油黄口蘑黄绿且无菌环"
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "umbrella",
     "colorGroup": [
       "yellow",
@@ -7565,7 +9078,23 @@
     "capCm": [
       5,
       12
-    ]
+    ],
+    "aka": [
+      "黄口蘑",
+      "骑士菇"
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Cap yellow-green to olive-yellow, with fine brown scales at the center",
+      "Gills sulphur-yellow; stem pale yellow, no ring",
+      "Grows in autumn on sandy ground in pine forests"
+    ],
+    "habitatEn": "Sandy pine woods",
+    "lookalikeNotesEn": {
+      "matsutake": "Matsutake has a brown cap with fibrous scales, a large stem ring and a resinous pine scent; yellow knight is yellow-green with no ring."
+    },
+    "factEn": "Once prized as a delicious edible, until cases of fatal rhabdomyolysis in France, following days of repeated heavy consumption, forced a full reassessment.",
+    "quoteEn": "I used to be a celebrated dish."
   },
   {
     "id": "poisonpie",
@@ -7588,7 +9117,10 @@
     "volva": false,
     "size": 0.5,
     "behavior": "default",
-    "lookalikes": [],
+    "lookalikes": [
+      "livid",
+      "fieldmushroom"
+    ],
     "habitat": "阔叶林地面，常成行",
     "fact": "有明显的萝卜气味，湿润时菌褶边缘会挂上小水珠，干后留下褐色斑点。",
     "quote": "闻起来像萝卜的，多半是我。",
@@ -7626,7 +9158,20 @@
     "capCm": [
       4,
       10
-    ]
+    ],
+    "lookalikeNotes": {
+      "livid": "毒粉褶菌菌褶成熟转粉红、有面粉味；大毒滑锈伞菌褶淡褐、有萝卜味且菌盖黏滑",
+      "fieldmushroom": "四孢蘑菇菌褶粉红转深褐且有菌环；大毒滑锈伞无菌环，菌褶边缘湿时挂小水珠"
+    },
+    "capSurface": "slimy",
+    "idKeysEn": [
+      "Cap creamy white to pale yellowish brown, sticky when wet",
+      "Gills pale brown, beaded with droplets along the edge when wet",
+      "Smells of radish; grows on the floor of hardwood and conifer forests"
+    ],
+    "habitatEn": "Ground in broadleaf woods, often in rows",
+    "factEn": "It has a distinct radish smell; when damp, tiny droplets bead along the gill edges, leaving brown spots once they dry.",
+    "quoteEn": "Smells like radish? That's probably me."
   },
   {
     "id": "leucocoprinus",
@@ -7658,7 +9203,10 @@
     "volva": false,
     "size": 0.3,
     "behavior": "default",
-    "lookalikes": [],
+    "lookalikes": [
+      "sulphurtuft",
+      "parrot"
+    ],
     "habitat": "花盆、温室的培养土",
     "fact": "就是花盆里突然冒出来的那种小黄伞。它靠盆土里的有机质生活，不伤害植物，但含胃肠型毒素。",
     "quote": "我是你花盆里的不速之客。",
@@ -7696,7 +9244,23 @@
     "capCm": [
       2,
       5
-    ]
+    ],
+    "lookalikeNotes": {
+      "sulphurtuft": "簇生垂幕菇密集丛生于树桩、菌盖光滑；纯黄白鬼伞表面粉状鳞片，单生于盆土",
+      "parrot": "鹦鹉湿伞菌盖黏滑带绿色调、菌褶厚而蜡质；纯黄白鬼伞干燥粉状，边缘有沟纹"
+    },
+    "aka": [
+      "柠檬黄白鬼伞"
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Entirely bright lemon-yellow, cap surface powdery-scaled",
+      "Cap margin radially grooved, small",
+      "Common in indoor potted plants and greenhouse soil"
+    ],
+    "habitatEn": "Potting soil in flowerpots and greenhouses",
+    "factEn": "This is the little yellow parasol that suddenly appears in a houseplant's pot. It feeds on organic matter in the soil, doesn't harm the plant, but does contain a gastrointestinal-irritant toxin.",
+    "quoteEn": "I'm the uninvited guest in your flowerpot."
   },
   {
     "id": "deerpluteus",
@@ -7762,7 +9326,19 @@
     "capCm": [
       4,
       12
-    ]
+    ],
+    "aka": [
+      "鹿色光柄菇"
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Cap brown, with radiating fibrils on the surface",
+      "Gills white, turning pink, free from the stem",
+      "Grows on rotten wood and wood chips, no ring or volva"
+    ],
+    "habitatEn": "Rotting wood and wood-chip piles",
+    "factEn": "A pink spore print, gills that are free (not attached to the stem), and no ring or volva at all — this combination marks the Pluteus genus.",
+    "quoteEn": "My gills never quite touch my stem."
   },
   {
     "id": "candolle",
@@ -7804,7 +9380,8 @@
       "fringe": true
     },
     "aka": [
-      "Psathyrella candolleana"
+      "Psathyrella candolleana",
+      "白黄脆柄菇"
     ],
     "encounter": "common",
     "silhouette": "umbrella",
@@ -7832,7 +9409,16 @@
     "capCm": [
       3,
       7
-    ]
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap small, thin, off-white to pale yellowish brown",
+      "Cap margin often hung with white veil fragments",
+      "Clusters in grassland and near buried wood; stem thin and brittle"
+    ],
+    "habitatEn": "Buried wood in grassland, near stumps",
+    "factEn": "Its stem is extremely brittle and snaps at the slightest touch; the cap edge often carries scraps of white veil, like a fringe of tassels.",
+    "quoteEn": "The gentlest touch, and my stem snaps."
   },
   {
     "id": "crested",
@@ -7884,18 +9470,26 @@
         "src": "wiki-zh"
       },
       {
-        "text": "质地脆，老菌变灰",
-        "src": "wiki-en"
+        "text": "质地脆，老菌变灰或带粉红",
+        "src": "wiki-zh"
       },
       {
-        "text": "长在林地落叶层",
+        "text": "长在林地落叶层，秋季多见",
         "src": "wiki-zh"
       }
     ],
     "capCm": [
       2,
       8
-    ]
+    ],
+    "idKeysEn": [
+      "White and coral-like, branch tips finely divided like a cockscomb",
+      "Brittle in texture; old specimens turn gray or pinkish",
+      "Grows in forest leaf litter, common in autumn"
+    ],
+    "habitatEn": "Woodland leaf litter",
+    "factEn": "Its white branches fork at the tips like antlers into small crowns; it's often parasitized by another fungus and turns grayish-purple as a result.",
+    "quoteEn": "Each of my branch tips wears a tiny crown."
   },
   {
     "id": "redbelt",
@@ -7968,7 +9562,18 @@
     "capCm": [
       5,
       25
-    ]
+    ],
+    "aka": [
+      "红缘层孔菌"
+    ],
+    "idKeysEn": [
+      "Hoof-shaped, upper surface blackish gray with a reddish brown marginal band",
+      "Growing margin white; underside pale yellow with fine pores",
+      "Grows on dead conifer wood and fallen logs, perennial"
+    ],
+    "habitatEn": "Dead standing and fallen conifers",
+    "factEn": "The bright red or orange band along its growing edge marks the part still expanding; the color deepens toward the center, ring by ring recording each passing year.",
+    "quoteEn": "My red rim is the part I grew this year."
   },
   {
     "id": "birchpolypore",
@@ -8017,22 +9622,33 @@
     "initial": "H",
     "idKeys": [
       {
-        "text": "半圆形，上表面灰白至淡褐色光滑",
+        "text": "半圆形，上表面灰白至淡褐色，光滑无环带",
         "src": "wiki-zh"
       },
       {
-        "text": "下表面白色有细孔，边缘圆钝",
-        "src": "wiki-en"
+        "text": "下表面白色有细孔，边缘圆钝，质地像软木",
+        "src": "wiki-zh"
       },
       {
-        "text": "只长在桦树上",
+        "text": "只长在活的或枯死的桦树上",
         "src": "wiki-zh"
       }
     ],
     "capCm": [
       5,
       20
-    ]
+    ],
+    "aka": [
+      "桦滴孔菌"
+    ],
+    "idKeysEn": [
+      "Semicircular, upper surface grayish white to pale brown, smooth with no zones",
+      "Underside white with fine pores, margin rounded, texture like cork",
+      "Grows only on living or dead birch"
+    ],
+    "habitatEn": "Dead or weakened birch",
+    "factEn": "Dried, its texture resembles fine leather; it was historically cut into strips for honing razors, earning it the nickname 'razor strop fungus.'",
+    "quoteEn": "Barbers once used me to strop their razors."
   },
   {
     "id": "giantpolypore",
@@ -8069,7 +9685,7 @@
       "tiers": 5,
       "bruiseColor": "#2A2622"
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "coral",
     "colorGroup": [
       "brown",
@@ -8095,7 +9711,15 @@
     "capCm": [
       20,
       60
-    ]
+    ],
+    "idKeysEn": [
+      "Many brown fan-shaped caps stacked into a large cluster, up to half a meter across",
+      "Underside white, blackening when pressed",
+      "Grows at the base and roots of hardwoods"
+    ],
+    "habitatEn": "Base of beech and other hardwoods",
+    "factEn": "A single cluster can grow up to a meter wide. Bruise the pore surface and it turns black within minutes — a reliable way to tell it from maitake.",
+    "quoteEn": "Bump me, and I'll turn black within minutes."
   },
   {
     "id": "falseturkey",
@@ -8168,7 +9792,18 @@
     "capCm": [
       1,
       4
-    ]
+    ],
+    "aka": [
+      "粗毛韧革菌"
+    ],
+    "idKeysEn": [
+      "Orange-yellow and thin, upper surface hairy",
+      "Underside smooth with no pores, unlike turkey tail",
+      "Grows in dense overlapping tiers on dead wood"
+    ],
+    "habitatEn": "Dead hardwood branches and stumps",
+    "factEn": "It's turkey tail's biggest impostor: the top has the same colorful bands, but the underside is completely smooth with no pores, and the surface is fuzzy with fine hairs.",
+    "quoteEn": "The front passes for turkey tail. The back gives me away."
   },
   {
     "id": "lateoyster",
@@ -8206,7 +9841,7 @@
       "tiers": 3,
       "glossy": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "shelf",
     "colorGroup": [
       "green",
@@ -8232,7 +9867,20 @@
     "capCm": [
       3,
       10
-    ]
+    ],
+    "aka": [
+      "元蘑",
+      "冻蘑",
+      "黄蘑"
+    ],
+    "idKeysEn": [
+      "Cap olive-green to yellow-green, sticky surface",
+      "Gills yellow; stem very short and lateral",
+      "Grows on dead hardwood from late autumn to early winter"
+    ],
+    "habitatEn": "Fallen hardwood, fruiting in late autumn",
+    "factEn": "Called 'frozen mushroom' or 'yuan mushroom' in northeast China, it fruits in force only after the first frost; its cap ranges olive-green to yellowish-brown, with a very short, off-center stem.",
+    "quoteEn": "Not until the first frost does it become my turn."
   },
   {
     "id": "japonica",
@@ -8297,7 +9945,19 @@
     "capCm": [
       6,
       15
-    ]
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap white, funnel-shaped with a depressed center",
+      "Gills white to pale yellow, crowded and fine",
+      "Grows on the floor of evergreen hardwood forests"
+    ],
+    "habitatEn": "Ground in East Asian broadleaf woods",
+    "lookalikeNotesEn": {
+      "blackening": "Blackening brittlegill reddens then blackens when damaged; Japanese russula does not change colour."
+    },
+    "factEn": "A large white russula with crowded gills, it's a common gastrointestinal-irritant mushroom in East Asia, frequently mistaken for edible white russulas.",
+    "quoteEn": "A white russula can still be poisonous."
   },
   {
     "id": "woollymilk",
@@ -8366,7 +10026,23 @@
     "capCm": [
       4,
       12
-    ]
+    ],
+    "aka": [
+      "绒边乳菇"
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Cap pinkish orange with concentric zones, margin densely fringed with long white hairs",
+      "Bleeds white latex when cut",
+      "Common on the ground under birch"
+    ],
+    "habitatEn": "Ground in birch woods",
+    "lookalikeNotesEn": {
+      "saffronmilk": "Saffron milk cap has orange milk and bruises green; woolly milkcap has white milk and a long-haired cap margin.",
+      "hatsudake": "Hatsudake has dark red milk; woolly milkcap has white milk and a hairy cap margin."
+    },
+    "factEn": "Its cap edge is thick with shaggy hairs, and its milk is white and fiercely peppery; northern Europe has a tradition of eating it after a lengthy salting process, but raw it causes severe gastrointestinal reactions.",
+    "quoteEn": "I've got a ring of whiskers around my edge."
   },
   {
     "id": "laughing",
@@ -8424,7 +10100,7 @@
       "honey": "蜜环菌菌褶白色、孢子印白；橙黄裸伞菌褶锈褐、孢子印锈色、味极苦",
       "gypsy": "皱盖丝膜菌菌盖有白霜、菌褶淡褐；橙黄裸伞橙黄、菌褶锈褐、味苦"
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "orange"
@@ -8435,7 +10111,25 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "大笑菌",
+      "笑菌",
+      "橙黄裸伞"
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Cap large, orange-yellow to rusty orange, clustered on stumps and tree bases",
+      "Gills rusty brown; stem with a membranous ring",
+      "Flesh yellow, extremely bitter"
+    ],
+    "habitatEn": "Hardwood stumps, in large clumps",
+    "lookalikeNotesEn": {
+      "honey": "Honey fungus has white gills and a white spore print; spectacular rustgill has rusty-brown gills, a rust spore print and a very bitter taste.",
+      "gypsy": "Gypsy mushroom has a frosted cap and pale brown gills; spectacular rustgill is orange-yellow with rusty-brown gills and a bitter taste."
+    },
+    "factEn": "Japan calls it the 'laughing mushroom,' after records of unusual excitement following ingestion; its golden clusters are hard to miss on autumn tree stumps.",
+    "quoteEn": "Eating me makes people laugh. It's not a happy laugh."
   },
   {
     "id": "ergot",
@@ -8471,19 +10165,19 @@
     },
     "idKeys": [
       {
-        "text": "长在禾本科植物的穗上，取代了谷粒",
+        "text": "黑紫色角状硬块，比谷粒长且弯曲",
         "src": "wiki-zh"
       },
       {
-        "text": "黑紫色角状硬块，比谷粒长而弯曲",
+        "text": "表面粗糙有纵纹，掰开内部白色",
         "src": "wiki-zh"
       },
       {
-        "text": "秋季在黑麦、小麦和野草穗上可见",
+        "text": "秋季在黑麦、小麦和野草穗上取代谷粒",
         "src": "wiki-zh"
       }
     ],
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "club",
     "colorGroup": [
       "black",
@@ -8495,7 +10189,18 @@
     "capCm": [
       1,
       4
-    ]
+    ],
+    "aka": [
+      "麦角"
+    ],
+    "idKeysEn": [
+      "Purplish black, horn-shaped and hard, longer and more curved than a grain",
+      "Surface rough and lined; interior white when broken open",
+      "Replaces grain kernels on rye, wheat, and wild grass heads in autumn"
+    ],
+    "habitatEn": "Flower heads of rye and other grasses",
+    "factEn": "It replaces a grain kernel with a purplish-black sclerotium of its own. In medieval Europe, eating bread baked from ergot-contaminated rye triggered mass poisonings known as 'St. Anthony's Fire.'",
+    "quoteEn": "I once rewrote the course of European history."
   },
   {
     "id": "pisolithus",
@@ -8557,7 +10262,19 @@
     "capCm": [
       4,
       12
-    ]
+    ],
+    "aka": [
+      "豆包菌",
+      "彩色豆马勃"
+    ],
+    "idKeysEn": [
+      "Brown, irregularly shaped mass, with a root-like pseudostem",
+      "Interior packed with many pea-like packets when cut",
+      "Grows on poor sandy soil and mine spoil"
+    ],
+    "habitatEn": "Poor sandy soil and road embankments",
+    "factEn": "Cut it open and it looks like a mosaic, packed with countless tiny spore chambers; it can dye wool everything from golden yellow to deep brown, earning it the name 'dyeball.'",
+    "quoteEn": "Cut me open and I look like a mosaic."
   },
   {
     "id": "stereumostrea",
@@ -8615,22 +10332,30 @@
     "initial": "S",
     "idKeys": [
       {
-        "text": "扇形薄片，橙褐色带同心环带",
+        "text": "扇形薄片，橙褐色带同心环带，像云芝",
         "src": "wiki-zh"
       },
       {
-        "text": "下表面光滑无孔",
+        "text": "下表面光滑无孔，淡黄褐色",
         "src": "wiki-zh"
       },
       {
-        "text": "层叠长在阔叶树枯木上",
-        "src": "wiki-en"
+        "text": "层叠长在阔叶树倒木上",
+        "src": "wiki-zh"
       }
     ],
     "capCm": [
       2,
       7
-    ]
+    ],
+    "idKeysEn": [
+      "Fan-shaped and thin, orange-brown with concentric zones, resembling turkey tail",
+      "Underside smooth with no pores, pale yellowish brown",
+      "Grows in overlapping tiers on fallen hardwood logs"
+    ],
+    "habitatEn": "Fallen hardwood",
+    "factEn": "Its bands are wider and warmer in tone than turkey tail's, and the underside is likewise smooth with no pores; telling apart this trio of 'true and false turkey tails' is a classic beginner's exercise.",
+    "quoteEn": "The three of us look alike. Only the underside never lies."
   },
   {
     "id": "conocybe",
@@ -8687,7 +10412,7 @@
       "fairyring": "硬柄小皮伞无菌环、菌褶稀疏白色；褶纹锥盖伞有膜质菌环、菌褶锈褐",
       "micaceus": "晶粒小鬼伞菌盖有闪亮颗粒、成熟自溶、无菌环；褶纹锥盖伞有菌环且不自溶"
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "umbrella",
     "colorGroup": [
       "brown",
@@ -8699,7 +10424,20 @@
     "capCm": [
       1,
       3
-    ]
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Small, cap honey-yellow to rusty brown, bell-shaped",
+      "Stem with a membranous ring, distinguishing it from other small brown mushrooms",
+      "Grows in wood chips, lawns, and flower beds"
+    ],
+    "habitatEn": "Lawns and wood-chip mulch",
+    "lookalikeNotesEn": {
+      "fairyring": "Fairy ring champignon has no ring and sparse white gills; deadly conecap has a membranous ring and rusty-brown gills.",
+      "micaceus": "Glistening inkcap has a cap dusted with glittering granules, dissolves when mature and has no ring; deadly conecap has a ring and doesn't dissolve."
+    },
+    "factEn": "An unremarkable little lawn mushroom that carries the very same amatoxins as the death cap — a reminder that 'small mushrooms are harmless' is simply wrong.",
+    "quoteEn": "I'm small. That doesn't mean I'm harmless."
   },
   {
     "id": "smithiana",
@@ -8755,7 +10493,7 @@
     "lookalikeNotes": {
       "matsutake": "松茸有松香味、菌柄基部不膨大；史氏鹅膏有难闻气味、基部纺锤形膨大"
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "umbrella",
     "colorGroup": [
       "white"
@@ -8766,7 +10504,19 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "capSurface": "warty",
+    "idKeysEn": [
+      "Entirely white, cap with conical wart-like scales",
+      "Stem base spindle-shaped and swollen, with woolly scales",
+      "Grows in conifer forests, often mistaken for matsutake"
+    ],
+    "habitatEn": "Conifer forests of western North America",
+    "lookalikeNotesEn": {
+      "matsutake": "Matsutake smells of pine resin and its stem base is not swollen; Smith's amanita smells unpleasant, with a spindle-shaped swollen base."
+    },
+    "factEn": "The Pacific Northwest has recorded multiple cases of acute kidney failure after it was mistaken for matsutake and eaten; unlike matsutake, it lacks that strong, spicy aroma.",
+    "quoteEn": "No spicy pine scent? That might be me."
   },
   {
     "id": "cornflower",
@@ -8805,7 +10555,7 @@
       "bruiseColor": "#1E4EA8",
       "fatStipe": true
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "umbrella",
     "colorGroup": [
       "yellow"
@@ -8830,7 +10580,16 @@
     "capCm": [
       4,
       12
-    ]
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Cap pale yellow, hairy surface",
+      "Turns deep blue instantly when cut or pressed",
+      "Stem hollow; grows in sandy soil in hardwood forests"
+    ],
+    "habitatEn": "Sandy ground in conifer woods",
+    "factEn": "One of the most dramatically blue-staining boletes: slice it and the flesh turns cornflower blue within seconds.",
+    "quoteEn": "Give me a few seconds, and I go from white to blue."
   },
   {
     "id": "chestnutbolete",
@@ -8893,7 +10652,16 @@
     "capCm": [
       3,
       8
-    ]
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Cap chestnut brown, hairy surface",
+      "Stem the same color, hollow and brittle",
+      "Pores white, turning pale yellow; grows in hardwood forests"
+    ],
+    "habitatEn": "Sandy oak woodland",
+    "factEn": "Its stem hollows out with age and collapses at the lightest squeeze — an unusual trait among boletes.",
+    "quoteEn": "My stem is hollow. Give it a squeeze and you'll feel it."
   },
   {
     "id": "dryadsaddle",
@@ -8954,7 +10722,18 @@
     "capCm": [
       10,
       50
-    ]
+    ],
+    "aka": [
+      "宽鳞大孔菌"
+    ],
+    "idKeysEn": [
+      "Large and fan-shaped, yellowish brown, covered in dark brown scales",
+      "Underside white, pores large and irregular",
+      "Grows in spring on hardwood trunks, smells of cucumber"
+    ],
+    "habitatEn": "Wounds on hardwoods and fallen trunks, in spring",
+    "factEn": "It has a distinct watermelon-rind smell, with large dark-brown scales arranged in concentric rings across the cap; only when very young does its texture avoid feeling like leather.",
+    "quoteEn": "Give it a sniff — I smell like watermelon."
   },
   {
     "id": "amanitajack",
@@ -8994,7 +10773,7 @@
       "gillColor": "#F2D468",
       "striate": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "orange",
@@ -9005,22 +10784,31 @@
     "initial": "J",
     "idKeys": [
       {
-        "text": "菌盖鲜橙红色光滑，边缘有条纹",
+        "text": "菌盖鲜橙红色光滑，边缘有明显条纹",
         "src": "wiki-zh"
       },
       {
-        "text": "菌褶和菌柄黄色",
-        "src": "wiki-en"
+        "text": "菌褶和菌柄黄色，菌柄有黄色菌环",
+        "src": "wiki-zh"
       },
       {
-        "text": "基部有白色囊状菌托，长在北美的栎树下",
+        "text": "基部有大而松软的白色囊状菌托",
         "src": "wiki-zh"
       }
     ],
     "capCm": [
       6,
       12
-    ]
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap bright orange-red and smooth, margin distinctly striate",
+      "Gills and stem yellow; stem with a yellow ring",
+      "Base has a large, loose white sac-like volva"
+    ],
+    "habitatEn": "Oak and pine woods of eastern North America",
+    "factEn": "North America's counterpart to Caesar's mushroom, with a distinctly grooved cap edge; deadly relatives in the same genus share its woodlands, so the risk in foraging is always there.",
+    "quoteEn": "I'm the New World's answer to the emperor's mushroom."
   },
   {
     "id": "yellowfoot",
@@ -9059,7 +10847,7 @@
       "hollow": true,
       "cluster": 5
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "funnel",
     "colorGroup": [
       "brown",
@@ -9085,7 +10873,19 @@
     "capCm": [
       2,
       5
-    ]
+    ],
+    "aka": [
+      "管形喇叭菌"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap grayish brown, funnel-shaped; stem yellow and hollow",
+      "Underside has blunt ridges, not true gills",
+      "Grows in large groups on mossy ground in late autumn"
+    ],
+    "habitatEn": "Mossy ground in conifer woods, often in large numbers",
+    "factEn": "It fruits by the hundreds in mossy patches come late autumn; its hollow yellow stem is the giveaway, and foragers can pick it right up until the first frost.",
+    "quoteEn": "Right up until the first frost, I'm still here."
   },
   {
     "id": "mongolica",
@@ -9147,7 +10947,21 @@
     "capCm": [
       5,
       15
-    ]
+    ],
+    "aka": [
+      "口蘑",
+      "白蘑",
+      "草原白蘑"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap large and white; stem stout and white",
+      "Gills white; flesh thick",
+      "Grows on Inner Mongolian grassland, forming fairy rings"
+    ],
+    "habitatEn": "Inner Mongolian steppe, often in fairy rings",
+    "factEn": "It fruits in enormous rings across the grassland; the grass inside each ring grows especially lush and dark, fed by nutrients its mycelium releases, and herders track that green ring to find it.",
+    "quoteEn": "Follow the dark green ring across the grassland and you'll find me."
   },
   {
     "id": "goldenear",
@@ -9200,18 +11014,30 @@
         "src": "wiki-zh"
       },
       {
-        "text": "上表面有绒毛，下表面光滑",
+        "text": "上表面有细绒毛，下表面光滑有细皱纹",
         "src": "wiki-zh"
       },
       {
-        "text": "长在榆树枯木上",
+        "text": "长在榆树等阔叶树的枯木上",
         "src": "wiki-zh"
       }
     ],
     "capCm": [
       3,
       10
-    ]
+    ],
+    "aka": [
+      "榆蘑",
+      "肉色胶韧革菌"
+    ],
+    "idKeysEn": [
+      "Ear-shaped and gelatinous, white to pale pink",
+      "Upper surface finely hairy; underside smooth and finely wrinkled",
+      "Grows on dead elm and other hardwoods"
+    ],
+    "habitatEn": "Fallen elm and other hardwoods",
+    "factEn": "A specialty of northeast China, its gel-like flesh is covered in fine down and colored a pale flesh-pink; the dried form needs a long soak to rehydrate.",
+    "quoteEn": "I'm the ear that grows on an elm."
   },
   {
     "id": "sordida",
@@ -9251,7 +11077,10 @@
       "gillColor": "#9E8AAC"
     },
     "aka": [
-      "Lepista sordida"
+      "Lepista sordida",
+      "花脸蘑",
+      "花脸香蘑",
+      "紫花脸"
     ],
     "encounter": "occasional",
     "silhouette": "umbrella",
@@ -9278,7 +11107,16 @@
     "capCm": [
       3,
       8
-    ]
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Entirely pale purple, smaller and paler than wood blewit",
+      "Cap darker when wet, fading when dry",
+      "Grows in grassland and compost"
+    ],
+    "habitatEn": "Grassland, vegetable gardens and compost edges",
+    "factEn": "Smaller and thinner than wood blewit, and its color fades faster too; both share the pale pink spore print typical of the Lepista genus.",
+    "quoteEn": "I'm the pocket-sized version of wood blewit."
   },
   {
     "id": "lilacbonnet",
@@ -9336,7 +11174,7 @@
       "amethyst": "紫晶蜡蘑菌褶厚而稀疏、菌柄坚韧；洁小菇菌褶密、菌柄中空脆、有萝卜味",
       "bleedingbonnet": "血红小菇折断菌柄流出暗红汁液；洁小菇不流汁，有萝卜味"
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "purple"
@@ -9347,7 +11185,20 @@
     "capCm": [
       2,
       5
-    ]
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Cap pinkish purple to pale purple, bell-shaped, margin striate",
+      "Gills pale purple; stem the same color and hollow",
+      "Smells strongly of radish; grows in leaf litter"
+    ],
+    "habitatEn": "Woodland leaf litter",
+    "lookalikeNotesEn": {
+      "amethyst": "Amethyst deceiver has thick, widely spaced gills and a tough stem; lilac bonnet has crowded gills, a hollow brittle stem and a radish smell.",
+      "bleedingbonnet": "Bleeding fairy helmet oozes dark red juice when the stem is broken; lilac bonnet does not, and smells of radish."
+    },
+    "factEn": "It has a distinct radish smell, contains trace muscarine, and has even been reported to carry hallucinogenic compounds — one of the few Mycena species clearly documented as toxic.",
+    "quoteEn": "I smell like radish. Don't mistake me for one."
   },
   {
     "id": "woodtuft",
@@ -9388,7 +11239,7 @@
       "ringColor": "#C4A882",
       "hygrophanous": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "brown",
@@ -9414,7 +11265,19 @@
     "capCm": [
       3,
       7
-    ]
+    ],
+    "aka": [
+      "毛柄鳞伞"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap two-toned: dark brown at center, pale yellow at margin, more pronounced when wet",
+      "Lower stem finely scaled brown; upper stem with a ring",
+      "Clusters on hardwood stumps"
+    ],
+    "habitatEn": "Hardwood stumps, in dense clumps",
+    "factEn": "It looks almost identical to the deadly funeral bell and often grows on the very same log; European foraging guides single out this pair as the most dangerous case of mistaken identity.",
+    "quoteEn": "The one growing right next to me — that one can kill."
   },
   {
     "id": "hypholomaL",
@@ -9452,7 +11315,7 @@
       "cluster": 8,
       "gillColor": "#8E8A6A"
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "red",
@@ -9463,12 +11326,12 @@
     "initial": "Z",
     "idKeys": [
       {
-        "text": "菌盖砖红色，边缘颜色浅",
+        "text": "菌盖砖红色，中央深、边缘浅黄",
         "src": "wiki-zh"
       },
       {
-        "text": "菌褶灰白转紫褐",
-        "src": "wiki-en"
+        "text": "菌褶灰白转紫褐，菌柄上有丝膜残迹",
+        "src": "wiki-zh"
       },
       {
         "text": "秋末丛生于阔叶树树桩上",
@@ -9478,7 +11341,19 @@
     "capCm": [
       3,
       8
-    ]
+    ],
+    "aka": [
+      "砖红韧伞"
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap brick-red, darker at center, pale yellow at margin",
+      "Gills grayish white, aging to purplish brown; stem shows cortina remnants",
+      "Clusters on hardwood stumps in late autumn"
+    ],
+    "habitatEn": "Hardwood stumps, in clumps",
+    "factEn": "In the same genus as sulphur tuft, with a brick-red cap and a milder taste; sources disagree on its edibility, so it's left undetermined here.",
+    "quoteEn": "Whether I'm edible — even the books can't agree."
   },
   {
     "id": "saddle",
@@ -9516,7 +11391,7 @@
       "ribbed": true,
       "wrinkle": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "brain",
     "colorGroup": [
       "white"
@@ -9526,22 +11401,33 @@
     "initial": "Z",
     "idKeys": [
       {
-        "text": "白色马鞍形帽，边缘向上翻",
+        "text": "白色马鞍形帽，边缘向上翻卷",
         "src": "wiki-zh"
       },
       {
-        "text": "菌柄白色，有深纵沟",
+        "text": "菌柄白色，有深深的纵向沟槽",
         "src": "wiki-zh"
       },
       {
-        "text": "长在林地和路边",
-        "src": "wiki-en"
+        "text": "长在林道边和阔叶林地面",
+        "src": "wiki-zh"
       }
     ],
     "capCm": [
       3,
       8
-    ]
+    ],
+    "aka": [
+      "白马鞍菌"
+    ],
+    "idKeysEn": [
+      "Cap white, saddle-shaped, margin curling upward",
+      "Stem white, with deep longitudinal grooves",
+      "Grows along woodland trails and on hardwood forest floors"
+    ],
+    "habitatEn": "Track edges and ground in broadleaf woods",
+    "factEn": "Its cap looks like a crumpled white saddle, and its stem has deep grooves and hollow chambers; it contains compounds similar to false morel's, and records advise against eating it.",
+    "quoteEn": "My stem is riddled with hollow chambers."
   },
   {
     "id": "jellybaby",
@@ -9576,7 +11462,7 @@
       "jelly": true,
       "cluster": 4
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "jelly",
     "colorGroup": [
       "yellow",
@@ -9602,7 +11488,15 @@
     "capCm": [
       1,
       3
-    ]
+    ],
+    "idKeysEn": [
+      "Small, gelatinous, yellowish brown head, like a little gumdrop",
+      "Stem yellow, equally gelatinous",
+      "Clusters in damp woodland"
+    ],
+    "habitatEn": "Among moss in damp woodland",
+    "factEn": "A little gelatinous club, its cap olive-green and its stem bright yellow, the whole thing slick and slippery like a gummy candy.",
+    "quoteEn": "I look like a gumdrop that fell into the moss."
   },
   {
     "id": "earthtongue",
@@ -9637,7 +11531,7 @@
       "hairy": true,
       "cluster": 4
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "club",
     "colorGroup": [
       "black"
@@ -9662,7 +11556,15 @@
     "capCm": [
       2,
       6
-    ]
+    ],
+    "idKeysEn": [
+      "Black and tongue-shaped, standing upright from the ground",
+      "Surface finely hairy, rough to the touch",
+      "Grows in mossy ground and leaf litter"
+    ],
+    "habitatEn": "Mossy ground and old grassland",
+    "factEn": "Like tiny black tongues poking up out of the moss, its surface bristles with fine hairs you need a magnifying glass to really see.",
+    "quoteEn": "I'm the black tongue poking out of the moss."
   },
   {
     "id": "pinecone",
@@ -9685,7 +11587,10 @@
     "volva": false,
     "size": 0.8,
     "behavior": "bruise",
-    "lookalikes": [],
+    "lookalikes": [
+      "tigerpaw",
+      "chlorophyllumB"
+    ],
     "habitat": "阔叶林地面",
     "fact": "通体覆着粗糙的黑色翘鳞，像一颗松塔或一位胡子拉碴的老人；菌肉切开先变红再变黑。",
     "quote": "他们叫我林中老头。",
@@ -9724,7 +11629,23 @@
     "capCm": [
       4,
       10
-    ]
+    ],
+    "lookalikeNotes": {
+      "tigerpaw": "翘鳞肉齿菌盖下是齿刺；松塔牛肝菌盖下是菌孔，受伤变红再变黑",
+      "chlorophyllumB": "粗鳞大环柄菇盖下是白色菌褶且有活动菌环；松塔牛肝菌盖下是菌孔，通体黑灰"
+    },
+    "aka": [
+      "松果牛肝菌"
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Cap covered in coarse blackish gray scales, resembling a pine cone",
+      "Stem also scaly; cap margin hung with veil fragments",
+      "Pores white, bruising red then black"
+    ],
+    "habitatEn": "Ground in broadleaf woods",
+    "factEn": "Covered head to toe in rough, upturned black scales, it looks like a pine cone or a scruffy old man; slice into the flesh and it turns red, then black.",
+    "quoteEn": "They call me the old man of the woods."
   },
   {
     "id": "humongous",
@@ -9763,7 +11684,7 @@
       "ringColor": "#E4D4AE",
       "scales": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "brown"
@@ -9788,7 +11709,16 @@
     "capCm": [
       4,
       12
-    ]
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Cap brown, with small dark scales",
+      "Stem with a prominent white ring",
+      "Grows in large clusters at conifer bases; underground mycelium can extend for kilometers"
+    ],
+    "habitatEn": "Roots of living conifers and stumps",
+    "factEn": "A single individual of this species in Oregon's Blue Mountains spreads its mycelial network across roughly nine square kilometers and is estimated to be thousands of years old — widely considered the largest single organism on Earth.",
+    "quoteEn": "I've spread nine square kilometers underground, and I'm still growing."
   },
   {
     "id": "whitetruffle",
@@ -9850,7 +11780,19 @@
     "capCm": [
       2,
       8
-    ]
+    ],
+    "aka": [
+      "白松露",
+      "阿尔巴白松露"
+    ],
+    "idKeysEn": [
+      "Pale yellow to ochre, irregularly lumpy, smooth surface",
+      "Interior pale brown with white marbling when cut",
+      "Grows underground at the roots of oak and poplar in northern Italy"
+    ],
+    "habitatEn": "Underground on oak, poplar and willow roots in northern Italy",
+    "factEn": "Still essentially impossible to cultivate, it can only be tracked down by trained dogs in specific woodlands, and its price has topped nearly every other ingredient for years.",
+    "quoteEn": "No one can grow me. You can only come and find me."
   },
   {
     "id": "devilscigar",
@@ -9889,7 +11831,7 @@
       "rays": 5,
       "cigar": true
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "ball",
     "colorGroup": [
       "brown"
@@ -9914,7 +11856,18 @@
     "capCm": [
       3,
       10
-    ]
+    ],
+    "aka": [
+      "魔鬼雪茄"
+    ],
+    "idKeysEn": [
+      "Unopened, resembles a dark brown cigar",
+      "Splits into a star shape at maturity, orange-brown inside",
+      "Found only in Texas and Japan, growing on decaying tree roots"
+    ],
+    "habitatEn": "Dead cedar roots in Texas, USA; dead wood in Kyushu, Japan",
+    "factEn": "Recorded nowhere on Earth except Texas and Japan, making it one of the strangest distributions in the fungal world; when it splits open it releases an audible hiss and a puff of spores.",
+    "quoteEn": "There are only two places on Earth where I live."
   },
   {
     "id": "firecoral",
@@ -9983,7 +11936,19 @@
     "capCm": [
       3,
       12
-    ]
+    ],
+    "idKeysEn": [
+      "Bright red to orange-red, finger- or antler-like branches",
+      "Emerges from the ground or rotten wood, hard in texture",
+      "Found in Japan, Korea, and southern China; even contact can cause skin irritation"
+    ],
+    "habitatEn": "Buried hardwood roots and rotting wood",
+    "lookalikeNotesEn": {
+      "stagshorn": "Yellow stagshorn is orange-yellow, soft and gelatinous; poison fire coral is bright red and firm.",
+      "militaris": "Scarlet caterpillar club is an orange club rising from an insect body, with a granular tip; poison fire coral rises from soil or rotting wood, antler-like."
+    },
+    "factEn": "It contains trichothecene toxins and is one of the rare fungi reported to cause skin reactions from mere contact; accidental ingestion carries a high death rate.",
+    "quoteEn": "Don't touch me. I mean that literally."
   },
   {
     "id": "hatsudake",
@@ -10047,7 +12012,16 @@
     "capCm": [
       4,
       10
-    ]
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap pinkish orange with concentric zones",
+      "Bleeds dark red latex when cut, later staining green",
+      "Grows under pine, most common in early autumn"
+    ],
+    "habitatEn": "Ground in Masson pine woods",
+    "factEn": "Its milk runs wine-red rather than the saffron milk cap's carrot-orange, and it likewise turns bluish-green where bruised.",
+    "quoteEn": "What I bleed is wine-red."
   },
   {
     "id": "coralhericium",
@@ -10084,7 +12058,7 @@
       "branches": 9,
       "spines": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "coral",
     "colorGroup": [
       "white"
@@ -10094,22 +12068,34 @@
     "initial": "S",
     "idKeys": [
       {
-        "text": "白色分枝团块，每根分枝密生下垂的短齿刺",
+        "text": "白色分枝团块，整体像一丛珊瑚",
         "src": "wiki-zh"
       },
       {
-        "text": "整体像一丛珊瑚",
+        "text": "每根分枝密生下垂的短齿刺",
         "src": "wiki-zh"
       },
       {
         "text": "长在阔叶树枯木和倒木上",
-        "src": "wiki-en"
+        "src": "wiki-zh"
       }
     ],
     "capCm": [
       8,
       25
-    ]
+    ],
+    "aka": [
+      "珊瑚猴头",
+      "玉髯"
+    ],
+    "idKeysEn": [
+      "White, branching mass, resembling a cluster of coral",
+      "Each branch densely covered in short, hanging spines",
+      "Grows on dead hardwood and fallen logs"
+    ],
+    "habitatEn": "Fallen hardwood",
+    "factEn": "In the same genus as lion's mane, but instead of forming one ball it branches into many slender twigs, each hung with short spines.",
+    "quoteEn": "I'm the lion's mane that decided to branch out."
   },
   {
     "id": "venenatus",
@@ -10181,7 +12167,20 @@
     ],
     "aka": [
       "Neoboletus venenatus"
-    ]
+    ],
+    "capSurface": "smooth",
+    "idKeysEn": [
+      "Cap yellowish brown, powdery textured surface",
+      "Pores yellow; stem yellow with reddish brown spots",
+      "Flesh bruises blue when cut; grows in conifer forests"
+    ],
+    "habitatEn": "Mixed conifer-broadleaf forests of East Asia",
+    "lookalikeNotesEn": {
+      "jianshouqing": "Lanmao's bolete has a brown cap and a red-and-yellow stem; poison bolete has a yellow-brown cap with a powdery texture.",
+      "whiteonion": "White onion bolete has a grey-white to pale brown cap and a pale yellow stem; poison bolete has a powdery yellow-brown cap."
+    },
+    "factEn": "It looks nearly identical to the Jian Shou Qing group and bruises blue just the same, but records document clear cases of gastrointestinal poisoning from it — turning blue doesn't mean it belongs on your plate.",
+    "quoteEn": "I turn blue too. That proves nothing."
   },
   {
     "id": "verpa",
@@ -10247,7 +12246,20 @@
     "capCm": [
       2,
       5
-    ]
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Cap longitudinally wrinkled, attached to the stem only at the top, thimble-like",
+      "Stem white, stuffed with cottony filling inside",
+      "Appears in early spring, ahead of true morels"
+    ],
+    "habitatEn": "Riverside poplar and willow woods, early spring",
+    "lookalikeNotesEn": {
+      "morel": "Morel's cap is joined to the stem along its lower edge; early morel's cap hangs free, attached only at the top, like a thimble.",
+      "blackmorel": "Black morel's cap has honeycomb-like vertical ridges; early morel's cap is wrinkled, not honeycombed."
+    },
+    "factEn": "It fruits earlier in the season than true morels, its cap attached to the stem only at the very top, like a bell hanging from a hook; some people experience coordination problems after eating it.",
+    "quoteEn": "My cap just hangs there, attached at a single point."
   },
   {
     "id": "gypsy",
@@ -10296,22 +12308,34 @@
     "initial": "Z",
     "idKeys": [
       {
-        "text": "菌盖赭黄色，表面覆盖一层白霜状粉",
+        "text": "菌盖赭黄色，表面覆一层白霜状粉",
         "src": "wiki-zh"
       },
       {
-        "text": "菌柄有膜质菌环",
+        "text": "菌柄有膜质菌环，菌褶淡褐转锈褐",
         "src": "wiki-zh"
       },
       {
-        "text": "长在针叶林苔藓地",
-        "src": "wiki-en"
+        "text": "长在针叶林苔藓地和越橘丛间",
+        "src": "wiki-zh"
       }
     ],
     "capCm": [
       5,
       12
-    ]
+    ],
+    "aka": [
+      "皱盖罗鳞伞"
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Cap ochre-yellow, coated in a frost-like powder",
+      "Stem with a membranous ring; gills pale brown, aging to rusty brown",
+      "Grows in mossy conifer forests and among bilberry shrubs"
+    ],
+    "habitatEn": "Conifer woods, among bilberry",
+    "factEn": "Most Cortinarius species are inedible or outright deadly, but this is one of the few with a history of being eaten; Nordic foragers recognize it by the wrinkled cap and the white ring.",
+    "quoteEn": "Not many in my genus are safe. I'm one of the exceptions."
   },
   {
     "id": "violetwebcap",
@@ -10374,7 +12398,19 @@
     "capCm": [
       5,
       12
-    ]
+    ],
+    "aka": [
+      "紫丝膜菌"
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Entirely deep purple, cap with a velvety texture",
+      "Gills deep purple, aging to rusty brown",
+      "Grows in hardwood and conifer forests"
+    ],
+    "habitatEn": "Ground in birch and oak woods",
+    "factEn": "Deep violet from cap to gills to stem, its surface covered in fine down; a rusty-brown spore print marks it as a member of the Cortinarius genus.",
+    "quoteEn": "I'm purple from head to toe."
   },
   {
     "id": "waxcapconic",
@@ -10413,7 +12449,7 @@
       "bruiseColor": "#2A2622",
       "slim": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "red",
@@ -10440,7 +12476,19 @@
     "capCm": [
       2,
       5
-    ]
+    ],
+    "aka": [
+      "锥形湿伞"
+    ],
+    "capSurface": "slimy",
+    "idKeysEn": [
+      "Cap red-orange, conical, with a waxy sheen",
+      "Blackens entirely when bruised or aging",
+      "Grows in grassland and grassy woodland edges"
+    ],
+    "habitatEn": "Grassland and mossy ground",
+    "factEn": "A bright red-and-yellow, pointed little cap that turns coal-black wherever it's bruised or as it ages — one of the easiest waxcaps to recognize.",
+    "quoteEn": "Wherever you touch me, it turns black."
   },
   {
     "id": "magpie",
@@ -10495,7 +12543,7 @@
     "lookalikeNotes": {
       "shaggyink": "毛头鬼伞菌盖白色圆柱形；喜鹊鬼伞深褐色带白斑"
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "black",
@@ -10507,7 +12555,19 @@
     "capCm": [
       4,
       8
-    ]
+    ],
+    "capSurface": "warty",
+    "idKeysEn": [
+      "Cap dark brown, covered in white patch-like scales, like magpie feathers",
+      "Stem slender, white, much taller than the cap",
+      "Grows in hardwood leaf litter, deliquescing at maturity"
+    ],
+    "habitatEn": "Calcareous soil in beech woods",
+    "lookalikeNotesEn": {
+      "shaggyink": "Shaggy ink cap has a white, cylindrical cap; magpie inkcap is dark brown with white patches."
+    },
+    "factEn": "Large white veil patches cling to its dark brown cap like a magpie's black-and-white feathers; it, too, dissolves itself into ink.",
+    "quoteEn": "Black and white all over, just like a magpie."
   },
   {
     "id": "whitebirdsnest",
@@ -10544,7 +12604,7 @@
       "stipeColor": "none",
       "eggs": 5
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "funnel",
     "colorGroup": [
       "white",
@@ -10570,7 +12630,19 @@
     "capCm": [
       0.5,
       1
-    ]
+    ],
+    "aka": [
+      "白鸟巢菌"
+    ],
+    "capSurface": "fibrous",
+    "idKeysEn": [
+      "Small, pale yellowish brown cup, holding white flattened round packets",
+      "Cup mouth covered by a white membrane when young",
+      "Grows on dead twigs, wood chips, and fallen leaves"
+    ],
+    "habitatEn": "Wood chips and dead twigs",
+    "factEn": "Unlike the fluted bird's nest, its cup interior is smooth rather than grooved; the 'eggs' are white and tethered to the cup floor by an impossibly thin cord.",
+    "quoteEn": "My eggs are tied down with a single thread."
   },
   {
     "id": "dogstinkhorn",
@@ -10609,7 +12681,7 @@
       "flies": 2,
       "slim": true
     },
-    "encounter": "occasional",
+    "encounter": "rare",
     "silhouette": "umbrella",
     "colorGroup": [
       "white",
@@ -10635,7 +12707,19 @@
     "capCm": [
       6,
       12
-    ]
+    ],
+    "aka": [
+      "狗鬼笔"
+    ],
+    "capSurface": "slimy",
+    "idKeysEn": [
+      "Stem slender, white, and spongy, tipped orange-red",
+      "Tip bears a dark, foul-smelling spore mass, revealing orange once eaten by flies",
+      "Emerges from a white \"egg\"; grows in leaf litter and wood chips"
+    ],
+    "habitatEn": "Woodland leaf litter and wood chips",
+    "factEn": "Much smaller and slighter than the common stinkhorn, with just a short cap of orange-red spore slime, and a far milder smell.",
+    "quoteEn": "I'm the compact version of the common stinkhorn."
   },
   {
     "id": "summertruffle",
@@ -10673,7 +12757,7 @@
       "warts": true,
       "buried": true
     },
-    "encounter": "rare",
+    "encounter": "seldom",
     "silhouette": "ball",
     "colorGroup": [
       "black"
@@ -10698,7 +12782,18 @@
     "capCm": [
       2,
       8
-    ]
+    ],
+    "aka": [
+      "夏松露"
+    ],
+    "idKeysEn": [
+      "Black and lumpy, surface with coarse, angular warts",
+      "Interior pale brown with fine white veining when cut",
+      "Grows in shallow soil at the roots of hardwoods"
+    ],
+    "habitatEn": "Underground in European oak woods",
+    "factEn": "Its warty skin is larger and more angular than a black truffle's, the inside marbled a lighter brown with a milder aroma — and a price tag that's a fraction of the black truffle's.",
+    "quoteEn": "I'm the summer one, and a whole lot cheaper."
   },
   {
     "id": "chlorophyllumB",
@@ -10723,7 +12818,8 @@
     "behavior": "bruise",
     "lookalikes": [
       "greenspored",
-      "parasol"
+      "parasol",
+      "pinecone"
     ],
     "habitat": "针叶林边、堆肥、花园",
     "fact": "菌肉切开会先变橙红再转褐，孢子印白色；与孢子印绿色的大青褶伞是关键的一对，部分人食后仍有胃肠反应。",
@@ -10738,7 +12834,7 @@
       "scales": true,
       "bruiseColor": "#C4602E"
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "umbrella",
     "colorGroup": [
       "brown",
@@ -10764,7 +12860,19 @@
     "capCm": [
       6,
       15
-    ]
+    ],
+    "aka": [
+      "粗鳞环柄菇"
+    ],
+    "capSurface": "scaly",
+    "idKeysEn": [
+      "Cap brown, covered in coarse, upturned scales",
+      "Gills white; flesh turns orange-red when cut",
+      "Stem smooth and unpatterned, with a movable ring"
+    ],
+    "habitatEn": "Conifer edges, compost and gardens",
+    "factEn": "Cut flesh turns orange-red, then brown, and the spore print is white — the key pairing with the green-spored parasol, whose print is green; some people still get gastrointestinal reactions after eating it.",
+    "quoteEn": "Cut me open and I turn red. That other one won't."
   },
   {
     "id": "stagshornCoral",
@@ -10803,7 +12911,7 @@
       "branches": 3,
       "jelly": true
     },
-    "encounter": "common",
+    "encounter": "occasional",
     "silhouette": "coral",
     "colorGroup": [
       "yellow"
@@ -10828,6 +12936,14 @@
     "capCm": [
       0.5,
       1.5
-    ]
+    ],
+    "idKeysEn": [
+      "Small, yellow, horn-shaped, unbranched or sparsely branched",
+      "Gelatinous, only one to two centimeters tall",
+      "Grows in groups on dead hardwood"
+    ],
+    "habitatEn": "Fallen hardwood branches",
+    "factEn": "Much smaller than yellow stagshorn, usually growing as unbranched little yellow spikes, packed densely along fallen branches.",
+    "quoteEn": "I'm the little horn that never forks."
   }
 ]

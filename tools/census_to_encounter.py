@@ -17,11 +17,11 @@ SPECIES = os.path.join(ROOT, "data", "mushrooms.json")
 def band(n):
     if n is None:
         return "seldom"
-    if n >= 10000:
+    if n >= 18000:
         return "common"
-    if n >= 1000:
+    if n >= 4000:
         return "occasional"
-    if n >= 100:
+    if n >= 200:
         return "rare"
     return "seldom"
 

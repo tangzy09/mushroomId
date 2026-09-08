@@ -616,10 +616,10 @@ const PHOTO_CREDITS = {
   "url": "https://www.inaturalist.org/observations/61887392"
  },
  "matsutake": {
-  "by": "This image was created by user Ryane Snow (snowman) at Mushroom Observer, a source for mycological images.You can contact this user here. / CC-BY-SA",
-  "license": "cc-by-sa",
-  "source": "commons-category",
-  "url": "https://commons.wikimedia.org/wiki/File:2010-08-06_Tricholoma_matsutake_(S._Ito_%26_S._Imai)_Singer_97084.jpg"
+  "by": "(c) Andreas Schneider, some rights reserved (CC BY)",
+  "license": "cc-by",
+  "source": "iNaturalist",
+  "url": "https://www.inaturalist.org/observations/93015673"
  },
  "micaceus": {
   "by": "(c) William J. Deml, some rights reserved (CC BY)",
