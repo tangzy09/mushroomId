@@ -93,6 +93,7 @@ mushroomId/
 │   ├── verify_fieldguide_b.mjs ← 一期 B 行为验收：五路检索 + 叠加筛选 + 对比网格
 │   ├── verify_fieldguide_c.mjs ← 一期 C 行为验收：识别要点 + 尺度对比尺 + 照片分享卡
 │   ├── verify_fieldguide_d.mjs ← 改良轮行为验收：搜索扩容 / 第三刀 / 毒种相似种前置 / 灯箱 / 多图 / 深链
+│   ├── verify_observations.mjs ← 观察日志行为验收：一键记录 / 编辑 / GPS / 时间线 / 旧存档清理
 │   ├── smoke_prod.mjs          ← 部署后对生产站跑的验收冒烟
 │   ├── e2e.html                ← 浏览器里跑完整循环
 │   └── cards.html              ← 分享卡片肉眼验收页
@@ -117,6 +118,7 @@ node test/verify_fieldguide_a.mjs # 一期 A：导航、搜索、详情、路由
 node test/verify_fieldguide_b.mjs # 一期 B：五路检索、叠加、对比网格      22 项
 node test/verify_fieldguide_c.mjs # 一期 C：识别要点、对比尺、照片分享卡  23 项
 node test/verify_fieldguide_d.mjs # 改良轮：搜索/第三刀/相似种前置/灯箱等 21 项
+node test/verify_observations.mjs # 观察日志：一键记录/编辑/GPS/时间线      22 项
 ```
 
 Windows / Git Bash 上没有 `python3`，一律用 `python`。五套 `verify_*.mjs` 用 Playwright
@@ -328,6 +330,40 @@ fishId 有 43% 的题因为难度配置与题库分布对不上而永远抽不�
   重跑应用的 boot 流程，`waitUntil: 'networkidle'` 可能立刻通过而页面其实没变。要测「一个从没打开过
   这个 app 的人点了带 hash 的链接」，就得用一个全新的 page/context 去 `goto` 那个带 hash 的完整 URL。
 
+## 观察日志（二期第一件，2026-09-08）
+
+「我见过」不是布尔值，是带时间、地点、备注的一条记录，**和菌菇园的收集机制（`collections`）完全独立**——
+后者是抽卡/种植那套小游戏的账本，前者是「这一株我真的在现实里见过」。同一个种可以有多条观察记录
+（不同日期、不同地点各记一笔），删改互不影响。
+
+- **数据（`js/core/storage.js`）**：`state.observations: [{oid, entityId, date, place, note, ts}]`。
+  `Storage.addObservation(id, fields)` / `updateObservation(oid, fields)` / `deleteObservation(oid)` /
+  `observationsFor(id)` / `allObservations()`（按 `ts` 倒序）。字段名不带任何领域词，
+  `test/core.test.js` 的领域词扫描（见下方「架构约定 §2」）照样只扫 `storage.js`/`gacha.js`/`quiz.js`，
+  这批新增代码本来就要过那道门，写的时候就没往里塞过`蘑菇`/`菌`这类词。
+  存档整体走一个 key，`Transfer` 不用改代码就自动带上 `observations`（`transfer.test.js` 加了显式断言，
+  不只依赖「整个对象相等」的隐式覆盖）。
+- **详情页**：`observationCard(m)` 插在「容易认错」之后、「种进菌菇园」按钮之前。零记录时按钮是
+  「👁 我见过」，点一下**当场记一条**（日期=今天，地点/备注留空）+ toast 提示可以点开补充——
+  **这是抄 fishId 的现成结论**：任何要求先填表的设计都会让人懒得记。有记录后按钮变成
+  「👁 查看 / 补充记录」，点开是这个种的记录列表（`openObsListSheet`），列表里点一条或点「+ 再记一次」
+  进编辑表单（`openObsEditForm`，日期/地点/备注 + 删除）。
+- **GPS**：编辑表单的 📍 按钮调 `navigator.geolocation.getCurrentPosition`，格式化成
+  `25.155°N, 121.562°E` 这种形式直接覆盖地点栏（不是追加），重按刷新。
+- **「我的观察」页**（`page-observations`，从「我的」页新入口卡进，路由跟菌菇园一样是
+  `go('observations')` 不占底部导航位）：顶部三个数字（见过的种 / 观察记录 / 去过的地点，
+  都从 `state.observations` 现场算，不是缓存值），下面按月分组的时间线，**点一行直接打开编辑表单**
+  （不用先跳详情页再点按钮——时间线页知道是哪条记录，没必要绕一圈）。
+- **旧存档兼容**：`observations` 走 `backfill()` 通用机制自动补空数组，不用升 `CURRENT_VERSION`
+  （新增字段不算语义变更）。物种下线时的 `pruneGone()` 现在也清 `observations`，跟 `collections`/`slots`
+  一视同仁。
+- **验收**：`test/verify_observations.mjs` 22 项（一键记录、编辑保存、GPS 格式、删除、入口卡文案
+  与真实统计对拍、时间线地板量、旧存档指向已下线物种的记录会被清掉），反向测过（改坏 GPS 格式化
+  函数确认会红）；`core.test.js` 加 6 条 Storage API 单测（反向测过：注释掉字段合并确认会红）。
+
+⚠ 没做的：照片附件（fishId 的 `photos.js`，IndexedDB + 压缩 + iOS 方向修正）。观察记录目前只有
+文字字段，这是有意的范围切分，不是漏做——拍照这块本身是独立的一块工作量，留到确定要做时再补。
+
 ## 当前进度
 
 - [x] 166 种物种数据 + 题库（四类由数据生成）
@@ -356,8 +392,11 @@ fishId 有 43% 的题因为难度配置与题库分布对不上而永远抽不�
       毒种对照提示。行为验收 18 项全过
 - [x] **一期 C（2026-09-07）**：其余 139 种识别要点（全库 × 3）、`capCm` 全库每种一条 + 详情页尺度对比尺、
       分享卡改用真实照片（圆角方图 + 署名行，无照片回退绘制，丝带改遇见率）。行为验收 23 项全过
-- [ ] 二期：观察日志「我见过」、认菌训练重构、英文界面
-      （**语言只做中文与英文**，2026-09-08 定；引擎可照 fishId 的 `i18n.js` 拷，数据层 `nameEn` 已有）
+- [x] **二期·观察日志（2026-09-08）**：「我见过」不是布尔值，是带日期/地点/备注的记录，
+      与菌菇园的收集机制完全独立（见「观察日志」一节）。行为验收 22 项全过
+- [ ] 二期剩余：认菌训练重构、英文界面
+      （**语言只做中文与英文**，2026-09-08 定；引擎可照 fishId 的 `i18n.js` 拷，数据层 `nameEn` 已有，
+      识别要点/生境/趣味知识/差异句的英译也已备好在 `i18n_en.gen.js`，只差接引擎）
 - [x] 15 种无照片的种：已于 2026-09-08 整体下线（清单在 `C:\tmp\mushroomId\README.md`），
       要么保持绘制，要么找国内机构授权
 - [x] **改良轮（2026-09-08）**：检索第三刀（菌盖表面 + 大小）、搜索扩容与常见写法归一、遇见率按

@@ -19,6 +19,10 @@
 （`m/<id>.html`），是搜索引擎能索引到的长尾入口。装成 PWA 后断网也能翻列表和搜索，
 因为山里没信号是常态。
 
+详情页点「👁 我见过」记一笔观察——日期自动填今天，地点可以一键 GPS 定位，备注随手写；
+「我的」页的「我的观察」按月列出所有记录，三个数字（见过的种 / 观察记录 / 去过的地点）
+一眼看出自己认了多少、去了多少地方。这条记录和下面「菌菇园」的收集小游戏是两回事，互不影响。
+
 ## 附赠玩法：菌菇园
 
 从「我的」页进。
@@ -63,12 +67,13 @@ python3 test/check_species_pages.py  # 物种静态页与 sitemap 一致性
 node test/core.test.js               # 内核纯函数测试
 node test/transfer.test.js           # 存档导出导入往返
 node test/facet.test.js              # 筛选引擎对拍
-# 下面五套要先起 python tools/serve.py 3141，走真实点击，共 97 项
+# 下面六套要先起 python tools/serve.py 3141，走真实点击，共 119 项
 node test/verify_photos_ui.mjs
 node test/verify_fieldguide_a.mjs
 node test/verify_fieldguide_b.mjs
 node test/verify_fieldguide_c.mjs
 node test/verify_fieldguide_d.mjs
+node test/verify_observations.mjs
 # 浏览器里肉眼验收：http://localhost:3141/test/e2e.html  完整循环
 #                   http://localhost:3141/test/cards.html 分享卡片
 ```
