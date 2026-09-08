@@ -104,36 +104,47 @@ t('详情页带署名（cc-by 的法律要求）',
 
 await page.screenshot({ path: 'C:/tmp/mushroomId/ui-detail-photo.png' });
 
-/* 回列表，点一个没照片的种，必须回退绘制。
+/* 2026-09-08 起没有「无照片的种」了（15 种已下线），改验两件事：
+   ① 数据地板：每一种都在 PHOTO_CREDITS 里；
+   ② 回退契约仍在：把某一种的大图请求掐断，详情页必须回退到绘制而不是留一个空框。
    ⚠ 详情页会隐藏底部导航，Playwright 的 click 会卡在"元素不可见"上，
    这里用 DOM 事件绕过可见性检查 —— 验的是渲染结果，不是导航可点性。 */
-await page.evaluate(() => {
-  document.querySelector('#nav button[data-page="collection"]').click();
-});
-await closeOverlay();
-await page.waitForTimeout(600);
-const nameNo = await page.evaluate(ids => {
-  const m = MUSHROOM_DATA.find(x => ids.indexOf(x.id) < 0);
-  return m ? m.name : null;
-}, withPhoto);
-await page.evaluate(nm => {
+const cover = await page.evaluate(() => ({
+  n: MUSHROOM_DATA.length,
+  missing: MUSHROOM_DATA.filter(m => !PHOTO_CREDITS[m.id]).map(m => m.id),
+}));
+t('每一种都有照片署名（' + cover.n + ' 种，正例地板 ≥ 150）', cover.n >= 150 && cover.missing.length === 0, cover.missing.slice(0, 5).join());
+
+/* ⚠ 有 Service Worker 时，掐断网络它会拿同名缩略图顶上（那是 sw.js 的设计，img 照样有画面），
+   page.route 也看不见 SW 发起的请求。所以这一条在一个禁用 SW 的新 context 里验 app 自己的回退。 */
+const brokenId = withPhoto[1];
+const ctx2 = await browser.newContext({ viewport: { width: 420, height: 900 }, serviceWorkers: 'block' });
+const p2 = await ctx2.newPage();
+p2.on('pageerror', e => errs.push(String(e)));
+await p2.route(new RegExp('assets/photos/real/' + brokenId + '\\.webp'), r => r.abort());
+await p2.goto(BASE, { waitUntil: 'networkidle' });
+await p2.evaluate(() => { const o = document.getElementById('overlay'); if (o) o.classList.remove('on'); });
+await p2.evaluate(() => document.querySelector('#nav button[data-page="collection"]').click());
+await p2.waitForSelector('#facet-right .fcard', { timeout: 10000 });
+const nameNo = await p2.evaluate(id => (MUSHROOM_DATA.find(x => x.id === id) || {}).name || null, brokenId);
+await p2.fill('#coll-search', nameNo);
+await p2.waitForTimeout(400);
+await p2.evaluate(nm => {
   const cell = Array.from(document.querySelectorAll('#facet-right .fcard'))
     .find(c => c.querySelector('b') && c.querySelector('b').textContent === nm);
   if (cell) cell.click();
 }, nameNo);
-await page.waitForTimeout(900);
-const dn = await page.evaluate(() => {
+await p2.waitForTimeout(1500);
+const dn = await p2.evaluate(() => {
   const box = document.querySelector('#page-detail .detail-art');
   return {
     canvas: !!(box && box.querySelector('canvas')),
     img: !!(box && box.querySelector('img.sp-photo')),
-    // 「暂无照片」提示复用了 photo-credit 的样式类，它不是署名，排除掉
-    credit: !!(box && box.querySelector('.photo-credit:not(.no-photo)')),
   };
 });
-t('没照片的种回退到绘制（' + nameNo + '）', dn.canvas && !dn.img, JSON.stringify(dn));
-t('没照片的种不显示空署名', !dn.credit);
-await page.screenshot({ path: 'C:/tmp/mushroomId/ui-detail-drawn.png' });
+t('大图加载失败时回退到绘制（' + nameNo + '，无 SW、请求被掐断）', dn.canvas && !dn.img, JSON.stringify(dn));
+await p2.screenshot({ path: 'C:/tmp/mushroomId/ui-detail-drawn.png' });
+await ctx2.close();
 
 t('本次运行零 JS 异常', errs.length === 0, errs.slice(0, 2).join(' | '));
 

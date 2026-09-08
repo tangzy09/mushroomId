@@ -8,7 +8,7 @@
  * 发版：改任何 JS/CSS 后同步 bump V（与 index.html 的 ?v= 用同一个日期串）。
  * 缓存键一律归一化为不带查询串的 pathname，读写同键。
  */
-const V = '20260907d';
+const V = '20260908a';
 const CORE = 'mush-core-' + V;
 const THUMB = 'mush-thumb-v1';
 const IMG = 'mush-img-v1';          // 不带版本：升级时不丢用户已下载的大图

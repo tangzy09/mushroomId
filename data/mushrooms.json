@@ -340,8 +340,7 @@
     "size": 0.7,
     "behavior": "jelly",
     "lookalikes": [
-      "goldenear",
-      "witchbutter"
+      "goldenear"
     ],
     "habitat": "阔叶树腐木",
     "fact": "银耳自己长不出耳片，必须先有「香灰菌」把木头分解掉，它才能靠着这位邻居出耳。",
@@ -505,70 +504,6 @@
     "capCm": [
       3,
       10
-    ]
-  },
-  {
-    "id": "strawmushroom",
-    "name": "草菇",
-    "nameEn": "Straw mushroom",
-    "latin": "Volvariella volvacea",
-    "family": "光柄菇科",
-    "rarity": "common",
-    "edibility": "cultivated",
-    "biome": "meadow",
-    "substrate": "soil",
-    "season": [
-      6,
-      7,
-      8
-    ],
-    "sporePrint": "pink",
-    "hymenium": "gills",
-    "ring": false,
-    "volva": true,
-    "size": 0.7,
-    "behavior": "default",
-    "lookalikes": [
-      "deathcap",
-      "destroyingangel",
-      "exitialis"
-    ],
-    "habitat": "稻草堆、蔗渣",
-    "fact": "草菇幼时被菌托整个包住，外形与剧毒鹅膏的「蛋期」非常像，区别之一是草菇孢子印粉红、鹅膏白色。",
-    "quote": "我有菌托，但我不是鹅膏——这句话每年都要说很多遍。",
-    "art": {
-      "cap": "egg",
-      "capColor": "#5C5148",
-      "capColor2": "#7D7062",
-      "stipeColor": "#F2ECDC",
-      "volvaColor": "#8A7B6A"
-    },
-    "encounter": "common",
-    "silhouette": "umbrella",
-    "colorGroup": [
-      "grey",
-      "brown"
-    ],
-    "pinyin": "caogu",
-    "pyAbbr": "cg",
-    "initial": "C",
-    "idKeys": [
-      {
-        "text": "幼时被灰白色菌托整个包住，像一颗蛋",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "菌盖灰褐色，菌褶白色转粉红，没有菌环",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "长在稻草堆和堆肥上，主要是栽培品",
-        "src": "wiki-zh"
-      }
-    ],
-    "capCm": [
-      4,
-      12
     ]
   },
   {
@@ -1687,8 +1622,7 @@
     "behavior": "default",
     "lookalikes": [
       "bitterbolete",
-      "satan",
-      "bainiugan"
+      "satan"
     ],
     "habitat": "松、栎林地面",
     "fact": "菌柄上那层白色网纹是它的身份证；苦粉孢牛肝菌的网纹粗黑，尝一口极苦，能毁掉一整锅汤。",
@@ -1731,72 +1665,6 @@
     ]
   },
   {
-    "id": "bainiugan",
-    "name": "白牛肝菌",
-    "nameEn": "White porcini",
-    "latin": "Boletus bainiugan",
-    "family": "牛肝菌科",
-    "rarity": "rare",
-    "edibility": "wild_edible",
-    "biome": "pine",
-    "substrate": "mycorrhizal",
-    "season": [
-      6,
-      7,
-      8,
-      9
-    ],
-    "sporePrint": "olive",
-    "hymenium": "pores",
-    "ring": false,
-    "volva": false,
-    "size": 1.0,
-    "behavior": "default",
-    "lookalikes": [
-      "porcini",
-      "bitterbolete"
-    ],
-    "habitat": "云南松栎混交林",
-    "fact": "云南人说的「白牛肝」2017 年才从美味牛肝菌里分出来独立成种，是市场上最常见的干片原料。",
-    "quote": "我是二〇一七年才有名字的老朋友。",
-    "art": {
-      "cap": "convex",
-      "capColor": "#9C7047",
-      "capColor2": "#BE8F5E",
-      "stipeColor": "#F2E7CC",
-      "poreColor": "#F5EFD8",
-      "fatStipe": true,
-      "reticulum": true
-    },
-    "encounter": "occasional",
-    "silhouette": "umbrella",
-    "colorGroup": [
-      "white",
-      "brown"
-    ],
-    "pinyin": "bainiuganjun",
-    "pyAbbr": "bngj",
-    "initial": "B",
-    "idKeys": [
-      {
-        "text": "菌盖白色至淡褐，表面干燥",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "菌柄粗壮白色，有细网纹",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "长在云南的松栎混交林",
-        "src": "wiki-zh"
-      }
-    ],
-    "capCm": [
-      6,
-      15
-    ]
-  },
-  {
     "id": "jianshouqing",
     "name": "兰茂牛肝菌",
     "nameEn": "Lanmao's bolete",
@@ -1820,7 +1688,6 @@
     "behavior": "bruise",
     "lookalikes": [
       "whiteonion",
-      "magnificus",
       "venenatus",
       "satan",
       "cornflower"
@@ -1889,7 +1756,6 @@
     "behavior": "bruise",
     "lookalikes": [
       "jianshouqing",
-      "magnificus",
       "venenatus"
     ],
     "habitat": "云南松栎林",
@@ -1924,74 +1790,6 @@
       },
       {
         "text": "长在云南的松栎林",
-        "src": "wiki-zh"
-      }
-    ],
-    "capCm": [
-      6,
-      15
-    ]
-  },
-  {
-    "id": "magnificus",
-    "name": "华丽新牛肝菌",
-    "nameEn": "Magnificent bolete",
-    "latin": "Neoboletus magnificus",
-    "family": "牛肝菌科",
-    "rarity": "rare",
-    "edibility": "conditional",
-    "biome": "pine",
-    "substrate": "mycorrhizal",
-    "season": [
-      6,
-      7,
-      8,
-      9
-    ],
-    "sporePrint": "olive",
-    "hymenium": "pores",
-    "ring": false,
-    "volva": false,
-    "size": 0.9,
-    "behavior": "bruise",
-    "lookalikes": [
-      "jianshouqing",
-      "venenatus",
-      "whiteonion",
-      "satan"
-    ],
-    "habitat": "云南高山松林",
-    "fact": "云南叫「红见手」，菌孔血红色，掰开瞬间变成深蓝，是变色最剧烈的见手青之一。",
-    "quote": "我变色的速度，比你反应还快。",
-    "art": {
-      "cap": "convex",
-      "capColor": "#8E2F26",
-      "capColor2": "#B04A38",
-      "stipeColor": "#C43A2E",
-      "poreColor": "#A82820",
-      "bruiseColor": "#16386E",
-      "fatStipe": true
-    },
-    "encounter": "seldom",
-    "silhouette": "umbrella",
-    "colorGroup": [
-      "red",
-      "brown"
-    ],
-    "pinyin": "hualixinniuganjun",
-    "pyAbbr": "hlxngj",
-    "initial": "H",
-    "idKeys": [
-      {
-        "text": "菌盖红褐色，菌孔红色",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "菌柄黄色带红色网纹，切开变蓝",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "长在云南的松林",
         "src": "wiki-zh"
       }
     ],
@@ -2403,8 +2201,7 @@
     "size": 1.0,
     "behavior": "veil",
     "lookalikes": [
-      "stinkhorn",
-      "redveil"
+      "stinkhorn"
     ],
     "habitat": "竹林腐殖土",
     "fact": "它清晨出土，几小时内撑开雪白网裙，下午就开始倒伏自溶——一朵竹荪的完整一生不到一天。",
@@ -2466,7 +2263,6 @@
     "size": 1.0,
     "behavior": "default",
     "lookalikes": [
-      "fakematsutake",
       "almond",
       "smithiana",
       "equestre"
@@ -2509,68 +2305,6 @@
     "capCm": [
       5,
       20
-    ]
-  },
-  {
-    "id": "fakematsutake",
-    "name": "假松茸",
-    "nameEn": "Bakamatsutake",
-    "latin": "Tricholoma bakamatsutake",
-    "family": "口蘑科",
-    "rarity": "rare",
-    "edibility": "wild_edible",
-    "biome": "broadleaf",
-    "substrate": "mycorrhizal",
-    "season": [
-      9,
-      10
-    ],
-    "sporePrint": "white",
-    "hymenium": "gills",
-    "ring": true,
-    "volva": false,
-    "size": 0.8,
-    "behavior": "default",
-    "lookalikes": [
-      "matsutake"
-    ],
-    "habitat": "栎类林地，与阔叶树共生",
-    "fact": "日文名意为「傻松茸」，香气与松茸接近但更淡，区别之一是它跟栎树而不是松树共生。",
-    "quote": "我住在栎树下，这是我和他最大的不同。",
-    "art": {
-      "cap": "convex",
-      "capColor": "#9A7450",
-      "capColor2": "#B8956E",
-      "stipeColor": "#F0E6D0",
-      "scales": true,
-      "ringColor": "#E8DCC0"
-    },
-    "encounter": "seldom",
-    "silhouette": "umbrella",
-    "colorGroup": [
-      "brown",
-      "white"
-    ],
-    "pinyin": "jiasongrong",
-    "pyAbbr": "jsr",
-    "initial": "J",
-    "idKeys": [
-      {
-        "text": "外形与松茸相似，菌盖褐色带鳞片",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "长在栎树等阔叶树下，不长在松树下",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "气味比松茸淡",
-        "src": "wiki-zh"
-      }
-    ],
-    "capCm": [
-      5,
-      15
     ]
   },
   {
@@ -2639,69 +2373,6 @@
     ]
   },
   {
-    "id": "termite",
-    "name": "鸡枞",
-    "nameEn": "Termite mushroom",
-    "latin": "Termitomyces albuminosus",
-    "family": "离褶伞科",
-    "rarity": "epic",
-    "edibility": "wild_edible",
-    "biome": "broadleaf",
-    "substrate": "termite",
-    "season": [
-      6,
-      7,
-      8
-    ],
-    "sporePrint": "pink",
-    "hymenium": "gills",
-    "ring": false,
-    "volva": false,
-    "size": 1.0,
-    "behavior": "default",
-    "lookalikes": [
-      "exitialis",
-      "blackskin"
-    ],
-    "habitat": "白蚁巢上方的土壤",
-    "fact": "它只长在白蚁的菌圃上，白蚁替它除杂菌，它替白蚁分解木质——离开蚁巢就无法栽培。",
-    "quote": "我的农民是一窝白蚁。",
-    "art": {
-      "cap": "conical",
-      "capColor": "#8A7A62",
-      "capColor2": "#A99680",
-      "stipeColor": "#F4EFE0",
-      "longRoot": true
-    },
-    "encounter": "occasional",
-    "silhouette": "umbrella",
-    "colorGroup": [
-      "grey",
-      "white"
-    ],
-    "pinyin": "jicong",
-    "pyAbbr": "jc",
-    "initial": "J",
-    "idKeys": [
-      {
-        "text": "菌盖中央有明显的尖突，灰白至灰褐色",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "菌柄向下延伸成很长的假根，一直扎进白蚁巢",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "雨季从白蚁巢上方的地面长出",
-        "src": "wiki-zh"
-      }
-    ],
-    "capCm": [
-      5,
-      20
-    ]
-  },
-  {
     "id": "blackskin",
     "name": "黑皮鸡枞",
     "nameEn": "Black-skin mushroom",
@@ -2724,9 +2395,7 @@
     "volva": false,
     "size": 0.8,
     "behavior": "default",
-    "lookalikes": [
-      "termite"
-    ],
+    "lookalikes": [],
     "habitat": "栽培；野生型见于腐木埋土",
     "fact": "市场上叫「黑皮鸡枞」，其实是长根菇，跟真正的鸡枞不同科，好处是能人工栽培。",
     "quote": "我能被种出来，那位不能。",
@@ -3427,7 +3096,6 @@
     "behavior": "default",
     "lookalikes": [
       "greenrussula",
-      "strawmushroom",
       "caesar",
       "fuliginea",
       "citrina"
@@ -3460,7 +3128,6 @@
     ],
     "lookalikeNotes": {
       "greenrussula": "青头菌没有菌环和菌托，菌柄脆，一掰就断",
-      "strawmushroom": "草菇菌褶成熟后变粉红且无菌环；死帽菇菌褶始终白色且有菌环",
       "caesar": "凯撒鹅膏菌盖橙红、菌褶和菌柄黄色；死帽菇菌盖橄榄绿、菌褶白色"
     },
     "encounter": "common",
@@ -3501,7 +3168,6 @@
     "lookalikes": [
       "button",
       "fieldmushroom",
-      "strawmushroom",
       "horsemushroom"
     ],
     "habitat": "栎、桦林地面",
@@ -3534,7 +3200,6 @@
     "lookalikeNotes": {
       "button": "双孢蘑菇菌褶粉红转褐色且无菌托；毁灭天使菌褶始终白色，基部有菌托",
       "fieldmushroom": "野蘑菇菌褶粉红转深褐，基部无菌托；毁灭天使菌褶纯白且有菌托",
-      "strawmushroom": "草菇菌褶变粉红且无菌环；毁灭天使菌褶纯白且有菌环",
       "horsemushroom": "大肥菇菌褶粉褐、擦伤变黄、有茴香味；毁灭天使菌褶纯白无气味"
     },
     "encounter": "occasional",
@@ -3618,74 +3283,6 @@
     "capCm": [
       5,
       10
-    ]
-  },
-  {
-    "id": "exitialis",
-    "name": "致命鹅膏",
-    "nameEn": "Guangzhou destroying angel",
-    "latin": "Amanita exitialis",
-    "family": "鹅膏科",
-    "rarity": "epic",
-    "edibility": "deadly",
-    "biome": "broadleaf",
-    "substrate": "mycorrhizal",
-    "season": [
-      3,
-      4,
-      5
-    ],
-    "sporePrint": "white",
-    "hymenium": "gills",
-    "ring": true,
-    "volva": true,
-    "size": 0.7,
-    "behavior": "default",
-    "lookalikes": [
-      "termite",
-      "strawmushroom"
-    ],
-    "habitat": "华南黧蒴锥等林下，春季",
-    "fact": "华南俗称「白毒伞」，清明前后大量出现在城市绿地的黧蒴树下，多起家庭中毒事件都发生在小区草坪。",
-    "quote": "我就长在你家小区的树底下。",
-    "art": {
-      "cap": "convex",
-      "capColor": "#F7F4EA",
-      "capColor2": "#FFFFFA",
-      "stipeColor": "#F8F5EC",
-      "ringColor": "#F2EFE4",
-      "volvaColor": "#EFEBDE",
-      "gillColor": "#FFFEF8"
-    },
-    "idKeys": [
-      {
-        "text": "通体纯白，菌盖光滑无鳞片",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "菌柄基部有白色囊状菌托，埋在土里要扒开才看得见",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "菌褶白色，菌环白色膜质，多见于华南阔叶林",
-        "src": "wiki-zh"
-      }
-    ],
-    "lookalikeNotes": {
-      "termite": "鸡枞菌柄基部延伸成假根扎进蚁巢，无菌托无菌环",
-      "strawmushroom": "草菇菌褶变粉红且无菌环；致命鹅膏菌褶纯白且有菌环"
-    },
-    "encounter": "seldom",
-    "silhouette": "umbrella",
-    "colorGroup": [
-      "white"
-    ],
-    "pinyin": "zhimingegao",
-    "pyAbbr": "zmeg",
-    "initial": "Z",
-    "capCm": [
-      4,
-      9
     ]
   },
   {
@@ -4528,8 +4125,7 @@
     "size": 0.6,
     "behavior": "default",
     "lookalikes": [
-      "charcoalburner",
-      "bigred"
+      "charcoalburner"
     ],
     "habitat": "松林、泥炭藓地",
     "fact": "胃肠型毒菌，名字直译就是「让人吐的那个」；鲜红的菌盖表皮很容易整片撕下来。",
@@ -4557,8 +4153,7 @@
       }
     ],
     "lookalikeNotes": {
-      "charcoalburner": "蓝黄红菇菌盖紫绿杂色且菌褶柔韧不易碎；毒红菇鲜红且菌褶脆",
-      "bigred": "大红菇菌盖暗红色、菌褶淡黄、菌柄常带红晕；毒红菇鲜红、菌褶菌柄纯白"
+      "charcoalburner": "蓝黄红菇菌盖紫绿杂色且菌褶柔韧不易碎；毒红菇鲜红且菌褶脆"
     },
     "encounter": "occasional",
     "silhouette": "umbrella",
@@ -6238,9 +5833,7 @@
     "volva": false,
     "size": 0.3,
     "behavior": "shelf",
-    "lookalikes": [
-      "trogia"
-    ],
+    "lookalikes": [],
     "habitat": "各种枯木，全球分布",
     "fact": "它有两万三千多种交配型，几乎遇到同类就能配对；云南把它叫「白参」当菜吃，但它也是极少数能感染人体的真菌之一。",
     "quote": "我有两万三千种性别。",
@@ -6310,9 +5903,7 @@
     "volva": false,
     "size": 0.7,
     "behavior": "shelf",
-    "lookalikes": [
-      "sanghuang"
-    ],
+    "lookalikes": [],
     "habitat": "活桦树树干伤口",
     "fact": "树干上那块焦炭似的黑瘤并不是子实体，而是菌核；真正产孢子的部分在树皮下，只在树死后才露出来。",
     "quote": "你看到的那块黑炭，只是我的仓库。",
@@ -6352,69 +5943,6 @@
     ]
   },
   {
-    "id": "caterpillar",
-    "name": "冬虫夏草",
-    "nameEn": "Caterpillar fungus",
-    "latin": "Ophiocordyceps sinensis",
-    "family": "线虫草科",
-    "rarity": "legend",
-    "edibility": "medicinal",
-    "biome": "special",
-    "substrate": "insect",
-    "season": [
-      4,
-      5,
-      6
-    ],
-    "sporePrint": "cream",
-    "hymenium": "smooth",
-    "ring": false,
-    "volva": false,
-    "size": 0.4,
-    "behavior": "parasite",
-    "lookalikes": [
-      "militaris",
-      "zombieant"
-    ],
-    "habitat": "青藏高原高山草甸，海拔 3500 米以上",
-    "fact": "它寄生蝙蝠蛾幼虫，在虫体内越冬，夏天从虫头顶长出一根子座——「冬天是虫，夏天是草」的说法由此而来。",
-    "quote": "冬天我是虫，夏天我是草。",
-    "art": {
-      "cap": "club",
-      "capColor": "#5A4A32",
-      "capColor2": "#7A6644",
-      "stipeColor": "#C9A46E",
-      "larva": true
-    },
-    "encounter": "rare",
-    "silhouette": "club",
-    "colorGroup": [
-      "brown",
-      "yellow"
-    ],
-    "pinyin": "dongchongxiacao",
-    "pyAbbr": "dcxc",
-    "initial": "D",
-    "idKeys": [
-      {
-        "text": "下半是僵化的蝙蝠蛾幼虫，上半是从虫头长出的棒状子座",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "子座深褐色，比虫体细长",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "长在青藏高原的高山草甸，要挖出来才看得见",
-        "src": "wiki-zh"
-      }
-    ],
-    "capCm": [
-      3,
-      8
-    ]
-  },
-  {
     "id": "militaris",
     "name": "蛹虫草",
     "nameEn": "Scarlet caterpillar club",
@@ -6436,7 +5964,6 @@
     "size": 0.3,
     "behavior": "parasite",
     "lookalikes": [
-      "caterpillar",
       "firecoral"
     ],
     "habitat": "林地土中的鳞翅目蛹",
@@ -6499,9 +6026,7 @@
     "volva": false,
     "size": 0.2,
     "behavior": "parasite",
-    "lookalikes": [
-      "caterpillar"
-    ],
+    "lookalikes": [],
     "habitat": "热带雨林，寄生木蚁",
     "fact": "它操纵蚂蚁爬到叶子背面、咬住叶脉后死去，再从蚂蚁头部长出子座——位置与高度都恰好利于孢子撒向蚁道。",
     "quote": "我让蚂蚁自己走到最合适的地方。",
@@ -6540,70 +6065,6 @@
     ]
   },
   {
-    "id": "blacktruffle",
-    "name": "黑孢块菌",
-    "nameEn": "Périgord truffle",
-    "latin": "Tuber melanosporum",
-    "family": "块菌科",
-    "rarity": "legend",
-    "edibility": "wild_edible",
-    "biome": "special",
-    "substrate": "mycorrhizal",
-    "season": [
-      12,
-      1,
-      2
-    ],
-    "sporePrint": "brown",
-    "hymenium": "gleba",
-    "ring": false,
-    "volva": false,
-    "size": 0.4,
-    "behavior": "default",
-    "lookalikes": [
-      "chinesetruffle",
-      "summertruffle",
-      "whitetruffle"
-    ],
-    "habitat": "栎树根部，地下 5–30 厘米",
-    "fact": "它整个一生都在地下，靠强烈气味吸引野猪和啮齿动物刨出来吃掉，再把孢子带到别处。",
-    "quote": "我这辈子都在土里，靠气味求人挖我。",
-    "art": {
-      "cap": "tuber",
-      "capColor": "#2A231E",
-      "capColor2": "#463A30",
-      "stipeColor": "none",
-      "warts": true,
-      "buried": true
-    },
-    "encounter": "seldom",
-    "silhouette": "ball",
-    "colorGroup": [
-      "black"
-    ],
-    "pinyin": "heibaokuaijun",
-    "pyAbbr": "hbkj",
-    "initial": "H",
-    "idKeys": [
-      {
-        "text": "黑色不规则块状，表面布满多角形的疣",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "切开内部深褐带白色大理石纹",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "长在栎树根部的地下，要靠狗或猪嗅出来",
-        "src": "wiki-zh"
-      }
-    ],
-    "capCm": [
-      3,
-      8
-    ]
-  },
-  {
     "id": "chinesetruffle",
     "name": "中华块菌",
     "nameEn": "Chinese black truffle",
@@ -6625,7 +6086,6 @@
     "size": 0.4,
     "behavior": "default",
     "lookalikes": [
-      "blacktruffle",
       "whitetruffle",
       "summertruffle"
     ],
@@ -6790,70 +6250,6 @@
     ]
   },
   {
-    "id": "witchbutter",
-    "name": "金耳",
-    "nameEn": "Golden ear",
-    "latin": "Naematelia aurantialba",
-    "family": "银耳科",
-    "rarity": "rare",
-    "edibility": "cultivated",
-    "biome": "deadwood",
-    "substrate": "wood",
-    "season": [
-      9,
-      10,
-      11,
-      12
-    ],
-    "sporePrint": "white",
-    "hymenium": "smooth",
-    "ring": false,
-    "volva": false,
-    "size": 0.5,
-    "behavior": "jelly",
-    "lookalikes": [
-      "snowfungus",
-      "blackwitch"
-    ],
-    "habitat": "栎类枯木，寄生于韧革菌",
-    "fact": "它必须寄生在另一种真菌（韧革菌）身上才能形成子实体，所以人工栽培要同时养两种菌。",
-    "quote": "我住在另一种菌的身上。",
-    "art": {
-      "cap": "frill",
-      "capColor": "#E8A81E",
-      "capColor2": "#F7C84A",
-      "stipeColor": "none",
-      "jelly": true
-    },
-    "encounter": "occasional",
-    "silhouette": "coral",
-    "colorGroup": [
-      "yellow",
-      "orange"
-    ],
-    "pinyin": "jiner",
-    "pyAbbr": "je",
-    "initial": "J",
-    "idKeys": [
-      {
-        "text": "金黄色脑状胶质团",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "湿时饱满，干后收缩变硬",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "长在阔叶树枯木上",
-        "src": "wiki-zh"
-      }
-    ],
-    "capCm": [
-      3,
-      8
-    ]
-  },
-  {
     "id": "blackwitch",
     "name": "黑耳",
     "nameEn": "Black witch's butter",
@@ -6879,7 +6275,6 @@
     "behavior": "jelly",
     "lookalikes": [
       "woodear",
-      "witchbutter",
       "jellyear"
     ],
     "habitat": "栎树等阔叶树落枝",
@@ -7591,8 +6986,7 @@
     "size": 0.9,
     "behavior": "default",
     "lookalikes": [
-      "porcini",
-      "bainiugan"
+      "porcini"
     ],
     "habitat": "针叶林地面",
     "fact": "无毒，但苦到只要一小块就能毁掉一整锅汤。与美味牛肝菌的区别之一是菌柄网纹粗而深褐，菌孔带粉色。",
@@ -7657,7 +7051,6 @@
     "behavior": "bruise",
     "lookalikes": [
       "jianshouqing",
-      "magnificus",
       "porcini"
     ],
     "habitat": "石灰岩地区的栎林",
@@ -7689,7 +7082,6 @@
     ],
     "lookalikeNotes": {
       "jianshouqing": "见手青菌盖褐色不是灰白，菌柄红黄相间",
-      "magnificus": "华丽新牛肝菌菌盖红褐色；撒旦牛肝菌菌盖灰白",
       "porcini": "美味牛肝菌菌孔白转黄绿、菌柄白褐有网纹、不变蓝；撒旦牛肝菌菌孔红色"
     },
     "encounter": "rare",
@@ -8843,68 +8235,6 @@
     ]
   },
   {
-    "id": "bigred",
-    "name": "灰肉红菇",
-    "nameEn": "Grey-fleshed russula",
-    "latin": "Russula griseocarnosa",
-    "family": "红菇科",
-    "rarity": "rare",
-    "edibility": "wild_edible",
-    "biome": "broadleaf",
-    "substrate": "mycorrhizal",
-    "season": [
-      6,
-      7,
-      8
-    ],
-    "sporePrint": "cream",
-    "hymenium": "gills",
-    "ring": false,
-    "volva": false,
-    "size": 0.8,
-    "behavior": "default",
-    "lookalikes": [
-      "sickener",
-      "japonica"
-    ],
-    "habitat": "华南壳斗科林地",
-    "fact": "福建、广西叫它「大红菇」，只与壳斗科树木共生，至今无法人工栽培，价格常年居高。",
-    "quote": "我只跟栲树、锥树做朋友。",
-    "art": {
-      "cap": "convex",
-      "capColor": "#A82A2E",
-      "capColor2": "#C44A46",
-      "stipeColor": "#EFE4D2",
-      "gillColor": "#F2ECD8"
-    },
-    "encounter": "occasional",
-    "silhouette": "umbrella",
-    "colorGroup": [
-      "red"
-    ],
-    "pinyin": "huirouhonggu",
-    "pyAbbr": "hrhg",
-    "initial": "H",
-    "idKeys": [
-      {
-        "text": "菌盖暗红至紫红色，中央略下凹",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "菌褶淡黄色，菌柄白色常带红晕",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "长在南方的常绿阔叶林",
-        "src": "wiki-zh"
-      }
-    ],
-    "capCm": [
-      6,
-      12
-    ]
-  },
-  {
     "id": "japonica",
     "name": "日本红菇",
     "nameEn": "Japanese russula",
@@ -8926,7 +8256,6 @@
     "size": 0.9,
     "behavior": "default",
     "lookalikes": [
-      "bigred",
       "blackening",
       "subnigricans"
     ],
@@ -8955,7 +8284,6 @@
       }
     ],
     "lookalikeNotes": {
-      "bigred": "大红菇菌盖暗红色；日本红菇菌盖白色",
       "blackening": "黑变红菇受伤变红再变黑；日本红菇不变色"
     },
     "encounter": "seldom",
@@ -9505,199 +8833,6 @@
     ]
   },
   {
-    "id": "sanghuang",
-    "name": "桑黄",
-    "nameEn": "Sanghuang",
-    "latin": "Sanghuangporus sanghuang",
-    "family": "锈革孔菌科",
-    "rarity": "rare",
-    "edibility": "medicinal",
-    "biome": "deadwood",
-    "substrate": "wood",
-    "season": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12
-    ],
-    "sporePrint": "brown",
-    "hymenium": "pores",
-    "ring": false,
-    "volva": false,
-    "size": 0.6,
-    "behavior": "shelf",
-    "lookalikes": [
-      "chaga"
-    ],
-    "habitat": "桑树活干",
-    "fact": "传统上用作药材的「桑黄」其实包含多个物种，真正长在桑树上的这一种直到 2016 年才被正式定名。",
-    "quote": "我姓桑，二〇一六年才拿到身份证。",
-    "art": {
-      "cap": "hoof",
-      "capColor": "#8E5A1E",
-      "capColor2": "#B07A2E",
-      "stipeColor": "none",
-      "poreColor": "#C99A4A",
-      "cracked": true
-    },
-    "encounter": "rare",
-    "silhouette": "shelf",
-    "colorGroup": [
-      "brown",
-      "yellow"
-    ],
-    "pinyin": "sanghuang",
-    "pyAbbr": "sh",
-    "initial": "S",
-    "idKeys": [
-      {
-        "text": "蹄形或半圆形，上表面黄褐至黑褐色有裂纹",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "下表面黄色有细孔",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "长在桑树的活树干上，多年生",
-        "src": "wiki-zh"
-      }
-    ],
-    "capCm": [
-      5,
-      20
-    ]
-  },
-  {
-    "id": "poria",
-    "name": "茯苓",
-    "nameEn": "Poria",
-    "latin": "Wolfiporia hoelen",
-    "family": "多孔菌科",
-    "rarity": "common",
-    "edibility": "medicinal",
-    "biome": "pine",
-    "substrate": "soil",
-    "season": [
-      7,
-      8,
-      9,
-      10
-    ],
-    "sporePrint": "white",
-    "hymenium": "pores",
-    "ring": false,
-    "volva": false,
-    "size": 0.8,
-    "behavior": "default",
-    "lookalikes": [],
-    "habitat": "松树根部地下",
-    "fact": "入药的部分是埋在松根旁的菌核，最大能长到几十斤；地面上通常什么也看不到。",
-    "quote": "我整个人都埋在土里。",
-    "art": {
-      "cap": "tuber",
-      "capColor": "#8E7A5E",
-      "capColor2": "#B09A7A",
-      "stipeColor": "none",
-      "buried": true
-    },
-    "encounter": "occasional",
-    "silhouette": "ball",
-    "colorGroup": [
-      "brown",
-      "white"
-    ],
-    "pinyin": "fuling",
-    "pyAbbr": "fl",
-    "initial": "F",
-    "idKeys": [
-      {
-        "text": "不规则的地下块状，外皮褐色粗糙",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "内部白色，质地像土豆",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "长在松树根部的地下，要挖才看得见",
-        "src": "wiki-zh"
-      }
-    ],
-    "capCm": [
-      10,
-      30
-    ]
-  },
-  {
-    "id": "cauliflower",
-    "name": "绣球菌",
-    "nameEn": "Cauliflower mushroom",
-    "latin": "Sparassis latifolia",
-    "family": "绣球菌科",
-    "rarity": "rare",
-    "edibility": "cultivated",
-    "biome": "pine",
-    "substrate": "wood",
-    "season": [
-      8,
-      9,
-      10
-    ],
-    "sporePrint": "white",
-    "hymenium": "smooth",
-    "ring": false,
-    "volva": false,
-    "size": 1.0,
-    "behavior": "coral",
-    "lookalikes": [],
-    "habitat": "松树根部、树桩",
-    "fact": "整朵由无数波浪状的扁平裂片盘绕而成，像一颗巨大的白色绣球，一朵可重达数公斤。",
-    "quote": "我是一团会长大的褶皱。",
-    "art": {
-      "cap": "frill",
-      "capColor": "#F2E8CE",
-      "capColor2": "#FAF4E2",
-      "stipeColor": "#E8DCC0",
-      "tiers": 9
-    },
-    "encounter": "occasional",
-    "silhouette": "coral",
-    "colorGroup": [
-      "white",
-      "yellow"
-    ],
-    "pinyin": "xiuqiujun",
-    "pyAbbr": "xqj",
-    "initial": "X",
-    "idKeys": [
-      {
-        "text": "白色至淡黄色，许多薄片叠成一大团，像花椰菜",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "薄片边缘波状，质地脆",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "长在针叶树树基",
-        "src": "wiki-zh"
-      }
-    ],
-    "capCm": [
-      10,
-      30
-    ]
-  },
-  {
     "id": "chestnutbolete",
     "name": "栗色圆孔牛肝菌",
     "nameEn": "Chestnut bolete",
@@ -10011,70 +9146,6 @@
     ],
     "capCm": [
       5,
-      15
-    ]
-  },
-  {
-    "id": "redveil",
-    "name": "红托竹荪",
-    "nameEn": "Red-volva bamboo fungus",
-    "latin": "Phallus rubrovolvatus",
-    "family": "鬼笔科",
-    "rarity": "rare",
-    "edibility": "cultivated",
-    "biome": "special",
-    "substrate": "litter",
-    "season": [
-      6,
-      7,
-      8,
-      9
-    ],
-    "sporePrint": "olive",
-    "hymenium": "gleba",
-    "ring": false,
-    "volva": true,
-    "size": 0.9,
-    "behavior": "veil",
-    "lookalikes": [
-      "bambooveil"
-    ],
-    "habitat": "贵州等地栽培，竹林腐殖土",
-    "fact": "与长裙竹荪的区别在菌托是紫红色的；贵州织金把它做成了地理标志产品。",
-    "quote": "看我的脚，是红的。",
-    "art": {
-      "cap": "bell",
-      "capColor": "#4A5A3A",
-      "capColor2": "#6E7A4E",
-      "stipeColor": "#FBF7EC",
-      "veil": true,
-      "volvaColor": "#B04A46"
-    },
-    "encounter": "occasional",
-    "silhouette": "umbrella",
-    "colorGroup": [
-      "red",
-      "white"
-    ],
-    "pinyin": "hongtuozhusun",
-    "pyAbbr": "htzs",
-    "initial": "H",
-    "idKeys": [
-      {
-        "text": "菌柄白色，菌托红色，顶端有孢体帽",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "帽下有白色网状菌裙",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "长在竹林，栽培品常见于贵州",
-        "src": "wiki-zh"
-      }
-    ],
-    "capCm": [
-      8,
       15
     ]
   },
@@ -10741,7 +9812,6 @@
     "size": 0.4,
     "behavior": "default",
     "lookalikes": [
-      "blacktruffle",
       "chinesetruffle"
     ],
     "habitat": "意大利北部栎、杨、柳根部地下",
@@ -10916,71 +9986,6 @@
     ]
   },
   {
-    "id": "trogia",
-    "name": "毒沟褶菌",
-    "nameEn": "Little white mushroom",
-    "latin": "Trogia venenata",
-    "family": "膨瑚菌科",
-    "rarity": "epic",
-    "edibility": "deadly",
-    "biome": "broadleaf",
-    "substrate": "wood",
-    "season": [
-      6,
-      7,
-      8
-    ],
-    "sporePrint": "white",
-    "hymenium": "gills",
-    "ring": false,
-    "volva": false,
-    "size": 0.3,
-    "behavior": "shelf",
-    "lookalikes": [
-      "splitgill"
-    ],
-    "habitat": "云南阔叶林落枝",
-    "fact": "云南某些村寨多年间发生的不明原因猝死，2012 年被追溯到它身上，当地称「小白菌」。",
-    "quote": "我很小，很白，很久没人知道是我。",
-    "art": {
-      "cap": "fan",
-      "capColor": "#EFE8DC",
-      "capColor2": "#F8F4EC",
-      "stipeColor": "#F2ECE0",
-      "tiers": 4,
-      "sparseGills": true
-    },
-    "idKeys": [
-      {
-        "text": "小型白色，菌盖薄，菌褶稀疏且有横脉相连",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "长在云南的栎树等阔叶树枯枝上",
-        "src": "wiki-zh"
-      },
-      {
-        "text": "外形像可食的裂褶菌但没有绒毛",
-        "src": "wiki-zh"
-      }
-    ],
-    "lookalikeNotes": {
-      "splitgill": "裂褶菌菌盖有白色绒毛、菌褶沿中线纵裂；毒沟褶菌无毛、菌褶有横脉"
-    },
-    "encounter": "seldom",
-    "silhouette": "shelf",
-    "colorGroup": [
-      "white"
-    ],
-    "pinyin": "dugouzhejun",
-    "pyAbbr": "dgzj",
-    "initial": "D",
-    "capCm": [
-      1,
-      3
-    ]
-  },
-  {
     "id": "hatsudake",
     "name": "红汁乳菇",
     "nameEn": "Hatsudake",
@@ -11110,7 +10115,7 @@
     "id": "venenatus",
     "name": "毒新牛肝菌",
     "nameEn": "Poison bolete",
-    "latin": "Neoboletus venenatus",
+    "latin": "Sutorius venenatus",
     "family": "牛肝菌科",
     "rarity": "rare",
     "edibility": "poisonous",
@@ -11129,7 +10134,6 @@
     "behavior": "bruise",
     "lookalikes": [
       "jianshouqing",
-      "magnificus",
       "whiteonion"
     ],
     "habitat": "东亚针阔混交林",
@@ -11160,7 +10164,6 @@
     ],
     "lookalikeNotes": {
       "jianshouqing": "见手青菌盖褐色、菌柄红黄相间；毒新牛肝菌菌盖黄褐有粉状质感",
-      "magnificus": "华丽新牛肝菌菌盖红褐色；毒新牛肝菌菌盖黄褐",
       "whiteonion": "白牛肝菌菌盖灰白至淡褐、菌柄淡黄；毒新牛肝菌菌盖黄褐带粉"
     },
     "encounter": "seldom",
@@ -11175,6 +10178,9 @@
     "capCm": [
       6,
       15
+    ],
+    "aka": [
+      "Neoboletus venenatus"
     ]
   },
   {
@@ -11654,7 +10660,6 @@
     "size": 0.4,
     "behavior": "default",
     "lookalikes": [
-      "blacktruffle",
       "chinesetruffle"
     ],
     "habitat": "欧洲栎林地下",

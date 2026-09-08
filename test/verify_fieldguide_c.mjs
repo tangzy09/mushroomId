@@ -23,14 +23,14 @@ await page.goto(BASE, { waitUntil: 'networkidle' });
 await page.evaluate(() => { const o = document.getElementById('overlay'); if (o) o.classList.remove('on'); });
 await page.waitForTimeout(800);
 
-/* C1 数据地板：181 种全部有 3 条识别要点与两元 capCm */
+/* C1 数据地板：166 种全部有 3 条识别要点与两元 capCm */
 const floor = await page.evaluate(() => {
   const all = MUSHROOM_DATA;
   const noKeys = all.filter(m => !m.idKeys || m.idKeys.length !== 3).map(m => m.id);
   const noCap = all.filter(m => !m.capCm || m.capCm.length !== 2 || !(m.capCm[0] > 0 && m.capCm[0] <= m.capCm[1])).map(m => m.id);
   return { n: all.length, noKeys, noCap };
 });
-t('全库 181 种', floor.n === 181, floor.n);
+t('全库 166 种', floor.n === 166, floor.n);
 t('每种 3 条识别要点', floor.noKeys.length === 0, floor.noKeys.slice(0, 5).join());
 t('每种两元 capCm 且 0<lo≤hi', floor.noCap.length === 0, floor.noCap.slice(0, 5).join());
 

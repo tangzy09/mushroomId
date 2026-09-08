@@ -14,6 +14,14 @@
   ]);
 
   var S = Storage.init(C);
+  // 数据里下线过物种（2026-09-08 去掉 15 个无照片种）。旧存档里指向它们的收集与园位
+  // 要清掉，否则 byId 查不到会在菌菇园与「我的」里抛异常。
+  (function pruneGone() {
+    var before = S.collections.length + S.slots.length;
+    S.collections = S.collections.filter(function (c) { return !!byId[c.entityId]; });
+    S.slots = S.slots.filter(function (s) { return !!byId[s.id]; });
+    if (S.collections.length + S.slots.length !== before) Storage.commit();
+  })();
   var today = Storage.today();
   var weather = World.weatherFor(today, C.weather);
 
@@ -54,7 +62,8 @@
     return cv;
   }
 
-  // Real photographs cover 166 of the 181 species. The rest keep the drawn
+  // Every one of the 166 species has a real photograph (the 15 without one were
+  // dropped on 2026-09-08). Non-mature growth stages still keep the drawn
   // form, which is not a stopgap: a drawing can show the volva and the ring
   // that photographs of those species happen to miss.
   function hasPhoto(sp) {

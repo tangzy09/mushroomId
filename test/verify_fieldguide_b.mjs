@@ -92,7 +92,7 @@ t('对比网格每格带识别要点或学名', gridState.hints === gridState.ce
 
 /* B9 清空 */
 await click('#facet-clear');
-t('清空后回到全部 181 种', (await results()) === 181 && (await active()) === 0, await results());
+t('清空后回到全部 166 种', (await results()) === 166 && (await active()) === 0, await results());
 
 /* B10 改轮廓为球块，菌盖背面 tab 收起且条件被清 */
 await click('#facet-tabs button[data-tab="silhouette"]');   // 清空不切 tab，先回到轮廓
@@ -123,7 +123,7 @@ const nameList = await page.evaluate(() => ({
   cards: document.querySelectorAll('#facet-left .fcard').length,
   firstHead: (document.querySelector('#facet-left .mon') || {}).textContent
 }));
-t('名字 tab 有首字母索引头且列出全部', nameList.heads >= 10 && nameList.cards === 181, JSON.stringify(nameList));
+t('名字 tab 有首字母索引头且列出全部', nameList.heads >= 10 && nameList.cards === 166, JSON.stringify(nameList));
 
 /* B13 搜索与筛选叠加，计数仍对 */
 await page.fill('#coll-search', 'amanita');
@@ -136,7 +136,7 @@ const shownBoth = await page.evaluate(() => +document.querySelector('#facet-bar 
 t('搜索 amanita 命中鹅膏属（≥10）', nSearch >= 10, nSearch);
 t('搜索 + 轮廓叠加，显示计数 == 真实结果', nBoth <= nSearch && nBoth > 0 && shownBoth === nBoth, nBoth + ' vs ' + shownBoth);
 await click('#facet-clear');
-t('清空同时清掉搜索', (await results()) === 181 && (await page.inputValue('#coll-search')) === '');
+t('清空同时清掉搜索', (await results()) === 166 && (await page.inputValue('#coll-search')) === '');
 
 t('零 JS 异常', errs.length === 0, errs.slice(0, 2).join(' | '));
 await browser.close();

@@ -95,10 +95,13 @@ t('浏览器后退回到图鉴', (await active()) === 'page-collection', await a
 const qs = await page.evaluate(() => Array.from(document.querySelectorAll('#page-collection b')).filter(n => n.textContent === '???').length);
 t('图鉴里没有 ???', qs === 0, qs + ' 个');
 const cellN = await page.evaluate(() => Browse._facet().results().length);
-t('图鉴列出全部物种', cellN === 181, cellN + ' 个');
+t('图鉴列出全部物种', cellN === 166, cellN + ' 个');
 /* C2 毒种标记永远显示 */
-const skulls = await page.evaluate(() => Browse._facet().results().filter(m => m.edibility === 'poisonous' || m.edibility === 'deadly').length);
-t('毒种标记全部显示（42）', skulls === 42, skulls + ' 个');
+const skulls = await page.evaluate(() => ({
+  shown: Browse._facet().results().filter(m => m.edibility === 'poisonous' || m.edibility === 'deadly').length,
+  data: MUSHROOM_DATA.filter(m => m.edibility === 'poisonous' || m.edibility === 'deadly').length,
+}));
+t('毒种标记全部显示（数据里 ' + skulls.data + ' 个，正例地板 ≥ 30）', skulls.data >= 30 && skulls.shown === skulls.data, skulls.shown + ' 个');
 /* C3 搜索命中学名与生境 */
 await page.fill('#coll-search', 'amanita');
 await page.waitForTimeout(200);
@@ -130,14 +133,13 @@ t('毒鹅膏的可食相似种标红', dk.warn >= 1, dk.warn + ' 处');
 t('相似种带差异句', dk.diffs >= 1, dk.diffs + ' 句');
 await page.click('#page-detail [data-back]');
 await page.waitForTimeout(300);
-/* D2 无照片致命种有「切勿据此辨认」 */
-await page.fill('#coll-search', '致命鹅膏');
-await page.waitForTimeout(200);
-await page.click('#facet-right .fcard');
-await page.waitForTimeout(500);
-const np = await page.evaluate(() => (document.querySelector('#page-detail .no-photo') || {}).textContent || '');
-t('无照片致命种显示「切勿据此辨认」', /切勿据此辨认/.test(np), np);
-await page.click('#page-detail [data-back]');
+/* D2 致命种一律有真实照片（2026-09-08 起无照片的种不收录；「切勿据此辨认」提示成了死路，
+   这条改成更强的契约：数据里没有任何一个 deadly 种缺照片） */
+const deadlyCover = await page.evaluate(() => {
+  const d = MUSHROOM_DATA.filter(m => m.edibility === 'deadly');
+  return { n: d.length, missing: d.filter(m => !PHOTO_CREDITS[m.id]).map(m => m.id) };
+});
+t('致命种全部有照片（' + deadlyCover.n + ' 种，地板 ≥ 8）', deadlyCover.n >= 8 && deadlyCover.missing.length === 0, deadlyCover.missing.join());
 await page.fill('#coll-search', '');
 await page.waitForTimeout(200);
 
@@ -153,7 +155,7 @@ await page.reload({ waitUntil: 'domcontentloaded' }).catch(() => {});
 await page.waitForTimeout(1200);
 await closeOverlay();
 const offCells = await page.evaluate(() => (typeof Browse !== 'undefined' && Browse._facet()) ? Browse._facet().results().length : 0);
-t('断网后图鉴列表仍渲染（181）', offCells === 181, offCells + ' 个');
+t('断网后图鉴列表仍渲染（166）', offCells === 166, offCells + ' 个');
 const offThumb = await page.evaluate(() => {
   const i = document.querySelector('#page-collection img.sp-photo'); return i ? i.naturalWidth : -1;
 });

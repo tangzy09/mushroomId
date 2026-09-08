@@ -1,7 +1,7 @@
 /* test/smoke_prod.mjs — 部署后对生产站跑的验收冒烟
  *   node test/smoke_prod.mjs [base-url] [playwright-core 目录]
  * 判据：核心文件全 200 且版本戳一致、.git 与内部文件不可下载、页面零异常、
- * 图鉴 181 种画出来、详情页照片真的解码、SW 注册成功。退出码 0 才算部署成功。 */
+ * 图鉴 166 种画出来、详情页照片真的解码、SW 注册成功。退出码 0 才算部署成功。 */
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 const BASE = (process.argv[2] || 'https://mushroomid.ai-speeds.com').replace(/\/$/, '');
@@ -47,9 +47,9 @@ await page.goto(BASE + '/index.html', { waitUntil: 'networkidle' });
 await page.evaluate(() => { const o = document.getElementById('overlay'); if (o) o.classList.remove('on'); });
 await page.waitForTimeout(1200);
 const n = await page.evaluate(() => typeof MUSHROOM_DATA !== 'undefined' ? MUSHROOM_DATA.length : 0);
-t('数据 181 种', n === 181, n);
+t('数据 166 种', n === 166, n);
 const keys = await page.evaluate(() => MUSHROOM_DATA.filter(m => m.idKeys && m.idKeys.length === 3 && m.capCm).length);
-t('线上数据带一期 C 字段（181 种都有 idKeys ×3 与 capCm）', keys === 181, keys);
+t('线上数据带一期 C 字段（166 种都有 idKeys ×3 与 capCm）', keys === 166, keys);
 await page.evaluate(() => document.querySelector('#nav button[data-page="collection"]').click());
 await page.waitForSelector('#facet-right .fcard', { timeout: 15000 }).catch(() => {});
 await page.waitForTimeout(1500);
