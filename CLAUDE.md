@@ -17,7 +17,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 > `docs/superpowers/`。一期 A / B / C 已于 2026-09-07 全部完成（查阅路径、五路检索、全库识别要点与尺度尺、照片分享卡）；
 > 2026-09-08 又做了一轮改良（第三刀检索维度、搜索扩容、毒种相似种前置、照片灯箱与多图轮播、
 > 物种静态页、题库拆分按需加载），见下方「改良轮（2026-09-08）」一节。
-> 二期（观察日志、训练重构、英文界面）待做。
+> 二期三件（观察日志、训练重构、英文界面）已于 2026-09-08 全部完成。
 
 ## 安全红线（最高优先级，违反视为严重缺陷）
 
@@ -54,7 +54,8 @@ mushroomId/
 │   │   ├── gacha.js            ← 概率、保底、天气修正、按稀有度选实体
 │   │   ├── quiz.js             ← 选题、选项乱序、判题
 │   │   ├── share.js            ← 分享卡片 Canvas（强制水印）
-│   │   └── transfer.js         ← 存档导出导入（`.spore`，AES-GCM）
+│   │   ├── transfer.js         ← 存档导出导入（`.spore`，AES-GCM）
+│   │   └── i18n.js             ← 界面语言引擎（照抄 fishId 验证过的形状，ES5 化）
 │   ├── game/                   ← 蘑菇领域层
 │   │   ├── config.js           ← core 唯一的领域入口，所有常量在这里
 │   │   ├── weather.js          ← 日期 hash 天气 + 生长推进 + 槽位分配（纯函数）
@@ -65,7 +66,11 @@ mushroomId/
 │   ├── photo_extra.js          ← 补图署名（生成物）：主图拍不到关键特征的种，第二张图 + 署名
 │   ├── data.gen.js             ← 生成物，已 gitignore，勿手改（不含英译字段，见下）
 │   ├── questions.gen.js        ← 题库生成物，已 gitignore；250 KB，答题时才按需注入（见「运行时装配」）
-│   └── i18n_en.gen.js          ← 生成物，已 gitignore；二期英文界面数据准备，**不被 index.html 引用**
+│   └── i18n_en.gen.js          ← 生成物，已 gitignore；按 id 存 idKeysEn/habitatEn/factEn/quoteEn/
+│                                  lookalikeNotesEn，**index.html 已引用**（二期英文界面接上了）
+├── locales/
+│   ├── zh-Hans.js               ← 中文界面文案 237 键（自注册：文件末尾 I18N.register）
+│   └── en.js                    ← 英文界面文案 237 键（键集与占位符必须与中文完全对齐）
 ├── sw.js                       ← Service Worker 三层缓存；改 JS/CSS 后 V 与 index.html 的 ?v= 一起 bump
 ├── assets/photos/real/         ← 900px WebP × 166（详情页；11 个致命种另有 `<id>-2.webp` 补图）
 ├── assets/photos/thumb/        ← 200px WebP × 166 + index.json（列表；SW 预缓存清单）
@@ -95,6 +100,9 @@ mushroomId/
 │   ├── verify_fieldguide_d.mjs ← 改良轮行为验收：搜索扩容 / 第三刀 / 毒种相似种前置 / 灯箱 / 多图 / 深链
 │   ├── verify_observations.mjs ← 观察日志行为验收：一键记录 / 编辑 / GPS / 时间线 / 旧存档清理
 │   ├── verify_training.mjs     ← 认菌训练行为验收：速测 / 范围闪卡 / 易混对决 / 每日5题 / 错题本
+│   ├── i18n.mjs                ← 引擎门禁：键集对齐 / 能切 / 注册完整（10 项）
+│   ├── i18n-coverage.mjs       ← 英文模式下 5 屏 + 6 弹层的残留汉字扫描（棘轮 0，sheet:lang 例外 2）
+│   ├── check_hardcoded_zh.py   ← 渲染层写死中文门禁（棘轮 22，逐条注明是哪个内联三元表达式的中文分支）
 │   ├── smoke_prod.mjs          ← 部署后对生产站跑的验收冒烟
 │   ├── e2e.html                ← 浏览器里跑完整循环
 │   └── cards.html              ← 分享卡片肉眼验收页
@@ -121,9 +129,12 @@ node test/verify_fieldguide_c.mjs # 一期 C：识别要点、对比尺、照片
 node test/verify_fieldguide_d.mjs # 改良轮：搜索/第三刀/相似种前置/灯箱等 21 项
 node test/verify_observations.mjs # 观察日志：一键记录/编辑/GPS/时间线      22 项
 node test/verify_training.mjs     # 认菌训练：速测/闪卡/对决/每日5题/错题本 23 项
+node test/i18n.mjs                # 引擎门禁：键集对齐/能切/注册完整         10 项
+node test/i18n-coverage.mjs       # 英文模式残留汉字：5 主屏 + 6 弹层
+python3 test/check_hardcoded_zh.py # 源码写死中文扫描（棘轮 22）
 ```
 
-Windows / Git Bash 上没有 `python3`，一律用 `python`。五套 `verify_*.mjs` 用 Playwright
+Windows / Git Bash 上没有 `python3`，一律用 `python`。七套 `verify_*.mjs`/`i18n*.mjs` 用 Playwright
 自带的 Chromium（默认从 fishId 的 `tests/node_modules` 借，第一个参数可改目录），
 走真实点击，每条都有退出码。
 
@@ -141,7 +152,8 @@ Windows / Git Bash 上没有 `python3`，一律用 `python`。五套 `verify_*.m
 没有模块系统、没有打包器。每个文件是一个 IIFE 挂全局：
 `GameConfig` / `Storage` / `Gacha` / `Quiz` / `Share` / `Transfer` / `World` / `ShroomArt` / `Garden`。
 
-`index.html` 底部的 `<script>` **顺序即依赖**：config → core 五件 → weather/art/garden → `data.gen.js` → `app.js`。
+`index.html` 底部的 `<script>` **顺序即依赖**：`i18n.js` → 两份 locale（自注册，先后不论）→
+config → core 五件 → weather/art/garden → `data.gen.js` → `i18n_en.gen.js` → 照片署名两份 → `app.js`。
 新增文件要同时加进这里、`test/core.test.js` 顶部的 `load()` 列表（那边用 `vm` 把源码灌进一个假上下文），
 以及需要它的 `test/*.html`。core 与部分 game 文件末尾都有一行 `module.exports` 守卫，就是为了 node 侧能读。
 
@@ -279,10 +291,10 @@ fishId 有 43% 的题因为难度配置与题库分布对不上而永远抽不�
 - **`capSurface`**：菌盖表面五档（`smooth/scaly/warty/slimy/fibrous`），**只对 `silhouette` 为
   `umbrella`/`funnel` 的种存在**，其余种没有这个字段。伞形约占全库一半，「轮廓 + 颜色」两刀之后
   仍常剩 30+ 种，这是第三刀。
-- **`idKeysEn` / `habitatEn` / `lookalikeNotesEn` / `factEn` / `quoteEn`**：二期英文界面的数据层准备。
+- **`idKeysEn` / `habitatEn` / `lookalikeNotesEn` / `factEn` / `quoteEn`**：英文界面的数据层。
   **`build_data.py` 会把这五个字段从 `data.gen.js` 里剥离**，单独写进 `js/i18n_en.gen.js`
-  （生成物，不被 `index.html` 引用）——现在的中文界面用不上它们，留在主数据文件里就是让每个用户
-  白白多下 85 KB 不会显示的文本。改这几个字段只改 `data/mushrooms.json`，两处生成都会自动同步。
+  （生成物，`index.html` 已引用，按 id 查表——中文用户不用多下这份，只有切到英文才用得上）。
+  改这几个字段只改 `data/mushrooms.json`，两处生成都会自动同步。
 
 ## 改良轮（2026-09-08）
 
@@ -396,6 +408,62 @@ UI（`page-quiz`）、但结局不同的两条路：`round.mode` 是 `'gacha'`�
   里」得全程故意选错，不能用「乱点，反正大概率是错的」这种测法**。另外「单种速测」原本用纯随机
   取 5 题，同一个种如果凑巧那道看图题没被抽中，熟练度就测不到——改成看图题优先塞进去，不参与洗牌。
 
+## 英文界面（二期第三件，2026-09-08）
+
+**语言只做中文与英文**（2026-09-08 定）。引擎 `js/core/i18n.js` 照抄 fishId 验证过的形状（ES5
+化）：`register/registered/canonical/detect/lang/setLang/onChange/t/pick/applyDom`，`t(path)`
+缺键返回键名本身（未翻译的一眼可见），`pick(zh, en)` 缺英文回落中文。`locales/zh-Hans.js` /
+`en.js` 237 键，键集与占位符完全对齐（`test/i18n.mjs` 断言）。
+
+- **`GameConfig.retag(lang)`**（`config.js`）：`rarityLabels` / `edibility` / `labels.*` /
+  `biomes` / `weather` / `milestones`（前 5 个，第 6 个见下）/ `dailyTasks` / `share.footer` /
+  `safety.*` 这些字典本来就是全库共用的**同一份对象引用**，`retag()` 只在原地覆盖叶子字符串值
+  （`I18N_EN_OVERRIDES` / 从它反向生成的 `I18N_ZH_OVERRIDES` 快照 + `_i18nApply` 递归写），别处
+  `C.rarityLabels[r]` 这类调用点一个字都不用改。**踩过一次真的崩溃**：注入的英文 milestones 数组
+  多写了一条（对应运行时才 `concat` 上去的第 6 个「全部收集」里程碑），而 config.js 里的静态数组
+  只有 5 条，`_i18nSnapshot` 在 `live[5]` 上访问 `undefined.title` 直接崩掉整个 `core.test.js`——
+  **两个数组的长度必须精确对应同一份数据**，多一条少一条都不会静默出错，是直接抛异常。
+- **`js/i18n_en.gen.js`**：`idKeysEn`/`habitatEn`/`factEn`/`quoteEn`/`lookalikeNotesEn` 按 id 存
+  （不合并进 `MUSHROOM_DATA`，跟 `PHOTO_CREDITS`/`PHOTO_EXTRA` 是同一种「按 id 查生成物」的形状），
+  `app.js`/`browse.js` 各自的 `enOf(id)` 小函数负责查表。⚠ 这批翻译在更早一轮就已经生成好并写进
+  `data/mushrooms.json`（`CLAUDE.md` 原来的记录是「只差接引擎」），这次真正要做的只是**接上**：
+  忘了这茬，一度重新起了 5 个子代理去重译整库 166 种的识别要点/生境/趣味知识——直到读到这份文档
+  才发现是重复劳动，作废未采用。**改一个字段先查项目自己的 CLAUDE.md 有没有记过它已经在哪，
+  别急着动手生成新的一份「真相源」。**
+- **语言切换器**：「我的 → 设置 → 界面语言」开一个语言选择弹层（`I18N.NATIVE` 给「中文」
+  「English」这两个语言本名，**不随界面语言翻译**——跟 fishId 的语言选择器同一个道理，coverage
+  门禁对 `sheet:lang` 单独放宽到 2 个汉字的上限就是为了不把这个正确行为当成泄漏去追杀）。
+  `relanguage(code)` 做四件事：`I18N.setLang` → `GameConfig.retag` → 手动同步运行时追加的第 6 个
+  里程碑标题（它在 config.js 的快照范围之外）→ `I18N.applyDom()` 刷新静态 `data-i18n` 标记 →
+  `show(当前页)` 重渲染当前页面内容。
+- **`I18N.applyDom()` 的调用时机**：必须在 `app.js` 顶部、任何渲染发生之前调，不能放在
+  `index.html` 末尾的收尾脚本里——深链 `#/m/<id>` 会在 `app.js` 执行过程中就把详情页标题写成真实
+  物种名，若 `applyDom()` 排在它后面执行，会把 `<h1 id="detail-title" data-i18n="...">` 的占位
+  文本「详情」重新盖回去。**判据是 `verify_fieldguide_d.mjs` 里那条深链断言**——挪对位置前它会红。
+- **`showQuestion()` 的选项显示**：只有 `name_from_image`（166 道，每种一道，固定模板「这是什么
+  蘑菇？」/ "What mushroom is this?"）会跟着语言换，选项也换成 `optionsEn`；其余约 900 道
+  `feature`/`lookalike`/`edibility_class`/`trivia`/`cold_fact`/`myth_buster` + 人工题**仍是纯中文
+  数据**——`test/i18n-coverage.mjs` 没有巡到答题页正是因为这个已知缺口太大，量出来的数字没有
+  意义，等哪天真要翻这批题库再回来把 `quiz` 加进巡检表。这是记录在案的缺口，不是没做完就假装做完。
+- **三道门禁**：`test/i18n.mjs`（引擎，10 项）、`test/i18n-coverage.mjs`（英文模式下 5 个主屏 +
+  6 个弹层的残留汉字，主屏地板 >80、弹层地板 >10，防止「屏幕塌了导致零汉字天然为真」）、
+  `test/check_hardcoded_zh.py`（源码扫描，`js/game`+`js/core` 下的字符串字面量，棘轮 22——这 22 条
+  全部逐条核实过是 `I18N.lang()==='en' ? 英文 : 中文` 内联三元表达式的中文分支，不是漏翻译；
+  `config.js`/`i18n.js` 本身、四个生成物文件豁免；`transfer.js` 的报错文案已经走 `I18N.t()`，
+  留着的中文字面量只是裸 Node VM 测试上下文没加载引擎时的兜底参数，真实用户看到的是翻译过的文本）。
+  三道门都反向测过（改坏一处，确认对应的门会红，再改回来确认门变绿）。
+- **测试环境的语言坑**：Playwright 默认的 Chromium 报告浏览器语言是 `en-US`，`I18N.detect()`
+  会据此把界面判成英文——**7 套既有 `verify_*.mjs` 全部靠着找中文按钮文案定位元素**，之前全绿是
+  因为这套引擎压根不存在。接引擎当天这 7 套全部一次性变红，逐一在每个 `newPage()` 之后加
+  `page.addInitScript(() => localStorage.setItem('mush_lang', 'zh-Hans'))` 抢在 `app.js` 的
+  `I18N.detect()` 之前把语言钉死，全部变回绿。**新写任何要点中文按钮/文案的测试，都要加这一行**，
+  否则谁的机器/CI 环境报告的默认语言是英文，谁跑这套测试就会全灭。
+- **没做的**：166 个物种静态页（`m/*.html`）目前仍是中文单语——生成脚本 `make_species_pages.py`
+  当初特意选择不做英文版，理由写在「改良轮」一节：「没有英文 UI 就不该生成看起来完整实则半吊子的
+  英文页」。现在英文 UI 已经有了，这个理由不再成立，但生成 `m/en/*.html` 是独立的一块工作量（脚本
+  改造 + sitemap 双语 + 门禁），本轮「英文界面」任务范围认定为「交互式 App 内的界面」，静态 SEO
+  页留作后续单独任务，不在这轮里顺手做掉。
+
 ## 当前进度
 
 - [x] 166 种物种数据 + 题库（四类由数据生成）
@@ -429,9 +497,10 @@ UI（`page-quiz`）、但结局不同的两条路：`round.mode` 是 `'gacha'`�
 - [x] **二期·认菌训练重构（2026-09-08）**：答题从抽卡流程里拆出独立入口——详情页速测、
       范围闪卡、易混对决、每日 5 题、错题本，熟练度星级 + 30 天衰减（见「认菌训练重构」一节）。
       行为验收 23 项全过
-- [ ] 二期剩余：英文界面
-      （**语言只做中文与英文**，2026-09-08 定；引擎可照 fishId 的 `i18n.js` 拷，数据层 `nameEn` 已有，
-      识别要点/生境/趣味知识/差异句的英译也已备好在 `i18n_en.gen.js`，只差接引擎）
+- [x] **二期·英文界面（2026-09-08）**：引擎 + 237 键双语 locale + `retag()` 机制 + 语言切换器 +
+      `enOf(id)` 接上 `i18n_en.gen.js` 的识别要点/生境/趣味知识/差异句英译，三道门禁全绿
+      （见「英文界面」一节）。已知缺口：约 900 道非看图题的答题内容与 166 个物种静态页仍是中文单语。
+      二期三件（观察日志、认菌训练重构、英文界面）**全部完成**。
 - [x] 15 种无照片的种：已于 2026-09-08 整体下线（清单在 `C:\tmp\mushroomId\README.md`），
       要么保持绘制，要么找国内机构授权
 - [x] **改良轮（2026-09-08）**：检索第三刀（菌盖表面 + 大小）、搜索扩容与常见写法归一、遇见率按
