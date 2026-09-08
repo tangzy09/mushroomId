@@ -29,7 +29,8 @@ const click = async (sel) => { await page.click(sel); await page.waitForTimeout(
 
 /* B1 五路里初始四路可见，菌盖背面是条件维度先不出现 */
 let tb = await tabs();
-t('初始四个入口：轮廓/长在哪/颜色/名字', tb.join() === 'silhouette,substrate,colors,name', tb.join());
+// 2026-09-08 加「大小」为第三刀：伞形 86 种在轮廓+颜色之后仍常 >8 种，加了 capCm 分档
+t('初始五个入口：轮廓/长在哪/颜色/大小/名字', tb.join() === 'silhouette,substrate,colors,size,name', tb.join());
 
 /* B2 左栏显示的剩余计数 == 真选下去的结果数（计数不骗人） */
 const first = await page.evaluate(() => {
@@ -93,6 +94,37 @@ t('对比网格每格带识别要点或学名', gridState.hints === gridState.ce
 /* B9 清空 */
 await click('#facet-clear');
 t('清空后回到全部 166 种', (await results()) === 166 && (await active()) === 0, await results());
+
+/* B9b 第三刀「菌盖表面」：伞形+白色两刀之后常剩 >8 种（审计过 36 种），
+   加这一维要让它真的能再收窄，且收窄后结果全部匹配那个值 */
+await click('#facet-tabs button[data-tab="silhouette"]');
+await click('#facet-left .frow[data-val="umbrella"]');
+await click('#facet-tabs button[data-tab="colors"]');
+await click('#facet-left .frow[data-val="white"]');
+const beforeThird = await results();
+await click('#facet-tabs button[data-tab="capSurface"]');
+const csVal = await page.evaluate(() => {
+  const r = document.querySelector('#facet-left .frow:not(.zero)');
+  return r ? r.dataset.val : null;
+});
+t('伞形+白色后「菌盖表面」有可选项', !!csVal, csVal);
+if (csVal) {
+  await click('#facet-left .frow[data-val="' + csVal + '"]');
+  const afterThird = await results();
+  const allMatch = await page.evaluate(v => Browse._facet().results().every(m => m.capSurface === v), csVal);
+  t('选菌盖表面后结果收窄且全部匹配（' + csVal + '）', afterThird > 0 && afterThird <= beforeThird && allMatch,
+    afterThird + ' <= ' + beforeThird);
+}
+await click('#facet-clear');
+
+/* B9c 第三刀「大小」：直接选档，结果全部落在 capCm 范围内 */
+await click('#facet-tabs button[data-tab="size"]');
+await click('#facet-left .frow[data-val="small"]');
+const smallOk = await page.evaluate(() =>
+  Browse._facet().results().length > 0 &&
+  Browse._facet().results().every(m => m.capCm && m.capCm[1] <= 5));
+t('大小＝小 时结果非空且全部 capCm 上限 ≤5', smallOk);
+await click('#facet-clear');
 
 /* B10 改轮廓为球块，菌盖背面 tab 收起且条件被清 */
 await click('#facet-tabs button[data-tab="silhouette"]');   // 清空不切 tab，先回到轮廓

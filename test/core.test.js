@@ -17,6 +17,7 @@ load('js/core/gacha.js');
 load('js/core/quiz.js');
 load('js/game/weather.js');
 load('js/data.gen.js');
+load('js/questions.gen.js');
 
 const { GameConfig, Storage, Gacha, Quiz, World, MUSHROOM_DATA, QUESTIONS } = ctx;
 
