@@ -496,6 +496,45 @@ t('storage: observations survive a reload and are backfilled on old saves', () =
   const s3 = Storage.init(GameConfig, store);
   eq(s3.observations, []);
 });
+t('storage: mastery clamps to 0..3', () => {
+  Storage.init(GameConfig, memStore());
+  eq(Storage.masteryFor('flyagaric'), 0);
+  Storage.bumpMastery('flyagaric', 1);
+  Storage.bumpMastery('flyagaric', 1);
+  eq(Storage.masteryFor('flyagaric'), 2);
+  Storage.bumpMastery('flyagaric', 5);
+  eq(Storage.masteryFor('flyagaric'), 3, 'clamps at the top:');
+  Storage.bumpMastery('flyagaric', -10);
+  eq(Storage.masteryFor('flyagaric'), 0, 'clamps at the bottom:');
+});
+t('storage: the wrong book has no duplicates and forgets on request', () => {
+  Storage.init(GameConfig, memStore());
+  Storage.addWrong('flyagaric');
+  Storage.addWrong('flyagaric');
+  eq(Storage.wrongList(), ['flyagaric'], 'no duplicate:');
+  Storage.addWrong('matsutake');
+  eq(Storage.wrongList().length, 2);
+  Storage.removeWrong('flyagaric');
+  eq(Storage.wrongList(), ['matsutake']);
+});
+t('storage: a star not reviewed in 30 days comes back down by one', () => {
+  const store = memStore();
+  Storage.init(GameConfig, store);
+  Storage.bumpMastery('flyagaric', 3);
+  Storage.update(s => { s.lastQuiz.flyagaric = '2020-01-01'; s.dailyRuns.date = '2020-01-01'; });
+  const s2 = Storage.init(GameConfig, store);   // a "new day" past the 30-day mark
+  eq(s2.mastery.flyagaric, 2, 'one star back, not wiped:');
+  eq(s2.lastQuiz.flyagaric, Storage.today(), 'decay resets the clock so it does not fire again tomorrow:');
+});
+t('storage: a star reviewed recently does not decay', () => {
+  const store = memStore();
+  Storage.init(GameConfig, store);
+  Storage.bumpMastery('flyagaric', 2);
+  Storage.markQuizzed('flyagaric');
+  Storage.update(s => { s.dailyRuns.date = '2020-01-01'; });   // force a day boundary, but lastQuiz is "today"
+  const s2 = Storage.init(GameConfig, store);
+  eq(s2.mastery.flyagaric, 2, 'not touched:');
+});
 t('storage: a new day refills forays and clears daily tasks', () => {
   const store = memStore();
   Storage.init(GameConfig, store);
