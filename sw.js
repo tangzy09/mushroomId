@@ -8,7 +8,7 @@
  * 发版：改任何 JS/CSS 后同步 bump V（与 index.html 的 ?v= 用同一个日期串）。
  * 缓存键一律归一化为不带查询串的 pathname，读写同键。
  */
-const V = '20260908a';
+const V = '20260908b';
 const CORE = 'mush-core-' + V;
 const THUMB = 'mush-thumb-v1';
 const IMG = 'mush-img-v1';          // 不带版本：升级时不丢用户已下载的大图
@@ -19,7 +19,7 @@ const CORE_URLS = [
   'index.html', 'manifest.webmanifest', 'css/style.css',
   'js/game/config.js', 'js/core/storage.js', 'js/core/gacha.js', 'js/core/quiz.js',
   'js/core/share.js', 'js/core/transfer.js', 'js/game/weather.js', 'js/game/shroom-art.js',
-  'js/core/facet.js', 'js/game/browse.js', 'js/game/garden.js', 'js/data.gen.js', 'js/photo_credits.js', 'js/game/app.js',
+  'js/core/facet.js', 'js/game/browse.js', 'js/game/garden.js', 'js/data.gen.js', 'js/questions.gen.js', 'js/photo_credits.js', 'js/photo_extra.js', 'js/game/app.js',
   'assets/icons/icon-192.png', 'assets/icons/icon-512.png'
 ];
 const CORE_SET = new Set(CORE_URLS.map(u => new URL(u, self.registration.scope).pathname));

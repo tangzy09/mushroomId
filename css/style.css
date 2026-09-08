@@ -72,6 +72,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--primary); outli
   font-size: 11px; line-height: 1.5;
   padding: 6px 14px;
 }
+/* 首开确认后收成一行，点击展开；内容不变、不可关闭 */
+.safety-bar.compact { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 4px 14px; cursor: pointer; }
 
 /* ---- bottom nav ---- */
 .bottom-nav {
@@ -322,6 +324,18 @@ input[type=range]::-moz-range-track { height: 5px; border-radius: 3px; backgroun
   align-items: center; justify-content: center; gap: 6px;
 }
 .sp-photo { object-fit: cover; display: block; background: rgba(0,0,0,.06); }
+/* 详情页主图满宽（fishId 规矩：照片满宽直角），高度按比例，最多占 62vh */
+.detail-art img.sp-photo { width: 100%; height: auto; max-height: 62vh; cursor: zoom-in; }
+#lightbox { position: fixed; inset: 0; background: #000; z-index: 60; display: none; align-items: center; justify-content: center; touch-action: pinch-zoom; overflow: auto; cursor: zoom-out; }
+#lightbox.on { display: flex; }
+#lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; }
+/* 详情页多图轮播：横向滚动、整张吸附 */
+.photo-strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; width: 100%; gap: 2px; scrollbar-width: none; }
+.photo-strip::-webkit-scrollbar { display: none; }
+.photo-strip img.sp-photo { flex: 0 0 100%; scroll-snap-align: start; }
+.photo-dots { display: flex; gap: 5px; justify-content: center; margin-top: -2px; }
+.photo-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--line); }
+.photo-dots i.on { background: var(--primary); }
 .photo-credit { font-size: 10.5px; line-height: 1.4; color: var(--muted); text-align: center; }
 .photo-credit a { color: inherit; }
 

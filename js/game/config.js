@@ -203,6 +203,13 @@ var GameConfig = {
     color: {
       white: '白', yellow: '黄', orange: '橙', red: '红', brown: '褐',
       grey: '灰', black: '黑', purple: '紫', green: '绿'
+    },
+    // 第三刀：菌盖表面（只对伞形 / 漏斗形）与大小（按 capCm 最大记录）
+    capSurface: {
+      smooth: '光滑', scaly: '有鳞片', warty: '疣点与斑块', slimy: '湿时黏滑', fibrous: '纤维与条纹'
+    },
+    size: {
+      small: '小，5 cm 以内', medium: '中，5–15 cm', large: '大，15 cm 以上'
     }
   },
 

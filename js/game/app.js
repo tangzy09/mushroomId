@@ -99,8 +99,34 @@
     var who = (c.by || '').replace(/\s*\/\s*(CC0|CC-BY(-SA)?|PD)\s*$/i, '').trim();
     var lic = /\b(CC0|CC[ -]BY|public domain)\b/i.test(who)
       ? '' : ' · ' + esc((c.license || '').toUpperCase());
+    // CC0 / 公有领域的记录 iNat 写成 "no rights reserved"，中文页里直说
+    if (/^(no rights reserved|public domain)$/i.test(who)) { who = '公有领域'; lic = ' · ' + esc((c.license || 'CC0').toUpperCase()); }
     d.innerHTML = '照片 ' + esc(who) + lic +
       (c.url ? ' · <a href="' + esc(c.url) + '" target="_blank" rel="noopener">来源</a>' : '');
+    return d;
+  }
+
+  // 全屏看图：黑底、原图、双指缩放靠浏览器（touch-action: pinch-zoom）。点一下关。
+  function openLightbox(src, alt) {
+    var lb = $('lightbox');
+    if (!lb) return;
+    var im = lb.querySelector('img');
+    im.src = src; im.alt = alt || '';
+    lb.classList.add('on');
+  }
+
+  // 补图：关键特征在主图上看不到时用（菌托、菌褶、切面）。PHOTO_EXTRA 是生成物，可能不存在。
+  function extraPhotos(m) {
+    return (typeof PHOTO_EXTRA !== 'undefined' && PHOTO_EXTRA[m.id]) || [];
+  }
+  function extraCreditEl(ex) {
+    var d = document.createElement('div');
+    d.className = 'photo-credit';
+    var who = (ex.by || '').replace(/\s*\/\s*(CC0|CC-BY(-SA)?|PD)\s*$/i, '').trim();
+    var lic = /\b(CC0|CC[ -]BY|public domain)\b/i.test(who) ? '' : ' · ' + esc((ex.license || '').toUpperCase());
+    if (/^(no rights reserved|public domain)$/i.test(who)) { who = '公有领域'; lic = ' · ' + esc((ex.license || 'CC0').toUpperCase()); }
+    d.innerHTML = '照片 ' + esc(who) + lic +
+      (ex.url ? ' · <a href="' + esc(ex.url) + '" target="_blank" rel="noopener">来源</a>' : '');
     return d;
   }
 
@@ -209,6 +235,19 @@
   // ---------------------------------------------------------------- garden
   $('safety-bar').textContent = C.safety.banner;
   $('safety-bar-2').textContent = C.safety.banner;
+  // 横幅永不消失，但首开弹窗确认过之后收成一行（点一下展开）；每屏两行 + 弹窗是三遍同一句话
+  (function compactBanners() {
+    var seen = false;
+    try { seen = !!localStorage.getItem(C.storageKeys.disclaimer); } catch (e) {}
+    ['safety-bar', 'safety-bar-2'].forEach(function (id) {
+      var el = $(id);
+      el.classList.toggle('compact', seen);
+      el.addEventListener('click', function () { el.classList.toggle('compact'); });
+    });
+    window.compactSafetyBars = function () {
+      ['safety-bar', 'safety-bar-2'].forEach(function (id) { $(id).classList.add('compact'); });
+    };
+  })();
 
   function refreshGardenChrome() {
     var st = Storage.get();
@@ -325,15 +364,29 @@
     $('foray-text').textContent = C.biomes[chosenBiome].label.replace(/^\S+\s/, '') +
       ' · ' + C.weather[weather].label;
     $('foray-anim').classList.add('on');
+    ensureQuestions(function () {
     startRound();
     setTimeout(function () {
       $('foray-anim').classList.remove('on');
       go('quiz');
       showQuestion();
     }, 1600);
+    });
   });
 
   // ---------------------------------------------------------------- quiz
+  // 题库 250 KB 单独成文件，进答题时才注入；版本戳跟 data.gen.js 的 script 标签走
+  function ensureQuestions(cb) {
+    if (typeof QUESTIONS !== 'undefined') { cb(); return; }
+    var ref = document.querySelector('script[src*="data.gen.js"]');
+    var v = ref && /\?v=([^&]+)/.exec(ref.getAttribute('src'));
+    var s = document.createElement('script');
+    s.src = 'js/questions.gen.js' + (v ? '?v=' + v[1] : '');
+    s.onload = function () { if (typeof QUESTIONS !== 'undefined') cb(); else toast('题库加载失败'); };
+    s.onerror = function () { toast('题库加载失败，检查网络后再试'); };
+    document.head.appendChild(s);
+  }
+
   function startRound() {
     var st = Storage.get();
     var level = C.quiz.levels[st.difficulty] || C.quiz.levels.beginner;
@@ -634,17 +687,61 @@
 
     var box = document.createElement('div');
     box.className = 'detail-art';
-    box.appendChild(art(m, 180));
-    if (!hasPhoto(m)) {
-      // 示意图是按形态字段画的，未必像真的；致命种要把这一点说得很重
-      var np = document.createElement('div');
-      np.className = 'photo-credit no-photo' + (m.edibility === 'deadly' ? ' warn' : '');
-      np.textContent = '暂无照片，示意图仅表示大致形态' +
-        (m.edibility === 'deadly' ? '。剧毒物种，切勿据此辨认' : '');
-      box.appendChild(np);
+    // 照片满宽（CSS 拉到 100%），点击进全屏放大；无照片时 400px 画布居中。
+    // 部分致命种主图拍不到关键特征（菌托 / 菌褶细节），extraPhotos(m) 有值时改成
+    // 可横滑的照片带，署名跟着当前滑到的那张走。
+    var extra = extraPhotos(m);
+    if (hasPhoto(m) && extra.length) {
+      var strip = document.createElement('div');
+      strip.className = 'photo-strip';
+      var mainPic = art(m, 400);
+      mainPic.addEventListener('click', function () { openLightbox(mainPic.currentSrc || mainPic.src, m.name); });
+      strip.appendChild(mainPic);
+      extra.forEach(function (ex) {
+        var im = document.createElement('img');
+        im.className = 'sp-photo';
+        im.loading = 'lazy';
+        im.alt = m.name;
+        im.src = ex.file;
+        im.addEventListener('click', function () { openLightbox(im.currentSrc || im.src, m.name); });
+        strip.appendChild(im);
+      });
+      box.appendChild(strip);
+      var dots = document.createElement('div');
+      dots.className = 'photo-dots';
+      var frames = [null].concat(extra);           // null = 主图，用 PHOTO_CREDITS
+      frames.forEach(function (_, i) { var i2 = document.createElement('i'); if (i === 0) i2.className = 'on'; dots.appendChild(i2); });
+      box.appendChild(dots);
+      var creditHost = document.createElement('div');
+      box.appendChild(creditHost);
+      var renderCredit = function (idx) {
+        creditHost.innerHTML = '';
+        var c = idx === 0 ? photoCredit(m) : extraCreditEl(extra[idx - 1]);
+        if (c) creditHost.appendChild(c);
+        Array.prototype.forEach.call(dots.children, function (d, i) { d.className = i === idx ? 'on' : ''; });
+      };
+      renderCredit(0);
+      strip.addEventListener('scroll', function () {
+        var idx = Math.round(strip.scrollLeft / strip.clientWidth);
+        renderCredit(Math.max(0, Math.min(frames.length - 1, idx)));
+      }, { passive: true });
+    } else {
+      var pic = art(m, 400);
+      box.appendChild(pic);
+      if (hasPhoto(m)) {
+        pic.addEventListener('click', function () { openLightbox(pic.currentSrc || pic.src, m.name); });
+      }
+      if (!hasPhoto(m)) {
+        // 示意图是按形态字段画的，未必像真的；致命种要把这一点说得很重
+        var np = document.createElement('div');
+        np.className = 'photo-credit no-photo' + (m.edibility === 'deadly' ? ' warn' : '');
+        np.textContent = '暂无照片，示意图仅表示大致形态' +
+          (m.edibility === 'deadly' ? '。剧毒物种，切勿据此辨认' : '');
+        box.appendChild(np);
+      }
+      var credit = photoCredit(m);
+      if (credit) box.appendChild(credit);
     }
-    var credit = photoCredit(m);
-    if (credit) box.appendChild(credit);
     b.appendChild(box);
 
     var head = document.createElement('div');
@@ -669,6 +766,9 @@
         '</ol><p class="muted footnote">识别要点由 AI 据公开资料整理，未经真菌学家审校，仅供学习，不能作为采食依据。</p>';
       b.appendChild(ik);
     }
+
+    // 毒 / 致命种的「容易认错」紧贴识别要点（设计 §3：高危种的相似种块不能沉到页底）
+    if (isToxicSp(m)) { var lkTop = lookalikeCard(m); if (lkTop) b.appendChild(lkTop); }
 
     // 尺度对比尺：「菌盖 5–15 cm」没人有概念，画一把带参考物的尺就有。
     // 按量级三档换参考物；轴长取半程为整数的好看数，中间刻度才不会出现 12.5。
@@ -710,6 +810,39 @@
       '<p class="muted" style="margin:8px 0 0">「' + m.quote + '」</p>';
     b.appendChild(fact);
 
+    // 非毒种的相似种是「顺带认识一下」，留在趣味知识之后就好
+    if (!isToxicSp(m)) { var lkBottom = lookalikeCard(m); if (lkBottom) b.appendChild(lkBottom); }
+
+    var planted = Storage.isPlaced(m.id);
+    var act = document.createElement('button');
+    act.className = 'btn wide' + (planted ? ' ghost' : '');
+    act.textContent = planted ? '从菌菇园移出' : '🌲 种进菌菇园';
+    act.addEventListener('click', function () {
+      if (planted) {
+        Storage.unplace(m.id);
+        toast('已移出');
+      } else {
+        var slot = World.slotFor(m, C.garden, Storage.placed().map(function (s) { return s.slot; }));
+        if (!slot) { toast('菌菇园满了'); return; }
+        Storage.place(m.id, slot.id);
+        toast('已种下，等它长起来');
+      }
+      renderDetail(m);
+      refreshGardenChrome();
+    });
+    b.appendChild(act);
+
+    var sh = document.createElement('button');
+    sh.className = 'btn ghost wide';
+    sh.style.marginTop = '8px';
+    sh.textContent = '📤 分享这张卡';
+    sh.addEventListener('click', function () { shareEntity(m); });
+    b.appendChild(sh);
+  }
+
+  function isToxicSp(x) { return x.edibility === 'poisonous' || x.edibility === 'deadly'; }
+
+  function lookalikeCard(m) {
     if (m.lookalikes && m.lookalikes.length) {
       var lk = document.createElement('div');
       lk.className = 'card';
@@ -739,34 +872,9 @@
         row.appendChild(el);
       });
       lk.appendChild(row);
-      b.appendChild(lk);
+      return lk;
     }
-
-    var planted = Storage.isPlaced(m.id);
-    var act = document.createElement('button');
-    act.className = 'btn wide' + (planted ? ' ghost' : '');
-    act.textContent = planted ? '从菌菇园移出' : '🌲 种进菌菇园';
-    act.addEventListener('click', function () {
-      if (planted) {
-        Storage.unplace(m.id);
-        toast('已移出');
-      } else {
-        var slot = World.slotFor(m, C.garden, Storage.placed().map(function (s) { return s.slot; }));
-        if (!slot) { toast('菌菇园满了'); return; }
-        Storage.place(m.id, slot.id);
-        toast('已种下，等它长起来');
-      }
-      renderDetail(m);
-      refreshGardenChrome();
-    });
-    b.appendChild(act);
-
-    var sh = document.createElement('button');
-    sh.className = 'btn ghost wide';
-    sh.style.marginTop = '8px';
-    sh.textContent = '📤 分享这张卡';
-    sh.addEventListener('click', function () { shareEntity(m); });
-    b.appendChild(sh);
+    return null;
   }
 
   function openDetail(m) { go('detail', m.id); }
@@ -996,6 +1104,7 @@
         el.querySelector('#btn-agree').addEventListener('click', function () {
           localStorage.setItem(C.storageKeys.disclaimer, '1');
           closeSheet();
+          if (window.compactSafetyBars) window.compactSafetyBars();
           gift();
         });
       });
@@ -1038,6 +1147,11 @@
 
   refreshGardenChrome();
   root('collection');
+  // 深链：物种静态页（m/<id>.html）底部「在图鉴里打开」带 #/m/<id> 进来，直接落到详情
+  (function deepLink() {
+    var h = /^#\/m\/([\w-]+)/.exec(location.hash || '');
+    if (h && byId[h[1]]) go('detail', h[1]);
+  })();
   Garden.start();
   firstRun();
   setInterval(function () { Garden.autoNight(); }, 60000);

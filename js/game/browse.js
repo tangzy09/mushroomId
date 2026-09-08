@@ -26,6 +26,14 @@ var Browse = (function () {
       return (s === 'insect' || s === 'parasitic' || s === 'termite') ? 'parasitic' : s;
     } },
     colors:     { field: 'colorGroup', multi: true, array: true },
+    // 菌盖表面：只对伞形 / 漏斗形标注（数据里其余种没有这个字段）
+    capSurface: { field: 'capSurface' },
+    // 大小：从 capCm 的最大记录分三档。伞形 86 种在「轮廓 + 颜色」之后仍剩 36，这是第三刀
+    size:       { field: function (m) {
+      var hi = m.capCm && m.capCm[1];
+      if (!hi) return null;
+      return hi <= 5 ? 'small' : hi <= 15 ? 'medium' : 'large';
+    } },
     ring:       { field: function (m) { return m.ring ? 'yes' : 'no'; } },
     volva:      { field: function (m) { return m.volva ? 'yes' : 'no'; } },
     season:     { field: 'season', array: true },
@@ -41,8 +49,10 @@ var Browse = (function () {
   var TABS = [
     { key: 'silhouette', label: '轮廓' },
     { key: 'hymenium',   label: '菌盖背面', when: hymeniumApplies },
+    { key: 'capSurface', label: '菌盖表面', when: hymeniumApplies },
     { key: 'substrate',  label: '长在哪' },
     { key: 'colors',     label: '颜色' },
+    { key: 'size',       label: '大小' },
     { key: 'name',       label: '名字' }
   ];
   var GHOSTS = [
@@ -64,6 +74,8 @@ var Browse = (function () {
     if (dim === 'hymenium') return (L.hymenium || {})[v] || v;
     if (dim === 'substrate') return v === 'parasitic' ? '虫体与寄生' : ((L.substrate || {})[v] || v);
     if (dim === 'colors') return (L.color || {})[v] || v;
+    if (dim === 'capSurface') return (L.capSurface || {})[v] || v;
+    if (dim === 'size') return (L.size || {})[v] || v;
     if (dim === 'season') return v + ' 月';
     if (dim === 'ring') return '有菌环';
     if (dim === 'volva') return '有菌托';
@@ -71,11 +83,36 @@ var Browse = (function () {
     return v;
   }
 
+  // 搜索：用户会打「松树」而生境写的是「松林」，会打「有毒」而标签是「☠️ 剧毒」。
+  // 所以 ① 把常见写法归一成词根再匹配；② 识别要点与食性标签也进搜索面。
+  var SYN = [
+    [/松树|松木|松林/g, '松'], [/栎树|橡树|栎林|橡木/g, '栎'], [/桦树|桦木/g, '桦'],
+    [/杉树|杉木/g, '杉'], [/枯木|朽木|倒木|树桩|树干/g, '木'], [/草坪|草原/g, '草地'],
+    [/有毒|毒菌|毒蘑菇|剧毒|致命/g, '毒'], [/能吃|可食|食用/g, '食']
+  ];
+  var hayCache = {};
+  function haystack(m) {
+    if (!hayCache[m.id]) {
+      var ed = (C.edibility || {})[m.edibility] || {};
+      var toxicWords = (m.edibility === 'poisonous' || m.edibility === 'deadly') ? ' 毒 有毒 毒菌' : '';
+      var parts = [m.name, m.nameEn, m.latin, m.family, m.habitat, m.pinyin, m.pyAbbr,
+        (m.aka || []).join(' '), (L.substrate || {})[m.substrate], ed.label || '', toxicWords,
+        (m.idKeys || []).map(function (k) { return k.text; }).join(' ')];
+      var s = parts.join(' ').toLowerCase();
+      SYN.forEach(function (r) { s = s.replace(r[0], r[1]); });
+      hayCache[m.id] = s;
+    }
+    return hayCache[m.id];
+  }
+  function normQuery(q) {
+    var s = q;
+    SYN.forEach(function (r) { s = s.replace(r[0], r[1]); });
+    return s;
+  }
   function matchesQuery(m, q) {
     if (!q) return true;
-    var hay = [m.name, m.nameEn, m.latin, m.family, m.habitat, m.pinyin, m.pyAbbr,
-      (m.aka || []).join(' '), (L.substrate || {})[m.substrate]].join(' ').toLowerCase();
-    return hay.indexOf(q) >= 0;
+    var nq = normQuery(q);
+    return haystack(m).indexOf(nq) >= 0;
   }
 
   // 搜索改变数据集时重建 Facet；条件带过去，这样搜索与筛选叠加而计数仍然正确
@@ -149,7 +186,9 @@ var Browse = (function () {
     silhouette: ['umbrella', 'funnel', 'shelf', 'ball', 'coral', 'club', 'brain', 'jelly'],
     hymenium: ['gills', 'pores', 'teeth', 'ridges', 'smooth', 'gleba'],
     substrate: ['wood', 'mycorrhizal', 'soil', 'grass', 'litter', 'parasitic', 'conifer_cone'],
-    colors: ['white', 'yellow', 'orange', 'red', 'brown', 'grey', 'black', 'purple', 'green']
+    colors: ['white', 'yellow', 'orange', 'red', 'brown', 'grey', 'black', 'purple', 'green'],
+    capSurface: ['smooth', 'scaly', 'warty', 'slimy', 'fibrous'],
+    size: ['small', 'medium', 'large']
   };
 
   function renderLeft() {
