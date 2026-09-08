@@ -33,6 +33,9 @@ var Storage = (function () {
       createdAt: new Date().toISOString(),
       collections: [],                 // [{entityId, count, firstAt}]
       observations: [],                // [{oid, entityId, date:'YYYY-MM-DD', place, note, ts}]
+      mastery: {},                     // {entityId: 0..3} — only picture questions move this
+      lastQuiz: {},                    // {entityId: 'YYYY-MM-DD'} — last time a picture question ran, for decay
+      wrong: [],                       // [entityId], no duplicates — answered wrong at least once, not since fixed
       slots: [],                       // [{id, slot, placedAt, lastYieldAt, boostMs}]
       fragments: { common: 0, rare: 0, epic: 0, legend: 0 },
       fragmentEssence: 0,
@@ -80,12 +83,29 @@ var Storage = (function () {
     return data;
   }
 
+  var DAY_MS = 24 * 60 * 60 * 1000;
+  function daysBetween(a, b) { return Math.round((new Date(b) - new Date(a)) / DAY_MS); }
+
+  /** A star not reviewed in 30 days quietly comes back down, one at a time.
+   *  Resets the clock to today so it does not decay again tomorrow. */
+  function decayMastery(data, t) {
+    Object.keys(data.mastery).forEach(function (id) {
+      if (data.mastery[id] <= 0) return;
+      var last = data.lastQuiz[id];
+      if (last && daysBetween(last, t) > 30) {
+        data.mastery[id] -= 1;
+        data.lastQuiz[id] = t;
+      }
+    });
+  }
+
   /** Daily and hourly resets. Returns true if anything changed. */
   function rollover(data) {
     var t = today(), changed = false;
     if (data.dailyRuns.date !== t) {
       data.dailyRuns = { date: t, free: cfg.economy.dailyRuns };
       changed = true;
+      decayMastery(data, t);
     }
     if (data.hourlyActions.hour !== thisHour()) {
       data.hourlyActions = { hour: thisHour(), count: cfg.economy.actionsPerHour };
@@ -232,6 +252,31 @@ var Storage = (function () {
       state.observations = state.observations.filter(function (o) { return o.oid !== oid; });
       this.commit();
       return state.observations.length !== before;
+    },
+
+    // --- practice ---------------------------------------------------------
+    // Proficiency is a picture-recognition signal only (per the design note:
+    // "熟练度只记看图题" — a right/wrong on a text trivia question says nothing
+    // about whether someone can pick the thing out of a crowd). markQuizzed
+    // resets the 30-day decay clock; call it whenever a picture question about
+    // that entity is answered, right or wrong.
+    masteryFor: function (id) { return state.mastery[id] || 0; },
+    bumpMastery: function (id, delta) {
+      var v = (state.mastery[id] || 0) + delta;
+      state.mastery[id] = Math.max(0, Math.min(3, v));
+      this.commit();
+    },
+    markQuizzed: function (id) {
+      state.lastQuiz[id] = today();
+      this.commit();
+    },
+    wrongList: function () { return state.wrong.slice(); },
+    addWrong: function (id) {
+      if (state.wrong.indexOf(id) === -1) { state.wrong.push(id); this.commit(); }
+    },
+    removeWrong: function (id) {
+      var i = state.wrong.indexOf(id);
+      if (i !== -1) { state.wrong.splice(i, 1); this.commit(); }
     },
 
     // --- counters ------------------------------------------------------

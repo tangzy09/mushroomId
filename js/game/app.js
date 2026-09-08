@@ -180,7 +180,7 @@
 
   function show(id, arg) {
     page = id;
-    ['garden', 'collection', 'profile', 'biome', 'quiz', 'reveal', 'detail', 'observations']
+    ['garden', 'collection', 'profile', 'biome', 'quiz', 'reveal', 'detail', 'observations', 'training']
       .forEach(function (p) {
         var el = $('page-' + p);
         if (el) el.classList.toggle('active', p === id);
@@ -195,6 +195,7 @@
     if (id === 'profile') renderProfile();
     if (id === 'detail' && arg && byId[arg]) renderDetail(byId[arg]);
     if (id === 'observations') renderObservations();
+    if (id === 'training') renderTraining();
   }
   function root(id) {
     stack = [{ page: id }];
@@ -393,6 +394,7 @@
     var st = Storage.get();
     var level = C.quiz.levels[st.difficulty] || C.quiz.levels.beginner;
     round = {
+      mode: 'gacha',
       level: level,
       questions: Quiz.pickQuestions(QUESTIONS, level, {
         perRound: C.quiz.perRound,
@@ -403,6 +405,183 @@
     };
   }
 
+  // ---------------------------------------------------------------- training
+  // Quiz is downgraded to a tool here: no card, no reward, just the same
+  // question/answer machinery pointed at a different, smaller pool. Reusing
+  // showQuestion()/answer() means a "mode" can be nothing more than which
+  // questions were picked and what happens when the round ends.
+  function startTrainingRound(questions, opts) {
+    round = {
+      mode: 'training', label: (opts && opts.label) || '训练',
+      onDone: opts && opts.onDone,
+      questions: questions, idx: 0, correct: 0, wrong: 0, toxicHit: false
+    };
+    go('quiz');
+    showQuestion();
+  }
+
+  function imageQuestionsFor(ids, take) {
+    var pool = QUESTIONS.filter(function (q) {
+      return q.type === 'name_from_image' && ids.indexOf(q.entityId) >= 0;
+    });
+    return shuffledCopy(pool).slice(0, take || pool.length);
+  }
+
+  function shuffledCopy(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  // Every entry point that reads QUESTIONS goes through ensureQuestions first —
+  // a session that goes straight to training without ever foraying once
+  // would otherwise hit QUESTIONS as an undefined global.
+  function startSingleQuiz(m) {
+    ensureQuestions(function () {
+      // The picture question goes first and is never shuffled out — a
+      // field guide's "quick test" that skips the one question shaped like
+      // "is this what you think it is" would be a strange omission.
+      var pool = QUESTIONS.filter(function (q) { return q.entityId === m.id; });
+      var img = pool.filter(function (q) { return q.type === 'name_from_image'; });
+      var rest = shuffledCopy(pool.filter(function (q) { return q.type !== 'name_from_image'; }));
+      var qs = img.concat(rest).slice(0, 5);
+      if (!qs.length) { toast('这一种暂时没有题目'); return; }
+      startTrainingRound(qs, { label: m.name + ' · 速测' });
+    });
+  }
+
+  // "范围闪卡": whatever the field guide's current filter turned up, quizzed
+  // as pictures. Reads Browse's live result set, not a snapshot — the whole
+  // point is "test me on what I'm looking at right now".
+  function startScopedFlashcards() {
+    ensureQuestions(function () {
+      var ids = Browse._facet ? Browse._facet().results().map(function (m) { return m.id; }) : [];
+      var qs = imageQuestionsFor(ids, C.quiz.perRound);
+      if (!qs.length) { toast('先去图鉴筛出几种再来'); return; }
+      startTrainingRound(qs, { label: '范围闪卡' });
+    });
+  }
+
+  // "易混对决": two options only — the species and its closest lookalike —
+  // built on the fly rather than pulled from the bank, because the bank's
+  // questions were never shaped like this.
+  function duelQuestion(a) {
+    var pool = (a.lookalikes || []).map(function (id) { return byId[id]; }).filter(Boolean);
+    if (!pool.length) return null;
+    var b = pool[Math.floor(Math.random() * pool.length)];
+    var diff = (a.lookalikeNotes && a.lookalikeNotes[b.id]) ||
+      (b.lookalikeNotes && b.lookalikeNotes[a.id]) ||
+      (b.idKeys && b.idKeys[0] && b.idKeys[0].text) || '';
+    var aFirst = Math.random() < 0.5;
+    var options = aFirst ? [a.name, b.name] : [b.name, a.name];
+    return {
+      id: 'duel-' + a.id + '-' + b.id, type: 'lookalike_duel', entityId: a.id,
+      q: '这张图是哪一种？', options: options, answerIndex: aFirst ? 0 : 1,
+      explanation: diff
+    };
+  }
+  function startDuelQuiz() {
+    var candidates = MUSHROOM_DATA.filter(function (m) { return m.lookalikes && m.lookalikes.length; });
+    var qs = [], tries = 0;
+    while (qs.length < C.quiz.perRound && tries < candidates.length * 3) {
+      tries++;
+      var a = candidates[Math.floor(Math.random() * candidates.length)];
+      if (qs.some(function (q) { return q.entityId === a.id; })) continue;
+      var q = duelQuestion(a);
+      if (q) qs.push(q);
+    }
+    if (!qs.length) { toast('数据里还没有配好的相似种可以对决'); return; }
+    startTrainingRound(qs, { label: '易混对决' });
+  }
+
+  // "每日 5 题": lowest score first — high mastery and species already seen
+  // in real life both push a species toward the back of the line.
+  function dailyFiveIds() {
+    var st = Storage.get();
+    return MUSHROOM_DATA
+      .map(function (m) {
+        var seen = Storage.has(m.id) || Storage.observationsFor(m.id).length > 0;
+        var score = Storage.masteryFor(m.id) * 10 - (seen ? 3 : 0) + Math.random();
+        return { id: m.id, score: score };
+      })
+      .sort(function (x, y) { return x.score - y.score; })
+      .slice(0, C.quiz.perRound)
+      .map(function (x) { return x.id; });
+  }
+  function startDailyFive() {
+    ensureQuestions(function () {
+      var qs = imageQuestionsFor(dailyFiveIds());
+      if (!qs.length) { toast('题库还没加载好，再试一次'); return; }
+      startTrainingRound(qs, { label: '每日 5 题' });
+    });
+  }
+
+  function startWrongBook() {
+    var ids = Storage.wrongList();
+    if (!ids.length) { toast('错题本是空的，挺好'); return; }
+    ensureQuestions(function () {
+      var qs = imageQuestionsFor(ids, ids.length);
+      if (!qs.length) qs = shuffledCopy(QUESTIONS.filter(function (q) { return ids.indexOf(q.entityId) >= 0; })).slice(0, ids.length);
+      if (!qs.length) { toast('这些题目暂时找不到了'); return; }
+      startTrainingRound(qs, { label: '错题本' });
+    });
+  }
+
+  // A stable pick that changes once a day, not once a page load.
+  function todaysPick() {
+    var d = Storage.today();
+    var h = 0;
+    for (var i = 0; i < d.length; i++) h = (h * 31 + d.charCodeAt(i)) >>> 0;
+    return MUSHROOM_DATA[h % MUSHROOM_DATA.length];
+  }
+
+  function renderTraining() {
+    var host = $('training-body');
+    host.innerHTML = '';
+
+    var pick = todaysPick();
+    var todayCard = document.createElement('div');
+    todayCard.className = 'card';
+    todayCard.innerHTML = '<h2>今日一鱼</h2>';
+    var row = document.createElement('div');
+    row.className = 'row';
+    var thumb = document.createElement('span');
+    thumb.className = 'tp-thumb';
+    thumb.appendChild(art(pick, 56));
+    row.appendChild(thumb);
+    var info = document.createElement('span');
+    info.style.flex = '1';
+    info.innerHTML = '<b>' + esc(pick.name) + '</b><br><span class="muted" style="font-size:12px">' + esc(pick.latin) + '</span>';
+    row.appendChild(info);
+    todayCard.appendChild(row);
+    var goBtn = document.createElement('button');
+    goBtn.className = 'btn wide';
+    goBtn.style.marginTop = '10px';
+    goBtn.textContent = '去测一测';
+    goBtn.addEventListener('click', function () { startSingleQuiz(pick); });
+    todayCard.appendChild(goBtn);
+    host.appendChild(todayCard);
+
+    var wrongN = Storage.wrongList().length;
+    [
+      { label: '范围闪卡', desc: '按图鉴当前筛选出题', fn: startScopedFlashcards, icon: '🗂️' },
+      { label: '易混对决', desc: '两个最像的种，二选一', fn: startDuelQuiz, icon: '⚔️' },
+      { label: '每日 5 题', desc: '挑你最生疏的 5 种', fn: startDailyFive, icon: '📅' },
+      { label: '错题本', desc: wrongN ? ('还有 ' + wrongN + ' 道') : '空的，挺好', fn: startWrongBook, icon: '📕' }
+    ].forEach(function (m) {
+      var card = document.createElement('button');
+      card.className = 'card entry-card';
+      card.innerHTML = '<span class="ico">' + m.icon + '</span>' +
+        '<span class="entry-text"><b>' + esc(m.label) + '</b><span class="muted">' + esc(m.desc) + '</span></span>' +
+        '<span class="chev">›</span>';
+      card.addEventListener('click', m.fn);
+      host.appendChild(card);
+    });
+  }
+
   var tick = null;
   function showQuestion() {
     clearInterval(tick);
@@ -411,6 +590,7 @@
     round.pres = pres;
     round.answered = false;
 
+    $('quiz-title').textContent = round.mode === 'training' ? round.label : '答题';
     $('quiz-idx').textContent = (round.idx + 1) + ' / ' + round.questions.length;
     $('quiz-bar').style.width = (round.idx / round.questions.length * 100) + '%';
     $('q-explain').innerHTML = '';
@@ -457,6 +637,17 @@
     var right = choice === pres.answerAt;
     if (right) round.correct++; else round.wrong++;
 
+    // The wrong book tracks any question type; proficiency only moves for
+    // "can you pick it out of a crowd" questions (image-based, real or duel).
+    if (q.entityId) {
+      if (right) Storage.removeWrong(q.entityId);
+      else Storage.addWrong(q.entityId);
+      if (q.type === 'name_from_image' || q.type === 'lookalike_duel') {
+        Storage.markQuizzed(q.entityId);
+        Storage.bumpMastery(q.entityId, right ? 1 : -1);
+      }
+    }
+
     // Getting a poisonous species right is the daily task worth having.
     if (right && (q.type === 'edibility_class' || q.type === 'lookalike')) {
       var ent = byId[q.entityId];
@@ -491,7 +682,8 @@
     var next = document.createElement('button');
     next.className = 'btn wide';
     next.style.marginTop = '12px';
-    next.textContent = round.idx + 1 < round.questions.length ? '下一题' : '看看采到了什么';
+    var isLast = round.idx + 1 >= round.questions.length;
+    next.textContent = !isLast ? '下一题' : (round.mode === 'training' ? '看看结果' : '看看采到了什么');
     next.addEventListener('click', advance);
     ex.appendChild(next);
     next.scrollIntoView({ block: 'nearest' });
@@ -512,6 +704,13 @@
     if (round.toxicHit) {
       Storage.bumpTask('toxic', 1);
       Storage.update(function (s) { s.stats.toxicIdentified += 1; });
+    }
+    if (round.mode === 'training') {
+      var onDone = round.onDone, correct = round.correct, total = round.questions.length;
+      back();
+      toast('本轮 ' + correct + ' / ' + total + ' 答对');
+      if (onDone) onDone();
+      return;
     }
     doDraw();
   }
@@ -817,6 +1016,14 @@
 
     b.appendChild(observationCard(m));
 
+    var quizBtn = document.createElement('button');
+    quizBtn.className = 'btn ghost wide';
+    quizBtn.style.marginBottom = '8px';
+    var stars = Storage.masteryFor(m.id);
+    quizBtn.textContent = '🧠 测一测' + (stars ? '　' + '★'.repeat(stars) + '☆'.repeat(3 - stars) : '');
+    quizBtn.addEventListener('click', function () { startSingleQuiz(m); });
+    b.appendChild(quizBtn);
+
     var planted = Storage.isPlaced(m.id);
     var act = document.createElement('button');
     act.className = 'btn wide' + (planted ? ' ghost' : '');
@@ -1047,6 +1254,10 @@
     $('obs-summary').textContent = obsN
       ? '已记录 ' + obsN + ' 种 · ' + st.observations.length + ' 条'
       : '记下你见过的每一种、每一次';
+    var wrongN = st.wrong.length;
+    $('training-summary').textContent = wrongN
+      ? '错题本还有 ' + wrongN + ' 道待复习'
+      : '范围闪卡、易混对决、每日 5 题、错题本';
     // 菌菇园退到这里之后，入口卡要把「园里有没有东西等你」说出来，否则没人记得进去
     var placed = Storage.placed().length;
     var ready = (st.slots || []).filter(function (sl) {
@@ -1220,6 +1431,7 @@
 
   // ---------------------------------------------------------------- observations
   $('btn-observations').addEventListener('click', function () { go('observations'); });
+  $('btn-training').addEventListener('click', function () { go('training'); });
 
   // ---------------------------------------------------------------- transfer
   $('btn-export').addEventListener('click', function () {
@@ -1323,4 +1535,10 @@
   Garden.start();
   firstRun();
   setInterval(function () { Garden.autoNight(); }, 60000);
+
+  // Everything above is private to this closure by design (app.js is glue,
+  // not an API). This one accessor exists only so behaviour tests can read
+  // the active quiz round without guessing at DOM structure — same reason
+  // Browse exposes `_facet()`.
+  window._quizRound = function () { return round; };
 })();
