@@ -15,6 +15,7 @@ const t = (name, ok, extra) => {
 };
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+await page.addInitScript(() => localStorage.setItem('mush_lang', 'zh-Hans'));
 const errs = [];
 page.on('pageerror', e => errs.push(String(e)));
 page.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });

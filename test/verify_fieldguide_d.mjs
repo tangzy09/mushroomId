@@ -15,6 +15,7 @@ const t = (name, ok, extra) => {
 };
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 420, height: 900 } });
+await page.addInitScript(() => localStorage.setItem('mush_lang', 'zh-Hans'));
 const errs = [];
 page.on('pageerror', e => errs.push(String(e)));
 page.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
@@ -144,6 +145,7 @@ t('点一下横幅展开', expanded);
 /* D8 深链：#/m/<id> 直接进详情页。用全新页面加载（带着 hash 首次进入），
    同页面改 hash 的 goto 在 Chromium 里可能只是同文档跳转，不会重跑 boot()。 */
 const page2 = await browser.newPage({ viewport: { width: 420, height: 900 } });
+await page2.addInitScript(() => localStorage.setItem('mush_lang', 'zh-Hans'));
 await page2.goto(BASE + '#/m/shiitake', { waitUntil: 'networkidle' });
 await page2.evaluate(() => { const o = document.getElementById('overlay'); if (o) o.classList.remove('on'); });
 await page2.waitForTimeout(1000);

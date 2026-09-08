@@ -30,6 +30,7 @@ const t = (name, ok, extra) => {
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 420, height: 900 } });
+await page.addInitScript(() => localStorage.setItem('mush_lang', 'zh-Hans'));
 const errs = [];
 page.on('pageerror', e => errs.push(String(e)));
 page.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
@@ -120,6 +121,7 @@ t('每一种都有照片署名（' + cover.n + ' 种，正例地板 ≥ 150）',
 const brokenId = withPhoto[1];
 const ctx2 = await browser.newContext({ viewport: { width: 420, height: 900 }, serviceWorkers: 'block' });
 const p2 = await ctx2.newPage();
+await p2.addInitScript(() => localStorage.setItem('mush_lang', 'zh-Hans'));
 p2.on('pageerror', e => errs.push(String(e)));
 await p2.route(new RegExp('assets/photos/real/' + brokenId + '\\.webp'), r => r.abort());
 await p2.goto(BASE, { waitUntil: 'networkidle' });

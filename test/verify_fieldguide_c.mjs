@@ -16,6 +16,7 @@ const t = (name, ok, extra) => {
 const browser = await chromium.launch();
 const ctx = await browser.newContext({ viewport: { width: 420, height: 900 }, acceptDownloads: true });
 const page = await ctx.newPage();
+await page.addInitScript(() => localStorage.setItem('mush_lang', 'zh-Hans'));
 const errs = [];
 page.on('pageerror', e => errs.push(String(e)));
 page.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
