@@ -50,6 +50,7 @@ const eq = (a, b, m) => ok(JSON.stringify(a) === JSON.stringify(b),
   Storage.addFragment('epic', 4);
   Storage.addEssence(250);
   Storage.place('flyagaric', 'L1');
+  Storage.addObservation('flyagaric', { place: '阳明山', note: '草地边缘' });
   LS.setItem(GameConfig.storageKeys.lang, 'zh');
   LS.setItem(GameConfig.storageKeys.disclaimer, '1');
   const before = JSON.parse(LS.getItem(GameConfig.storageKey));
@@ -74,6 +75,8 @@ const eq = (a, b, m) => ok(JSON.stringify(a) === JSON.stringify(b),
   // A duplicate count must survive, not just the species list.
   const mats = after.collections.find(c => c.entityId === 'matsutake');
   eq(mats.count, 2, 'duplicate counts survive');
+  eq(after.observations.length, 1, 'field observations travel too');
+  eq(after.observations[0].place, '阳明山', 'observation place survives round trip');
 
   async function rejects(input, label) {
     try { await Transfer.importSave(input, GameConfig); fail++; fails.push(label + ': accepted'); }

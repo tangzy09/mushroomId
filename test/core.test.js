@@ -445,6 +445,57 @@ t('storage: the same species cannot be planted twice', () => {
   Storage.unplace('flyagaric');
   eq(Storage.isPlaced('flyagaric'), false);
 });
+t('storage: observations are separate from the collecting minigame', () => {
+  Storage.init(GameConfig, memStore());
+  eq(Storage.observationsFor('flyagaric').length, 0);
+  const rec = Storage.addObservation('flyagaric', {});
+  eq(Storage.observationsFor('flyagaric').length, 1);
+  eq(rec.date, Storage.today());
+  eq(rec.place, '');
+  eq(Storage.collected(), 0, 'logging a sighting must not touch collections:');
+});
+t('storage: addObservation accepts an initial place/note', () => {
+  Storage.init(GameConfig, memStore());
+  const rec = Storage.addObservation('matsutake', { place: '阿里山', note: '松林边' });
+  eq(rec.place, '阿里山');
+  eq(rec.note, '松林边');
+});
+t('storage: updateObservation edits one record without touching others', () => {
+  Storage.init(GameConfig, memStore());
+  const a = Storage.addObservation('flyagaric', {});
+  const b = Storage.addObservation('flyagaric', {});
+  Storage.updateObservation(a.oid, { place: '阳明山' });
+  eq(Storage.observationsFor('flyagaric').filter(o => o.oid === a.oid)[0].place, '阳明山');
+  eq(Storage.observationsFor('flyagaric').filter(o => o.oid === b.oid)[0].place, '');
+  eq(Storage.updateObservation('no-such-oid', { place: 'x' }), null);
+});
+t('storage: deleteObservation removes only that record', () => {
+  Storage.init(GameConfig, memStore());
+  const a = Storage.addObservation('flyagaric', {});
+  Storage.addObservation('matsutake', {});
+  eq(Storage.deleteObservation(a.oid), true);
+  eq(Storage.observationsFor('flyagaric').length, 0);
+  eq(Storage.observationsFor('matsutake').length, 1);
+  eq(Storage.deleteObservation('gone-already'), false);
+});
+t('storage: allObservations spans every species, newest first', () => {
+  Storage.init(GameConfig, memStore());
+  Storage.addObservation('flyagaric', {});
+  Storage.addObservation('matsutake', {});
+  const all = Storage.allObservations();
+  eq(all.length, 2);
+  ok(all[0].ts >= all[1].ts, 'newest first');
+});
+t('storage: observations survive a reload and are backfilled on old saves', () => {
+  const store = memStore();
+  Storage.init(GameConfig, store);
+  Storage.addObservation('flyagaric', { place: '阳明山' });
+  const s2 = Storage.init(GameConfig, store);
+  eq(s2.observations.length, 1);
+  store.setItem(GameConfig.storageKey, JSON.stringify({ version: 1, collections: [] }));
+  const s3 = Storage.init(GameConfig, store);
+  eq(s3.observations, []);
+});
 t('storage: a new day refills forays and clears daily tasks', () => {
   const store = memStore();
   Storage.init(GameConfig, store);
