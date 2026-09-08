@@ -32,6 +32,7 @@ var Storage = (function () {
       userId: 'u_' + Math.random().toString(36).slice(2, 9),
       createdAt: new Date().toISOString(),
       collections: [],                 // [{entityId, count, firstAt}]
+      observations: [],                // [{oid, entityId, date:'YYYY-MM-DD', place, note, ts}]
       slots: [],                       // [{id, slot, placedAt, lastYieldAt, boostMs}]
       fragments: { common: 0, rare: 0, epic: 0, legend: 0 },
       fragmentEssence: 0,
@@ -196,6 +197,41 @@ var Storage = (function () {
     unplace: function (id) {
       state.slots = state.slots.filter(function (s) { return s.id !== id; });
       this.commit();
+    },
+
+    // --- field notes -----------------------------------------------------
+    // A record of "I actually saw this one, here, on this day" — separate
+    // from `collections` (which tracks the collecting minigame). One entity
+    // can have many of these over time; each is edited or removed on its own.
+    observationsFor: function (id) {
+      return state.observations.filter(function (o) { return o.entityId === id; });
+    },
+    allObservations: function () {
+      return state.observations.slice().sort(function (a, b) { return b.ts - a.ts; });
+    },
+    addObservation: function (id, fields) {
+      var rec = {
+        oid: 'o_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+        entityId: id, date: today(), place: '', note: '', ts: Date.now()
+      };
+      Object.assign(rec, fields || {});
+      state.observations.push(rec);
+      this.commit();
+      return rec;
+    },
+    updateObservation: function (oid, fields) {
+      var rec = null;
+      state.observations.forEach(function (o) { if (o.oid === oid) rec = o; });
+      if (!rec) return null;
+      Object.assign(rec, fields);
+      this.commit();
+      return rec;
+    },
+    deleteObservation: function (oid) {
+      var before = state.observations.length;
+      state.observations = state.observations.filter(function (o) { return o.oid !== oid; });
+      this.commit();
+      return state.observations.length !== before;
     },
 
     // --- counters ------------------------------------------------------

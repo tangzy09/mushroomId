@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon-180.png">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="stylesheet" href="css/style.css?v=20260908b">
+<link rel="stylesheet" href="css/style.css?v=20260908c">
 </head>
 <body>
 
@@ -64,6 +64,11 @@
 <div class="page has-nav" id="page-profile">
   <div class="page-header"><h1>我的</h1></div>
   <div class="page-body">
+    <button class="card entry-card" id="btn-observations">
+      <span class="ico">👁</span>
+      <span class="entry-text"><b>我的观察</b><span class="muted" id="obs-summary">记下你见过的每一种、每一次</span></span>
+      <span class="chev">›</span>
+    </button>
     <button class="card entry-card" id="btn-garden">
       <span class="ico">🌲</span>
       <span class="entry-text"><b>菌菇园</b><span class="muted" id="garden-summary">进山采菌、抽卡、把认出的菌子种进园里</span></span>
@@ -166,6 +171,12 @@
   <div class="page-body" id="detail-body"></div>
 </div>
 
+<!-- 我的观察 -->
+<div class="page" id="page-observations">
+  <div class="page-header"><button class="back" data-back>← 我的</button><h1>我的观察</h1></div>
+  <div class="page-body" id="obs-body"></div>
+</div>
+
 <nav class="bottom-nav" id="nav">
   <button data-page="collection" class="on"><span class="ico">📖</span>图鉴</button>
   <button data-page="profile"><span class="ico">🧺</span>我的</button>
@@ -179,21 +190,21 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script src="js/game/config.js?v=20260908b"></script>
-<script src="js/core/storage.js?v=20260908b"></script>
-<script src="js/core/gacha.js?v=20260908b"></script>
-<script src="js/core/quiz.js?v=20260908b"></script>
-<script src="js/core/share.js?v=20260908b"></script>
-<script src="js/core/transfer.js?v=20260908b"></script>
-<script src="js/game/weather.js?v=20260908b"></script>
-<script src="js/game/shroom-art.js?v=20260908b"></script>
-<script src="js/core/facet.js?v=20260908b"></script>
-<script src="js/game/browse.js?v=20260908b"></script>
-<script src="js/game/garden.js?v=20260908b"></script>
-<script src="js/data.gen.js?v=20260908b"></script>
-<script src="js/photo_credits.js?v=20260908b"></script>
-<script src="js/photo_extra.js?v=20260908b"></script>
-<script src="js/game/app.js?v=20260908b"></script>
+<script src="js/game/config.js?v=20260908c"></script>
+<script src="js/core/storage.js?v=20260908c"></script>
+<script src="js/core/gacha.js?v=20260908c"></script>
+<script src="js/core/quiz.js?v=20260908c"></script>
+<script src="js/core/share.js?v=20260908c"></script>
+<script src="js/core/transfer.js?v=20260908c"></script>
+<script src="js/game/weather.js?v=20260908c"></script>
+<script src="js/game/shroom-art.js?v=20260908c"></script>
+<script src="js/core/facet.js?v=20260908c"></script>
+<script src="js/game/browse.js?v=20260908c"></script>
+<script src="js/game/garden.js?v=20260908c"></script>
+<script src="js/data.gen.js?v=20260908c"></script>
+<script src="js/photo_credits.js?v=20260908c"></script>
+<script src="js/photo_extra.js?v=20260908c"></script>
+<script src="js/game/app.js?v=20260908c"></script>
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js'); });

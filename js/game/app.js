@@ -17,10 +17,11 @@
   // 数据里下线过物种（2026-09-08 去掉 15 个无照片种）。旧存档里指向它们的收集与园位
   // 要清掉，否则 byId 查不到会在菌菇园与「我的」里抛异常。
   (function pruneGone() {
-    var before = S.collections.length + S.slots.length;
+    var before = S.collections.length + S.slots.length + S.observations.length;
     S.collections = S.collections.filter(function (c) { return !!byId[c.entityId]; });
     S.slots = S.slots.filter(function (s) { return !!byId[s.id]; });
-    if (S.collections.length + S.slots.length !== before) Storage.commit();
+    S.observations = S.observations.filter(function (o) { return !!byId[o.entityId]; });
+    if (S.collections.length + S.slots.length + S.observations.length !== before) Storage.commit();
   })();
   var today = Storage.today();
   var weather = World.weatherFor(today, C.weather);
@@ -179,7 +180,7 @@
 
   function show(id, arg) {
     page = id;
-    ['garden', 'collection', 'profile', 'biome', 'quiz', 'reveal', 'detail']
+    ['garden', 'collection', 'profile', 'biome', 'quiz', 'reveal', 'detail', 'observations']
       .forEach(function (p) {
         var el = $('page-' + p);
         if (el) el.classList.toggle('active', p === id);
@@ -193,6 +194,7 @@
     if (id === 'collection') renderCollection();
     if (id === 'profile') renderProfile();
     if (id === 'detail' && arg && byId[arg]) renderDetail(byId[arg]);
+    if (id === 'observations') renderObservations();
   }
   function root(id) {
     stack = [{ page: id }];
@@ -813,6 +815,8 @@
     // 非毒种的相似种是「顺带认识一下」，留在趣味知识之后就好
     if (!isToxicSp(m)) { var lkBottom = lookalikeCard(m); if (lkBottom) b.appendChild(lkBottom); }
 
+    b.appendChild(observationCard(m));
+
     var planted = Storage.isPlaced(m.id);
     var act = document.createElement('button');
     act.className = 'btn wide' + (planted ? ' ghost' : '');
@@ -877,11 +881,172 @@
     return null;
   }
 
+  // ---------------------------------------------------------------- observations
+  // "I actually saw this one, here, on this day" — separate from the
+  // collecting minigame. First tap logs today with blank place/note (the
+  // skill's rule: any design that asks for a form before the first tap makes
+  // people not bother logging); a second tap opens the list to edit or add another.
+  function formatCoord(lat, lon) {
+    var la = Math.abs(lat).toFixed(3), lo = Math.abs(lon).toFixed(3);
+    return la + '°' + (lat >= 0 ? 'N' : 'S') + ', ' + lo + '°' + (lon >= 0 ? 'E' : 'W');
+  }
+
+  function monthLabel(dateStr) {
+    var p = (dateStr || '').split('-');
+    return p.length >= 2 ? (parseInt(p[0], 10) + '年' + parseInt(p[1], 10) + '月') : '日期不明';
+  }
+
+  function openObsEditForm(sp, rec) {
+    sheet('<h2>' + esc(sp.name) + ' · 观察记录</h2>' +
+      '<label class="muted" style="font-size:12px">日期</label>' +
+      '<input type="date" class="obs-field" id="obs-date" value="' + esc(rec.date) + '">' +
+      '<label class="muted" style="font-size:12px;display:block;margin-top:10px">地点</label>' +
+      '<div class="row" style="margin-top:4px">' +
+        '<input type="text" class="obs-field" id="obs-place" placeholder="选填，比如「垦丁后壁湖」" value="' + esc(rec.place) + '">' +
+        '<button class="btn ghost" id="obs-gps" style="flex:none;padding:9px 12px">📍</button>' +
+      '</div>' +
+      '<label class="muted" style="font-size:12px;display:block;margin-top:10px">备注</label>' +
+      '<textarea class="obs-field" id="obs-note" placeholder="选填，比如「长在腐木上，群生」">' + esc(rec.note) + '</textarea>' +
+      '<button class="btn wide" id="obs-save" style="margin-top:14px">保存</button>' +
+      '<button class="btn ghost wide" id="obs-del" style="margin-top:8px">删除这条记录</button>',
+      function (el) {
+        el.querySelector('#obs-save').addEventListener('click', function () {
+          Storage.updateObservation(rec.oid, {
+            date: el.querySelector('#obs-date').value || Storage.today(),
+            place: el.querySelector('#obs-place').value.trim(),
+            note: el.querySelector('#obs-note').value.trim()
+          });
+          closeSheet();
+          toast('已保存');
+          if (page === 'detail') renderDetail(sp);
+          if (page === 'observations') renderObservations();
+        });
+        el.querySelector('#obs-del').addEventListener('click', function () {
+          Storage.deleteObservation(rec.oid);
+          closeSheet();
+          toast('已删除这条记录');
+          if (page === 'detail') renderDetail(sp);
+          if (page === 'observations') renderObservations();
+        });
+        el.querySelector('#obs-gps').addEventListener('click', function () {
+          if (!navigator.geolocation) { toast('这台设备不支持定位'); return; }
+          toast('正在定位…');
+          navigator.geolocation.getCurrentPosition(function (pos) {
+            el.querySelector('#obs-place').value = formatCoord(pos.coords.latitude, pos.coords.longitude);
+          }, function () { toast('定位失败，检查一下定位权限'); }, { timeout: 8000 });
+        });
+      });
+  }
+
+  function openObsListSheet(sp) {
+    var list = Storage.observationsFor(sp.id).sort(function (a, b) { return b.ts - a.ts; });
+    var rows = list.map(function (r) {
+      return '<button class="obs-item" data-oid="' + esc(r.oid) + '"><span class="info">' +
+        '<b>' + esc(r.date) + '</b>' +
+        '<span>' + esc(r.place || '还没填地点') + (r.note ? ' · ' + esc(r.note) : '') + '</span>' +
+        '</span></button>';
+    }).join('');
+    sheet('<h2>' + esc(sp.name) + ' · 我的观察</h2>' + (rows || '<p class="muted">还没有记录</p>') +
+      '<button class="btn wide" id="obs-add" style="margin-top:14px">+ 再记一次</button>',
+      function (el) {
+        Array.prototype.forEach.call(el.querySelectorAll('.obs-item'), function (row) {
+          row.addEventListener('click', function () {
+            var rec = list.filter(function (r) { return r.oid === row.dataset.oid; })[0];
+            if (rec) openObsEditForm(sp, rec);
+          });
+        });
+        el.querySelector('#obs-add').addEventListener('click', function () {
+          openObsEditForm(sp, Storage.addObservation(sp.id, {}));
+        });
+      });
+  }
+
+  function observationCard(m) {
+    var card = document.createElement('div');
+    card.className = 'card';
+    var list = Storage.observationsFor(m.id);
+    var last = list.length ? list.slice().sort(function (a, b) { return b.ts - a.ts; })[0] : null;
+    card.innerHTML = '<h2>我的观察</h2><p class="muted" style="margin:0 0 8px">' +
+      (last ? '已记录 ' + list.length + ' 次，最近一次 ' + esc(last.date) : '还没记录过，见到的话点一下') +
+      '</p>';
+    var btn = document.createElement('button');
+    btn.className = 'btn wide' + (list.length ? ' ghost' : '');
+    btn.textContent = list.length ? '👁 查看 / 补充记录' : '👁 我见过';
+    btn.addEventListener('click', function () {
+      if (!list.length) {
+        Storage.addObservation(m.id, {});
+        toast('已记录今天见过，点开可以补充地点和备注');
+        renderDetail(m);
+      } else {
+        openObsListSheet(m);
+      }
+    });
+    card.appendChild(btn);
+    return card;
+  }
+
+  function renderObservations() {
+    var all = Storage.allObservations();
+    var host = $('obs-body');
+    var speciesSeen = {}, places = {};
+    all.forEach(function (o) {
+      speciesSeen[o.entityId] = 1;
+      if (o.place) places[o.place.trim()] = 1;
+    });
+    var stats = document.createElement('div');
+    stats.className = 'card obs-stats';
+    stats.innerHTML =
+      '<span class="s"><b>' + Object.keys(speciesSeen).length + '</b><span>见过的种</span></span>' +
+      '<span class="s"><b>' + all.length + '</b><span>观察记录</span></span>' +
+      '<span class="s"><b>' + Object.keys(places).length + '</b><span>去过的地点</span></span>';
+    host.innerHTML = '';
+    host.appendChild(stats);
+    if (!all.length) {
+      var empty = document.createElement('div');
+      empty.className = 'fempty';
+      empty.innerHTML = '还没有观察记录<br>去图鉴里找一种，点「👁 我见过」';
+      host.appendChild(empty);
+      return;
+    }
+    var lastMonth = null;
+    all.forEach(function (o) {
+      var sp = byId[o.entityId];
+      if (!sp) return;
+      var mo = monthLabel(o.date);
+      if (mo !== lastMonth) {
+        lastMonth = mo;
+        var h = document.createElement('div');
+        h.className = 'obs-month';
+        h.textContent = mo;
+        host.appendChild(h);
+      }
+      var row = document.createElement('button');
+      row.className = 'obs-item';
+      var thumb = document.createElement('span');
+      thumb.className = 'thumb';
+      thumb.appendChild(art(sp, 44));
+      row.appendChild(thumb);
+      var info = document.createElement('span');
+      info.className = 'info';
+      info.innerHTML = '<b>' + esc(sp.name) + '</b><span>' + esc(o.date) +
+        (o.place ? ' · ' + esc(o.place) : '') + '</span>';
+      row.appendChild(info);
+      row.addEventListener('click', function () { openObsEditForm(sp, o); });
+      host.appendChild(row);
+    });
+  }
+
   function openDetail(m) { go('detail', m.id); }
 
   // ---------------------------------------------------------------- profile
   function renderProfile() {
     var st = Storage.get();
+    var obsSpecies = {};
+    st.observations.forEach(function (o) { obsSpecies[o.entityId] = 1; });
+    var obsN = Object.keys(obsSpecies).length;
+    $('obs-summary').textContent = obsN
+      ? '已记录 ' + obsN + ' 种 · ' + st.observations.length + ' 条'
+      : '记下你见过的每一种、每一次';
     // 菌菇园退到这里之后，入口卡要把「园里有没有东西等你」说出来，否则没人记得进去
     var placed = Storage.placed().length;
     var ready = (st.slots || []).filter(function (sl) {
@@ -1052,6 +1217,9 @@
       '<button class="btn wide" onclick="this.closest(\'.overlay\').classList.remove(\'on\')">收下</button>');
     renderProfile();
   });
+
+  // ---------------------------------------------------------------- observations
+  $('btn-observations').addEventListener('click', function () { go('observations'); });
 
   // ---------------------------------------------------------------- transfer
   $('btn-export').addEventListener('click', function () {

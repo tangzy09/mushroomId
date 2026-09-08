@@ -468,6 +468,24 @@ input[type=range]::-moz-range-track { height: 5px; border-radius: 3px; backgroun
 .safety-card h2 { color: var(--deadly); }
 .safety-card ol { margin: 6px 0 0; padding-left: 1.3em; font-size: 13.5px; line-height: 1.75; }
 
+/* ---- 我的观察 ---- */
+.obs-field { width: 100%; box-sizing: border-box; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; margin-top: 4px; }
+textarea.obs-field { resize: vertical; min-height: 46px; }
+.obs-stats { display: flex; margin-bottom: 10px; }
+.obs-stats .s { flex: 1; text-align: center; }
+.obs-stats .s b { display: block; font-size: 21px; }
+.obs-stats .s span { display: block; font-size: 11.5px; color: var(--muted); margin-top: 1px; }
+.obs-month { font-size: 12.5px; color: var(--muted); font-weight: 700; letter-spacing: .03em; margin: 16px 0 2px; }
+.obs-month:first-child { margin-top: 0; }
+.obs-item { display: flex; align-items: center; gap: 10px; padding: 8px 2px; border-top: 1px solid var(--line); cursor: pointer; text-align: left; width: 100%; background: none; font: inherit; color: inherit; }
+.obs-item:first-child { border-top: none; }
+.obs-item .thumb { width: 44px; height: 44px; border-radius: 8px; overflow: hidden; flex: none; background: rgba(0,0,0,.06); }
+.obs-item .thumb img, .obs-item .thumb canvas { width: 100%; height: 100%; object-fit: cover; display: block; }
+.obs-item .info { flex: 1; min-width: 0; }
+.obs-item .info b { display: block; font-size: 14px; }
+.obs-item .info span { display: block; font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#obs-body .fempty { text-align: center; color: var(--muted); font-size: 13.5px; padding: 40px 0; }
+
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
