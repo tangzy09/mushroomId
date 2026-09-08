@@ -15,7 +15,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 > 2026-09-07 由「答题抽卡种菌菇园」的收集游戏改版而来，路径与 fishId 同类改版一致：
 > 游戏形态把查阅路径埋了（没抽到的种显示 `???` 不能点）。改版设计与一期 A 计划在
 > `docs/superpowers/`。一期 A / B / C 已于 2026-09-07 全部完成（查阅路径、五路检索、全库识别要点与尺度尺、照片分享卡）；
-> 二期（观察日志、训练重构）待做。
+> 2026-09-08 又做了一轮改良（第三刀检索维度、搜索扩容、毒种相似种前置、照片灯箱与多图轮播、
+> 物种静态页、题库拆分按需加载），见下方「改良轮（2026-09-08）」一节。
+> 二期（观察日志、训练重构、英文界面）待做。
 
 ## 安全红线（最高优先级，违反视为严重缺陷）
 
@@ -60,25 +62,38 @@ mushroomId/
 │   │   ├── garden.js           ← 菌菇园 Canvas
 │   │   └── app.js              ← 路由与 DOM 粘合，不放规则
 │   ├── photo_credits.js        ← 照片署名 166 条（生成物，来自 skill 的取图管线，勿手改）
-│   └── data.gen.js             ← 生成物，已 gitignore，勿手改
+│   ├── photo_extra.js          ← 补图署名（生成物）：主图拍不到关键特征的种，第二张图 + 署名
+│   ├── data.gen.js             ← 生成物，已 gitignore，勿手改（不含英译字段，见下）
+│   ├── questions.gen.js        ← 题库生成物，已 gitignore；250 KB，答题时才按需注入（见「运行时装配」）
+│   └── i18n_en.gen.js          ← 生成物，已 gitignore；二期英文界面数据准备，**不被 index.html 引用**
 ├── sw.js                       ← Service Worker 三层缓存；改 JS/CSS 后 V 与 index.html 的 ?v= 一起 bump
-├── assets/photos/real/         ← 900px WebP × 166（详情页）
+├── assets/photos/real/         ← 900px WebP × 166（详情页；11 个致命种另有 `<id>-2.webp` 补图）
 ├── assets/photos/thumb/        ← 200px WebP × 166 + index.json（列表；SW 预缓存清单）
+├── m/                          ← 166 个物种静态页（生成物，SEO 长尾入口，改数据后重新生成）
+├── sitemap.xml / robots.txt    ← 与 m/ 一起由 make_species_pages.py 生成
 ├── data/
-│   ├── mushrooms.json          ← 物种真相源（166 种）
+│   ├── mushrooms.json          ← 物种真相源（166 种，含 idKeysEn/habitatEn/factEn/quoteEn 等英译字段）
 │   ├── questions_curated.json  ← 人工题真相源（trivia / cold_fact / myth_buster）
 │   └── README.md               ← 食性字段规范
 ├── tools/
-│   ├── build_data.py           ← data/*.json → js/data.gen.js
-│   ├── census_to_encounter.py  ← iNat 观察数 → encounter 四档 + 本土种修正表
+│   ├── build_data.py           ← data/*.json → js/data.gen.js + questions.gen.js + i18n_en.gen.js
+│   ├── make_species_pages.py   ← data/mushrooms.json → m/*.html + sitemap.xml + robots.txt
+│   ├── drop_species.py         ← 整体移除物种（连带 lookalikes / 人工题 / 旧存档引用的清理逻辑在 app.js）
+│   ├── census_to_encounter.py  ← iNat 观察数 → encounter 四档（按全库分位数切，非固定阈值）+ 本土种修正表
 │   ├── serve.py                ← 本地开发服务器（多线程；SW 预缓存并发请求，单线程会超时）
 │   └── build_report_page.py    ← 设计报告 → HTML 页面
 ├── test/
 │   ├── check_data.py           ← 数据校验（含题库可达性）
+│   ├── check_species_pages.py  ← 物种静态页与 sitemap 一致性校验
 │   ├── core.test.js            ← 内核纯函数测试
 │   ├── transfer.test.js        ← 存档导出导入往返
+│   ├── facet.test.js           ← facet.js 与 browse.js 原始实现逐值对拍
 │   ├── verify_photos_ui.mjs    ← 照片行为验收（真实点击，查 naturalWidth 不查 src）
-│   ├── verify_fieldguide_a.mjs ← 一期 A 行为验收 23 项：路由 / 解锁 / 搜索 / 详情 / 安全文案 / 离线
+│   ├── verify_fieldguide_a.mjs ← 一期 A 行为验收
+│   ├── verify_fieldguide_b.mjs ← 一期 B 行为验收：五路检索 + 叠加筛选 + 对比网格
+│   ├── verify_fieldguide_c.mjs ← 一期 C 行为验收：识别要点 + 尺度对比尺 + 照片分享卡
+│   ├── verify_fieldguide_d.mjs ← 改良轮行为验收：搜索扩容 / 第三刀 / 毒种相似种前置 / 灯箱 / 多图 / 深链
+│   ├── smoke_prod.mjs          ← 部署后对生产站跑的验收冒烟
 │   ├── e2e.html                ← 浏览器里跑完整循环
 │   └── cards.html              ← 分享卡片肉眼验收页
 └── docs/
@@ -90,18 +105,21 @@ mushroomId/
 
 ```bash
 python3 tools/build_data.py      # 改过 data/*.json 之后必须重跑
+python3 tools/make_species_pages.py  # 改了会影响物种页内容的字段之后重跑
 python3 test/check_data.py       # 数据校验，退出码非零就是不能提交
+python3 test/check_species_pages.py  # 物种页与 sitemap 一致性
 node test/core.test.js           # 内核测试
 node test/transfer.test.js       # 存档导出导入
 node test/facet.test.js          # facet.js 与 browse 原始实现逐值对拍（7200 次）
-python3 tools/serve.py 3141      # http://localhost:3141/index.html（多线程，下面四套要它在跑）
-node test/verify_photos_ui.mjs   # 照片进列表 / 详情 / 署名          9 项
-node test/verify_fieldguide_a.mjs # 一期 A：导航、搜索、详情、路由     22 项
-node test/verify_fieldguide_b.mjs # 一期 B：五路检索、叠加、对比网格   18 项
-node test/verify_fieldguide_c.mjs # 一期 C：识别要点、对比尺、照片分享卡 23 项
+python3 tools/serve.py 3141      # http://localhost:3141/index.html（多线程，下面五套要它在跑）
+node test/verify_photos_ui.mjs    # 照片进列表 / 详情 / 署名               9 项
+node test/verify_fieldguide_a.mjs # 一期 A：导航、搜索、详情、路由        22 项
+node test/verify_fieldguide_b.mjs # 一期 B：五路检索、叠加、对比网格      22 项
+node test/verify_fieldguide_c.mjs # 一期 C：识别要点、对比尺、照片分享卡  23 项
+node test/verify_fieldguide_d.mjs # 改良轮：搜索/第三刀/相似种前置/灯箱等 21 项
 ```
 
-Windows / Git Bash 上没有 `python3`，一律用 `python`。四套 `verify_*.mjs` 用 Playwright
+Windows / Git Bash 上没有 `python3`，一律用 `python`。五套 `verify_*.mjs` 用 Playwright
 自带的 Chromium（默认从 fishId 的 `tests/node_modules` 借，第一个参数可改目录），
 走真实点击，每条都有退出码。
 
@@ -252,7 +270,63 @@ fishId 有 43% 的题因为难度配置与题库分布对不上而永远抽不�
   「特征」不等于「区别」，这类句子不允许自动生成。
 - **`encounter`**：野外遇见率四档，由 `tools/census_to_encounter.py` 从 iNat 观察数分档 + 本土种修正表得出。
   ⛔ 它不是 `rarity`（抽卡概率），图鉴排序与筛选只用 `encounter`。iNat 观察数对中国物种系统性偏低，
-  修正表是这个字段成立的前提，不是补丁。
+  修正表是这个字段成立的前提，不是补丁。**分档阈值按全库分位数取，不是固定数字**——166 种换了一批之后
+  「常见」曾经占到 54%（四档失去区分度），阈值改成 18000/4000/200 后落到 30%（common 50 / occasional 74 / rare 26 / seldom 16）。
+- **`capSurface`**：菌盖表面五档（`smooth/scaly/warty/slimy/fibrous`），**只对 `silhouette` 为
+  `umbrella`/`funnel` 的种存在**，其余种没有这个字段。伞形约占全库一半，「轮廓 + 颜色」两刀之后
+  仍常剩 30+ 种，这是第三刀。
+- **`idKeysEn` / `habitatEn` / `lookalikeNotesEn` / `factEn` / `quoteEn`**：二期英文界面的数据层准备。
+  **`build_data.py` 会把这五个字段从 `data.gen.js` 里剥离**，单独写进 `js/i18n_en.gen.js`
+  （生成物，不被 `index.html` 引用）——现在的中文界面用不上它们，留在主数据文件里就是让每个用户
+  白白多下 85 KB 不会显示的文本。改这几个字段只改 `data/mushrooms.json`，两处生成都会自动同步。
+
+## 改良轮（2026-09-08）
+
+上线后主人问「这个 app 还有什么可以改良」，把 166 种数据跑了一遍统计、手机视口逐屏截图、
+搜索与检索链路实测，找到的问题按值不值得改排了序（报告存过 `C:\tmp\mushroomId\improvements-2026-09-08.md`），
+这一轮把其中能一次做完的都做了：
+
+- **检索第三刀**：加 `capSurface`（菌盖表面）与 `size`（按 `capCm` 上限分小/中/大）两个维度；
+  `browse.js` 的 `DIMS`/`TABS`/`ORDER` 都要跟着加，`capSurface` 的 tab 与 `hymenium` 共用
+  `hymeniumApplies()` 的显示条件（只对伞形/漏斗形有意义）。
+- **搜索扩容**：`browse.js` 的 `matchesQuery` 原来只搜六七个字段的原文，搜「松树」（生境写的是「松」）、
+  搜「有毒」（标签是「☠️ 剧毒」）都是 0 结果。改成 `haystack()` 把识别要点文本、食性标签也编进搜索面，
+  外加一张 `SYN` 常见写法归一表（松树/松木/松林 → 松，能吃/可食 → 食，……）在搜索词与文本两边都跑一遍。
+- **遇见率重新分档**：见上「数据字段」。
+- **毒种「容易认错」前置**：`renderDetail()` 现在按 `isToxicSp(m)` 分两个插入点——毒/致命种紧跟在
+  「怎么认」之后（`lookalikeCard()` 抽成一个返回元素而不是直接 `appendChild` 的函数，两处调用），
+  非毒种仍留在「趣味知识」之后。这是设计稿 §3 本来就要求的，一期 A 漏掉了。
+- **识别要点第二轮 + 毒种相似种补对**：23 种识别要点里生境句排在前两位或有短句的问题（子代理批量改写，
+  每句 8–40 字、最多留一条生境句且必须放第三条），另外给 5 个原来没有相似种的毒种（卷边桩菇、
+  大毒滑锈伞、纯黄白鬼伞、松塔牛肝菌、麦角菌）各配了 1–2 个相似种和差异句。
+- **照片灯箱 + 多图轮播**：详情页主图满宽、点击进 `#lightbox` 全屏（双指缩放靠浏览器 `touch-action`）。
+  11 个致命种的主图拍不到关键特征（菌托、菌褶细节），从 iNat 同一条观察记录的其它照片里挑了 8 张
+  补图（3 种候选不足或质量不够没配），存进 `js/photo_extra.js`（生成物）；详情页照片区变成
+  `.photo-strip` 横滑带，署名跟着滑到哪张走（`scroll` 事件算 `scrollLeft / clientWidth`）。
+- **松茸主图换掉**：原图是手持切面照，从候选里挑了一张原位、带菌褶菌柄细节的换上，回源复核确认
+  （`recheck_photos.py --only`）零误配。另三张被点名的采集摆拍图（黄盖鹅膏、毒新牛肝菌、玫黄黄肉
+  牛肝菌）iNat 候选池太小（2–5 张，且是同一次拍摄的不同角度），没有更好的可换，保持原样。
+- **题库拆分**：`QUESTIONS`（250 KB）单独生成 `js/questions.gen.js`，`app.js` 的 `ensureQuestions()`
+  在第一次真的要答题（进山采菌）时才 `<script>` 动态注入，图鉴首屏不再为它买单。
+- **物种静态页**：`tools/make_species_pages.py` 生成 `m/<id>.html` × 166 + `sitemap.xml` + `robots.txt`，
+  参照 fishId 的 `make_species_pages.py` 但只做中文单语（没有英文 UI 就不该生成看起来完整实则半吊子的英文页）。
+  `app.js` 的 `deepLink()` 接住 `#/m/<id>` hash，静态页的「在图鉴里打开」按钮跳回来能直接落到详情页。
+  `test/check_species_pages.py` 是这批页面的验收门（文件数、深链、og:image、sitemap 一致性），反向测过
+  （临时删一个文件确认会红）。
+- **安全横幅收拢**：首开弹窗确认过之后，两处常驻横幅从两行收成一行（点一下展开，内容不变、
+  永远不可关闭），避免同一句安全声明在弹窗+两处横幅重复三遍占屏幕。
+
+⚠ 两个当场发现的测试坑，都是这一轮反向验证时抓到的：
+- **加了「大小」入口后，`verify_fieldguide_b.mjs` 里断言 tab 列表精确等于四个的那条会红**——
+  这是**预期内的红**（tab 数量确实变了），改断言不是掩盖问题；同理 `verify_fieldguide_a.mjs` 里
+  写死「毒种 42 个」的断言在物种数变化后也要改成「读数据算 + 正例地板」，不能再写死数字。
+- **在 SW 已注册的页面上用 `page.route` 掐断图片请求测「加载失败回退绘制」是测不出来的**——
+  SW 的离线策略会拿同名缩略图顶上（那是它的设计），`page.route` 也拦不到 SW 发起的请求。
+  这条要在**禁用 Service Worker 的新 context**（`browser.newContext({ serviceWorkers: 'block' })`）里测，
+  测的才是 `app.js` 自己的回退逻辑，不是 SW 的回退逻辑——两层回退，两套判据，别混着测。
+- **测 `#/hash` 深链不能用同页面 `page.goto` 改 hash**——Chromium 下同文档的 hash-only 跳转不一定
+  重跑应用的 boot 流程，`waitUntil: 'networkidle'` 可能立刻通过而页面其实没变。要测「一个从没打开过
+  这个 app 的人点了带 hash 的链接」，就得用一个全新的 page/context 去 `goto` 那个带 hash 的完整 URL。
 
 ## 当前进度
 
@@ -286,6 +360,14 @@ fishId 有 43% 的题因为难度配置与题库分布对不上而永远抽不�
       （**语言只做中文与英文**，2026-09-08 定；引擎可照 fishId 的 `i18n.js` 拷，数据层 `nameEn` 已有）
 - [x] 15 种无照片的种：已于 2026-09-08 整体下线（清单在 `C:\tmp\mushroomId\README.md`），
       要么保持绘制，要么找国内机构授权
+- [x] **改良轮（2026-09-08）**：检索第三刀（菌盖表面 + 大小）、搜索扩容与常见写法归一、遇见率按
+      分位数重切、毒种「容易认错」前置、23 种识别要点第二轮改写、5 个毒种补相似种、照片灯箱、
+      11 个致命种多图轮播补关键特征（8 张配到）、松茸主图换成原位照、题库拆分按需加载
+      （首屏省 250 KB）、166 个物种静态页 + sitemap + robots.txt、二期英文数据层准备
+      （`i18n_en.gen.js`，不占当前用户下载量）。新增行为验收 21 项（`verify_fieldguide_d.mjs`）+
+      物种页验收门（`check_species_pages.py`），一期 A/B 的两处历史断言（写死「毒种 42」「四个 tab」）
+      改成读数据算。全套门（数据 / core 58 / transfer 15 / facet 对拍 / photos 9 / A 22 / B 22 / C 23 / D 21 /
+      物种页）跑通
 
 ## 开发约定
 

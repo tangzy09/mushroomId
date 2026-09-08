@@ -14,7 +14,10 @@
 
 口袋菌菇图鉴。首页就是图鉴，166 种全部可查；每种都有真实照片（来源与授权逐张注明，回源复核过物种）、
 怎么认（每种三条识别要点）、容易和什么认错（毒/可食配对有人工写的差异句）。
-装成 PWA 后断网也能翻列表和搜索，因为山里没信号是常态。
+五路检索（轮廓 / 长在哪 / 颜色 / 大小 / 名字，伞形种再叠一路菌盖表面）可以叠加着选，
+搜索框认「松树」「有毒」这类口语写法，不用记生境原文或标签图标。166 种各有一个静态页
+（`m/<id>.html`），是搜索引擎能索引到的长尾入口。装成 PWA 后断网也能翻列表和搜索，
+因为山里没信号是常态。
 
 ## 附赠玩法：菌菇园
 
@@ -28,8 +31,9 @@
 离线三天回来也只有一个待收。浇水一次推进整条曲线的 8%。
 
 - **166 种真实菌类**，从香菇、松茸、见手青到毒鹅膏、荧光小菇、蛹虫草
-- **1165 道题**：看图认菌、食性类别、孢子印、基质、季节、易混淆、辨毒误区
-- **每种都有真实照片**，来源与授权逐张注明；非成熟态的形象由代码依据形态特征绘制
+- **1064 道题**：看图认菌、食性类别、孢子印、基质、季节、易混淆、辨毒误区（进答题才按需加载，图鉴首屏不背这 250 KB）
+- **每种都有真实照片**，来源与授权逐张注明，点击可全屏放大；11 个致命种另配第二张图补主图拍不到的关键特征；
+  非成熟态的形象由代码依据形态特征绘制
 - **菌菇园**：侧视森林剖面，十个槽位按纵深铺开，昼夜与天气变化，浇水、起风、荧光夜
 - 纯前端，无账号，数据只存在你自己的浏览器里
 
@@ -44,24 +48,27 @@
 ## 本地运行
 
 ```bash
-python3 tools/build_data.py    # 生成 js/data.gen.js
-python3 tools/serve.py 3141    # http://localhost:3141/index.html
+python3 tools/build_data.py          # 生成 js/data.gen.js + questions.gen.js + i18n_en.gen.js
+python3 tools/make_species_pages.py  # 生成 m/*.html + sitemap.xml + robots.txt
+python3 tools/serve.py 3141          # http://localhost:3141/index.html
 ```
 
 Windows / Git Bash 上没有 `python3`，用 `python`。
 
-测试（前三条退出码非零就是不能提交）：
+测试（前四条退出码非零就是不能提交）：
 
 ```bash
-python3 test/check_data.py     # 数据校验（字段、措辞、题库可达性、菌盖形状可画）
-node test/core.test.js         # 内核纯函数测试
-node test/transfer.test.js     # 存档导出导入往返
-node test/facet.test.js        # 筛选引擎对拍
-# 下面四套要先起 python tools/serve.py 3141，走真实点击，共 72 项
+python3 test/check_data.py           # 数据校验（字段、措辞、题库可达性、菌盖形状可画）
+python3 test/check_species_pages.py  # 物种静态页与 sitemap 一致性
+node test/core.test.js               # 内核纯函数测试
+node test/transfer.test.js           # 存档导出导入往返
+node test/facet.test.js              # 筛选引擎对拍
+# 下面五套要先起 python tools/serve.py 3141，走真实点击，共 97 项
 node test/verify_photos_ui.mjs
 node test/verify_fieldguide_a.mjs
 node test/verify_fieldguide_b.mjs
 node test/verify_fieldguide_c.mjs
+node test/verify_fieldguide_d.mjs
 # 浏览器里肉眼验收：http://localhost:3141/test/e2e.html  完整循环
 #                   http://localhost:3141/test/cards.html 分享卡片
 ```
