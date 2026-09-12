@@ -12,7 +12,15 @@
       "以上都不可靠"
     ],
     "answerIndex": 3,
-    "explanation": "没有任何简单的民间方法能判断毒性。中国致死人数最多的灰花纹鹅膏灰扑扑毫不起眼；虫子的生理与人完全不同，能吃的它未必对人无害。"
+    "explanation": "没有任何简单的民间方法能判断毒性。中国致死人数最多的灰花纹鹅膏灰扑扑毫不起眼；虫子的生理与人完全不同，能吃的它未必对人无害。",
+    "qEn": "Which of these is a reliable way to tell whether a wild mushroom is poisonous?",
+    "optionsEn": [
+      "Only brightly coloured ones are poisonous",
+      "Cook it with garlic — if the garlic doesn't turn black, it's safe",
+      "If insects have nibbled it, it's safe",
+      "None of these is reliable"
+    ],
+    "explanationEn": "No simple folk test can detect toxins. The species responsible for the most deaths in China, the grey-streaked death cap, is drab and unremarkable; insects have completely different physiology from humans, and what they can eat may still be lethal to us."
   },
   {
     "id": "myth_silver",
@@ -27,7 +35,15 @@
       "这个说法其实是成立的"
     ],
     "answerIndex": 0,
-    "explanation": "银遇到硫化物才变黑，而鹅膏毒肽、奥来毒素等致命毒素都不含硫，银器完全测不出来。"
+    "explanation": "银遇到硫化物才变黑，而鹅膏毒肽、奥来毒素等致命毒素都不含硫，银器完全测不出来。",
+    "qEn": "Why doesn't the 'silver test' — silverware turning black means a poisonous mushroom — work?",
+    "optionsEn": [
+      "Silver only tarnishes on contact with sulphur compounds, which have nothing to do with mushroom toxins",
+      "The silver has to be boiled for two full hours to be accurate",
+      "It only works on fresh mushrooms",
+      "The test actually does work"
+    ],
+    "explanationEn": "Silver blackens when it meets sulphides, but the deadly toxins — amatoxins, orellanine and the rest — contain no sulphur at all, so silverware cannot detect them."
   },
   {
     "id": "myth_peel",
@@ -42,7 +58,15 @@
       "只对雨后采的有效"
     ],
     "answerIndex": 1,
-    "explanation": "表皮能否剥离与毒性无关。毒鹅膏的表皮很容易撕开，而许多可食蘑菇的表皮反而剥不下来。"
+    "explanation": "表皮能否剥离与毒性无关。毒鹅膏的表皮很容易撕开，而许多可食蘑菇的表皮反而剥不下来。",
+    "qEn": "Is it true that a mushroom whose cap skin peels off is safe to eat?",
+    "optionsEn": [
+      "Yes, it's a tried-and-tested forager's rule",
+      "No — the deadly death cap peels just as easily",
+      "It only works on red mushrooms",
+      "It only works on mushrooms picked after rain"
+    ],
+    "explanationEn": "Whether the cuticle peels has nothing to do with toxicity. The death cap's skin peels off easily, while the skin of many edible species won't come off at all."
   },
   {
     "id": "myth_cook",
@@ -57,7 +81,15 @@
       "只有晒干才能破坏"
     ],
     "answerIndex": 2,
-    "explanation": "鹅膏毒肽在 100℃ 下长时间加热依然稳定。有些毒素确实怕热（如见手青类），但这不能推广到所有蘑菇。"
+    "explanation": "鹅膏毒肽在 100℃ 下长时间加热依然稳定。有些毒素确实怕热（如见手青类），但这不能推广到所有蘑菇。",
+    "qEn": "Does thorough cooking destroy all mushroom toxins?",
+    "optionsEn": [
+      "Yes, ten minutes at a boil is enough",
+      "Yes, a pressure cooker always does it",
+      "No — amatoxins and others are heat-stable and survive ordinary cooking",
+      "Only sun-drying destroys them"
+    ],
+    "explanationEn": "Amatoxins remain stable after prolonged heating at 100 °C. Some toxins genuinely are heat-sensitive (in certain blue-staining boletes, for instance), but that cannot be generalised to all mushrooms."
   },
   {
     "id": "myth_animal",
@@ -72,7 +104,15 @@
       "这个说法是对的"
     ],
     "answerIndex": 1,
-    "explanation": "蛞蝓和许多啮齿动物可以取食毒鹅膏而不受影响，人却可能因此丧命。跨物种推断食用安全性没有依据。"
+    "explanation": "蛞蝓和许多啮齿动物可以取食毒鹅膏而不受影响，人却可能因此丧命。跨物种推断食用安全性没有依据。",
+    "qEn": "Why is 'if animals eat it without harm, people can too' a dangerous rule?",
+    "optionsEn": [
+      "Animals only eat the cap, not the stem",
+      "Species differ enormously in how they metabolise toxins — a dose a rabbit or squirrel tolerates can kill a person",
+      "Animals only eat cooked mushrooms",
+      "The rule is actually correct"
+    ],
+    "explanationEn": "Slugs and many rodents feed on death caps unharmed, while a person can die from them. There is no basis for inferring safety across species."
   },
   {
     "id": "first_aid_step",
@@ -87,7 +127,15 @@
       "让其大量饮酒加速代谢"
     ],
     "answerIndex": 1,
-    "explanation": "保留样本能帮助医生判断毒素类型。同桌进食者即使没有症状也应一同就医。昏迷者不可催吐，以免误吸。"
+    "explanation": "保留样本能帮助医生判断毒素类型。同桌进食者即使没有症状也应一同就医。昏迷者不可催吐，以免误吸。",
+    "qEn": "Someone has eaten a wild mushroom and feels unwell. What is the correct sequence?",
+    "optionsEn": [
+      "Watch overnight and go to hospital only if they're no better the next day",
+      "Induce vomiting at once (only if conscious), keep the remaining mushrooms, and get to a doctor quickly, saying wild mushrooms were eaten",
+      "Drink milk as an antidote, then take an antihistamine at home",
+      "Have them drink plenty of alcohol to speed up metabolism"
+    ],
+    "explanationEn": "Keeping a sample helps doctors work out which toxin is involved. Everyone who ate from the same meal should be seen, even without symptoms. Never induce vomiting in someone who is unconscious — they may inhale it."
   },
   {
     "id": "fake_recovery",
@@ -102,7 +150,15 @@
       "毒素被完全排出的阶段"
     ],
     "answerIndex": 1,
-    "explanation": "胃肠期过后症状会明显缓解，很多人因此出院或停止治疗，而这段时间毒素正在破坏肝细胞，随后进入肝衰竭期。"
+    "explanation": "胃肠期过后症状会明显缓解，很多人因此出院或停止治疗，而这段时间毒素正在破坏肝细胞，随后进入肝衰竭期。",
+    "qEn": "In deadly Amanita poisoning, what is the 'false recovery' phase?",
+    "optionsEn": [
+      "Symptoms that come and go",
+      "A day or two after the vomiting and diarrhoea ease, the patient seems better while liver damage is actually progressing",
+      "A stage that only occurs in children",
+      "The stage when the toxin has been fully excreted"
+    ],
+    "explanationEn": "After the gastrointestinal phase the symptoms clearly subside, and many patients leave hospital or stop treatment — while the toxin is destroying liver cells. Liver failure follows."
   },
   {
     "id": "amatoxin_target",
@@ -117,7 +173,15 @@
       "与血红蛋白结合"
     ],
     "answerIndex": 1,
-    "explanation": "它与 RNA 聚合酶 II 紧密结合，蛋白质合成停摆，代谢最旺盛的肝细胞首先死亡。"
+    "explanation": "它与 RNA 聚合酶 II 紧密结合，蛋白质合成停摆，代谢最旺盛的肝细胞首先死亡。",
+    "qEn": "At the cellular level, how do amatoxins kill?",
+    "optionsEn": [
+      "By rupturing the cell membrane",
+      "By inhibiting RNA polymerase II, so cells can no longer make protein",
+      "By blocking neurotransmitters",
+      "By binding to haemoglobin"
+    ],
+    "explanationEn": "They bind tightly to RNA polymerase II and protein synthesis grinds to a halt. Liver cells, the most metabolically active, die first."
   },
   {
     "id": "gyromitrin_fact",
@@ -132,7 +196,15 @@
       "二氧化硫"
     ],
     "answerIndex": 0,
-    "explanation": "一甲基肼具有肝毒性与神经毒性，且部分会随蒸汽挥发，处理过程中吸入也有中毒记录。"
+    "explanation": "一甲基肼具有肝毒性与神经毒性，且部分会随蒸汽挥发，处理过程中吸入也有中毒记录。",
+    "qEn": "What does the gyromitrin in false morels turn into inside the body?",
+    "optionsEn": [
+      "Monomethylhydrazine — also a rocket-fuel component",
+      "Ethanol",
+      "Urea",
+      "Sulphur dioxide"
+    ],
+    "explanationEn": "Monomethylhydrazine is toxic to the liver and nervous system, and some of it evaporates with steam — poisonings have been recorded from simply inhaling the vapour while handling them."
   },
   {
     "id": "orellanine_delay",
@@ -147,7 +219,15 @@
       "会立刻引起剧烈疼痛"
     ],
     "answerIndex": 1,
-    "explanation": "漫长的潜伏期让人完全想不到与几周前吃的蘑菇有关，往往错过最佳治疗时机。"
+    "explanation": "漫长的潜伏期让人完全想不到与几周前吃的蘑菇有关，往往错过最佳治疗时机。",
+    "qEn": "What is the most dangerous feature of orellanine poisoning?",
+    "optionsEn": [
+      "It acts within minutes and kills fast",
+      "The latency runs two to three weeks — by the time symptoms appear the kidneys are already badly damaged",
+      "It only affects the elderly",
+      "It causes immediate severe pain"
+    ],
+    "explanationEn": "The long delay means nobody connects the illness with a mushroom eaten weeks earlier, and the window for treatment is usually missed."
   },
   {
     "id": "coprine_alcohol",
@@ -162,7 +242,15 @@
       "它会中和胃酸"
     ],
     "answerIndex": 1,
-    "explanation": "乙醛蓄积引起潮红、心悸、头痛。作用可持续数日，几天后再饮酒仍可能复发。"
+    "explanation": "乙醛蓄积引起潮红、心悸、头痛。作用可持续数日，几天后再饮酒仍可能复发。",
+    "qEn": "Why does the common inkcap cause illness when eaten with alcohol?",
+    "optionsEn": [
+      "It contains alcohol",
+      "It contains coprine, which blocks the breakdown of acetaldehyde so it accumulates",
+      "It speeds up alcohol absorption",
+      "It neutralises stomach acid"
+    ],
+    "explanationEn": "Acetaldehyde build-up causes flushing, palpitations and headache. The effect lasts several days — drinking again days later can bring it back."
   },
   {
     "id": "rhabdo_russula",
@@ -177,7 +265,15 @@
       "神经精神型"
     ],
     "answerIndex": 1,
-    "explanation": "肌细胞崩解后大量肌红蛋白进入血液堵塞肾小管，可迅速发展为急性肾衰竭，死亡率很高。"
+    "explanation": "肌细胞崩解后大量肌红蛋白进入血液堵塞肾小管，可迅速发展为急性肾衰竭，死亡率很高。",
+    "qEn": "Which type of poisoning does Russula subnigricans cause?",
+    "optionsEn": [
+      "Acute liver damage",
+      "Rhabdomyolysis",
+      "Photosensitive dermatitis",
+      "Neuropsychiatric"
+    ],
+    "explanationEn": "As muscle cells break down, large amounts of myoglobin flood the blood and clog the kidney tubules; acute kidney failure can develop rapidly, and the death rate is high."
   },
   {
     "id": "mycorrhiza_why",
@@ -192,7 +288,15 @@
       "它们的菌丝生长过快"
     ],
     "answerIndex": 1,
-    "explanation": "香菇、平菇是分解枯木的腐生菌，可以在菌棒上栽培；菌根菌需要一棵活树做伙伴，这是两者的根本差别。"
+    "explanation": "香菇、平菇是分解枯木的腐生菌，可以在菌棒上栽培；菌根菌需要一棵活树做伙伴，这是两者的根本差别。",
+    "qEn": "Why are matsutake, truffles and boletes still so hard to cultivate?",
+    "optionsEn": [
+      "Their spores cannot be stored",
+      "They must form ectomycorrhizae with the roots of living trees and cannot fruit without a host",
+      "They need temperatures that are too low",
+      "Their mycelium grows too fast"
+    ],
+    "explanationEn": "Shiitake and oyster mushrooms are saprotrophs that break down dead wood, so they grow on sawdust logs; mycorrhizal fungi need a living tree as a partner. That is the fundamental difference."
   },
   {
     "id": "spore_number",
@@ -207,7 +311,15 @@
       "孢子会分解成养分"
     ],
     "answerIndex": 1,
-    "explanation": "绝大多数孢子落在不适合的地方。以极大基数换取极小概率，是真菌的通行策略。"
+    "explanation": "绝大多数孢子落在不适合的地方。以极大基数换取极小概率，是真菌的通行策略。",
+    "qEn": "Why do mushrooms produce spores by the hundreds of millions?",
+    "optionsEn": [
+      "Spores merge with one another",
+      "Very few spores land on a suitable substrate and germinate — sheer numbers make up for a tiny success rate",
+      "To feed insects",
+      "Spores break down into nutrients"
+    ],
+    "explanationEn": "The overwhelming majority land somewhere unsuitable. Betting a huge number on a very small probability is the standard fungal strategy."
   },
   {
     "id": "what_is_mushroom",
@@ -222,7 +334,15 @@
       "休眠状态"
     ],
     "answerIndex": 1,
-    "explanation": "菌丝体可以在地下延伸多年甚至几千年，子实体只在条件合适时长出来散播孢子，几天后就消失。"
+    "explanation": "菌丝体可以在地下延伸多年甚至几千年，子实体只在条件合适时长出来散播孢子，几天后就消失。",
+    "qEn": "In the life of a fungus, what is the mushroom we see?",
+    "optionsEn": [
+      "The whole organism",
+      "The reproductive organ — the real body is the mycelium in the soil or wood",
+      "The root system",
+      "A dormant stage"
+    ],
+    "explanationEn": "The mycelium can spread underground for years or even millennia; the fruit body appears only when conditions are right, sheds its spores, and is gone in days."
   },
   {
     "id": "fungi_kingdom",
@@ -237,7 +357,15 @@
       "藻类"
     ],
     "answerIndex": 1,
-    "explanation": "真菌与动物同属后鞭毛生物，都靠吸收现成的有机物生活，细胞壁成分是几丁质而非植物的纤维素。"
+    "explanation": "真菌与动物同属后鞭毛生物，都靠吸收现成的有机物生活，细胞壁成分是几丁质而非植物的纤维素。",
+    "qEn": "In biological classification, which group are fungi more closely related to?",
+    "optionsEn": [
+      "Plants",
+      "Animals",
+      "Bacteria",
+      "Algae"
+    ],
+    "explanationEn": "Fungi and animals both belong to the opisthokonts: both live by absorbing ready-made organic matter, and fungal cell walls are made of chitin rather than the cellulose of plants."
   },
   {
     "id": "sporeprint_how",
@@ -252,7 +380,15 @@
       "把菌柄切开观察断面"
     ],
     "answerIndex": 1,
-    "explanation": "扣住碗是为了保持湿度、避免气流吹散孢子。用一半白纸一半黑纸，深浅两种颜色的孢子印都能看清。"
+    "explanation": "扣住碗是为了保持湿度、避免气流吹散孢子。用一半白纸一半黑纸，深浅两种颜色的孢子印都能看清。",
+    "qEn": "What is the right way to make a spore print?",
+    "optionsEn": [
+      "Soak the whole mushroom in water",
+      "Cut off the cap, lay it gills-down on paper, cover it with a bowl and leave it for a few hours",
+      "Dry the cap and scrape off the powder",
+      "Slice the stem and look at the cut surface"
+    ],
+    "explanationEn": "The bowl keeps the humidity up and stops draughts from scattering the spores. Use paper that is half white and half black so both pale and dark prints show up."
   },
   {
     "id": "decomposer_role",
@@ -267,7 +403,15 @@
       "昆虫会大量增加"
     ],
     "answerIndex": 1,
-    "explanation": "白腐真菌是少数能有效分解木质素的生物。石炭纪大量煤炭的形成，一种解释就是当时这类真菌尚未演化成熟。"
+    "explanation": "白腐真菌是少数能有效分解木质素的生物。石炭纪大量煤炭的形成，一种解释就是当时这类真菌尚未演化成熟。",
+    "qEn": "What would happen to a forest with no lignin-decomposing fungi?",
+    "optionsEn": [
+      "Trees would grow faster",
+      "Dead wood would not break down, and carbon would pile up instead of cycling",
+      "The soil would become richer",
+      "Insects would multiply"
+    ],
+    "explanationEn": "White-rot fungi are among the very few organisms that can break lignin down efficiently. One explanation for the vast coal deposits of the Carboniferous is that these fungi had not yet fully evolved."
   },
   {
     "id": "ring_volva",
@@ -282,7 +426,15 @@
       "是虫子啃噬的痕迹"
     ],
     "answerIndex": 1,
-    "explanation": "幼时内菌幕连接菌盖边缘与菌柄，撕开后留在菌柄上成菌环；外菌幕整个包住幼菇，破开后留在基部成菌托。"
+    "explanation": "幼时内菌幕连接菌盖边缘与菌柄，撕开后留在菌柄上成菌环；外菌幕整个包住幼菇，破开后留在基部成菌托。",
+    "qEn": "What leaves behind the ring and the volva?",
+    "optionsEn": [
+      "Both are parts of the stem",
+      "The ring is what remains of the partial veil, the volva of the universal veil",
+      "Both are clumps of spores",
+      "They are marks left by insects"
+    ],
+    "explanationEn": "In a young mushroom the partial veil joins the cap margin to the stem; when it tears it stays on the stem as a ring. The universal veil wraps the whole button; when it breaks it stays at the base as a volva."
   },
   {
     "id": "amanita_feature",
@@ -297,7 +449,15 @@
       "孢子印绿色"
     ],
     "answerIndex": 0,
-    "explanation": "这三点凑齐时风险很高，因为最致命的几种鹅膏都是这个组合。但缺少其中任何一项也不代表安全。"
+    "explanation": "这三点凑齐时风险很高，因为最致命的几种鹅膏都是这个组合。但缺少其中任何一项也不代表安全。",
+    "qEn": "Which combination of characters, seen together, should most make you suspect an Amanita?",
+    "optionsEn": [
+      "White gills + a ring on the stem + a volva at the base",
+      "Yellow pores + bruising blue",
+      "Gills dissolving into ink",
+      "A green spore print"
+    ],
+    "explanationEn": "When all three appear together the risk is high, because the most lethal Amanitas share exactly this combination. But the absence of any one of them does not mean safety."
   },
   {
     "id": "bluing_why",
@@ -312,7 +472,15 @@
       "孢子释放染色"
     ],
     "answerIndex": 1,
-    "explanation": "变色速度和深浅因种而异。变蓝既不是有毒的标志，也不是可食的标志，不能用来判断能否食用。"
+    "explanation": "变色速度和深浅因种而异。变蓝既不是有毒的标志，也不是可食的标志，不能用来判断能否食用。",
+    "qEn": "Why does a bolete turn blue when it is broken open?",
+    "optionsEn": [
+      "Bacteria multiply on contact with air",
+      "Pigments in the flesh are oxidised by enzymes into blue compounds",
+      "It is caused by water evaporating",
+      "Released spores stain it"
+    ],
+    "explanationEn": "How fast and how deeply it stains varies by species. Bluing is neither a sign of poison nor a sign of edibility, and cannot be used to decide whether a mushroom is safe."
   },
   {
     "id": "lichen_what",
@@ -327,7 +495,15 @@
       "菌丝的休眠形态"
     ],
     "answerIndex": 1,
-    "explanation": "真菌提供结构和水分，光合伙伴提供糖分。地衣不是单一生物，所以不收进蘑菇图鉴。"
+    "explanation": "真菌提供结构和水分，光合伙伴提供糖分。地衣不是单一生物，所以不收进蘑菇图鉴。",
+    "qEn": "What is a lichen?",
+    "optionsEn": [
+      "A kind of moss",
+      "A partnership between a fungus and an alga or cyanobacterium",
+      "A mutated mushroom",
+      "A dormant form of mycelium"
+    ],
+    "explanationEn": "The fungus provides structure and water; the photosynthetic partner provides sugar. A lichen is not a single organism, which is why it is not included in a mushroom guide."
   },
   {
     "id": "largest_organism",
@@ -342,7 +518,15 @@
       "一片竹林"
     ],
     "answerIndex": 2,
-    "explanation": "其菌丝网络覆盖约九平方公里，经基因检测确认属于同一个体，估计已存活数千年。"
+    "explanation": "其菌丝网络覆盖约九平方公里，经基因检测确认属于同一个体，估计已存活数千年。",
+    "qEn": "What is the largest single organism by area known on Earth?",
+    "optionsEn": [
+      "A redwood tree",
+      "A coral reef",
+      "A single honey fungus (Armillaria ostoyae) in the Blue Mountains of Oregon",
+      "A bamboo grove"
+    ],
+    "explanationEn": "Its mycelial network covers about nine square kilometres, confirmed by genetic testing to be one individual, and is estimated to be thousands of years old."
   },
   {
     "id": "zombie_ant_cold",
@@ -357,7 +541,15 @@
       "改变蚂蚁的信息素"
     ],
     "answerIndex": 1,
-    "explanation": "研究发现真菌细胞并不侵入脑组织，而是包围肌肉纤维直接控制动作，被称为「身体木偶」。"
+    "explanation": "研究发现真菌细胞并不侵入脑组织，而是包围肌肉纤维直接控制动作，被称为「身体木偶」。",
+    "qEn": "How does the zombie-ant fungus control its ant?",
+    "optionsEn": [
+      "By directly controlling neurons in the ant's brain",
+      "By growing a network of hyphae around the muscles and releasing compounds, so the ant bites onto a leaf vein and dies at a set height",
+      "By blinding the ant",
+      "By altering the ant's pheromones"
+    ],
+    "explanationEn": "Research found the fungal cells do not invade the brain: they surround the muscle fibres and drive movement directly — a 'body puppet', as it has been called."
   },
   {
     "id": "splitgill_cold",
@@ -372,7 +564,15 @@
       "菌盖直径可达一米"
     ],
     "answerIndex": 0,
-    "explanation": "交配型由多个基因位点组合决定，数量极多意味着它几乎遇到任何同类都能配对。"
+    "explanation": "交配型由多个基因位点组合决定，数量极多意味着它几乎遇到任何同类都能配对。",
+    "qEn": "What biological record is the split gill famous for?",
+    "optionsEn": [
+      "Having more than 23,000 mating types",
+      "A fruit body that glows green",
+      "Staining wood blue",
+      "A cap up to a metre across"
+    ],
+    "explanationEn": "Mating type is set by combinations at several genetic loci; with so many, it can pair with almost any other individual it meets."
   },
   {
     "id": "otzi_fungus",
@@ -387,7 +587,15 @@
       "制作衣物"
     ],
     "answerIndex": 1,
-    "explanation": "菌肉经捶打和硝石处理后极易引燃并能长时间闷烧，是史前重要的携火材料。"
+    "explanation": "菌肉经捶打和硝石处理后极易引燃并能长时间闷烧，是史前重要的携火材料。",
+    "qEn": "Ötzi the Iceman, 5,300 years ago, carried tinder fungus. What was it most likely for?",
+    "optionsEn": [
+      "Food",
+      "Keeping and starting a fire",
+      "Decoration",
+      "Making clothing"
+    ],
+    "explanationEn": "Once beaten flat and treated with saltpetre, the flesh catches a spark easily and smoulders for a long time — an important fire-carrying material in prehistory."
   },
   {
     "id": "birdsnest_cold",
@@ -402,7 +610,15 @@
       "自行爆裂"
     ],
     "answerIndex": 1,
-    "explanation": "杯壁的斜度经过演化优化，雨滴落入时能把孢子包弹出一米以上，落地后靠一根黏丝缠在草茎上。"
+    "explanation": "杯壁的斜度经过演化优化，雨滴落入时能把孢子包弹出一米以上，落地后靠一根黏丝缠在草茎上。",
+    "qEn": "How are the 'eggs' in a bird's nest fungus dispersed?",
+    "optionsEn": [
+      "By wind",
+      "Raindrops hit the cup and fling the spore packets out",
+      "Carried off by insects",
+      "They burst on their own"
+    ],
+    "explanationEn": "The slope of the cup wall is finely tuned: a falling raindrop launches the packets more than a metre, and a sticky thread then tangles them onto a grass stem."
   },
   {
     "id": "deliquesce_cold",
@@ -417,7 +633,15 @@
       "被虫蛀空"
     ],
     "answerIndex": 1,
-    "explanation": "菌褶从下往上逐步液化，成熟的孢子先被释放。这曾被用作真正的书写墨水。"
+    "explanation": "菌褶从下往上逐步液化，成熟的孢子先被释放。这曾被用作真正的书写墨水。",
+    "qEn": "Why do inkcaps dissolve into black ink?",
+    "optionsEn": [
+      "Bacterial infection",
+      "The gills digest themselves so spores can leave the crowded gill spaces in the dripping liquid",
+      "Too much water",
+      "Insects have hollowed them out"
+    ],
+    "explanationEn": "The gills liquefy from the bottom upward, releasing the mature spores first. The liquid was once used as real writing ink."
   },
   {
     "id": "bioluminescence_cold",
@@ -432,7 +656,15 @@
       "菌丝摩擦生热"
     ],
     "answerIndex": 1,
-    "explanation": "一种解释是夜间发光能吸引昆虫帮助散播孢子；发光强度还受生物钟调节，通常夜里最亮。"
+    "explanation": "一种解释是夜间发光能吸引昆虫帮助散播孢子；发光强度还受生物钟调节，通常夜里最亮。",
+    "qEn": "How do glowing mushrooms make their light?",
+    "optionsEn": [
+      "They reflect moonlight",
+      "Luciferin is oxidised by the enzyme luciferase — the same principle as fireflies",
+      "Phosphorus ignites spontaneously",
+      "Friction in the mycelium generates heat"
+    ],
+    "explanationEn": "One explanation is that glowing at night attracts insects that help spread spores; the brightness is also regulated by a biological clock and is usually strongest at night."
   },
   {
     "id": "penicillin_cold",
@@ -447,7 +679,15 @@
       "与真菌无关"
     ],
     "answerIndex": 1,
-    "explanation": "1928 年弗莱明发现培养皿被青霉污染处细菌不生长。真菌与细菌长期竞争，因而演化出大量抗菌物质。"
+    "explanation": "1928 年弗莱明发现培养皿被青霉污染处细菌不生长。真菌与细菌长期竞争，因而演化出大量抗菌物质。",
+    "qEn": "What does the discovery of penicillin have to do with fungi?",
+    "optionsEn": [
+      "It was extracted from mushroom fruit bodies",
+      "It was found in a Penicillium mould that had contaminated a culture plate — Penicillium is a fungus",
+      "It is produced by yeast fermentation",
+      "Nothing at all"
+    ],
+    "explanationEn": "In 1928 Fleming noticed that bacteria would not grow where a plate had been contaminated by Penicillium. Fungi have competed with bacteria for so long that they have evolved a wealth of antibacterial compounds."
   },
   {
     "id": "yeast_cold",
@@ -462,7 +702,15 @@
       "原生动物"
     ],
     "answerIndex": 1,
-    "explanation": "酿酒酵母是单细胞真菌，与蘑菇同属真菌界，是被研究得最透彻的真核模式生物之一。"
+    "explanation": "酿酒酵母是单细胞真菌，与蘑菇同属真菌界，是被研究得最透彻的真核模式生物之一。",
+    "qEn": "The brewer's yeast behind bread, beer and wine belongs to which group?",
+    "optionsEn": [
+      "Bacteria",
+      "Fungi",
+      "Algae",
+      "Protozoa"
+    ],
+    "explanationEn": "Brewer's yeast is a single-celled fungus, in the same kingdom as mushrooms, and one of the most thoroughly studied eukaryotic model organisms."
   },
   {
     "id": "season_yunnan",
@@ -477,7 +725,15 @@
       "全年均匀"
     ],
     "answerIndex": 1,
-    "explanation": "雨季的高湿度和适宜温度触发大量出菇，这也是野生菌中毒事件的高发期。"
+    "explanation": "雨季的高湿度和适宜温度触发大量出菇，这也是野生菌中毒事件的高发期。",
+    "qEn": "When do wild mushrooms flood the markets in Yunnan?",
+    "optionsEn": [
+      "Around Chinese New Year",
+      "In the rainy season, roughly June to November, peaking in July and August",
+      "In the depths of winter",
+      "Evenly all year round"
+    ],
+    "explanationEn": "The high humidity and mild temperatures of the rainy season trigger mass fruiting — and this is also the peak season for wild-mushroom poisonings."
   },
   {
     "id": "cdc_advice",
@@ -492,7 +748,15 @@
       "只在雨后采摘"
     ],
     "answerIndex": 1,
-    "explanation": "每年中毒事件中相当比例源自「以前吃过没事」的经验判断，而同一片山上相似的种可能完全不同。"
+    "explanation": "每年中毒事件中相当比例源自「以前吃过没事」的经验判断，而同一片山上相似的种可能完全不同。",
+    "qEn": "What advice do disease-control authorities keep repeating about wild mushrooms?",
+    "optionsEn": [
+      "A small taste does no harm",
+      "Don't pick, buy or eat wild mushrooms you don't know",
+      "Just make sure they're cooked",
+      "Only pick them after rain"
+    ],
+    "explanationEn": "A large share of poisonings each year come from 'I've eaten this before and was fine' — while similar-looking species on the same hillside may be entirely different."
   },
   {
     "id": "substrate_why",
@@ -507,7 +771,15 @@
       "没有实际意义"
     ],
     "answerIndex": 1,
-    "explanation": "鸡油菌长在地上，与之相似的杰克灯长在木头上；这类信息在照片里往往看不出来，正是图像识别的盲区。"
+    "explanation": "鸡油菌长在地上，与之相似的杰克灯长在木头上；这类信息在照片里往往看不出来，正是图像识别的盲区。",
+    "qEn": "Why does recording what a mushroom is growing on matter so much for identification?",
+    "optionsEn": [
+      "The substrate changes its colour",
+      "Many look-alike species grow on completely different substrates — whether it is on wood or on the ground is often the key difference",
+      "The substrate determines its size",
+      "It has no practical value"
+    ],
+    "explanationEn": "Chanterelles grow on the ground; the look-alike jack-o'-lantern grows on wood. That kind of information is often invisible in a photo — exactly the blind spot of image recognition."
   },
   {
     "id": "why_photo_fails",
@@ -522,6 +794,14 @@
       "实际上是可以的"
     ],
     "answerIndex": 1,
-    "explanation": "这也是各国研究反复指出识别软件准确率有限的原因。本游戏因此不提供拍照识别功能。"
+    "explanation": "这也是各国研究反复指出识别软件准确率有限的原因。本游戏因此不提供拍照识别功能。",
+    "qEn": "Why is a single photo rarely enough to identify a mushroom reliably?",
+    "optionsEn": [
+      "The resolution is too low",
+      "Smell, texture, spore print, substrate and bruising reactions can't be read from one photo",
+      "Photos distort colours",
+      "Actually, it is enough"
+    ],
+    "explanationEn": "This is why studies in many countries keep finding that identification apps have limited accuracy. It is also why this app offers no photo identification."
   }
 ]

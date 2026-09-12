@@ -31,12 +31,14 @@ const pwDir = process.argv[2] || 'C:/Users/tangz/Documents/Projects/fishId/tests
 const { chromium } = await import(pathToFileURL(path.join(pwDir, 'playwright-core', 'index.mjs')).href);
 const BASE = 'http://127.0.0.1:3141/index.html';
 
-// 当前上限（只许降）。quiz 是已知记录在案的缺口（约 900 道知识题未译），其余锁 0。
+// 当前上限（只许降）。全部锁 0，含答题屏：2026-09-12 起 1064 道题全部带
+// qEn / optionsEn / explanationEn（check_data.py 强制），quiz 不再是缺口。
 // sheet:lang 例外锁 2：语言选择器里的「中文」是语言的本名（专有名词），设计上
 // 不随界面语言改变——跟 I18N.NATIVE 里 zh-Hans: '中文' 是同一个东西，别把它
 // 当泄漏改掉，也别把上限撤回 0（那样这条门禁反而会去追杀正确行为）。
 const MAX = {
   browse: 0, 'browse:filtered': 0, detail: 0, training: 0, profile: 0,
+  quiz: 0, 'quiz:explain': 0,
   'sheet:lang': 2, 'sheet:synth': 0, 'sheet:shop': 0, 'sheet:basket': 0,
   'sheet:obsList': 0, 'sheet:obsEdit': 0,
 };
@@ -130,8 +132,21 @@ screens.push(['profile', await count()]);
 await page.click('#btn-training');
 await page.waitForTimeout(400);
 screens.push(['training', await count()]);
-// 'training' isn't a ROOT page either — its own back button, not the (hidden) nav.
-await page.click('#page-training [data-back]');
+
+// 答题屏：点「Daily 5」进一轮。题库（questions.gen.js）是第一次答题时才注入的，
+// 所以要等到真的有一道题在屏上，不能只等页面切换。数两次：出题时、答完看讲解时。
+await page.click('#training-body button.entry-card:has-text("Daily 5")');
+await page.waitForSelector('#page-quiz.active #q-opts button', { timeout: 15000 });
+await page.waitForTimeout(300);
+screens.push(['quiz', await count()]);
+await page.click('#q-opts button');
+await page.waitForSelector('#q-explain button', { timeout: 5000 });
+await page.waitForTimeout(300);
+screens.push(['quiz:explain', await count()]);
+await page.click('#page-quiz [data-back]');
+await page.waitForTimeout(400);
+// back on the training page; leave it the way the training block used to
+await page.click('#page-training [data-back]').catch(() => {});
 await page.waitForTimeout(300);
 
 /* ── 二级界面：每个弹层点开再数 ──────────────────────────── */

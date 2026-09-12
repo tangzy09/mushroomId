@@ -103,7 +103,7 @@ mushroomId/
 │   ├── verify_observations.mjs ← 观察日志行为验收：一键记录 / 编辑 / GPS / 时间线 / 旧存档清理
 │   ├── verify_training.mjs     ← 认菌训练行为验收：速测 / 范围闪卡 / 易混对决 / 每日5题 / 错题本
 │   ├── i18n.mjs                ← 引擎门禁：键集对齐 / 能切 / 注册完整（10 项）
-│   ├── i18n-coverage.mjs       ← 英文模式下 5 屏 + 6 弹层的残留汉字扫描（棘轮 0，sheet:lang 例外 2）
+│   ├── i18n-coverage.mjs       ← 英文模式下 5 屏 + 答题屏×2 + 6 弹层的残留汉字扫描（棘轮 0，sheet:lang 例外 2）
 │   ├── check_hardcoded_zh.py   ← 渲染层写死中文门禁（棘轮 22，逐条注明是哪个内联三元表达式的中文分支）
 │   ├── smoke_prod.mjs          ← 部署后对生产站跑的验收冒烟
 │   ├── e2e.html                ← 浏览器里跑完整循环
@@ -186,6 +186,10 @@ core 通过 `GameConfig` 取一切领域信息；新增领域概念先加到 con
 ### 3. 结构化题目由数据生成
 
 `name_from_image` / `edibility_class` / `feature` / `lookalike` 四类题由 `tools/build_data.py` 从物种字段生成，改数据自动同步。只有 `trivia` / `cold_fact` / `myth_buster` 是人工写的。
+
+**每道题都必须英文对齐**（`qEn` / `optionsEn` / `explanationEn`，`check_data.py` 强制）。生成题的英文来自
+`build_data.py` 里各中文标签表的英文孪生表，加一种新题型就要同时加两张表和两套模板；人工题写进
+`questions_curated.json` 时中英一起写，别先写中文「回头再翻」——门会拦。
 
 ### 4. 题库可达性
 
@@ -442,11 +446,21 @@ UI（`page-quiz`）、但结局不同的两条路：`round.mode` 是 `'gacha'`�
   `index.html` 末尾的收尾脚本里——深链 `#/m/<id>` 会在 `app.js` 执行过程中就把详情页标题写成真实
   物种名，若 `applyDom()` 排在它后面执行，会把 `<h1 id="detail-title" data-i18n="...">` 的占位
   文本「详情」重新盖回去。**判据是 `verify_fieldguide_d.mjs` 里那条深链断言**——挪对位置前它会红。
-- **`showQuestion()` 的选项显示**：只有 `name_from_image`（166 道，每种一道，固定模板「这是什么
-  蘑菇？」/ "What mushroom is this?"）会跟着语言换，选项也换成 `optionsEn`；其余约 900 道
-  `feature`/`lookalike`/`edibility_class`/`trivia`/`cold_fact`/`myth_buster` + 人工题**仍是纯中文
-  数据**——`test/i18n-coverage.mjs` 没有巡到答题页正是因为这个已知缺口太大，量出来的数字没有
-  意义，等哪天真要翻这批题库再回来把 `quiz` 加进巡检表。这是记录在案的缺口，不是没做完就假装做完。
+- **题库双语（2026-09-12 补上）**：1064 道题全部带 `qEn` / `optionsEn` / `explanationEn`。
+  863 道生成题**不是翻的，是从同一份数据并行生成的**：`build_data.py` 给每张中文标签表配了英文
+  孪生表（`EDIBILITY_CLASS_EN` / `SPORE_LABEL_EN` / `HYMENIUM_LABEL_EN` / `SUBSTRATE_LABEL_EN` /
+  `SEASON_LABEL_EN` / `DISCLAIMER_EN`），`label_options()` 用**键**抽样和洗牌、再分别渲染成两种
+  语言——洗牌只做一次，所以 `answerIndex` 两种语言天然共用；随机种子和抽样顺序没变，题 id 与
+  答案位置与改前逐题一致。35 道人工题（trivia / cold_fact / myth_buster）逐条人工翻译，
+  辟谣题的英文保持「只破不立」——不能翻成任何一句像是在教人怎么判断能不能吃的话。
+  `showQuestion()` 在英文模式取 `qEn` / `optionsEn`，`answer()` 的讲解取 `explanationEn`；
+  「易混对决」是运行时现造的题，原来英文模式下差异句仍取中文 `lookalikeNotes`，改为先查
+  `enOf(id).lookalikeNotesEn`。**`check_data.py` 现在强制每道题英文对齐**（`qEn` 非空、`optionsEn`
+  与 `options` 等长且不重复、有 `explanation` 就必须有 `explanationEn`、三者不含汉字，汉字区间
+  写成 `[一-鿿]` 不写字面汉字），去掉一道题的 `qEn` 验过会红。`test/i18n-coverage.mjs`
+  的巡检表加了 `quiz` 与 `quiz:explain` 两屏，上限 0，地板 86 / 343 字。
+  ⚠ 生成题的洗牌顺序与随机种子（`20260902`）绑在一起，改 `label_options` 的抽样方式会让全库题的
+  选项顺序变化——不影响正确性，但会让 `wrong` 错题本里按题 id 记的记录对不上原来的题面。
 - **三道门禁**：`test/i18n.mjs`（引擎，10 项）、`test/i18n-coverage.mjs`（英文模式下 5 个主屏 +
   6 个弹层的残留汉字，主屏地板 >80、弹层地板 >10，防止「屏幕塌了导致零汉字天然为真」）、
   `test/check_hardcoded_zh.py`（源码扫描，`js/game`+`js/core` 下的字符串字面量，棘轮 22——这 22 条
@@ -513,8 +527,11 @@ UI（`page-quiz`）、但结局不同的两条路：`round.mode` 是 `'gacha'`�
       行为验收 23 项全过
 - [x] **二期·英文界面（2026-09-08）**：引擎 + 237 键双语 locale + `retag()` 机制 + 语言切换器 +
       `enOf(id)` 接上 `i18n_en.gen.js` 的识别要点/生境/趣味知识/差异句英译，三道门禁全绿
-      （见「英文界面」一节）。已知缺口：约 900 道非看图题的答题内容仍是中文单语。
-      二期三件（观察日志、认菌训练重构、英文界面）**全部完成**。
+      （见「英文界面」一节）。二期三件（观察日志、认菌训练重构、英文界面）**全部完成**。
+- [x] **题库双语（2026-09-12）**：1064 道题全部带 `qEn` / `optionsEn` / `explanationEn`——863 道生成题从
+      英文标签孪生表并行生成（`answerIndex` 共用、题 id 不变），35 道人工题人工翻译；
+      `check_data.py` 强制英文对齐，`i18n-coverage.mjs` 巡检表加答题屏两项（上限 0）。
+      英文模式下每日 5 题与易混对决各真实答完一轮，题干/选项/讲解零汉字。
 - [x] **物种静态页英文版（2026-09-12）**：`m/en/*.html` × 166，与中文页 hreflang 互指、各自 canonical，
       sitemap 333 条带 xhtml:link 备选，lastmod 按内容哈希只在真变时更新；`check_species_pages.py` 重写为
       双语门（反向验过四种变异），`smoke_prod.mjs` 加 6 条双语断言。补齐 8 对缺失的 `lookalikeNotesEn`，

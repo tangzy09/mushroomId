@@ -530,9 +530,21 @@
     var pool = (a.lookalikes || []).map(function (id) { return byId[id]; }).filter(Boolean);
     if (!pool.length) return null;
     var b = pool[Math.floor(Math.random() * pool.length)];
-    var diff = (a.lookalikeNotes && a.lookalikeNotes[b.id]) ||
-      (b.lookalikeNotes && b.lookalikeNotes[a.id]) ||
-      (b.idKeys && b.idKeys[0] && b.idKeys[0].text) || '';
+    // Same three-step fallback as lookalikeCard, but language-aware: in English
+    // mode the difference sentence must come from the English notes, otherwise
+    // the duel's explanation stays Chinese while everything around it is English.
+    var diff;
+    if (I18N.lang() === 'en') {
+      var ae = enOf(a.id), be = enOf(b.id);
+      diff = (ae.lookalikeNotesEn && ae.lookalikeNotesEn[b.id]) ||
+        (be.lookalikeNotesEn && be.lookalikeNotesEn[a.id]) ||
+        (be.idKeysEn && be.idKeysEn[0]) || '';
+    }
+    if (!diff) {
+      diff = (a.lookalikeNotes && a.lookalikeNotes[b.id]) ||
+        (b.lookalikeNotes && b.lookalikeNotes[a.id]) ||
+        (b.idKeys && b.idKeys[0] && b.idKeys[0].text) || '';
+    }
     var aFirst = Math.random() < 0.5;
     var aName = I18N.pick(a.name, a.nameEn), bName = I18N.pick(b.name, b.nameEn);
     var options = aFirst ? [aName, bName] : [bName, aName];
@@ -665,14 +677,14 @@
     }
 
     // name_from_image is the one question type whose prompt is a fixed
-    // template rather than per-question authored content, so it is the one
-    // type this pass can translate outright; the other 900-odd bank
-    // questions (feature/lookalike/edibility_class/trivia/cold_fact/
-    // myth_buster + curated) are still Chinese-only — see CLAUDE.md.
-    $('q-text').textContent = q.type === 'name_from_image' ? I18N.t('quiz.whichMushroom') : q.q;
-    // English options for name_from_image were baked in at build time
-    // (optionsEn); other types show only what the bank has.
-    var showEn = I18N.lang() === 'en' && pres.optionsEn;
+    // template rather than per-question authored content. Every bank question
+    // now carries qEn / optionsEn / explanationEn (generated ones from the
+    // English label tables in build_data.py, the 35 curated ones by hand), and
+    // check_data.py refuses a question that lacks any of them.
+    var en = I18N.lang() === 'en';
+    $('q-text').textContent = q.type === 'name_from_image' ? I18N.t('quiz.whichMushroom')
+      : (en && q.qEn ? q.qEn : q.q);
+    var showEn = en && pres.optionsEn;
     var box = $('q-opts');
     box.innerHTML = '';
     pres.options.forEach(function (opt, i) {
@@ -733,11 +745,14 @@
     var ex = $('q-explain');
     var parts = [];
     if (choice === -1) parts.push('<b>' + I18N.t('quiz.timeUp') + '</b>');
-    if (q.explanation) parts.push(q.explanation);
+    var enX = I18N.lang() === 'en';
+    var expl = enX && q.explanationEn ? q.explanationEn : q.explanation;
+    if (expl) parts.push(expl);
     var ent2 = q.entityId && byId[q.entityId];
     if (ent2) {
       var ed = C.edibility[ent2.edibility];
-      parts.push('<span class="tag">' + esc(I18N.pick(ent2.name, ent2.nameEn)) + '</span>：' + esc(I18N.pick(ent2.fact, enOf(ent2.id).factEn)));
+      parts.push('<span class="tag">' + esc(I18N.pick(ent2.name, ent2.nameEn)) + '</span>' + (enX ? ': ' : '：') +
+        esc(I18N.pick(ent2.fact, enOf(ent2.id).factEn)));
       parts.push('<span class="edib" style="background:' + ed.color + '">' + ed.label + '</span> ' +
         '<span class="edib-note">' + ed.note + '</span>');
     }

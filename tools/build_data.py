@@ -49,6 +49,49 @@ SEASON_LABEL = {"spring": "春季（3–5 月）", "summer": "夏季（6–8 月
                 "autumn": "秋季（9–11 月）", "winter": "冬季（12–2 月）"}
 DISCLAIMER = "本题考察的是资料如何记载，不是「能不能吃」。任何野生蘑菇都不应凭记忆或图片判断食用。"
 
+# English twins of the label tables above. Options are built from the *keys*
+# and rendered through both tables, so the shuffled order — and therefore
+# answerIndex — is shared by the two languages by construction.
+EDIBILITY_CLASS_EN = {
+    "cultivated": "Cultivated edible",
+    "wild_edible": "Recorded as an edible wild mushroom",
+    "medicinal": "Traditional medicinal use, not food",
+    "poisonous": "Poisonous",
+    "deadly": "Deadly poisonous, with recorded fatalities",
+}
+SPORE_LABEL_EN = {
+    "white": "White", "cream": "Cream", "pink": "Pink", "brown": "Brown",
+    "rusty": "Rusty brown", "purple_brown": "Purple-brown", "black": "Black",
+    "green": "Green", "olive": "Olive", "lilac": "Lilac",
+}
+HYMENIUM_LABEL_EN = {
+    "gills": "Gills", "pores": "Pores (tubes)", "teeth": "Teeth (spines)",
+    "ridges": "Ridges (false gills)", "smooth": "A smooth surface", "gleba": "A gleba enclosed inside",
+}
+SUBSTRATE_LABEL_EN = {
+    "wood": "On wood (dead trunks, stumps or logs)",
+    "soil": "In soil on the ground",
+    "grass": "On grassland",
+    "litter": "On leaf litter and humus",
+    "mycorrhizal": "In woodland, partnered with living tree roots",
+    "termite": "On termite mounds",
+    "insect": "On insect bodies or pupae",
+    "parasitic": "Parasitic on other organisms",
+    "conifer_cone": "On fallen conifer cones",
+}
+SEASON_LABEL_EN = {"spring": "Spring (March–May)", "summer": "Summer (June–August)",
+                   "autumn": "Autumn (September–November)", "winter": "Winter (December–February)"}
+DISCLAIMER_EN = ("This question is about what the sources record, not whether it is safe to eat. "
+                 "No wild mushroom should ever be judged edible from memory or a picture.")
+
+
+def label_options(correct_key, table_zh, table_en, rng):
+    """Four option keys (correct + three sampled), shuffled once, rendered twice."""
+    others = [k for k in table_zh if k != correct_key]
+    keys = [correct_key] + rng.sample(others, 3)
+    rng.shuffle(keys)
+    return ([table_zh[k] for k in keys], [table_en[k] for k in keys], keys.index(correct_key))
+
 
 def season_bucket(months):
     """Dominant season of a species, or None when it fruits year-round."""
@@ -108,7 +151,7 @@ def build_questions(species):
         rng.shuffle(opts)
         qs.append({
             "id": "q_%s_img" % sid, "type": "name_from_image", "entityId": sid,
-            "difficulty": diff, "q": "这是什么蘑菇？",
+            "difficulty": diff, "q": "这是什么蘑菇？", "qEn": "What mushroom is this?",
             "options": [o["name"] for o in opts],
             "optionsEn": [o["nameEn"] for o in opts],
             "answerIndex": opts.index(m),
@@ -118,10 +161,7 @@ def build_questions(species):
         # Only for species whose category is unambiguous; never for
         # conditional / unknown / inedible.
         if m["edibility"] in EDIBILITY_CLASS:
-            correct = EDIBILITY_CLASS[m["edibility"]]
-            others = [v for k, v in EDIBILITY_CLASS.items() if v != correct]
-            opts = [correct] + rng.sample(others, 3)
-            rng.shuffle(opts)
+            opts, opts_en, ans = label_options(m["edibility"], EDIBILITY_CLASS, EDIBILITY_CLASS_EN, rng)
             d = {"cultivated": 2, "wild_edible": 3, "medicinal": 3,
                  "poisonous": 3, "deadly": 2}[m["edibility"]]
             if m["edibility"] in ("poisonous", "deadly") and has_look:
@@ -130,65 +170,65 @@ def build_questions(species):
                 "id": "q_%s_edib" % sid, "type": "edibility_class", "entityId": sid,
                 "difficulty": d,
                 "q": "资料记载中，%s（%s）属于以下哪一类？" % (m["name"], m["latin"]),
-                "options": opts, "answerIndex": opts.index(correct),
+                "qEn": "According to reference sources, which category does %s (%s) belong to?" % (m["nameEn"], m["latin"]),
+                "options": opts, "optionsEn": opts_en, "answerIndex": ans,
                 "explanation": m.get("edibilityNote") or DISCLAIMER,
+                "explanationEn": m.get("edibilityNoteEn") or DISCLAIMER_EN,
                 "disclaimer": True,
             })
 
         # --- feature: spore print, d3-d5 --------------------------------
         if m.get("sporePrint") in SPORE_LABEL:
-            correct = SPORE_LABEL[m["sporePrint"]]
-            others = [v for v in SPORE_LABEL.values() if v != correct]
-            opts = [correct] + rng.sample(others, 3)
-            rng.shuffle(opts)
+            opts, opts_en, ans = label_options(m["sporePrint"], SPORE_LABEL, SPORE_LABEL_EN, rng)
             qs.append({
                 "id": "q_%s_spore" % sid, "type": "feature", "subtype": "spore_print",
                 "entityId": sid, "difficulty": 3 if rare_i < 2 else (4 if rare_i < 3 else 5),
                 "q": "%s的孢子印是什么颜色？" % m["name"],
-                "options": opts, "answerIndex": opts.index(correct),
+                "qEn": "What colour is the spore print of %s?" % m["nameEn"],
+                "options": opts, "optionsEn": opts_en, "answerIndex": ans,
                 "explanation": "孢子印颜色是区分近似种最可靠的特征之一，做法是把菌盖扣在纸上静置数小时。",
+                "explanationEn": "Spore-print colour is one of the most reliable ways to separate similar species: "
+                                 "set the cap gills-down on paper and leave it for a few hours.",
             })
 
         # --- feature: substrate, d2-d3 ----------------------------------
         if m.get("substrate") in SUBSTRATE_LABEL:
-            correct = SUBSTRATE_LABEL[m["substrate"]]
-            others = [v for v in SUBSTRATE_LABEL.values() if v != correct]
-            opts = [correct] + rng.sample(others, 3)
-            rng.shuffle(opts)
+            opts, opts_en, ans = label_options(m["substrate"], SUBSTRATE_LABEL, SUBSTRATE_LABEL_EN, rng)
             qs.append({
                 "id": "q_%s_subst" % sid, "type": "feature", "subtype": "substrate",
                 "entityId": sid, "difficulty": 2 if rare_i < 2 else 3,
                 "q": "%s通常长在哪里？" % m["name"],
-                "options": opts, "answerIndex": opts.index(correct),
+                "qEn": "Where does %s usually grow?" % m["nameEn"],
+                "options": opts, "optionsEn": opts_en, "answerIndex": ans,
                 "explanation": "基质常常是区分外形相近物种的关键，而这恰恰是照片里看不出来的信息。",
+                "explanationEn": "The substrate is often the key to separating look-alikes — and it is exactly "
+                                 "the information a photo cannot show.",
             })
 
         # --- feature: hymenium, d2-d4 -----------------------------------
         if m.get("hymenium") in HYMENIUM_LABEL:
-            correct = HYMENIUM_LABEL[m["hymenium"]]
-            others = [v for v in HYMENIUM_LABEL.values() if v != correct]
-            opts = [correct] + rng.sample(others, 3)
-            rng.shuffle(opts)
+            opts, opts_en, ans = label_options(m["hymenium"], HYMENIUM_LABEL, HYMENIUM_LABEL_EN, rng)
             qs.append({
                 "id": "q_%s_hymen" % sid, "type": "feature", "subtype": "morphology",
                 "entityId": sid, "difficulty": 2 if rare_i < 1 else (3 if rare_i < 3 else 4),
                 "q": "%s的孢子长在什么结构上？" % m["name"],
-                "options": opts, "answerIndex": opts.index(correct),
+                "qEn": "What structure carries the spores of %s?" % m["nameEn"],
+                "options": opts, "optionsEn": opts_en, "answerIndex": ans,
                 "explanation": "菌褶、菌管、菌齿、棱脊是四类常见的子实层，先看这一点能把范围缩小很多。",
+                "explanationEn": "Gills, pores, teeth and ridges are the four common kinds of hymenium; "
+                                 "checking this first narrows the field a great deal.",
             })
 
         # --- feature: season, d2-d3 -------------------------------------
         sb = season_bucket(m.get("season"))
         if sb:
-            correct = SEASON_LABEL[sb]
-            others = [v for v in SEASON_LABEL.values() if v != correct]
-            opts = [correct] + rng.sample(others, 3)
-            rng.shuffle(opts)
+            opts, opts_en, ans = label_options(sb, SEASON_LABEL, SEASON_LABEL_EN, rng)
             qs.append({
                 "id": "q_%s_season" % sid, "type": "feature", "subtype": "season",
                 "entityId": sid, "difficulty": 2 if rare_i < 2 else 3,
                 "q": "%s主要出现在什么季节？" % m["name"],
-                "options": opts, "answerIndex": opts.index(correct),
+                "qEn": "In which season does %s mainly appear?" % m["nameEn"],
+                "options": opts, "optionsEn": opts_en, "answerIndex": ans,
             })
 
         # --- lookalike, d3-d5 -------------------------------------------
@@ -206,11 +246,18 @@ def build_questions(species):
                 "id": "q_%s_look" % sid, "type": "lookalike", "entityId": sid,
                 "difficulty": 3 if rare_i < 2 else (4 if rare_i < 3 else 5),
                 "q": "%s最容易与下面哪一种混淆？" % m["name"],
-                "options": [o["name"] for o in opts], "answerIndex": opts.index(correct),
+                "qEn": "Which of these is %s most easily confused with?" % m["nameEn"],
+                "options": [o["name"] for o in opts], "optionsEn": [o["nameEn"] for o in opts],
+                "answerIndex": opts.index(correct),
                 "explanation": ("两者外观相近，%s的记载是%s。外形相似的物种往往需要显微或分子手段才能确认，"
                                 "不要凭肉眼下结论。" % (correct["name"],
                                                  EDIBILITY_CLASS.get(correct["edibility"], "食性不明"))
                                 ) if risky else "外形相近的物种常常分属不同的科，需要看孢子印、基质等特征才能区分。",
+                "explanationEn": ("The two look alike, and %s is recorded as: %s. Look-alike species often need "
+                                  "microscopy or DNA to confirm — never decide by eye."
+                                  % (correct["nameEn"], EDIBILITY_CLASS_EN.get(correct["edibility"], "edibility unknown"))
+                                  ) if risky else ("Look-alike species often belong to different families; spore print, "
+                                                   "substrate and other characters are needed to tell them apart."),
             })
     return qs
 

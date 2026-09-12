@@ -247,8 +247,24 @@ def check_questions(questions, ids):
             err("%s: answerIndex %r out of range" % (qid, ai))
         if not isinstance(q.get("difficulty"), int) or not 1 <= q["difficulty"] <= 5:
             err("%s: difficulty must be 1-5" % qid)
-        if q.get("optionsEn") and len(q["optionsEn"]) != len(opts):
-            err("%s: optionsEn length differs from options" % qid)
+        # English parity is required, not optional: the English UI shows every
+        # question, so a question that lacks its English twin would surface as
+        # a Chinese island. Generated questions get these from build_data.py's
+        # English label tables; the curated ones are translated by hand.
+        oe = q.get("optionsEn") or []
+        if len(oe) != len(opts):
+            err("%s: optionsEn has %d entries, options has %d" % (qid, len(oe), len(opts)))
+        elif len(set(oe)) != len(oe):
+            err("%s: duplicate optionsEn %r" % (qid, oe))
+        if not q.get("qEn"):
+            err("%s: missing qEn" % qid)
+        if q.get("explanation") and not q.get("explanationEn"):
+            err("%s: has explanation but no explanationEn" % qid)
+        for k in ("qEn", "explanationEn"):
+            if re.search(r"[\u4e00-\u9fff]", q.get(k) or ""):
+                err("%s: %s contains Chinese characters" % (qid, k))
+        if any(re.search(r"[\u4e00-\u9fff]", o) for o in oe):
+            err("%s: optionsEn contains Chinese characters" % qid)
 
     # every species needs at least one image question and two others
     per_entity = Counter(q["entityId"] for q in questions if q.get("entityId"))
