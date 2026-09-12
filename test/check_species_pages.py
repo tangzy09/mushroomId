@@ -7,6 +7,11 @@
 """
 import json, os, re, sys
 
+# Windows 的 cp1252 终端打不出最后那行「OK — N 个物种页」里的中文，脚本会在所有断言
+# 都过了之后崩在 print 上、退出码 1 —— 一道在成功时报红的门。把 stdout 钉成 UTF-8。
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 M_DIR = os.path.join(ROOT, 'm')
 
