@@ -1,0 +1,1330 @@
+{
+ "m/almond.html": {
+  "hash": "61a14e35fbc1cd71",
+  "mod": "2026-09-12"
+ },
+ "m/amanitajack.html": {
+  "hash": "22e1a8f8f6c8ba44",
+  "mod": "2026-09-12"
+ },
+ "m/amethyst.html": {
+  "hash": "4f17f30b9c08be89",
+  "mod": "2026-09-12"
+ },
+ "m/artistconk.html": {
+  "hash": "a4f1e6c82a212a95",
+  "mod": "2026-09-12"
+ },
+ "m/bambooveil.html": {
+  "hash": "1e2b5eef6060471d",
+  "mod": "2026-09-12"
+ },
+ "m/barometer.html": {
+  "hash": "357e76894b5bbe6d",
+  "mod": "2026-09-12"
+ },
+ "m/beefsteak.html": {
+  "hash": "785ed78ecafcf0bd",
+  "mod": "2026-09-12"
+ },
+ "m/birchpolypore.html": {
+  "hash": "7671baa6bfb8abdf",
+  "mod": "2026-09-12"
+ },
+ "m/birdsnest.html": {
+  "hash": "f2cded0b3552a075",
+  "mod": "2026-09-12"
+ },
+ "m/bitterbolete.html": {
+  "hash": "b675c76152f03025",
+  "mod": "2026-09-12"
+ },
+ "m/bittermycena.html": {
+  "hash": "7e0e2a56c5e0e940",
+  "mod": "2026-09-12"
+ },
+ "m/blackening.html": {
+  "hash": "ab082f8d672c4959",
+  "mod": "2026-09-12"
+ },
+ "m/blackmorel.html": {
+  "hash": "89e9eed52f269dd9",
+  "mod": "2026-09-12"
+ },
+ "m/blackskin.html": {
+  "hash": "263584d8bc019afd",
+  "mod": "2026-09-12"
+ },
+ "m/blacktrumpet.html": {
+  "hash": "435367c7cbc48c21",
+  "mod": "2026-09-12"
+ },
+ "m/blackwitch.html": {
+  "hash": "aecaf54f8f2e4995",
+  "mod": "2026-09-12"
+ },
+ "m/bleedingbonnet.html": {
+  "hash": "1dab383bbcb0be8d",
+  "mod": "2026-09-12"
+ },
+ "m/bleedingtooth.html": {
+  "hash": "6203680c1787d7f7",
+  "mod": "2026-09-12"
+ },
+ "m/bluemushroom.html": {
+  "hash": "476b8dbe932f4251",
+  "mod": "2026-09-12"
+ },
+ "m/blusher.html": {
+  "hash": "6ddeef14824b3c72",
+  "mod": "2026-09-12"
+ },
+ "m/button.html": {
+  "hash": "f99308166843b09f",
+  "mod": "2026-09-12"
+ },
+ "m/caesar.html": {
+  "hash": "e527cec7e8bffa4f",
+  "mod": "2026-09-12"
+ },
+ "m/candlesnuff.html": {
+  "hash": "c851385a2afe2db1",
+  "mod": "2026-09-12"
+ },
+ "m/candolle.html": {
+  "hash": "4ace1c0c9674199f",
+  "mod": "2026-09-12"
+ },
+ "m/chaga.html": {
+  "hash": "0a0592cd339de593",
+  "mod": "2026-09-12"
+ },
+ "m/chanterelle.html": {
+  "hash": "3c9369efb6a734ed",
+  "mod": "2026-09-12"
+ },
+ "m/charcoalburner.html": {
+  "hash": "0c828510f3380351",
+  "mod": "2026-09-12"
+ },
+ "m/chestnutbolete.html": {
+  "hash": "a60734b7f7e705f3",
+  "mod": "2026-09-12"
+ },
+ "m/chickenwoods.html": {
+  "hash": "34b90f577bc7d8e7",
+  "mod": "2026-09-12"
+ },
+ "m/chinesetruffle.html": {
+  "hash": "8415ab940783ab4f",
+  "mod": "2026-09-12"
+ },
+ "m/chlorophyllumB.html": {
+  "hash": "e6569ad0ed09db2f",
+  "mod": "2026-09-12"
+ },
+ "m/citrina.html": {
+  "hash": "4bd89e8a0fd94ae9",
+  "mod": "2026-09-12"
+ },
+ "m/conocybe.html": {
+  "hash": "b49397059ad7715e",
+  "mod": "2026-09-12"
+ },
+ "m/coralRamaria.html": {
+  "hash": "957a9e58a1e2c2b6",
+  "mod": "2026-09-12"
+ },
+ "m/coralhericium.html": {
+  "hash": "7f7f8d191194dac2",
+  "mod": "2026-09-12"
+ },
+ "m/cornflower.html": {
+  "hash": "aa9879ff58d8f3d4",
+  "mod": "2026-09-12"
+ },
+ "m/crested.html": {
+  "hash": "112116b1f56d9719",
+  "mod": "2026-09-12"
+ },
+ "m/deadlywebcap.html": {
+  "hash": "f114e50dc24266c4",
+  "mod": "2026-09-12"
+ },
+ "m/deadmanfingers.html": {
+  "hash": "d0f94db89b43bf77",
+  "mod": "2026-09-12"
+ },
+ "m/deathcap.html": {
+  "hash": "888877678b375c1e",
+  "mod": "2026-09-12"
+ },
+ "m/deerpluteus.html": {
+  "hash": "436dd3463bb49875",
+  "mod": "2026-09-12"
+ },
+ "m/destroyingangel.html": {
+  "hash": "d0f2aeb6aa924830",
+  "mod": "2026-09-12"
+ },
+ "m/devilscigar.html": {
+  "hash": "a603471860fbe541",
+  "mod": "2026-09-12"
+ },
+ "m/devilsfingers.html": {
+  "hash": "edda18a8b48bda91",
+  "mod": "2026-09-12"
+ },
+ "m/dogstinkhorn.html": {
+  "hash": "d38415069d6f09f5",
+  "mod": "2026-09-12"
+ },
+ "m/dryadsaddle.html": {
+  "hash": "1406ec5176ca7be3",
+  "mod": "2026-09-12"
+ },
+ "m/earpick.html": {
+  "hash": "3b0bb9767cf4d891",
+  "mod": "2026-09-12"
+ },
+ "m/earthball.html": {
+  "hash": "996351f03475554d",
+  "mod": "2026-09-12"
+ },
+ "m/earthstar.html": {
+  "hash": "cc4729fc5e101ce7",
+  "mod": "2026-09-12"
+ },
+ "m/earthtongue.html": {
+  "hash": "a7f8d0b2d87552af",
+  "mod": "2026-09-12"
+ },
+ "m/eggamanita.html": {
+  "hash": "95b002ab297c30b2",
+  "mod": "2026-09-12"
+ },
+ "m/en/almond.html": {
+  "hash": "440868e8ad9bc141",
+  "mod": "2026-09-12"
+ },
+ "m/en/amanitajack.html": {
+  "hash": "770efbfbb3f87df2",
+  "mod": "2026-09-12"
+ },
+ "m/en/amethyst.html": {
+  "hash": "84fd415fcbd1926b",
+  "mod": "2026-09-12"
+ },
+ "m/en/artistconk.html": {
+  "hash": "1d7691e319f3e7f8",
+  "mod": "2026-09-12"
+ },
+ "m/en/bambooveil.html": {
+  "hash": "59463ade96edb124",
+  "mod": "2026-09-12"
+ },
+ "m/en/barometer.html": {
+  "hash": "d7a6b25a3619c5af",
+  "mod": "2026-09-12"
+ },
+ "m/en/beefsteak.html": {
+  "hash": "f44e1e8e5f3989b3",
+  "mod": "2026-09-12"
+ },
+ "m/en/birchpolypore.html": {
+  "hash": "669ea2ab951924f7",
+  "mod": "2026-09-12"
+ },
+ "m/en/birdsnest.html": {
+  "hash": "f261dc82e105474f",
+  "mod": "2026-09-12"
+ },
+ "m/en/bitterbolete.html": {
+  "hash": "f5cf3131e46dccff",
+  "mod": "2026-09-12"
+ },
+ "m/en/bittermycena.html": {
+  "hash": "6174d3967dc9539c",
+  "mod": "2026-09-12"
+ },
+ "m/en/blackening.html": {
+  "hash": "df6f584aaee44167",
+  "mod": "2026-09-12"
+ },
+ "m/en/blackmorel.html": {
+  "hash": "38ccedb92704cf74",
+  "mod": "2026-09-12"
+ },
+ "m/en/blackskin.html": {
+  "hash": "cd468dd0c3ac53b5",
+  "mod": "2026-09-12"
+ },
+ "m/en/blacktrumpet.html": {
+  "hash": "090cbcabc2ab7ff0",
+  "mod": "2026-09-12"
+ },
+ "m/en/blackwitch.html": {
+  "hash": "218ad0fa6545bcc1",
+  "mod": "2026-09-12"
+ },
+ "m/en/bleedingbonnet.html": {
+  "hash": "ef90ae3f1d3cfad1",
+  "mod": "2026-09-12"
+ },
+ "m/en/bleedingtooth.html": {
+  "hash": "6d7044e2a4d0115d",
+  "mod": "2026-09-12"
+ },
+ "m/en/bluemushroom.html": {
+  "hash": "1aa39a1addfe99de",
+  "mod": "2026-09-12"
+ },
+ "m/en/blusher.html": {
+  "hash": "bd76fac4d0b0ea03",
+  "mod": "2026-09-12"
+ },
+ "m/en/button.html": {
+  "hash": "e23c33f6cb29c572",
+  "mod": "2026-09-12"
+ },
+ "m/en/caesar.html": {
+  "hash": "aa8581854004001d",
+  "mod": "2026-09-12"
+ },
+ "m/en/candlesnuff.html": {
+  "hash": "3da860e8b4674591",
+  "mod": "2026-09-12"
+ },
+ "m/en/candolle.html": {
+  "hash": "d8ae024cd7fcc249",
+  "mod": "2026-09-12"
+ },
+ "m/en/chaga.html": {
+  "hash": "1a2c92cc9dc4a042",
+  "mod": "2026-09-12"
+ },
+ "m/en/chanterelle.html": {
+  "hash": "23c6f9510e011dd2",
+  "mod": "2026-09-12"
+ },
+ "m/en/charcoalburner.html": {
+  "hash": "acbfed26a9acc044",
+  "mod": "2026-09-12"
+ },
+ "m/en/chestnutbolete.html": {
+  "hash": "cae0061cc1bf44d5",
+  "mod": "2026-09-12"
+ },
+ "m/en/chickenwoods.html": {
+  "hash": "8d76d27aeeadf156",
+  "mod": "2026-09-12"
+ },
+ "m/en/chinesetruffle.html": {
+  "hash": "87a5112758ee288a",
+  "mod": "2026-09-12"
+ },
+ "m/en/chlorophyllumB.html": {
+  "hash": "6b80ca5449322c54",
+  "mod": "2026-09-12"
+ },
+ "m/en/citrina.html": {
+  "hash": "aac6452f7b555b7c",
+  "mod": "2026-09-12"
+ },
+ "m/en/conocybe.html": {
+  "hash": "2af27035ebc95308",
+  "mod": "2026-09-12"
+ },
+ "m/en/coralRamaria.html": {
+  "hash": "135aca08d04901ad",
+  "mod": "2026-09-12"
+ },
+ "m/en/coralhericium.html": {
+  "hash": "3f1cc71024953c41",
+  "mod": "2026-09-12"
+ },
+ "m/en/cornflower.html": {
+  "hash": "748d93e05ca07951",
+  "mod": "2026-09-12"
+ },
+ "m/en/crested.html": {
+  "hash": "1584acabc648037c",
+  "mod": "2026-09-12"
+ },
+ "m/en/deadlywebcap.html": {
+  "hash": "113bb5715039fbd9",
+  "mod": "2026-09-12"
+ },
+ "m/en/deadmanfingers.html": {
+  "hash": "2c80f9a25f162956",
+  "mod": "2026-09-12"
+ },
+ "m/en/deathcap.html": {
+  "hash": "df3af0f6253c1c07",
+  "mod": "2026-09-12"
+ },
+ "m/en/deerpluteus.html": {
+  "hash": "c46f7531fe792840",
+  "mod": "2026-09-12"
+ },
+ "m/en/destroyingangel.html": {
+  "hash": "6ff740f9c0155ecf",
+  "mod": "2026-09-12"
+ },
+ "m/en/devilscigar.html": {
+  "hash": "56a955a13b6e1c58",
+  "mod": "2026-09-12"
+ },
+ "m/en/devilsfingers.html": {
+  "hash": "169e78fc2cb05226",
+  "mod": "2026-09-12"
+ },
+ "m/en/dogstinkhorn.html": {
+  "hash": "6397b672a11a5cc3",
+  "mod": "2026-09-12"
+ },
+ "m/en/dryadsaddle.html": {
+  "hash": "52ea663ad8968d94",
+  "mod": "2026-09-12"
+ },
+ "m/en/earpick.html": {
+  "hash": "39e82548216a4739",
+  "mod": "2026-09-12"
+ },
+ "m/en/earthball.html": {
+  "hash": "cf4e171879f96654",
+  "mod": "2026-09-12"
+ },
+ "m/en/earthstar.html": {
+  "hash": "74df1091abbe6b77",
+  "mod": "2026-09-12"
+ },
+ "m/en/earthtongue.html": {
+  "hash": "e99e42a7b67e6774",
+  "mod": "2026-09-12"
+ },
+ "m/en/eggamanita.html": {
+  "hash": "654023d8da63e517",
+  "mod": "2026-09-12"
+ },
+ "m/en/enoki.html": {
+  "hash": "1be94a44243038c3",
+  "mod": "2026-09-12"
+ },
+ "m/en/equestre.html": {
+  "hash": "ead63ae7f19b9771",
+  "mod": "2026-09-12"
+ },
+ "m/en/ergot.html": {
+  "hash": "9087aa32f973d1a0",
+  "mod": "2026-09-12"
+ },
+ "m/en/fairyring.html": {
+  "hash": "674e9578e655e6ff",
+  "mod": "2026-09-12"
+ },
+ "m/en/falsemorel.html": {
+  "hash": "1ebc33793e5289bb",
+  "mod": "2026-09-12"
+ },
+ "m/en/falseturkey.html": {
+  "hash": "9314127e028dfdcb",
+  "mod": "2026-09-12"
+ },
+ "m/en/fieldmushroom.html": {
+  "hash": "ecc6734b46813ad1",
+  "mod": "2026-09-12"
+ },
+ "m/en/firecoral.html": {
+  "hash": "e66fa122651f5d5a",
+  "mod": "2026-09-12"
+ },
+ "m/en/flyagaric.html": {
+  "hash": "6f8fc6e61741f28f",
+  "mod": "2026-09-12"
+ },
+ "m/en/formosa.html": {
+  "hash": "286ba0a588d349f0",
+  "mod": "2026-09-12"
+ },
+ "m/en/fuliginea.html": {
+  "hash": "a5d358dd26cf71a9",
+  "mod": "2026-09-12"
+ },
+ "m/en/funeralbell.html": {
+  "hash": "7b0a0eaee6f7eb0d",
+  "mod": "2026-09-12"
+ },
+ "m/en/ganbajun.html": {
+  "hash": "eddd779a50e0737c",
+  "mod": "2026-09-12"
+ },
+ "m/en/giantpolypore.html": {
+  "hash": "dee7c1474437b3f0",
+  "mod": "2026-09-12"
+ },
+ "m/en/giantpuffball.html": {
+  "hash": "1de5c32d7b7d96ef",
+  "mod": "2026-09-12"
+ },
+ "m/en/glowmycena.html": {
+  "hash": "b38911d2fab58b23",
+  "mod": "2026-09-12"
+ },
+ "m/en/goldenear.html": {
+  "hash": "75199a14732ae984",
+  "mod": "2026-09-12"
+ },
+ "m/en/goldenoyster.html": {
+  "hash": "6d8b3a529675bb5d",
+  "mod": "2026-09-12"
+ },
+ "m/en/gomphus.html": {
+  "hash": "23abc76db1b1045f",
+  "mod": "2026-09-12"
+ },
+ "m/en/greenelfcup.html": {
+  "hash": "dd55dfd9b5580f1c",
+  "mod": "2026-09-12"
+ },
+ "m/en/greenrussula.html": {
+  "hash": "26a36f1e5e537de6",
+  "mod": "2026-09-12"
+ },
+ "m/en/greenspored.html": {
+  "hash": "72edded66b97c9fd",
+  "mod": "2026-09-12"
+ },
+ "m/en/grisette.html": {
+  "hash": "5412974c20925bbf",
+  "mod": "2026-09-12"
+ },
+ "m/en/gypsy.html": {
+  "hash": "411ef4cc0226838a",
+  "mod": "2026-09-12"
+ },
+ "m/en/hatsudake.html": {
+  "hash": "747c1d8eb51a141c",
+  "mod": "2026-09-12"
+ },
+ "m/en/hedgehog.html": {
+  "hash": "1cb821f66301e6fc",
+  "mod": "2026-09-12"
+ },
+ "m/en/honey.html": {
+  "hash": "7e3bbf7999c3a629",
+  "mod": "2026-09-12"
+ },
+ "m/en/horsemushroom.html": {
+  "hash": "526254f0c9fb2a40",
+  "mod": "2026-09-12"
+ },
+ "m/en/humongous.html": {
+  "hash": "285cce2af3ef4b6f",
+  "mod": "2026-09-12"
+ },
+ "m/en/hypholomaL.html": {
+  "hash": "b726f3a991180a74",
+  "mod": "2026-09-12"
+ },
+ "m/en/indigomilk.html": {
+  "hash": "c46a8a7d9b1775b6",
+  "mod": "2026-09-12"
+ },
+ "m/en/inkcap.html": {
+  "hash": "0dacb67abdb74972",
+  "mod": "2026-09-12"
+ },
+ "m/en/ivory.html": {
+  "hash": "26bd9bfa141a027e",
+  "mod": "2026-09-12"
+ },
+ "m/en/jackolantern.html": {
+  "hash": "4cd88cfc61801713",
+  "mod": "2026-09-12"
+ },
+ "m/en/japonica.html": {
+  "hash": "58f0aa2290b8ffdf",
+  "mod": "2026-09-12"
+ },
+ "m/en/jellybaby.html": {
+  "hash": "e9859ddca4c9369f",
+  "mod": "2026-09-12"
+ },
+ "m/en/jellyear.html": {
+  "hash": "e86ce5293def7ad0",
+  "mod": "2026-09-12"
+ },
+ "m/en/jianshouqing.html": {
+  "hash": "0d593542183f3a2b",
+  "mod": "2026-09-12"
+ },
+ "m/en/kingalfred.html": {
+  "hash": "f971d694654acad4",
+  "mod": "2026-09-12"
+ },
+ "m/en/kingoyster.html": {
+  "hash": "edd72f4b7bb61b96",
+  "mod": "2026-09-12"
+ },
+ "m/en/larchbolete.html": {
+  "hash": "55e32151bc46b3e8",
+  "mod": "2026-09-12"
+ },
+ "m/en/lateoyster.html": {
+  "hash": "4b1846bf4a592d83",
+  "mod": "2026-09-12"
+ },
+ "m/en/laughing.html": {
+  "hash": "e7f58c82af6c8a8f",
+  "mod": "2026-09-12"
+ },
+ "m/en/lepiotabrun.html": {
+  "hash": "5f63d72ae99bac45",
+  "mod": "2026-09-12"
+ },
+ "m/en/leucocoprinus.html": {
+  "hash": "cb9de9bf14770e18",
+  "mod": "2026-09-12"
+ },
+ "m/en/lilacbonnet.html": {
+  "hash": "5a73a095da223f06",
+  "mod": "2026-09-12"
+ },
+ "m/en/lionsmane.html": {
+  "hash": "8f629c307d9c2ef5",
+  "mod": "2026-09-12"
+ },
+ "m/en/livid.html": {
+  "hash": "6b1c4128a3b2a70f",
+  "mod": "2026-09-12"
+ },
+ "m/en/lobster.html": {
+  "hash": "321afd2a4e80e0e7",
+  "mod": "2026-09-12"
+ },
+ "m/en/magpie.html": {
+  "hash": "a9605fbc98a47df7",
+  "mod": "2026-09-12"
+ },
+ "m/en/maitake.html": {
+  "hash": "27da271c5df0c8cc",
+  "mod": "2026-09-12"
+ },
+ "m/en/matsutake.html": {
+  "hash": "73464fb2c9a55553",
+  "mod": "2026-09-12"
+ },
+ "m/en/micaceus.html": {
+  "hash": "39ea166c0f6cea70",
+  "mod": "2026-09-12"
+ },
+ "m/en/militaris.html": {
+  "hash": "86ae7738e267d063",
+  "mod": "2026-09-12"
+ },
+ "m/en/mongolica.html": {
+  "hash": "b8ba86f922cff497",
+  "mod": "2026-09-12"
+ },
+ "m/en/morel.html": {
+  "hash": "676c7df86c130d07",
+  "mod": "2026-09-12"
+ },
+ "m/en/nameko.html": {
+  "hash": "baf0946616db9445",
+  "mod": "2026-09-12"
+ },
+ "m/en/orangepeel.html": {
+  "hash": "89d223b2cc8a7c52",
+  "mod": "2026-09-12"
+ },
+ "m/en/oyster.html": {
+  "hash": "290b8c995c3f63a2",
+  "mod": "2026-09-12"
+ },
+ "m/en/panther.html": {
+  "hash": "9f80c77920ae908d",
+  "mod": "2026-09-12"
+ },
+ "m/en/parasol.html": {
+  "hash": "568404a26c2ab0b4",
+  "mod": "2026-09-12"
+ },
+ "m/en/parrot.html": {
+  "hash": "e296d0fae4d168ac",
+  "mod": "2026-09-12"
+ },
+ "m/en/pinecone.html": {
+  "hash": "0f8d81072191de87",
+  "mod": "2026-09-12"
+ },
+ "m/en/pisolithus.html": {
+  "hash": "f3b71b544fa2c68e",
+  "mod": "2026-09-12"
+ },
+ "m/en/poisonpie.html": {
+  "hash": "c8df5f9c8f25ad5a",
+  "mod": "2026-09-12"
+ },
+ "m/en/porcini.html": {
+  "hash": "52ee1e64e00b5976",
+  "mod": "2026-09-12"
+ },
+ "m/en/puffball.html": {
+  "hash": "0849ff4c1a0fa5c9",
+  "mod": "2026-09-12"
+ },
+ "m/en/redbelt.html": {
+  "hash": "91a762e5567b324c",
+  "mod": "2026-09-12"
+ },
+ "m/en/redcage.html": {
+  "hash": "b0a7ed4763423071",
+  "mod": "2026-09-12"
+ },
+ "m/en/reishi.html": {
+  "hash": "446764825daf1af0",
+  "mod": "2026-09-12"
+ },
+ "m/en/rollrim.html": {
+  "hash": "e151cb3b7760a65b",
+  "mod": "2026-09-12"
+ },
+ "m/en/saddle.html": {
+  "hash": "8ff1b04145a0b56c",
+  "mod": "2026-09-12"
+ },
+ "m/en/saffronmilk.html": {
+  "hash": "2fc0e0736b5dd8a6",
+  "mod": "2026-09-12"
+ },
+ "m/en/satan.html": {
+  "hash": "1e13ff5cc53c98f2",
+  "mod": "2026-09-12"
+ },
+ "m/en/scarletcup.html": {
+  "hash": "c2b1bd3ebce82827",
+  "mod": "2026-09-12"
+ },
+ "m/en/scarletwaxcap.html": {
+  "hash": "2201558d51fe45aa",
+  "mod": "2026-09-12"
+ },
+ "m/en/shaggyink.html": {
+  "hash": "713e06641f8a2f40",
+  "mod": "2026-09-12"
+ },
+ "m/en/shiitake.html": {
+  "hash": "1fae2795971ed8dc",
+  "mod": "2026-09-12"
+ },
+ "m/en/shimeji.html": {
+  "hash": "46fa97b624019c8b",
+  "mod": "2026-09-12"
+ },
+ "m/en/sickener.html": {
+  "hash": "23f4a328c3e4621d",
+  "mod": "2026-09-12"
+ },
+ "m/en/slipperyjack.html": {
+  "hash": "d98a896cb16a6ed1",
+  "mod": "2026-09-12"
+ },
+ "m/en/smithiana.html": {
+  "hash": "f10d8a2130d8b3dd",
+  "mod": "2026-09-12"
+ },
+ "m/en/snowfungus.html": {
+  "hash": "4ba7a2b37dbc7b78",
+  "mod": "2026-09-12"
+ },
+ "m/en/sordida.html": {
+  "hash": "49706f0dab604e36",
+  "mod": "2026-09-12"
+ },
+ "m/en/splitgill.html": {
+  "hash": "239bd70a94e5ffbd",
+  "mod": "2026-09-12"
+ },
+ "m/en/stagshorn.html": {
+  "hash": "cf91c558d2a5d4da",
+  "mod": "2026-09-12"
+ },
+ "m/en/stagshornCoral.html": {
+  "hash": "c1f46bda213155ee",
+  "mod": "2026-09-12"
+ },
+ "m/en/stereumostrea.html": {
+  "hash": "ffa228597cc679d0",
+  "mod": "2026-09-12"
+ },
+ "m/en/stinkhorn.html": {
+  "hash": "249a8d7580862110",
+  "mod": "2026-09-12"
+ },
+ "m/en/subjunquillea.html": {
+  "hash": "6c7e9f089d037d58",
+  "mod": "2026-09-12"
+ },
+ "m/en/subnigricans.html": {
+  "hash": "550f35ca9df630cc",
+  "mod": "2026-09-12"
+ },
+ "m/en/sulphurtuft.html": {
+  "hash": "7aebd61ace8d20bd",
+  "mod": "2026-09-12"
+ },
+ "m/en/summertruffle.html": {
+  "hash": "ff06322991300c02",
+  "mod": "2026-09-12"
+ },
+ "m/en/tigerpaw.html": {
+  "hash": "2d4046c5a00ef186",
+  "mod": "2026-09-12"
+ },
+ "m/en/tinder.html": {
+  "hash": "dec0b6116116a7af",
+  "mod": "2026-09-12"
+ },
+ "m/en/tsukiyotake.html": {
+  "hash": "70990daafe8f4a62",
+  "mod": "2026-09-12"
+ },
+ "m/en/turkeytail.html": {
+  "hash": "f94cd21ec45e6b35",
+  "mod": "2026-09-12"
+ },
+ "m/en/velvetfoot.html": {
+  "hash": "1b8e2277cd56e18c",
+  "mod": "2026-09-12"
+ },
+ "m/en/venenatus.html": {
+  "hash": "3ef3da28730d653d",
+  "mod": "2026-09-12"
+ },
+ "m/en/verpa.html": {
+  "hash": "813b16ebf8a40c71",
+  "mod": "2026-09-12"
+ },
+ "m/en/violetcoral.html": {
+  "hash": "d920ae0cf808ca54",
+  "mod": "2026-09-12"
+ },
+ "m/en/violetwebcap.html": {
+  "hash": "1cb2b54c4b2cbc41",
+  "mod": "2026-09-12"
+ },
+ "m/en/waxcapconic.html": {
+  "hash": "f45705d6020f4118",
+  "mod": "2026-09-12"
+ },
+ "m/en/whitebirdsnest.html": {
+  "hash": "007abb43c317a2af",
+  "mod": "2026-09-12"
+ },
+ "m/en/whiteonion.html": {
+  "hash": "fe6e617ffb11bb78",
+  "mod": "2026-09-12"
+ },
+ "m/en/whitetruffle.html": {
+  "hash": "ad85dbdb31c2db8f",
+  "mod": "2026-09-12"
+ },
+ "m/en/winecap.html": {
+  "hash": "757c650ee8eddbed",
+  "mod": "2026-09-12"
+ },
+ "m/en/woodblewit.html": {
+  "hash": "c04fe2c3061b19c8",
+  "mod": "2026-09-12"
+ },
+ "m/en/woodear.html": {
+  "hash": "88852df8fec15d3b",
+  "mod": "2026-09-12"
+ },
+ "m/en/woodtuft.html": {
+  "hash": "1e6b622340dc3809",
+  "mod": "2026-09-12"
+ },
+ "m/en/woollymilk.html": {
+  "hash": "9d8f935a24297ad5",
+  "mod": "2026-09-12"
+ },
+ "m/en/wrinkledpeach.html": {
+  "hash": "242df2c2d756213c",
+  "mod": "2026-09-12"
+ },
+ "m/en/yellowfoot.html": {
+  "hash": "3046a9de96ce6729",
+  "mod": "2026-09-12"
+ },
+ "m/en/yellowstainer.html": {
+  "hash": "bbcc8f0bf8c095d3",
+  "mod": "2026-09-12"
+ },
+ "m/en/zombieant.html": {
+  "hash": "e3a262892ad7d4d1",
+  "mod": "2026-09-12"
+ },
+ "m/enoki.html": {
+  "hash": "ac6f749d95a62ae3",
+  "mod": "2026-09-12"
+ },
+ "m/equestre.html": {
+  "hash": "d565485c064872c1",
+  "mod": "2026-09-12"
+ },
+ "m/ergot.html": {
+  "hash": "dd73ccdfdbdda4bf",
+  "mod": "2026-09-12"
+ },
+ "m/fairyring.html": {
+  "hash": "35b4f79781796df7",
+  "mod": "2026-09-12"
+ },
+ "m/falsemorel.html": {
+  "hash": "cca9aeb95cd37add",
+  "mod": "2026-09-12"
+ },
+ "m/falseturkey.html": {
+  "hash": "97881283fc5138a3",
+  "mod": "2026-09-12"
+ },
+ "m/fieldmushroom.html": {
+  "hash": "f64c3c6d2c546384",
+  "mod": "2026-09-12"
+ },
+ "m/firecoral.html": {
+  "hash": "a5d32999ddded5ec",
+  "mod": "2026-09-12"
+ },
+ "m/flyagaric.html": {
+  "hash": "ec22e6555b1e3f8b",
+  "mod": "2026-09-12"
+ },
+ "m/formosa.html": {
+  "hash": "c506020c3e786c7a",
+  "mod": "2026-09-12"
+ },
+ "m/fuliginea.html": {
+  "hash": "e58a399363a0a770",
+  "mod": "2026-09-12"
+ },
+ "m/funeralbell.html": {
+  "hash": "2abf7300974bdc2d",
+  "mod": "2026-09-12"
+ },
+ "m/ganbajun.html": {
+  "hash": "33336e803fed0905",
+  "mod": "2026-09-12"
+ },
+ "m/giantpolypore.html": {
+  "hash": "5cf379dc002a1dce",
+  "mod": "2026-09-12"
+ },
+ "m/giantpuffball.html": {
+  "hash": "0623279510b06cc3",
+  "mod": "2026-09-12"
+ },
+ "m/glowmycena.html": {
+  "hash": "36e5c2e7d132ee14",
+  "mod": "2026-09-12"
+ },
+ "m/goldenear.html": {
+  "hash": "162a7c004e035a4d",
+  "mod": "2026-09-12"
+ },
+ "m/goldenoyster.html": {
+  "hash": "c3e9635b01011c49",
+  "mod": "2026-09-12"
+ },
+ "m/gomphus.html": {
+  "hash": "d17cf1d822d1b0e9",
+  "mod": "2026-09-12"
+ },
+ "m/greenelfcup.html": {
+  "hash": "5b4e4f5cbc73a62c",
+  "mod": "2026-09-12"
+ },
+ "m/greenrussula.html": {
+  "hash": "47d85fbf7175ae4b",
+  "mod": "2026-09-12"
+ },
+ "m/greenspored.html": {
+  "hash": "5696130dfe976855",
+  "mod": "2026-09-12"
+ },
+ "m/grisette.html": {
+  "hash": "fa54d2602e585e1a",
+  "mod": "2026-09-12"
+ },
+ "m/gypsy.html": {
+  "hash": "9a870f32b3f8fe69",
+  "mod": "2026-09-12"
+ },
+ "m/hatsudake.html": {
+  "hash": "6d80ecd04bd79480",
+  "mod": "2026-09-12"
+ },
+ "m/hedgehog.html": {
+  "hash": "63c12023e693f039",
+  "mod": "2026-09-12"
+ },
+ "m/honey.html": {
+  "hash": "35e4dbcdc87e18d3",
+  "mod": "2026-09-12"
+ },
+ "m/horsemushroom.html": {
+  "hash": "1583d0232a3a8797",
+  "mod": "2026-09-12"
+ },
+ "m/humongous.html": {
+  "hash": "0b86e4498d1f7341",
+  "mod": "2026-09-12"
+ },
+ "m/hypholomaL.html": {
+  "hash": "a8b94b92c001c299",
+  "mod": "2026-09-12"
+ },
+ "m/indigomilk.html": {
+  "hash": "614d16641a99f9cb",
+  "mod": "2026-09-12"
+ },
+ "m/inkcap.html": {
+  "hash": "8ed0de77f52f5be3",
+  "mod": "2026-09-12"
+ },
+ "m/ivory.html": {
+  "hash": "57105211b37f4bfa",
+  "mod": "2026-09-12"
+ },
+ "m/jackolantern.html": {
+  "hash": "2418f57ac52c3948",
+  "mod": "2026-09-12"
+ },
+ "m/japonica.html": {
+  "hash": "c567b1c62c1f04f7",
+  "mod": "2026-09-12"
+ },
+ "m/jellybaby.html": {
+  "hash": "eac14d1aaa10fe3e",
+  "mod": "2026-09-12"
+ },
+ "m/jellyear.html": {
+  "hash": "967ce831cf67f9d7",
+  "mod": "2026-09-12"
+ },
+ "m/jianshouqing.html": {
+  "hash": "606fd92cf6146ec7",
+  "mod": "2026-09-12"
+ },
+ "m/kingalfred.html": {
+  "hash": "f0c784391edb2a19",
+  "mod": "2026-09-12"
+ },
+ "m/kingoyster.html": {
+  "hash": "046f5fcb5e475c91",
+  "mod": "2026-09-12"
+ },
+ "m/larchbolete.html": {
+  "hash": "0c3f4ed2b6423a30",
+  "mod": "2026-09-12"
+ },
+ "m/lateoyster.html": {
+  "hash": "17d3d8cb7e66cfb6",
+  "mod": "2026-09-12"
+ },
+ "m/laughing.html": {
+  "hash": "b596575b58436d3c",
+  "mod": "2026-09-12"
+ },
+ "m/lepiotabrun.html": {
+  "hash": "3ee84d2237d78adc",
+  "mod": "2026-09-12"
+ },
+ "m/leucocoprinus.html": {
+  "hash": "40b0da404ca44968",
+  "mod": "2026-09-12"
+ },
+ "m/lilacbonnet.html": {
+  "hash": "94031f530d26875e",
+  "mod": "2026-09-12"
+ },
+ "m/lionsmane.html": {
+  "hash": "a0567da2ac0b5307",
+  "mod": "2026-09-12"
+ },
+ "m/livid.html": {
+  "hash": "15552d12a6d83e72",
+  "mod": "2026-09-12"
+ },
+ "m/lobster.html": {
+  "hash": "489bc866c52e260d",
+  "mod": "2026-09-12"
+ },
+ "m/magpie.html": {
+  "hash": "9a35adab171bf96e",
+  "mod": "2026-09-12"
+ },
+ "m/maitake.html": {
+  "hash": "27b84b34084fa1f1",
+  "mod": "2026-09-12"
+ },
+ "m/matsutake.html": {
+  "hash": "98375464deec1fff",
+  "mod": "2026-09-12"
+ },
+ "m/micaceus.html": {
+  "hash": "588ad10e6c7e36bd",
+  "mod": "2026-09-12"
+ },
+ "m/militaris.html": {
+  "hash": "abc67345dd7f7972",
+  "mod": "2026-09-12"
+ },
+ "m/mongolica.html": {
+  "hash": "dcb09cbcef03067f",
+  "mod": "2026-09-12"
+ },
+ "m/morel.html": {
+  "hash": "2087002f9601f56c",
+  "mod": "2026-09-12"
+ },
+ "m/nameko.html": {
+  "hash": "3a6e1bdb2f4fcfc5",
+  "mod": "2026-09-12"
+ },
+ "m/orangepeel.html": {
+  "hash": "48c864d380701120",
+  "mod": "2026-09-12"
+ },
+ "m/oyster.html": {
+  "hash": "7e52a13fd3ea22dd",
+  "mod": "2026-09-12"
+ },
+ "m/panther.html": {
+  "hash": "fd9b7b9f536f384e",
+  "mod": "2026-09-12"
+ },
+ "m/parasol.html": {
+  "hash": "1fb285a3f585fd0d",
+  "mod": "2026-09-12"
+ },
+ "m/parrot.html": {
+  "hash": "1c5de7cb0f11f22e",
+  "mod": "2026-09-12"
+ },
+ "m/pinecone.html": {
+  "hash": "a0dba1f93cdc3001",
+  "mod": "2026-09-12"
+ },
+ "m/pisolithus.html": {
+  "hash": "a62cfa1e0d76703e",
+  "mod": "2026-09-12"
+ },
+ "m/poisonpie.html": {
+  "hash": "d08e7b3a909ba5de",
+  "mod": "2026-09-12"
+ },
+ "m/porcini.html": {
+  "hash": "98333889c6416475",
+  "mod": "2026-09-12"
+ },
+ "m/puffball.html": {
+  "hash": "4e2668d8836453d5",
+  "mod": "2026-09-12"
+ },
+ "m/redbelt.html": {
+  "hash": "83bb548325767f69",
+  "mod": "2026-09-12"
+ },
+ "m/redcage.html": {
+  "hash": "2c0acdd76c2c7097",
+  "mod": "2026-09-12"
+ },
+ "m/reishi.html": {
+  "hash": "d149ea506836eb0f",
+  "mod": "2026-09-12"
+ },
+ "m/rollrim.html": {
+  "hash": "e02e53c6275089e3",
+  "mod": "2026-09-12"
+ },
+ "m/saddle.html": {
+  "hash": "ea72c4b6cf89a866",
+  "mod": "2026-09-12"
+ },
+ "m/saffronmilk.html": {
+  "hash": "e7461637a4dcd545",
+  "mod": "2026-09-12"
+ },
+ "m/satan.html": {
+  "hash": "3d5265a1200d2d45",
+  "mod": "2026-09-12"
+ },
+ "m/scarletcup.html": {
+  "hash": "65c67ce0439e85b7",
+  "mod": "2026-09-12"
+ },
+ "m/scarletwaxcap.html": {
+  "hash": "8c34577103f06757",
+  "mod": "2026-09-12"
+ },
+ "m/shaggyink.html": {
+  "hash": "1c56accab6b14b3a",
+  "mod": "2026-09-12"
+ },
+ "m/shiitake.html": {
+  "hash": "57e90e8aa95be09d",
+  "mod": "2026-09-12"
+ },
+ "m/shimeji.html": {
+  "hash": "70bb50977859f6e7",
+  "mod": "2026-09-12"
+ },
+ "m/sickener.html": {
+  "hash": "d51242804fe57780",
+  "mod": "2026-09-12"
+ },
+ "m/slipperyjack.html": {
+  "hash": "db0d94faec1725cb",
+  "mod": "2026-09-12"
+ },
+ "m/smithiana.html": {
+  "hash": "b6d02af19f434e70",
+  "mod": "2026-09-12"
+ },
+ "m/snowfungus.html": {
+  "hash": "df97f8d68ad2eabd",
+  "mod": "2026-09-12"
+ },
+ "m/sordida.html": {
+  "hash": "33e3aa8a93bc80e4",
+  "mod": "2026-09-12"
+ },
+ "m/splitgill.html": {
+  "hash": "42c726c687983c48",
+  "mod": "2026-09-12"
+ },
+ "m/stagshorn.html": {
+  "hash": "c8fa0da348ced039",
+  "mod": "2026-09-12"
+ },
+ "m/stagshornCoral.html": {
+  "hash": "ef7ce866c8463397",
+  "mod": "2026-09-12"
+ },
+ "m/stereumostrea.html": {
+  "hash": "845c59590f90f8f0",
+  "mod": "2026-09-12"
+ },
+ "m/stinkhorn.html": {
+  "hash": "3b3abd61877e06ef",
+  "mod": "2026-09-12"
+ },
+ "m/subjunquillea.html": {
+  "hash": "70c0b5c08ead56ff",
+  "mod": "2026-09-12"
+ },
+ "m/subnigricans.html": {
+  "hash": "9f26ac6610c860c1",
+  "mod": "2026-09-12"
+ },
+ "m/sulphurtuft.html": {
+  "hash": "347927f73937b902",
+  "mod": "2026-09-12"
+ },
+ "m/summertruffle.html": {
+  "hash": "9c91630e9a617b9a",
+  "mod": "2026-09-12"
+ },
+ "m/tigerpaw.html": {
+  "hash": "7ca9ef5f3c6ed0cf",
+  "mod": "2026-09-12"
+ },
+ "m/tinder.html": {
+  "hash": "564a643294807e67",
+  "mod": "2026-09-12"
+ },
+ "m/tsukiyotake.html": {
+  "hash": "c90b6c73f277dee7",
+  "mod": "2026-09-12"
+ },
+ "m/turkeytail.html": {
+  "hash": "198d1a61653bb7ac",
+  "mod": "2026-09-12"
+ },
+ "m/velvetfoot.html": {
+  "hash": "b8bd009ef7db4567",
+  "mod": "2026-09-12"
+ },
+ "m/venenatus.html": {
+  "hash": "9111cd22e48e5767",
+  "mod": "2026-09-12"
+ },
+ "m/verpa.html": {
+  "hash": "a11bb4438d90fd1a",
+  "mod": "2026-09-12"
+ },
+ "m/violetcoral.html": {
+  "hash": "98f4b11af28d8b86",
+  "mod": "2026-09-12"
+ },
+ "m/violetwebcap.html": {
+  "hash": "fddfd8f566608137",
+  "mod": "2026-09-12"
+ },
+ "m/waxcapconic.html": {
+  "hash": "b9fde12b7a20c9c0",
+  "mod": "2026-09-12"
+ },
+ "m/whitebirdsnest.html": {
+  "hash": "1a7b490ffd7f161b",
+  "mod": "2026-09-12"
+ },
+ "m/whiteonion.html": {
+  "hash": "6f2f2be4ae1990ff",
+  "mod": "2026-09-12"
+ },
+ "m/whitetruffle.html": {
+  "hash": "79c46329b3ab37b6",
+  "mod": "2026-09-12"
+ },
+ "m/winecap.html": {
+  "hash": "cec6e957dc4fef18",
+  "mod": "2026-09-12"
+ },
+ "m/woodblewit.html": {
+  "hash": "c8cc2bda4c14d63f",
+  "mod": "2026-09-12"
+ },
+ "m/woodear.html": {
+  "hash": "ff2adae288c0992e",
+  "mod": "2026-09-12"
+ },
+ "m/woodtuft.html": {
+  "hash": "346c00dd9858bedd",
+  "mod": "2026-09-12"
+ },
+ "m/woollymilk.html": {
+  "hash": "6c89ec832700b50e",
+  "mod": "2026-09-12"
+ },
+ "m/wrinkledpeach.html": {
+  "hash": "9286bdec3dcf45b1",
+  "mod": "2026-09-12"
+ },
+ "m/yellowfoot.html": {
+  "hash": "7e67885df357570a",
+  "mod": "2026-09-12"
+ },
+ "m/yellowstainer.html": {
+  "hash": "30edfbf91c313dbe",
+  "mod": "2026-09-12"
+ },
+ "m/zombieant.html": {
+  "hash": "c44f7891fdbf57fe",
+  "mod": "2026-09-12"
+ }
+}

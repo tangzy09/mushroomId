@@ -74,15 +74,17 @@ mushroomId/
 ├── sw.js                       ← Service Worker 三层缓存；改 JS/CSS 后 V 与 index.html 的 ?v= 一起 bump
 ├── assets/photos/real/         ← 900px WebP × 166（详情页；11 个致命种另有 `<id>-2.webp` 补图）
 ├── assets/photos/thumb/        ← 200px WebP × 166 + index.json（列表；SW 预缓存清单）
-├── m/                          ← 166 个物种静态页（生成物，SEO 长尾入口，改数据后重新生成）
-├── sitemap.xml / robots.txt    ← 与 m/ 一起由 make_species_pages.py 生成
+├── m/                          ← 166 个中文物种静态页（生成物，SEO 长尾入口，改数据后重新生成）
+├── m/en/                       ← 166 个英文物种静态页（同一生成器出，与中文页 hreflang 互指、各自 canonical）
+├── sitemap.xml / robots.txt    ← 与 m/ 一起由 make_species_pages.py 生成（333 条 URL，带 xhtml:link 备选）
 ├── data/
 │   ├── mushrooms.json          ← 物种真相源（166 种，含 idKeysEn/habitatEn/factEn/quoteEn 等英译字段）
 │   ├── questions_curated.json  ← 人工题真相源（trivia / cold_fact / myth_buster）
 │   └── README.md               ← 食性字段规范
 ├── tools/
 │   ├── build_data.py           ← data/*.json → js/data.gen.js + questions.gen.js + i18n_en.gen.js
-│   ├── make_species_pages.py   ← data/mushrooms.json → m/*.html + sitemap.xml + robots.txt
+│   ├── make_species_pages.py   ← data/mushrooms.json → m/*.html + m/en/*.html + sitemap.xml
+│   ├── species_pages_lastmod.json ← 每页内容哈希 + lastmod 日期（进 git；⛔ 别手改，纠错=git checkout 它 + 修生成器 + 重跑）
 │   ├── drop_species.py         ← 整体移除物种（连带 lookalikes / 人工题 / 旧存档引用的清理逻辑在 app.js）
 │   ├── census_to_encounter.py  ← iNat 观察数 → encounter 四档（按全库分位数切，非固定阈值）+ 本土种修正表
 │   ├── serve.py                ← 本地开发服务器（多线程；SW 预缓存并发请求，单线程会超时）
@@ -115,7 +117,7 @@ mushroomId/
 
 ```bash
 python3 tools/build_data.py      # 改过 data/*.json 之后必须重跑
-python3 tools/make_species_pages.py  # 改了会影响物种页内容的字段之后重跑
+python3 tools/make_species_pages.py  # 改了会影响物种页内容的字段之后重跑（中英各 166 页；跑第二遍必须报「内容有变 0 页」）
 python3 test/check_data.py       # 数据校验，退出码非零就是不能提交
 python3 test/check_species_pages.py  # 物种页与 sitemap 一致性
 node test/core.test.js           # 内核测试
@@ -458,11 +460,23 @@ UI（`page-quiz`）、但结局不同的两条路：`round.mode` 是 `'gacha'`�
   `page.addInitScript(() => localStorage.setItem('mush_lang', 'zh-Hans'))` 抢在 `app.js` 的
   `I18N.detect()` 之前把语言钉死，全部变回绿。**新写任何要点中文按钮/文案的测试，都要加这一行**，
   否则谁的机器/CI 环境报告的默认语言是英文，谁跑这套测试就会全灭。
-- **没做的**：166 个物种静态页（`m/*.html`）目前仍是中文单语——生成脚本 `make_species_pages.py`
-  当初特意选择不做英文版，理由写在「改良轮」一节：「没有英文 UI 就不该生成看起来完整实则半吊子的
-  英文页」。现在英文 UI 已经有了，这个理由不再成立，但生成 `m/en/*.html` 是独立的一块工作量（脚本
-  改造 + sitemap 双语 + 门禁），本轮「英文界面」任务范围认定为「交互式 App 内的界面」，静态 SEO
-  页留作后续单独任务，不在这轮里顺手做掉。
+- **物种静态页的英文版（2026-09-12 补上）**：`make_species_pages.py` 现在从同一份数据出两套页，
+  `m/<id>.html`（zh-CN）与 `m/en/<id>.html`（en），共 332 页。规矩来自 skill `static-site-seo` §四：
+  **每页 canonical 指自己、绝不跨语言指**；hreflang 列全 zh-CN / en / x-default（指英文）且两个版本互指；
+  页眉有另一语言的入口。英文页的标签字符串逐字取自 `config.js` 的 `I18N_EN_OVERRIDES` 与 `locales/en.js`
+  的栏目标题，和 app 详情页说的是同一句话。**科名没有英文字段**（app 英文模式也显示中文科名），英文页上
+  原样显示并标 `lang="zh-CN"`，不编译名。`lookalikeNotesEn` 原来缺 8 对（改良轮给 5 个毒种补相似种时
+  只写了中文），这次补齐到 76/76。
+  `sitemap.xml` 333 条 URL，每条带 `xhtml:link` 备选；**lastmod 只在页面内容真变时才动**——
+  `tools/species_pages_lastmod.json` 记每页哈希与日期（进 git），哈希没变沿用旧日期，重跑第二遍必须报
+  「内容有变 0 页」，这是幂等判据。`check_species_pages.py` 对上面每条都有断言（canonical 自指、hreflang
+  目标存在且互指、`<html lang>`、英文页用的是英文模板、产物无 `**`、sitemap 无死链、lastmod 不在未来），
+  四种变异（hreflang 指空 / 加星号 / 删一页 / canonical 跨语言）各验过一次会红。
+  顺带抓到亚稀褶红菇的 `fact` 里有 markdown `**`，app 是 `esc()` 后原样显示，用户看到的就是带星号的字面——
+  这条门禁上线第一天就抓到一处真缺陷。`smoke_prod.mjs` 加了 6 条双语断言（两种语言页 200 + lang、
+  hreflang 互指、sitemap 中英各 166 条、`/locales/en.js` 200）。
+  ⚠ 打开 app 的 CTA 不带语言参数：`I18N.detect()` 只看 localStorage 和浏览器语言，英文页读者点进 app
+  得到的是其浏览器偏好的语言，这是有意的——静态页跟 URL 走，app 跟用户偏好走。
 
 ## 当前进度
 
@@ -499,8 +513,12 @@ UI（`page-quiz`）、但结局不同的两条路：`round.mode` 是 `'gacha'`�
       行为验收 23 项全过
 - [x] **二期·英文界面（2026-09-08）**：引擎 + 237 键双语 locale + `retag()` 机制 + 语言切换器 +
       `enOf(id)` 接上 `i18n_en.gen.js` 的识别要点/生境/趣味知识/差异句英译，三道门禁全绿
-      （见「英文界面」一节）。已知缺口：约 900 道非看图题的答题内容与 166 个物种静态页仍是中文单语。
+      （见「英文界面」一节）。已知缺口：约 900 道非看图题的答题内容仍是中文单语。
       二期三件（观察日志、认菌训练重构、英文界面）**全部完成**。
+- [x] **物种静态页英文版（2026-09-12）**：`m/en/*.html` × 166，与中文页 hreflang 互指、各自 canonical，
+      sitemap 333 条带 xhtml:link 备选，lastmod 按内容哈希只在真变时更新；`check_species_pages.py` 重写为
+      双语门（反向验过四种变异），`smoke_prod.mjs` 加 6 条双语断言。补齐 8 对缺失的 `lookalikeNotesEn`，
+      顺带修掉一处印到用户屏幕上的 markdown 星号。
 - [x] 15 种无照片的种：已于 2026-09-08 整体下线（清单在 `C:\tmp\mushroomId\README.md`），
       要么保持绘制，要么找国内机构授权
 - [x] **改良轮（2026-09-08）**：检索第三刀（菌盖表面 + 大小）、搜索扩容与常见写法归一、遇见率按

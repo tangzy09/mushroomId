@@ -4960,7 +4960,7 @@
       "japonica"
     ],
     "habitat": "南方阔叶林地面",
-    "fact": "引起横纹肌溶解型中毒，死亡率很高。菌褶稀疏、伤后变红但**不再变黑**，可食的稀褶红菇则会先红后黑。",
+    "fact": "引起横纹肌溶解型中毒，死亡率很高。菌褶稀疏、伤后变红但不再变黑，可食的稀褶红菇则会先红后黑。",
     "quote": "只变红，不变黑。请记住这半句。",
     "art": {
       "cap": "funnel",
@@ -8464,7 +8464,11 @@
     "habitatEn": "Ground in birch and oak woods",
     "factEn": "It was long regarded as an edible mushroom, until repeated consumption was found to trigger fatal immune-mediated blood destruction in some people — the danger doesn't come from a single meal, but from the body slowly becoming sensitized.",
     "quoteEn": "Eat me ninety-nine times and you're fine. The hundredth time might not be.",
-    "familyEn": "Paxillaceae"
+    "familyEn": "Paxillaceae",
+    "lookalikeNotesEn": {
+      "saffronmilk": "Saffron milk cap oozes orange-red latex when cut; brown roll-rim has no latex, and its gills only bruise brown when pressed.",
+      "blackening": "Blackening brittlegill has thick, widely spaced gills that turn red then black when damaged; brown roll-rim has crowded gills and a distinctly inrolled cap margin."
+    }
   },
   {
     "id": "bitterbolete",
@@ -9288,7 +9292,11 @@
     "habitatEn": "Ground in broadleaf woods, often in rows",
     "factEn": "It has a distinct radish smell; when damp, tiny droplets bead along the gill edges, leaving brown spots once they dry.",
     "quoteEn": "Smells like radish? That's probably me.",
-    "familyEn": "Hymenogastraceae"
+    "familyEn": "Hymenogastraceae",
+    "lookalikeNotesEn": {
+      "livid": "Livid pinkgill's gills turn pink with age and it smells of flour; poison pie has pale brown gills, a radish smell and a slimy cap.",
+      "fieldmushroom": "Field mushroom has a ring and gills that go from pink to dark brown; poison pie has no ring, and its gill edges bead with droplets when moist."
+    }
   },
   {
     "id": "leucocoprinus",
@@ -9378,7 +9386,11 @@
     "habitatEn": "Potting soil in flowerpots and greenhouses",
     "factEn": "This is the little yellow parasol that suddenly appears in a houseplant's pot. It feeds on organic matter in the soil, doesn't harm the plant, but does contain a gastrointestinal-irritant toxin.",
     "quoteEn": "I'm the uninvited guest in your flowerpot.",
-    "familyEn": "Agaricaceae"
+    "familyEn": "Agaricaceae",
+    "lookalikeNotesEn": {
+      "sulphurtuft": "Sulphur tuft grows in dense clumps on stumps with a smooth cap; the flowerpot parasol has a powdery, scaly surface and grows singly in potting soil.",
+      "parrot": "Parrot waxcap has a slimy, green-tinged cap and thick waxy gills; the flowerpot parasol is dry and powdery with a grooved margin."
+    }
   },
   {
     "id": "deerpluteus",
@@ -11794,7 +11806,11 @@
     "habitatEn": "Ground in broadleaf woods",
     "factEn": "Covered head to toe in rough, upturned black scales, it looks like a pine cone or a scruffy old man; slice into the flesh and it turns red, then black.",
     "quoteEn": "They call me the old man of the woods.",
-    "familyEn": "Boletaceae"
+    "familyEn": "Boletaceae",
+    "lookalikeNotesEn": {
+      "tigerpaw": "Shingled hedgehog has spines under the cap; the old man of the woods has pores that turn red, then black, when bruised.",
+      "chlorophyllumB": "Shaggy parasol has white gills and a movable ring; the old man of the woods has pores and is grey-black all over."
+    }
   },
   {
     "id": "humongous",

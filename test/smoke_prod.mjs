@@ -32,6 +32,20 @@ for (const p of ['/manifest.webmanifest', '/assets/photos/thumb/index.json', '/a
 const swHdr = (await fetch(BASE + '/sw.js', { cache: 'no-store' })).headers.get('cache-control') || '';
 t('sw.js 带 no-cache（否则 SW 推不动）', /no-cache/.test(swHdr), swHdr);
 
+/* 1b 双语静态页与英文界面：两种语言的物种页都在线，sitemap 收录了英文页，英文 locale 真的发上去了 */
+const zhPage = await fetch(BASE + '/m/flyagaric.html', { cache: 'no-store' });
+const enPage = await fetch(BASE + '/m/en/flyagaric.html', { cache: 'no-store' });
+t('中文物种页 200 且 lang=zh-CN', zhPage.status === 200 && /<html lang="zh-CN">/.test(await zhPage.text()), String(zhPage.status));
+const enHtml = enPage.status === 200 ? await enPage.text() : '';
+t('英文物种页 200 且 lang=en', enPage.status === 200 && /<html lang="en">/.test(enHtml), String(enPage.status));
+t('英文物种页 hreflang 互指', /hreflang="zh-CN" href="[^"]+\/m\/flyagaric\.html"/.test(enHtml) && /hreflang="en" href="[^"]+\/m\/en\/flyagaric\.html"/.test(enHtml));
+const sm = await (await fetch(BASE + '/sitemap.xml', { cache: 'no-store' })).text();
+// 只数 <loc>，别数每条 URL 里的 xhtml:link 备选（那样英文页会被数成 830 条）
+const smEn = (sm.match(/<loc>[^<]*\/m\/en\/[\w-]+\.html<\/loc>/g) || []).length, smZh = (sm.match(/<loc>[^<]*\/m\/[\w-]+\.html<\/loc>/g) || []).length;
+t('sitemap 收录英文物种页 166 条', smEn === 166, String(smEn));
+t('sitemap 收录中文物种页 166 条', smZh === 166, String(smZh));
+t('200 /locales/en.js（英文界面已发版）', (await code('/locales/en.js')) === 200);
+
 /* 2 卫生：内部文件与 .git 不可下载 */
 for (const p of ['/.git/HEAD', '/CLAUDE.md', '/README.md', '/test/check_data.py', '/tools/build_data.py', '/data/mushrooms.json', '/docs/'])
   t('挡住 ' + p, [403, 404].includes(await code(p)), String(await code(p)));
